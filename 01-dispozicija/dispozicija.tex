@@ -1,0 +1,194 @@
+%!TEX program = lualatex
+\documentclass{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[slovene]{babel}
+
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[mathrm=sym]{unicode-math}
+\setmathfont{Latin Modern Math}
+
+\usepackage{fontspec}
+\setsansfont[
+  ItalicFont={Fira Sans Light Italic},
+  BoldFont={Fira Sans},
+  BoldItalicFont={Fira Sans Italic}
+]{Fira Sans Light}
+\setmonofont[BoldFont={Fira Mono Medium}]{Fira Mono}
+
+\AtBeginEnvironment{tabular}{%
+  \addfontfeature{Numbers={Monospaced}}
+}
+
+\usepackage[output-decimal-marker={,}]{siunitx}
+
+\usetheme[progressbar=frametitle, block=fill]{moloch}
+
+\title{Kompleksna eksponentna preslikava in kaos}
+% \author[Lenart Miklavič]{Lenart Miklavič\\{\small mentor: doc.~dr.~Uroš Kuzman}}
+\author[Lenart Miklavič]{Lenart Miklavič}
+\institute[FMF]{Fakulteta za matematiko in fiziko}
+\date{25.~november 2024}
+
+\usepackage{shortvrb}
+\MakeShortVerb{\|}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+
+\DeclareMathOperator{\Id}{Id}
+
+\theoremstyle{definition}
+\newtheorem{definicija}{Definicija}
+
+\theoremstyle{plain}
+\newtheorem{izrek}{Izrek}
+
+\begin{document}
+
+\maketitle
+
+\section{Motivacija}
+
+\begin{frame}{Iteriranje funkcije}
+
+  Izberemo poljuben \(x \in \RR\) \pause
+
+  \begin{itemize}
+    \item Kaj se zgodi, če iteriramo funkcijo \(\sin\)? \pause
+    \item Kaj, če iteriramo funkcijo \(\cos\)? \pause
+    % \item Kaj, če iteriramo kvadratno funkcijo? \pause
+    \item Kaj se zgodi, če iteriramo eksponentno funkcijo \(e^x\)? \pause
+      \begin{itemize}
+        \item za \(x \in \RR\)? \pause
+        \item za \(x \in \CC\)?
+      \end{itemize}
+  \end{itemize}
+
+  % \vspace{2em}
+  % Izberemo \(x \in (0, 1)\) in iteriramo funkciji
+  % \[f_1 \coloneq 4 x (1 - x) \qquad f_2 \coloneq \num{3.839} x (1-x)\]
+  
+\end{frame}
+
+% \begin{frame}
+
+%   \(f_1 = 4x(1-x)\)
+%   \begin{center}
+%   \begin{tabular}{rrrrr}
+%     |0.4672| & |0.1947| & |0.8643| & |0.0377| & |0.9944| \\
+%     |0.9999| & |0.2019| & |0.9581| & |0.7785| & |0.9818| \\
+%     |0.8514| & |0.0885| & |0.0858| & |0.9333| & |0.9996| \\
+%     |0.1706| & |0.6978| & |0.3377| & |0.5394| & |0.2552|
+%   \end{tabular}
+%   \end{center}
+%   \pause
+%   \vspace{1em}
+%   \(f_2 = \num{3.839} x (1 - x)\)
+%   \begin{center}
+%   \begin{tabular}{rrrrr}
+%     |0.1499| & |0.1499| & |0.1499| & |0.4892| & |0.9593| \\
+%     |0.9593| & |0.1499| & |0.9593| & |0.9593| & |0.9593| \\
+%     |0.1499| & |0.9593| & |0.9593| & |0.9593| & |0.4892| \\
+%     |0.1499| & |0.9593| & |0.1499| & |0.4892| & |0.4892|
+%   \end{tabular}
+%   \end{center}
+% \end{frame}
+
+% \begin{frame}{Iteriranje eksponentne funkcije}
+
+%   Kaj se zgodi, če iteriramo eksponentno funkcijo \(f(x) = e^x\)? \pause
+%   \vspace{1em}
+%   \begin{itemize}
+%     \item za \(x \in \RR\)? \pause
+%     \item za \(x \in \CC\)?
+%   \end{itemize}
+
+% \end{frame}
+
+\section{Nekaj definicij\ldots}
+
+\begin{frame}[allowframebreaks]
+  \frametitle{Definicije}
+
+  Naj bo \(X \subseteq \CC\), \(f \colon X \to X\) preslikava in \(z \in \CC\).
+
+  \begin{definicija}
+    Preslikava, definirani z rekurzivno zvezo \(f^0 \coloneq \Id\) in \(f^{n + 1} \coloneq f \circ f^n\), pravimo \(n\)-ta \emph{iteracija} preslikave \(f\).
+  \end{definicija}
+
+  \begin{definicija}[Orbita točke]
+    Zaporedju \(a_n \coloneq f^n (z)\) pravimo \emph{orbita} točke \(z\) pod preslikavo \(f\).
+  \end{definicija}
+
+  \begin{definicija}[Periodična točka]
+    Začetna točka \(z\) je \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n(z) = z\).
+  \end{definicija}
+
+  \begin{izrek}
+    Za kompleksno eksponentno preslikavo \(f(z) = e^z\) so naslednje množice goste podmnožice kompleksne ravnine.
+    \begin{enumerate}
+      \item Množica točk, katerih orbita divergira v neskončnost.
+      \item Množica točk, katerih orbita gosto pokrije kompleksno ravnino.
+      \item Množica periodičnih točk.
+    \end{enumerate}
+  \end{izrek}
+
+\end{frame}
+
+\begin{frame}
+
+  \begin{definicija}[Topološka tranzitivnost]
+    Zvezna preslikava \(f\) je \emph{topološko tranzitivna}, če za vsaki odprti množici \(U, V \subseteq \CC\), ki sekata \(X\) obstaja tak \(z \in U \cap X\) in \(n \geq 0\), da je \(f^n (z) \in V\).
+  \end{definicija}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kaos}
+
+  \begin{definicija}[Kaos po Devaneyu]
+    Naj bo \(X \subseteq \CC\) neskončna množica in \(f \colon X \to X\) zvezna. Pravimo, da je \(f\) \emph{kaotična} (po Devaneyu), če velja:
+    \begin{enumerate}
+      \item množica periodičnih točk je gosta v \(X\);
+      \item funkcija \(f\) je topološko tranzitivna.
+    \end{enumerate}
+  \end{definicija}
+  \pause
+  \begin{izrek}
+    Kompleksna eksponentna preslikava \(f(z) = e^z\) je kaotična.
+  \end{izrek}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Občutljivost na začetne pogoje}
+
+  \begin{definicija}
+    Naj bo \(X \subseteq \CC\) in \(d\) metrika na \(X\). Zvezna preslikava \(f \colon X \to X\) je \emph{občutljiva na začetne pogoje}, če obstaja tak \(\delta > 0\), da za vsako odprto množico \(U \subseteq X\) obstajata \(x, y \in U\), da velja \(d(f^n(x), f^n(y)) > \delta\) za nek \(n \in \NN\).
+  \end{definicija}
+
+  \pause
+
+  \begin{izrek}
+    Naj bo \(X\) neskončen metrični prostor in \(f \colon X \to X\) zvezna. Če ima \(f\) goste periodične točke in je topološko tranzitivna, potem je občutljiva na začetne pogoje.
+  \end{izrek}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Transcendentna dinamika}
+
+  \begin{definition}
+    Naj bo \(f \colon \CC \to \CC\) nekonstantna in nelinearna holomorfna preslikava. Zaprta množica \(J (f)\) na kateri je \(f\) občutljiva na začetne pogoje, je \emph{Juliajeva množica} preslikave \(f\). Njen komplement \(F (f) = \CC \setminus J(f)\) imenujemo \emph{Fatoujeva množica}.
+  \end{definition}
+
+  \pause
+
+  \begin{izrek}
+    Juliajeva množica je vedno neštevno neskončna in \(f^{-1} (J(f)) = J (f)\). Preslikava \(f \colon J(f) \to J(f)\) je kaotična.
+  \end{izrek}
+\end{frame}
+
+\end{document}
