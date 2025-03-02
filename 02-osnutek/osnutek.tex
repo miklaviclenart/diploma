@@ -1,0 +1,351 @@
+\documentclass[a4paper, oneside]{amsart}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[slovene]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{csquotes}
+
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{enumitem}
+
+\usepackage[output-decimal-marker={,}]{siunitx}
+
+\usepackage[
+    hyperref=auto,
+    isbn=false,
+    doi=true,
+    url=true,
+    date=year,
+    giveninits=true,
+    maxnames=3,
+    %useprefix=true
+    backend=biber,
+    style=numeric,
+    sorting=none]{biblatex}
+\addbibresource{literatura.bib}
+
+\usepackage{color}
+\definecolor{linkcolor}{RGB}{0,84,147}
+\usepackage[
+    pdfencoding=auto,
+    psdextra,
+    colorlinks=true,
+    linkcolor=linkcolor,
+    citecolor=linkcolor,
+    urlcolor=linkcolor,
+    filecolor=linkcolor]{hyperref}
+
+\makeatletter
+\let\@wraptoccontribs\wraptoccontribs
+\makeatother
+
+\title[Kompleksna eksponentna preslikava in kaos]
+{Kompleksna eksponentna preslikava in kaos\\Osnutek dela}
+\author{Lenart Miklavič}
+\address{Fakulteta za matematiko in fiziko, Univerza v Ljubljani}
+\contrib[Mentor:]{doc.~dr.~Uroš Kuzman}
+\date{}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\DD}{\mathbb{D}}
+
+\newcommand{\dd}[1]{\, \mathrm{d} #1}
+
+\DeclareMathOperator{\Id}{Id}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Izrek}[section]
+\newtheorem{lemma}[theorem]{Lema}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definicija}
+
+\begin{document}
+
+\maketitle
+
+\section{Uvod}
+\noindent V diplomski nalogi se ukvarjamo s kaotičnimi lastnostmi preslikave
+\(f (z) = e^z\). Obstaja več neekvivalentnih definicij kaotične preslikave.
+Najpogosteje uporabljeno je definiral ameriški matematik R.~L.~Devaney
+\cite{devaney1989}. Večina mojega dela se tako ukvarja z dokazom, da kompleksna
+eksponentna preslikava zadošča pogojem v tej definiciji. Ker je dokaz dolg,
+je v tem osnutku naveden zgolj kot skica. Po dokazu sem končni razdelek namenil 
+še kratkemu uvodu v splošno transcendentno dinamiko. Večina definicij in izrekov
+je vzetih iz osnovnega članka \cite{shen01122015}.
+
+\section{Začetne definicije}
+\noindent Pojem kaosa je splošno definiran na poljubnem metričnem prostoru. Ker
+pa se ukvarjamo le s preslikavo na kompleksnih številih, lahko predpostavimo
+naslednje. Naj bo \(X \subseteq \CC\) množica, \(z \in X\) in  \(f \colon X \to X\)
+preslikava. Z \(f^{n}\) označimo \(n\)-to iteracijo preslikave \(f\), definirano
+z rekurzivno zvezo \(f^{0} = \Id\) in \(f^{n} = f \circ f^{n - 1}\). Zaporedje
+\(a_n \coloneq f^n (z)\) je \emph{orbita} \emph{začetne točke} \(z\) pod
+preslikavo \(f\). Začetna točka \(z\) je \emph{periodična}, če obstaja tak
+\(n \in \NN\), da je \(f^n (z) = z\). Točka \(z\) je \emph{negibna}, če velja
+\(f (z) = z\). Vrednost odvoda \(\lambda = f' (z)\) v negibni točki \(z\)
+imenujemo \emph{večkratnost funkcije \(f\) v točki \(z\)}. Glede na večkratnost
+funkcije \(\lambda\), je negibna točka:
+\begin{itemize}
+    \item \emph{superprivlačna}, če je \(\lambda = 0\),
+    \item \emph{privlačna}, če je \(|\lambda| < 1\),
+    \item \emph{odbojna}, če je \(|\lambda| > 1\),
+    \item \emph{racionalno nevtralna}, če je \(|\lambda| = 1\) in
+        \(\lambda^n = 1\) za kak \(n \in \NN\),
+    \item \emph{iracionalno nevtralna}, če je \(|\lambda| = 1\) in
+        \(\lambda^n \neq 1\) za vsak \(n \in \NN\).
+\end{itemize}
+
+Preslikava \(f\) je \emph{topološko tranzitivna}, če za vsaki odprti
+množici \(U, V \subseteq \CC\), ki sekata \(X\) obstaja tak \(z \in U \cap X\)
+in \(n \geq 0\), da je \(f^n (z) \in V\). Sedaj lahko definiramo pojem kaosa.
+
+\begin{definition}[Devaneyev kaos]
+    Naj bo \(X \subseteq \CC\) neskončna množica in \(f \colon X \to X\) zvezna.
+    Pravimo, da je \(f\) \emph{kaotična} če velja naslednje.
+    \begin{enumerate}
+        \item Množica periodičnih točk \(f\) je gosta v \(X\).
+        \item Preslikava \(f\) je topološko tranzitivna.
+    \end{enumerate}
+\end{definition}
+
+V svoji prvotni definiciji je Devaney zahteval tudi \emph{občutljivost na začetne
+pogoje}\footnote{Zvezna preslikava \(f \colon X \to X\) na metričnem prostoru
+\((X, d)\) je občutljiva na začetne pogoje, če obstaja tak \(\delta > 0\), da za
+vsako odprto množico \(U \subset X\) obstajata \(x, y \in U\), da velja
+\(d (f^n(x), f^n (y)) > \delta\) za nek \(n \in \NN\).}, vendar se izkaže, da
+za zvezne preslikave na neskončnih metričnih prostorih, ki izpolnjujejo prva dva
+pogoja, to vedno velja \cite{implikacija1992}.
+
+Če se omejili zgolj na realno eksponentno funkcijo (\(X = \RR\)), velja, da so vse
+točke ubežne. Enako ne velja za \(X = \CC\). Glavni rezultat mojega dela je 
+torej naslednji izrek.
+
+\begin{theorem}
+    Kompleksna eksponentna preslikava je kaotična.
+\end{theorem}
+
+Pri dokazovanju bomo uporabili tudi kompleksno logaritemsko preslikavo. Ker
+kompleksna eksponentna preslikava ni injektivna, je za kompleksni števili
+\(z\) in \(w\) rešitev enačbe \(e^w = z\) neskončno mnogo:
+\[w = \ln |z| + i \operatorname{arg} z + 2 k \pi i,\]
+pri čemer je \(k \in \ZZ\) in za \(\theta \in \RR\):
+\(\operatorname{arg} z \in [\theta - \pi, \theta + \pi)\). Vsaki taki funkciji
+rečemo \emph{veja logaritma}.
+
+Dokaz izreka je razdeljen na tri dele. V prvem delu dokažemo, da je množica
+\emph{ubežnih točk} (točk, katerih orbita divergira), gosta v kompleksni ravnini.
+Kot zanimivost bo iz tega takoj sledila občutljivost na začetne pogoje. V drugem
+delu bomo gostost ubežnih točk uporabili pri dokazu topološke tranzitivnosti.
+V tretjem delu pa dokažemo še gostost periodičnih točk.
+
+\section{Hiperbolična geometrija}
+\noindent Pri dokazovanju bomo uporabili nekaj osnovnih in lahko prevevrljivih
+dejstev iz \emph{hiperbolične geometrije}. Z \(\DD\) označimo enotski disk,
+torej \(\DD \coloneq \{ z \in \CC : |z| < 1 \}\). Iz Analize 2b poznamo naslednjo
+lemo.
+
+\begin{lemma}[Schwarz]
+    Naj bo \(f \colon \DD \to \DD\) holomorfna preslikava, za katero velja
+    \(f (0) = 0\). Potem velja ena od naslednjih možnosti.
+        \begin{enumerate}
+            \item \(|f (z)| < |z|\) za vsak neničelni \(z \in \DD\) in \(|f' (0)| < 1\).
+            \item Obstaja \(\theta \in \RR\) da za vsak \(z\) velja
+                \(f (z) = e^{i \theta} z\) in \(|f' (0)| = |e^{i \theta}| = 1\).
+        \end{enumerate}
+\end{lemma}
+
+Lemo bi radi uporabili, vendar za eksponentno funkcijo predpostavke niso
+izpolnjene. Zato našo preslikavo transformiramo M\"obiusovo transformacijo in
+njenim inverzom, uporabimo verižno pravilo za odvajanje kompozituma, da se lema
+prevede na
+\[|f' (z)| \cdot \frac{1 - |z|^2}{1 - |f (z)|^2} \leq 1 \qquad \text{za vsak } z \in \DD.\]
+Rezultat nam pove, da je odvod preslikave \(f\) največ \(1\), če ga izračunamo
+``glede na drugačno metriko''.
+
+% Bolj natančno rečemo izrazu
+% \[\frac{2 |\mathrm{d} z|}{1 - |z|^2}\]
+% hiperbolična metrika
+
+\begin{definition}
+    Naj bo \(\gamma \colon [a, b] \to \DD\) odsekoma \(C^1\) krivulja. Njena
+    \emph{hiperbolična dolžina} je
+    \[l_{\DD} (\gamma) \coloneq \int_{a}^{b} \frac{2 |\gamma' (t)|}{1 - |\gamma (t)|^2} \dd{t}.\]
+    \emph{Hiperbolična razdalja} med točkama \(z, w \in \DD\) je
+    \[d_{\DD} (z, w) \coloneq \inf_{\gamma} l_{\DD} (\gamma),\]
+    kjer \(\gamma\) teče po vseh odsekoma \(C^1\) krivuljah v \(\DD\), ki
+    povezujejo točki \(z\) in \(w\).
+\end{definition}
+
+Izkaže se, da je metrika dobro definirana. Za nas bo pomembena \emph{gostota}
+hiperbolične metrike
+\[\rho_{\DD} (z) \coloneq \frac{2}{1 - |z|^2},\]
+ki je faktor, s katerim pomnožimo infinitezimalno spremembo v evklidski metriki,
+da dobimo hiperbolično. Z indeksom \(\DD\) poudarimo, da izraz velja le na disku.
+Z naslednjim izrekom metriko definiramo še na poljubnem območju.
+
+% \begin{lemma}[Schwarzeva lema]
+%     Naj bo \(f \colon \DD \to \DD\) holomorfna preslikava in \(f (0) = 0\).
+%     Potem velja ena od naslednjih možnosti.
+%     \begin{enumerate}
+%         \item \(|f (z)| < |z|\) za vsak neničelni \(z \in \DD\) in \(|f' (0)| < 1\).
+%         \item Obstaja \(\theta \in \RR\) da za vsak \(z\) velja
+%             \(f (z) = e^{i \theta} z\) in \(|f' (0)| = |e^{i \theta}| = 1\).
+%     \end{enumerate}
+% \end{lemma}
+
+% Lemo posplošimo na poljubno holomorfna preslikavo z \emph{M\"obiusovo
+% transformacijo}
+% \[M \colon \DD \to \DD; \qquad z \mapsto e^{i \theta} \frac{z - a}{1 - \bar{a} z},\]
+% kjer je \(\theta \in \RR\) poljuben. Na poljubni holomorfni funkciji
+% \(f \colon \DD \to \DD\) sedaj uporabimo transformacijo in njen inverz ter stvar
+% odvajamo po verižnem pravilu in dobimo neenakost
+% \[|f' (z)| \cdot \frac{1 - |z|^2}{1 - |f (z)|^2} \leq 1 \qquad \text{za vsak } z \in \DD.\]
+% Ta neenakost nam pove, da je vrednost odvoda \(f\) kvečjemo \(1\)
+
+% Najbolj pomembna stvar od tuki je, da holomorfna preslikava \(f \colon U \to V\)
+% ne širi hiperbolične razdalje, kar pomeni:
+% \[|f' (z)| \cdot \frac{\rho_V (f ( z))}{\rho_U (z)} \leq 1.\]
+
+% Naj bo \(U \subseteq \CC\) odprta množica in \(f \colon U \to \CC\).
+% Pravimo, da je \(f\) \emph{konformna}, če je holomorfna in je njen odvod
+% na \(U\) različen od nič.
+
+\begin{theorem}[Pick] \label{pick}
+    Za vsako območje \(U \subsetneq \CC\) obstaja enolična konformna\footnote{Naj
+    bo \(U \subseteq \CC\) odprta množica in \(f \colon U \to \CC\). Pravimo, da
+    je \(f\) \emph{konformna}, če je holomorfna in je njen odvod na \(U\) različen
+    od nič.} metrika \(\rho_U (z) |\mathrm{d} z|\) na \(U\), ki ji rečemo
+    \emph{hiperbolična metrika} in izpolnjuje naslednje:
+    \begin{enumerate}
+        \item \(\rho_\DD (z) = \frac{2}{1 - |z|^2}\) za vsak \(z \in \DD\);
+        \item če je \(f \colon U \to V\) holomorfna, potem \(f\) ne veča
+            hiperbolične razdalje; to je
+            \[\left\| \mathrm{D} f (z) \right\|_U^V \coloneq \left| f' (z) \right| \cdot \frac{\rho_V (f (z))}{\rho_U (z)} \leq 1;\]
+        \item za vsak \(z \in U\) in vsako \(f\) kot zgoraj velja
+            \(\|\mathrm{D} f (z)\|_U^V = 1\) natanko tedaj, ko je \(f\) konformni
+            izomorfizem med \(U\) in \(V\);
+        \item če je \(U \subsetneq V\), potem je \(\rho_U (z) > \rho_V (z)\)
+            za vsak \(z \in U\).
+    \end{enumerate}
+\end{theorem}
+
+
+\section{Gostost ubežnih točk}
+\noindent Naj bo \(D \subset \CC\) majhen disk. Ker je
+\(\RR \subset I (f)\) in je vsaka praslika ubežne točke tudi ubežna, trditev
+velja, če \(D\) vsebuje točko, katere orbita vsebuje realno število.
+Drugače pa so \(D, f(D), \dots, f^n (D)\) vsebovane v
+\[U \coloneq \CC \setminus [0, \infty).\]
+Opazimo, da za \(U\) velja \(f^{-1} (U) \subseteq U\). Od tod sledi, da je vsaka
+veja \(L\) logaritma na \(U\) holomorfna preslikava \(L \colon U \to U\) in zato
+lokalno krči hiperbolično metriko na \(U\).
+
+Dokazujemo s protislovjem. Predpostavimo \(D \cap I (f) = \emptyset\). Potem ima
+zaporedje domen \(f^n (D)\) vsaj eno končno stekališče. Izkaže se, da to zadosten
+pogoj, da \(f\) širi hiperbolično metriko za določen faktor neskončno krat.
+Po drugi strani pa je po Pickovem izreku hiperbolični odvod po \(U\) omejen, ko
+gre \(n \to \infty\). Prišli smo do protislovja.
+
+\section{Topološka tranzitivnost}
+\noindent Uporabimo gostost ubežnih točk. Vemo, da \(f\) po orbiti vsake ubežne
+točke \(z_0\) strogo narašča. Za dovolj velike \(n\) iteracija \(f^n\) poljubno
+majhen disk s središčem v \(z_0\) preslika v množico, ki vsebuje disk z radijem
+\(2 \pi\) in središčem v \(f^n (z_0)\). Če takšen disk še dvakrat preslikamo
+z \(f\), se ta razširi čez velik del kompleksne ravnine. Kot posledico tega
+izpeljemo nekoliko močnejšo trditev, da za vsak kompakt
+\(K \subset \CC \setminus \{0\}\) in vsako odprto množico \(U \subset \CC\)
+obstaja \(N \in \NN\), tako da je \(K \subset f^n (U)\) za vsak \(n \geq N\).
+
+\section{Gostost periodičnih točk}
+\noindent Izkaže se, da je vsaka periodična točka odbojna. Tako dokazujemo, da
+je množica odbojnih periodičnih točk gosta. Naj bo \(U \subset \CC\) odprta
+in neprazna. Ker je množica ubežnih točk gosta, obstaja ubežna točka
+\(z_0 \in U \setminus \{ 0 \}\). Naj bo \(\Delta\) disk s središčem
+v \(z_0\). Poščemo vejo
+logaritma iteracije \(f\), ki preslika disk \(\Delta\) nazaj samega vase in ga
+pri tem skrči. Obstoj periodične točke nato sledi po Banachovem skrčitvenem načelu.
+
+\section{Uvod v transcendentno dinamiko}
+\noindent Dokazali smo, da je eksponentna preslikava kaotična na celotni
+kompleksni ravnini  in zato tam tudi občutljiva na začetne pogoje, kar sledi iz
+rezultata omenjenega
+v drugem razdelku. Za splošno holomorfno preslikavo \(f \colon \CC \to \CC\) pa
+to ne drži. Množico točk \(J (f)\), kjer je \(f\) občutljiva na začetne pogoje
+imenujemo \emph{Juliajeva množice}. Njen komplement \(F (f) = \CC \setminus J (f)\),
+kjer je \(f\) stabilna, pa imenujemo \emph{Fatoujeva množica}.
+Bolj natančno definiramo Fatoujevo množico z \emph{normalnimi družinami}.
+
+\begin{definition}[Normalne družine]
+    Naj bo \(\mathcal{C} (X, Y)\) množica zveznih preslikav med topološkima 
+    prostoroma \(X, Y\), ki jo opremimo s kompaktno-odprto topologijo.
+    Relativno kompaktni podmnožici tega prostora rečemo \emph{normalna družina}.
+\end{definition}
+
+V kompleksni ravnini je družina \(\mathcal{F}\) meromorfnih funkcij na območju
+\(\Omega \subset \CC\) normalna natanko tedaj, ko vsako zaporedje
+\(\{f_n\} \subset \mathcal{F}\) konvergentno podzaporedje v topologiji enakomerne
+konvergence na kompaktih. Velja tudi naslednji izrek.
+
+\begin{theorem}[Montelov izrek]
+    Družina \(\mathcal{F}\) holomorfnih funkcij na \(\Omega \subset \CC\), ki je
+    na vsakem kompaktu omejena z neko fiksno konstanto, je normalna.
+\end{theorem}
+
+Sedaj lahko navedemo natančno definicijo.
+
+\begin{definition}[Fatoujeva in Juliajeva množica]
+    Naj bo \(f \colon \CC \to \CC\) cela funkcija in \(\{ f^n \}\) družina njenih
+    iteracij. \emph{Fatoujeva množica} je
+    \[F (f) = \{ z \in \CC : \{ f^n \} \text{ je normalna družina na neki okolici } z \},\]
+    njenemu komplementu \(J (f) = \CC \setminus F (f)\) pa je \emph{Juliajeva}
+    množica.
+\end{definition}
+
+\begin{theorem}[Kaos na Juliajevi množici]
+    Juliajeva množica \(J (f)\) je vedno neštevno neskončna in \(f^{-1} (J(f)) = J(f)\).
+    Funkcija \(f \colon J (f) \to J (f)\) je kaotična.
+\end{theorem}
+
+Komponente za povezanost Fatoujeve množice imenujemo \emph{Komponente Fatoujeve
+množice}. Naj bo \(U\) komponenta \(F (f)\). Če obstaja \(n\), tako da
+\(f^n (U) = U\), potem je \(U\) \emph{periodična komponenta s periodo \(p\)}. 
+
+\begin{theorem}[Klasifikacija Fatoujevih komponent \cite{bergweiler1993}]
+    Naj bo \(U\) periodična komponenta s periodo \(p\).
+    Potem velja eno od naslednjih možnosti.
+    \begin{enumerate}
+        \item \(U\) vsebuje privlačno točko \(z_0\) periode \(p\). Potem
+            \(f^{np} (z) \to z_0\) za \(z \in U\) ko gre \(n \to \infty\).
+            % \(U\) v tem primeru imenujemo \emph{immediate attracting basin} točke
+            % \(z_0\).
+        \item Rob \(U\) vsebuje periodično točko \(z_0\) periode \(p\) in
+            \(f^{np} (z) \to z_0\) za \(z \in U\) ko gre \(n \to \infty\).
+            Potem \((f^p)' (z_0) = 1\) če \(z_0 \in \CC\). (Za \(z_0 = \infty\)
+            velja \((g^p)' (0) = 1\) kjer je \(g (z) 1 / f (1 / z)\).)
+            V tem primeru \(U\) imenujemo \emph{Leaujeva domena}.
+        \item Obstaja analitičen homeomorfizem \(\phi \colon U \to \DD\), tako da
+            velja \(\phi (f^p (\phi^{-1} (z))) = e^{2 \pi i \alpha} z\) za nek
+            \(\alpha \in \RR \setminus \QQ\). V tem primru \(U\) imenujemo
+            \emph{Siegelov disk}.
+        \item Obstaja analitičen homeomorfizem \(\phi \colon U \to A\) kjer je
+            \(A = \{ z : 1 < |z| < r \}\) (\(r > 0\)) krožni kolobar, tako da
+            velja \(\phi (f^p (\phi^{-1} (z))) e^{2 \pi i \alpha} z\) za nek
+            \(\alpha \in \RR \setminus \QQ\). V tem primeru \(U\) imenujemo
+            \emph{Hermanov kolobar}.
+        \item Obstaja \(z_0 \in \partial U\) tako da \(f^{np} (z) \to z_0\)
+            za \(z \in U\) ko gre \(n \to \infty\), vendar \(f^p (z_0)\) ni
+            definirana. V tem primeru \(U\) imenujemo \emph{Bakerjeva domena}.
+    \end{enumerate}
+\end{theorem}
+
+\printbibliography
+\end{document}
