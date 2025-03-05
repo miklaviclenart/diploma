@@ -7,3 +7,4 @@ Tole je repozitorij za mojo diplomsko. Nastajal bo sproti čez leto.
 - **`01-dispozicija/`**: Slajdi za kratko predstavitev.
 - **`02-osnutek/`**: Osnutek diplomske naloge.
 - **`03-predstavitev/`**: Slajdi za dolgo predstavitev.
+- **`04-src/`**: Mapa z diplomsko nalogo.
