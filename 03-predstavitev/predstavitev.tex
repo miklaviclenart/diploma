@@ -1,0 +1,52 @@
+%!TEX program = lualatex
+\documentclass{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[slovene]{babel}
+
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[mathrm=sym]{unicode-math}
+\setmathfont{Latin Modern Math}
+
+\usepackage{fontspec}
+\setsansfont[
+  ItalicFont={Fira Sans Light Italic},
+  BoldFont={Fira Sans},
+  BoldItalicFont={Fira Sans Italic}
+]{Fira Sans Light}
+\setmonofont[BoldFont={Fira Mono Medium}]{Fira Mono}
+
+\AtBeginEnvironment{tabular}{%
+  \addfontfeature{Numbers={Monospaced}}
+}
+
+\usepackage[output-decimal-marker={,}]{siunitx}
+
+\usetheme[progressbar=frametitle, block=fill]{moloch}
+
+\title{Kompleksna eksponentna preslikava in kaos}
+% \author[Lenart Miklavič]{Lenart Miklavič\\{\small mentor: doc.~dr.~Uroš Kuzman}}
+\author[Lenart Miklavič]{Lenart Miklavič}
+\institute[FMF]{Fakulteta za matematiko in fiziko}
+\date{25.~november 2024}
+
+\usepackage{shortvrb}
+\MakeShortVerb{\|}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+
+\DeclareMathOperator{\Id}{Id}
+
+\theoremstyle{definition}
+\newtheorem{definicija}{Definicija}
+
+\theoremstyle{plain}
+\newtheorem{izrek}{Izrek}
+
+\begin{document}
+
+\maketitle
+
+\end{document}
