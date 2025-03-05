@@ -244,6 +244,9 @@ pythontex-files-*/
 # xcolor
 *.xcp
 
+# xmpdata file for embeding XMP metadata into a PDF
+*.xmpdata
+
 # xmpincl
 *.xmpi
 
