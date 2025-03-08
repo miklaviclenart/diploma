@@ -307,3 +307,7 @@ TSWLatexianTemp*
 # option is specified. Footnotes are the stored in a file with suffix Notes.bib.
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
+
+# ignoriraj pdf datoteko z diplomsko nalogo, da je ne bomo commitali vsakič,
+# ko kaj spremenimo
+04-vsebina/*.pdf
