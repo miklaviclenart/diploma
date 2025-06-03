@@ -1,0 +1,88 @@
+\section{Hiperbolična geometrija} \label{sec:hipgeom}
+
+\noindent Hiperbolična geometrija se od evklidske razlikuje v tem, da aksiom
+
+\begin{aksiom}
+    Za poljubno premico \(p\) in točko \(A\), ki ni na njej, obstaja natanko ena premica \(q\), ki gre skozi \(A\) in ne seka premice \(p\).
+\end{aksiom}
+
+\noindent nadomestimo z
+
+\begin{aksiom}
+    Obstajata premica \(p\) in točka \(A\), ki ni na njej, tako, da obstajata vsaj dve premici \(q\) in \(r\), ki gresta skozi \(A\) in ne sekata premice \(p\).
+\end{aksiom}
+
+\noindent Nov aksiom prinaša veliko posledic, med drugim tudi drugo metriko; \emph{hiperbolična metrika}, katere lastnosti bomo uporabili pri dokazu. Metriko najprej definiramo na enotskem disku \(\DD \coloneq \set{z \in \CC : |z| < 1}\) in jo nato razširimo na bolj splošne množice. Za začetek ponovimo nekaj osnovnih pojmov iz kompleksne analize.
+
+\begin{definicija}
+    Naj bo \(D\) odprta v \(\CC\) in \(f \colon D \to \CC\) funkcija. Če obstaja
+    \[f' (a) \coloneq \lim_{z \to a} \frac{f (z) - f (a)}{z - a},\]
+    tedaj število \(f' (a)\) imenujemo odvod funkcije \(f\) v točki \(a\).
+    Če \(f' (a)\) obstaja za vsak \(a \in D\), potem pravimo, da je \(f\)
+    \emph{holomorfna} funkcija na \(D\).
+\end{definicija}
+
+\begin{definicija}
+    Neprazni odprti in povezani podmnožici kompleksnih števil pravimo \emph{območje}.
+\end{definicija}
+
+\noindent Intuitivno si \emph{enostavno povezano} območje predstavljamo kot tisto območje, ki nima ``lukenj''. Natančno pa ga definiramo definiramo z naslednjim izrekom.
+
+\begin{izrek}[Riemannov upodobitveni izrek]
+    Za vsako enostavno povezano območje \(D \subsetneq \CC\) obstaja konformni
+    izomorfizem (bijektivna holomorfna funkcija) \(\phi \colon D \to \DD\).
+\end{izrek}
+
+\subsection{Hiperbolična metrika na enotskem disku}
+
+Hiperbolično metriko podamo prek \emph{hiperboličnega ločnega elementa}:
+\[\dd \rho_{\DD} (z) = \frac{2 |\dd z|}{1 - |z|^2},\]
+ki nam pove, da se infinitezimalna sprememba v točki \(z\) v hiperbolični metriki izrazi kot infinitezimalna sprememba v evklidski metriki, pomnožena s t.i.~\emph{gostoto} hiperbolične metrike
+\[\rho_{\DD} (z) = \frac{2}{1 - |z|^2}.\]
+Iz tega izhaja naslednja definicija.
+
+\begin{definicija}
+    Naj bo \(\gamma \colon [a, b] \to \DD\) odsekoma \(C^1\) krivulja. Njena \emph{hiperbolična dolžina} je
+    \[l_{\DD} (\gamma) \coloneq \int_{\gamma} \rho_{\DD} (z) \, | \dd z | = \int_{a}^{b} \frac{2 | \gamma' (t) | }{1 - | \gamma (t) |^2} \, \dd t.\]
+\end{definicija}
+
+\noindent Končno hiperbolično metriko definiramo sledeče.
+
+\begin{definicija}
+    \emph{Hiperbolična metrika} je preslikava
+    \(d_{\DD} \colon \DD \times \DD \to [0, \infty)\), definirana kot
+    \[d_{\DD} (z, w) \coloneq \inf_{\gamma} l_{\DD} (\gamma),\]
+    kjer \(\gamma\) teče po vseh odsekoma \(C^1\) krivuljah v \(\DD\), ki
+    povezujejo točki \(z\) in \(w\).
+\end{definicija}
+
+\subsection{Hiperbolična metrika na enostavno povezanih območjih}
+
+\noindent Definicijo nam iz enotskega diska na enostavno povezana območja prenese naslednji izrek.
+
+\begin{izrek}[Pick] \label{thm:pick}
+    Naj bosta \(U, V \subsetneq \CC\) enostavno povezani območji in \(f \colon U \to V\) holomorfna preslikava. Potem na \(U\) obstaja enolično določen hiperbolični ločni element, da velja naslednje.
+    \begin{enumerate}
+        \item Za vsak \(z \in \DD\) velja \(\rho_{\DD} (z) = \frac{2}{1 - |z|^2}\).
+        \item Preslikava \(f\) ne veča \emph{hiperboličnega odvoda}, to je \[\hder{f (z)}{U}{V} \coloneq |f' (z)| \cdot \frac{\rho_V (f (z))}{\rho_U (z)} \leq 1.\]
+        \item Enakost \(\hder{f (z)}{U}{V} = 1\) velja natanko tedaj, ko je \(f\) konformni izomorfizem.
+        \item Če je \(U \subsetneq V\), potem za vsak \(z \in U\) velja \(\rho_U (z) > \rho_V (z)\). 
+    \end{enumerate}
+\end{izrek}
+
+\noindent Druga in tretja točka sta pripravni za eksplicitno računanje gostot hiperbolične metrike.
+
+\begin{trditev}[Zgledi hiperbolične metrike] \label{prop:hypexamples} \mbox{}
+    \begin{enumerate}
+        \item Za desno polravnino \(\HH \coloneq \{ z \in \CC : \re (z) > 0 \}\)
+         je \(\rho_\HH = \frac{1}{\re (z)}\).
+        \item Za pas višine \(2 \pi\) je \(\rho_{\{z \in \CC : |\im (z)| < \pi\}} = \frac{1}{2 \cos (\im (z) / 2)}\).
+        \item Za zarezani ravnini velja
+            \[
+                \rho_{\CC \setminus [0, \infty)} (z) = \frac{1}{2 |z| \sin (\arg (z) / 2)},
+                \qquad
+                \rho_{\CC \setminus (-\infty, 0]} (z) = \frac{1}{2 |z| \cos (\Arg (z) / 2)}.
+            \]
+            Tukaj je \(\arg (z) \in [0, 2 \pi)\) in \(\Arg (z) \in (- \pi, \pi]\).
+    \end{enumerate}
+\end{trditev}

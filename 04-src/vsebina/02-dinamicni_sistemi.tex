@@ -1,0 +1,43 @@
+\section{Dinamični sistemi} \label{sec:dis}
+
+V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolucijskim pravilom. Množica stanj je običajno metrični ali topološki prostor \(X\), deterministično evolucijsko pravilo pa preslikava \(F \colon X \to X\). Dinamične sisteme delimo na
+
+\begin{enumerate}
+    \item \emph{diskretne} ali \emph{rekurzivne}, kjer je \(x_n \in X\) in
+        \(x_{n + 1} = F (x_n)\);
+    \item \emph{zvezne}, ki so sistemi diferencialnih enačb:
+        \(\dot{\mathbf{x}} = F (\mathbf{x})\) za
+        \(\mathbf{x} \in X \subseteq \RR^n\).
+\end{enumerate}
+
+\begin{zgled}
+    Kompleksna števila \(\CC\) skupaj s kompleksno eksponentno preslikavo \(f \colon \CC \to \CC\); \(z \mapsto e^{z}\) so diskretni dinamični sistem.
+\end{zgled}
+
+\noindent Označimo \(f^n \coloneq f \circ f^{n - 1}\), kjer je
+\(f^0 = \Id\).
+
+\begin{definicija}
+    Naj bo \(X\) množica in \(f \colon X \to X\) preslikava. \emph{Orbita} začetne točke \(x \in X\) pod preslikavo \(f\) je zaporedje \(a_n \coloneq f^n (x)\). Začetni točki pravimo
+    \begin{itemize}
+        \item \emph{ubežna}, če njena orbita divergira k \(\infty\);
+        \item \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x) = x\). Če je \(n\) najmanjše tako število, pravimo, da ima periodo \(n\);
+        \item \emph{fiksna}, če je periodična s periodo \(\num{1}\).
+    \end{itemize}
+\end{definicija}
+
+\begin{definicija}[Topološka tranzitivnost]
+    Naj bo \((X, \tau)\) topološki prostor in \(f \colon X \to X\) preslikava. Pravimo, da je \(f\) \emph{topološko tranzitivna}, če za vsaki \(U, V \in \tau\), obstajata \(z \in U\) in
+    \(n \in \NN \cup \set{0}\), da je \(f^n (z) \in V\).
+\end{definicija}
+
+\begin{definicija}[Devaneyjev kaos]
+    Naj bo \((M, d)\) metrični prostor in \(X \subseteq M\) neskončna. Pravimo, da je zvezna preslikava \(f \colon X \to X\) \emph{kaotična} (po Devaneyju), če sta izpolnjena naslednja pogoja.
+    \begin{enumerate}
+        \item Množica periodičnih točk je gosta v množici \(X\).
+        \item Preslikava \(f\) je topološko tranzitivna.
+    \end{enumerate}
+\end{definicija}
+
+\noindent Pojem kaosa je leta \num{1989} definiral ameriški matematik Robert L.~Devaney \cite{Devaney_1986}. Za kompleksno eksponentno preslikavo kot posledica sledi iz izreka 
+\ref{thm:orbits}. Ta izrek je prvi dokazal poljski matematik Micha\l\ Misiurewicz leta \num{1981} \cite{Misiurewicz_1981}. S tem je potrdil domnevo, ki jo je leta \num{1926} postavil francoski matematik Pierre J.~L.~Fatou \cite{Fatou_1926}.

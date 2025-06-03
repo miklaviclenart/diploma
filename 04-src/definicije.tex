@@ -1,12 +1,23 @@
 \usepackage{microtype}
 \usepackage{mathtools}
+\usepackage[exponent-product=\ensuremath{\cdot},output-decimal-marker={,}]{siunitx}
 
 \newcommand{\NN}{\mathbb N}
 \newcommand{\ZZ}{\mathbb Z}
 \newcommand{\QQ}{\mathbb Q}
 \newcommand{\RR}{\mathbb R}
 \newcommand{\CC}{\mathbb C}
-
 \newcommand{\DD}{\mathbb D}
+\newcommand{\HH}{\mathbb H}
+
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\hder}[3]{\left\| \mathrm{D} #1 \right\|_{#2}^{#3}}
 
 \DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Arg}{Arg}
+
+\newcommand{\prt}[1]{\left( #1 \right)}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\zap}[1]{\left\{ #1_n \right\}_{n = 1}^{\infty}}
