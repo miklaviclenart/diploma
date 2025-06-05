@@ -1,6 +1,6 @@
 \section{Gostota ubežnih točk}
 
-\noindent Od tu naprej naj velja, da \(f\) vedno označuje kompleksno eksponentno preslikavo
+Od tu naprej naj velja, da \(f\) vedno označuje kompleksno eksponentno preslikavo
 \[f \colon \CC \to \CC; z \mapsto e^{z}.\]
 
 \begin{izrek} \label{thm:escapingdense}
@@ -10,15 +10,16 @@
 \noindent Pomagamo si z naslednjo lemo.
 
 \begin{lema}[Eksponentna preslikava veča hiperbolično metriko] \label{lem:hyper}
-    Kompleksna eksponentna preslikava lokalno širi hiperbolično metriko na \(U \coloneq \CC \setminus [0, \infty)\). To pomeni, da za vse \(\zeta \in f^{-1} (U)\) velja
-    \(\hder{f (\zeta)}{U}{U} > 1\). Še več, naj bo \(\zap{\zeta}\) zaporedje v \(f^{-1} (U)\), za katero velja \[\lim_{n \to \infty} \hder{f (\zeta_n)}{U}{U} = 1.\] Potem velja
+    Kompleksna eksponentna preslikava lokalno širi hiperbolično metriko na \(U \coloneq \CC \setminus [0, \infty)\). To pomeni, da za vse \(\zeta \in f^{-1} (U)\) velja \(\hder{f (\zeta)}{U}{U} > 1\). Še več, naj bo \(\zap{\zeta}\) zaporedje v \(f^{-1} (U)\), za katero velja \[\lim_{n \to \infty} \hder{f (\zeta_n)}{U}{U} = 1.\] Potem velja
     \[\lim_{n \to \infty} \min \set{|\zeta_n|, \Arg (\zeta_n)} = 0.\]
 \end{lema}
 
 \begin{dokaz}
     Pišemo \(\zeta = r e^{i \theta}\), kjer je \(\theta \in (0, 2 \pi)\), in računamo po definiciji hiperboličnega odvoda ter uporabimo trditev \ref{prop:hypexamples}:
     \[
-        \hder{f (\zeta)}{U}{U} = |f' (\zeta)| \cdot \frac{2 |\zeta| \cdot \sin \prt{\frac{1}{2} \arg (\zeta)}}{2 |e^{\zeta}| \cdot \sin \prt{\frac{1}{2} \arg (e^{\zeta})}}
+        \hder{f (\zeta)}{U}{U}
+        =
+        |f' (\zeta)| \cdot \frac{2 |\zeta| \cdot \sin \prt{\frac{1}{2} \arg (\zeta)}}{2 |e^{\zeta}| \cdot \sin \prt{\frac{1}{2} \arg (e^{\zeta})}}
         =
         \frac{r \cdot \sin (\theta / 2)}{\sin \prt{\frac{1}{2} \arg (e^{\zeta})}}.    
     \]

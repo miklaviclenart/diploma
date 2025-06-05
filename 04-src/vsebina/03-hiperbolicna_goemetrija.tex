@@ -1,6 +1,6 @@
 \section{Hiperbolična geometrija} \label{sec:hipgeom}
 
-\noindent Hiperbolična geometrija se od evklidske razlikuje v tem, da aksiom
+Hiperbolična geometrija se od evklidske razlikuje v tem, da aksiom
 
 \begin{aksiom}
     Za poljubno premico \(p\) in točko \(A\), ki ni na njej, obstaja natanko ena premica \(q\), ki gre skozi \(A\) in ne seka premice \(p\).
@@ -19,9 +19,7 @@ Uporabljamo standardne oznake. Kompleksno število \(z \in \CC\) lahko zapišemo
 \begin{definicija}
     Naj bo \(D\) odprta množica v \(\CC\) in \(f \colon D \to \CC\) funkcija. Če obstaja
     \[f' (a) \coloneq \lim_{z \to a} \frac{f (z) - f (a)}{z - a},\]
-    tedaj število \(f' (a)\) imenujemo odvod funkcije \(f\) v točki \(a\).
-    Če \(f' (a)\) obstaja za vsak \(a \in D\), potem pravimo, da je \(f\)
-    \emph{holomorfna} funkcija na \(D\).
+    tedaj število \(f' (a)\) imenujemo odvod funkcije \(f\) v točki \(a\). Če \(f' (a)\) obstaja za vsak \(a \in D\), potem pravimo, da je \(f\) \emph{holomorfna} funkcija na \(D\).
 \end{definicija}
 
 \begin{definicija}
@@ -31,8 +29,7 @@ Uporabljamo standardne oznake. Kompleksno število \(z \in \CC\) lahko zapišemo
 \noindent Intuitivno si \emph{enostavno povezano} območje predstavljamo kot tisto območje, ki nima ``lukenj''. Natančno pa ga definiramo definiramo z naslednjim izrekom.
 
 \begin{izrek}[Riemannov upodobitveni izrek]
-    Za vsako enostavno povezano območje \(D \subsetneq \CC\) obstaja konformni
-    izomorfizem (bijektivna holomorfna funkcija) \(\phi \colon D \to \DD\).
+    Za vsako enostavno povezano območje \(D \subsetneq \CC\) obstaja konformni izomorfizem (bijektivna holomorfna funkcija) \(\phi \colon D \to \DD\).
 \end{izrek}
 
 \subsection{Hiperbolična metrika na enotskem disku}
@@ -51,16 +48,14 @@ Iz tega izhaja naslednja definicija.
 \noindent Končno hiperbolično metriko definiramo sledeče.
 
 \begin{definicija}
-    \emph{Hiperbolična metrika} je preslikava
-    \(d_{\DD} \colon \DD \times \DD \to [0, \infty)\), definirana kot
+    \emph{Hiperbolična metrika} je preslikava \(d_{\DD} \colon \DD \times \DD \to [0, \infty)\), definirana kot
     \[d_{\DD} (z, w) \coloneq \inf_{\gamma} l_{\DD} (\gamma),\]
-    kjer \(\gamma\) teče po vseh odsekoma \(C^1\) krivuljah v \(\DD\), ki
-    povezujejo točki \(z\) in \(w\).
+    kjer \(\gamma\) teče po vseh odsekoma \(C^1\) krivuljah v \(\DD\), ki povezujejo točki \(z\) in \(w\).
 \end{definicija}
 
 \subsection{Hiperbolična metrika na enostavno povezanih območjih}
 
-\noindent Definicijo nam iz enotskega diska na enostavno povezana območja prenese naslednji izrek.
+Definicijo nam iz enotskega diska na enostavno povezana območja prenese naslednji izrek.
 
 \begin{izrek}[Pick] \label{thm:pick}
     Naj bosta \(U, V \subsetneq \CC\) enostavno povezani območji in \(f \colon U \to V\) holomorfna preslikava. Potem na \(U\) obstaja enolično določen hiperbolični ločni element, da velja naslednje.
@@ -76,8 +71,7 @@ Iz tega izhaja naslednja definicija.
 
 \begin{trditev}[Zgledi hiperbolične metrike] \label{prop:hypexamples} \mbox{}
     \begin{enumerate}
-        \item Za desno polravnino \(\HH \coloneq \{ z \in \CC : \re (z) > 0 \}\)
-         je \(\rho_\HH = \frac{1}{\re (z)}\).
+        \item Za desno polravnino \(\HH \coloneq \{ z \in \CC : \re (z) > 0 \}\) je \(\rho_\HH = \frac{1}{\re (z)}\).
         \item Za pas višine \(2 \pi\) je \(\rho_{\{z \in \CC : |\im (z)| < \pi\}} = \frac{1}{2 \cos (\im (z) / 2)}\).
         \item Za zarezani ravnini velja
             \[
