@@ -1,16 +1,16 @@
 \section{Uvod} \label{sec:intro}
 
-Naj bo \(x_0\) poljubno realno število. Opazujemo, kaj se dogaja z zaporedjem iteracij ali \emph{orbito} števila \(x_0\) glede na preslikavo \(e^{x}\):
+Naj bo \(x_0\) poljubno realno število. Opazujemo, kaj se dogaja z zaporedjem iteracij ali \emph{orbito} števila \(x_0\) glede na funkcijo \(e^{x}\):
 \[x_0 \mapsto e^{x_0} \mapsto e^{e^{x_0}} \mapsto e^{e^{e^{x_0}}} \mapsto \cdots\]
-Hitro se prepričamo, da je vsako tako zaporedje divergentno. Če pa zaporedje opazujemo kot iteracijo kompleksne eksponentne preslikave pri kompleksnem številu:
-\[z_n \coloneqq e^{z_{n - 1}} \qquad \text{za } n \geq 1,\]
-pa se stvar zaplete. Izkaže se, da na vsaki odprti množici obstajajo števila, katerih orbite se med seboj drastično razlikujejo.
+Hitro se prepričamo, da je vsako tako zaporedje divergentno. Če pa zaporedje opazujemo kot iteracijo kompleksnega števila \(z_0\) glede na preslikavo \(e^z\):
+\[z_0 \mapsto e^{z_0} \mapsto e^{e^{z_0}} \mapsto e^{e^{e^{z_0}}} \mapsto \cdots,\]
+se stvar zaplete. Izkaže se, da na vsaki odprti množici obstajajo števila, katerih orbite se med seboj drastično razlikujejo.
 
 \begin{izrek}[Orbite kompleksne eksponentne preslikave] \label{thm:orbits}
     Vsaka od naslednjih množic je za preslikavo \(f \colon \CC \to \CC\); \(z \mapsto e^{z}\) gosta v kompleksni ravnini:
     \begin{enumerate}
-        \item množica števil, katerih orbita divergira k \(\infty\),
-        \item množica števil, katerih orbita gosto pokrije kompleksno ravnino,
+        \item množica števil, katerih orbita divergira k \(\infty\);
+        \item množica števil, katerih orbita gosto pokrije kompleksno ravnino;
         \item množica periodičnih točk, to je števil \(z_0\), za katere obstaja
             \(k > 0\), da je \(z_k = z_0\).
     \end{enumerate}

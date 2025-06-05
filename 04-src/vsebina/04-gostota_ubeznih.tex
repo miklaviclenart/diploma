@@ -1,10 +1,13 @@
 \section{Gostota ubežnih točk}
 
+\noindent Od tu naprej naj velja, da \(f\) vedno označuje kompleksno eksponentno preslikavo
+\[f \colon \CC \to \CC; z \mapsto e^{z}.\]
+
 \begin{izrek} \label{thm:escapingdense}
     Množica ubežnih točk kompleksne eksponentne preslikave \(I (f)\) je gosta v kompleksni ravnini.
 \end{izrek}
 
-\noindent Pomagamo si z naslednjima lemama.
+\noindent Pomagamo si z naslednjo lemo.
 
 \begin{lema}[Eksponentna preslikava veča hiperbolično metriko] \label{lem:hyper}
     Kompleksna eksponentna preslikava lokalno širi hiperbolično metriko na \(U \coloneq \CC \setminus [0, \infty)\). To pomeni, da za vse \(\zeta \in f^{-1} (U)\) velja
@@ -13,7 +16,7 @@
 \end{lema}
 
 \begin{dokaz}
-    Pišemo \(\zeta = r e^{i \theta}\), kjer je \(\theta \in (0, 2 \pi)\), in računamo po definiciji hiperboličnega odvoda in uporabimo trditev \ref{prop:hypexamples}:
+    Pišemo \(\zeta = r e^{i \theta}\), kjer je \(\theta \in (0, 2 \pi)\), in računamo po definiciji hiperboličnega odvoda ter uporabimo trditev \ref{prop:hypexamples}:
     \[
         \hder{f (\zeta)}{U}{U} = |f' (\zeta)| \cdot \frac{2 |\zeta| \cdot \sin \prt{\frac{1}{2} \arg (\zeta)}}{2 |e^{\zeta}| \cdot \sin \prt{\frac{1}{2} \arg (e^{\zeta})}}
         =
@@ -28,25 +31,25 @@
         \hder{f (\zeta)}{U}{U} \geq \frac{1}{|\cos (\theta / 2)|} > 1.
     \end{equation}
 
-    Za drugi del dokaza pišemo \(\theta_n \coloneq \arg (\zeta_n)\). Po \eqref{eqn:eta} velja
+    \noindent Za drugi del dokaza pišemo \(\theta_n \coloneq \arg (\zeta_n)\). Po \eqref{eqn:eta} velja
     \[\hder{f (\zeta_n)}{U}{U} \geq \frac{1}{|\cos (\theta_n)|} > 1.\]
     Uporabimo predpostavke leme, iz česar sledi
     \[\lim_{n \to \infty} \frac{1}{|\cos (\theta_n)|} = 1\]
     in zato \(\lim_{n \to \infty} \Arg (\zeta_n)\).
 \end{dokaz}
 
-\begin{lema}
-    Naj bo \(U\) kot prej in \(\zap{\theta}\) zaporedje v \(f^{-1 (U)}\). Tedaj je 
-    \[\lim_{n \to \infty} \hder{f (\zeta_n)}{U}{U} = 1\]
-    natanko tedaj, ko je
-    \[\lim_{n \to \infty} \Arg (\zeta_n) = 0 \qquad \text{in} \qquad \lim_{n \to \infty} \im \zeta_n = 0.\]
-\end{lema}
+% \begin{lema}
+%     Naj bo \(U\) kot prej in \(\zap{\theta}\) zaporedje v \(f^{-1 (U)}\). Tedaj je 
+%     \[\lim_{n \to \infty} \hder{f (\zeta_n)}{U}{U} = 1\]
+%     natanko tedaj, ko je
+%     \[\lim_{n \to \infty} \Arg (\zeta_n) = 0 \qquad \text{in} \qquad \lim_{n \to \infty} \im \zeta_n = 0.\]
+% \end{lema}
 
-\begin{dokaz}    
-    Pišemo \(\theta_n \coloneq \arg (\zeta_n)\) in predpostavimo, da \(\hder{f (\zeta_n)}{U}{U}\) konvergira proti \(\num{1}\). Po \eqref{eqn:eta} velja
-    \[\hder{f (\zeta_n)}{U}{U} \geq \frac{1}{|\cos (\theta_n)|} > 1.\]
-    Po predpostavki zato \[\lim_{n \to \infty} \frac{1}{|\cos (\theta_n)|} = 1\] in zato \(\lim_{n \to \infty} \Arg (\zeta_n) = 0\).
-\end{dokaz}
+% \begin{dokaz}    
+%     Pišemo \(\theta_n \coloneq \arg (\zeta_n)\) in predpostavimo, da \(\hder{f (\zeta_n)}{U}{U}\) konvergira proti \(\num{1}\). Po \eqref{eqn:eta} velja
+%     \[\hder{f (\zeta_n)}{U}{U} \geq \frac{1}{|\cos (\theta_n)|} > 1.\]
+%     Po predpostavki zato \[\lim_{n \to \infty} \frac{1}{|\cos (\theta_n)|} = 1\] in zato \(\lim_{n \to \infty} \Arg (\zeta_n) = 0\).
+% \end{dokaz}
 
 \begin{dokaz}[Dokaz izreka \ref{thm:escapingdense}]
     Naj bo \(w_0 \in \CC\) in \(w_n = f^n (w_0)\) orbita. Naj bo \(D\) disk s središčem v \(w_0\). Vemo, da je \([0, \infty) \subset I (f)\), zato je dovolj, da dokažemo, da za nek \(n \in \NN\) velja \(f^n (D) \cap I (f) \neq \emptyset\). Dokazujemo s protislovjem, zato predpostavimo, da za vsak \(n \in \NN\) velja \(f^n (D) \cap I (f) = \emptyset\). Torej je

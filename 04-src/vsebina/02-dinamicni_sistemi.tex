@@ -10,6 +10,8 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
         \(\mathbf{x} \in X \subseteq \RR^n\).
 \end{enumerate}
 
+\noindent V zgornjih primerih sta indeksni ali \emph{časovni} množici \(\NN\) in \(\RR\). Splošneje je to lahko poljuben monoid (glej \cite{Giunti_2012}).
+
 \begin{zgled}
     Kompleksna števila \(\CC\) skupaj s kompleksno eksponentno preslikavo \(f \colon \CC \to \CC\); \(z \mapsto e^{z}\) so diskretni dinamični sistem.
 \end{zgled}
@@ -20,8 +22,8 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
 \begin{definicija}
     Naj bo \(X\) množica in \(f \colon X \to X\) preslikava. \emph{Orbita} začetne točke \(x \in X\) pod preslikavo \(f\) je zaporedje \(a_n \coloneq f^n (x)\). Začetni točki pravimo
     \begin{itemize}
-        \item \emph{ubežna}, če njena orbita divergira k \(\infty\);
-        \item \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x) = x\). Če je \(n\) najmanjše tako število, pravimo, da ima periodo \(n\);
+        \item \emph{ubežna}, če njena orbita divergira k \(\infty\);\footnote{To pomeni \(\lim_{n \to \infty} |f^n (z)| = \infty\).}
+        \item \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x) = x\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\);
         \item \emph{fiksna}, če je periodična s periodo \(\num{1}\).
     \end{itemize}
 \end{definicija}
