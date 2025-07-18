@@ -1,7 +1,15 @@
-\usepackage{microtype}
+\usepackage[tracking=true,kerning=true,babel]{microtype}
 \usepackage{mathtools}
 \usepackage[exponent-product=\ensuremath{\cdot},output-decimal-marker={,}]{siunitx}
 \usepackage{enumitem}
+\usepackage{etoolbox}
+
+\makeatletter
+\usepackage{epigraph}
+    \pretocmd{\@epitext}{\em}{}{}
+    \apptocmd{\@epitext}{\em}{}{}
+    \setlength{\epigraphrule}{0pt}
+\makeatother
 
 \newcommand{\NN}{\mathbb N}
 \newcommand{\ZZ}{\mathbb Z}
@@ -11,8 +19,11 @@
 \newcommand{\DD}{\mathbb D}
 \newcommand{\HH}{\mathbb H}
 
+\newcommand{\TTT}{\mathcal T}
+\newcommand{\OOO}{\mathcal O}
+\newcommand{\DDD}{\mathcal D}
+
 \newcommand{\dd}{\mathrm{d}}
-\newcommand{\hder}[3]{\left\| \mathrm{D} #1 \right\|_{#2}^{#3}}
 
 \DeclareMathOperator{\Id}{Id}
 \DeclareMathOperator{\re}{Re}
@@ -20,7 +31,11 @@
 \DeclareMathOperator{\Arg}{Arg}
 \DeclareMathOperator{\diam}{diam}
 
+\DeclarePairedDelimiter\absolute{\lvert}{\rvert}
+\def\abs{\absolute*}
+\DeclarePairedDelimiterXPP{\hderivative}[3]{}{\lVert}{\rVert}{_{#2}^{#3}}{\mathrm{D} #1}
+\def\hder{\hderivative*}
+
 \newcommand{\prt}[1]{\left( #1 \right)}
-\newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\set}[1]{\left\{ #1 \right\}}
 \newcommand{\zap}[1]{\left\{ #1_n \right\}_{n = 1}^{\infty}}
