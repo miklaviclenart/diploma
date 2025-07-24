@@ -1,10 +1,19 @@
+% Save the current style
+\let\origthefootnote\thefootnote
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
 \epigraph{
     This \textup{[\(e^z\)]} is the most important function in mathematics.
     }{
         % Real and Complex Analysis\\
-        \textsc{---Walter Rudin}%\\ {\scriptsize Real and Complex Analysis}
-        }
+        \textsc{---Walter Rudin}\footnotemark
+    }
         
+\footnotetext{\fullcite{Rudin_1987}}
+
+% Restore original footnote formatting
+\let\thefootnote\origthefootnote
+
 \section{Uvod} \label{sec:intro}
 
 Naj bo \(x_0\) poljubno realno število. Opazujemo, kaj se dogaja z zaporedjem iteracij ali \emph{orbito} števila \(x_0\) glede na funkcijo \(e^{x}\):
