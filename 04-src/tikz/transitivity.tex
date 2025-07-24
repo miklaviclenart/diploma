@@ -1,0 +1,90 @@
+\begin{tikzpicture}[every node/.style={font=\scriptsize}]
+
+\begin{scope}[shift={(0,0)}]
+    \draw[->] (-0.5,0) -- (3.5,0);
+    \draw[->] (0,-2.5) -- (0,2.5);
+
+    \draw[dashed] (1.63, 0) -- (1.63, 0.63);
+    \draw[dashed] (2.38, 0) -- (2.38, 0.63);
+
+    \draw (2,1) circle (0.75cm)
+        node[above left, xshift=-0.5cm, yshift=0.5cm] {$D$};
+
+    \draw[pattern=north east lines, pattern color=gray!50] (1.63,0.63) rectangle ++(0.75,0.75)
+        node[] at (1.8, 1.2) {$S$};
+
+    \filldraw[black] (1.63, 0) circle (1pt)
+        node[] at (1.63,-0.2) {$a$};
+    \filldraw[black] (2.38, 0) circle (1pt)
+        node[] at (2.37,-0.2) {$a+2\pi$};
+\end{scope}
+
+\draw[->] (3.2,2) -- (5,2) node[midway, above] {$f$};
+
+\begin{scope}[shift={(7,0)}]
+    \draw[->] (-2.5,0) -- (2.5,0);
+    \draw[->] (0,-2.5) -- (0,2.5);
+
+    \fill[pattern=north east lines, pattern color=gray!50, even odd rule]
+        (0,0) circle (2cm) (0,0) circle (1cm);
+    \draw (0,0) circle (2cm);
+    \draw (0,0) circle (1cm)
+        node at (-1, 1.2) {$A$};
+
+    \filldraw[black] (2, 0) circle (1pt)
+        node[above right, inner sep=2pt]  at (2, 0) {$e^{a + 2\pi}$};
+    \filldraw[black] (1, 0) circle (1pt)
+        node[above right] at (1, 0) {$e^a$};
+\end{scope}
+
+\begin{scope}[shift={(1.5,-6)}]
+    \draw[->] (-2,0) -- (2,0);
+    \draw[->] (0,-2.5) -- (0,2.5);
+
+    \draw (0,0) circle (1.2cm);
+    \draw (0,0) circle (0.7cm)
+        node at (0.4, -0.9) {$A$};
+
+    \draw[thin, pattern=north east lines, pattern color=gray!50]
+        (-0.78,0.7) rectangle ++(1.56,0.2)
+        node[inner sep=0pt] at (0.4, 0.8) {\tiny $R$};
+
+    \draw[dashed] (-0.78, 0) -- (-0.78, 0.7);
+    \draw[dashed] (0.78, 0) -- (0.78, 0.7);
+
+    \filldraw[black] (-0.78, 0) circle (1pt)
+        node[below left, inner sep=2pt] {$-l$};
+    \filldraw[black] (0.78, 0) circle (1pt)
+        node[below right, inner sep=2pt] {$l$};
+\end{scope}
+
+\draw[->] (3.2,-4) -- (5,-4) node[midway, above] {$f$};
+
+\begin{scope}[shift={(7,-6)}]
+    \draw[->] (-2.5,0) -- (2.5,0);
+    \draw[->] (0,-2.5) -- (0,2.5);
+
+    \fill[pattern=north east lines, pattern color=gray!50, even odd rule]
+        (0,0) circle (2.3cm) (0,0) circle (0.25cm);
+    \draw[] (0,0) circle (2.3cm);
+    \draw[] (0,0) circle (0.25cm);
+
+    \filldraw[black] (-2.3, 0) circle (1pt)
+        node[above left, inner sep=2pt]  at (-2.3,0) {$-e^l$};
+    \filldraw[black] (-0.25, 0) circle (1pt)
+        node[above left,inner sep=0pt] at (-0.25,0) {$-e^{-l}$};
+    \filldraw[black] (0.25, 0) circle (1pt)
+        node[above right, inner sep=1pt] at (0.25,0) {$e^{-l}$};
+    \filldraw[black] (2.3, 0) circle (1pt)
+        node[above right, inner sep=3pt]  at (2.3,0) {$e^l$};
+
+    \fill[gray!50]
+      plot[smooth cycle, tension=0.8] coordinates {
+        (1.3,0.9) (1.6,1.2) (0.9,1.9) (0.4,1.9)
+        (0.5,1.1) (0.8,0.3) (1.8,0.1) (2,0.5)
+      };
+    
+    \node at (1, 1) {$K$};
+\end{scope}
+
+\end{tikzpicture}
