@@ -37,3 +37,22 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
 \end{definicija}
 
 \noindent Pojem kaosa je leta \num{1989} definiral ameriški matematik Robert L.~Devaney \cite{Devaney_1986}. Za kompleksno eksponentno preslikavo kot posledica sledi iz izreka  \ref{thm:orbits}. Ta izrek je prvi dokazal poljski matematik Micha\l\ Misiurewicz leta \num{1981} \cite{Misiurewicz_1981}. S tem je potrdil domnevo, ki jo je leta \num{1926} postavil francoski matematik Pierre J.~L.~Fatou \cite{Fatou_1926}.
+
+\begin{zgled}[Podvojitvena preslikava]
+    Naj bo \(f \colon [0, 1) \to [0, 1)\) preslikava, podana z
+    \[
+        f (x) =
+        \begin{cases}
+            2x & \text{za } 0 \leq x < \frac{1}{2}\\
+            2x - 1 & \text{za } \frac{1}{2} \leq x < 1.
+        \end{cases}
+    \]
+    Trdimo, da je \(f\) kaotična.
+
+    Naj bo \(q \in \NN\) liho število in \(A = \set{\frac{1}{q}, \frac{2}{q}, \dots, \frac{q - 1}{q}} \subset [0, 1)\). Potem je \(f \colon A \to A\) bijektivna. Torej je vsak ulomek z lihim imenovalcem periodična točka. Ker so takšni ulomki gosti v \([0, 1)\), ima \(f\) gosto podmnožico periodičnih točk.
+
+    Za dokaz topološke tranzitivnosti si pomagamo z zapisom števila v dvojiški bazi. Opazimo, da preslikava \(f\) ``odreže'' prvo decimalko števila. Definiramo število, ki vsebuje vsa končna zaporedja, urejena po dolžini:
+    \[\alpha \coloneq 0, \underbrace{0 1}_{\text{ena}} \underbrace{00011011}_{\text{dva}} \underbrace{000 001 010 100 011 101 110 111}_{\text{tri}} \dots_{(2)}\]
+    Naj bo \(x = 0, d_1 d_2 d_3 \dots_{(2)}\) in \(\epsilon > 0\). Izberemo tak \(n \in \NN\), da je \(2^{- n} < \epsilon\). Potem obstaja tak \(k \in \NN\), da se število \(f^k (\alpha)\) začne kot \(0, d_1 d_2 \dots d_n d_{n + 1}\), torej da se \(f^k (\alpha)\) in \(x\) začneta razlikovati kvečjemo po \(n + 2\)-ti decimalki. Potem velja
+    \[\abs{f^k (\alpha) - x} \leq \sum_{i = n + 2}^{\infty} \frac{2}{2^{i}} < 2^{- n} < \epsilon.\]
+\end{zgled}
