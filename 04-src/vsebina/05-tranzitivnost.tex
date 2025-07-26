@@ -1,4 +1,4 @@
-\section{Tranzitivnost in goste orbite}
+\section{Tranzitivnost in goste orbite} \label{sec:transitivity}
 
 \begin{izrek}[Topološka tranzitivnost] \label{thm:transitivity}
     Če sta \(U, V \subseteq \CC\) odprti, potem obstaja tak \(n \geq 0\), da velja \(f^{n} (U) \cap V \neq \emptyset\).
@@ -6,12 +6,12 @@
 
 \noindent Pomagamo si z naslednjimi pomožnimi rezultati.
 
-\begin{trditev}[Širjenje vzdolž ubežnih orbit]
-    Naj bo \(z_0 \in I (f)\) in \(z_n = f^n (z_0)\) za \(n \in \NN\). Potem je \(\lim_{n \to \infty} \re z_n = \infty\).
+\begin{trditev}[Raztezanje vzdolž ubežnih orbit]
+    Naj bo \(z_0 \in I (f)\) in \(z_n = f^n (z_0)\) za \(n \in \NN\). Potem je \(\lim_{n \to \infty} \re z_n = \infty\) in \(\lim_{n \to \infty} |(f^n)' (z_0)| = \infty\).
 \end{trditev}
 
 \begin{dokaz}
-    Ker za vsak \(n \geq 0\) velja \(z_{n + 1} = e^{z_n}\). Zato je po definiciji \(I (f)\)
+    Po rekurzivni zvezi \(z_{n + 1} = e^{z_n}\) in definiciji \(I (f)\) velja
     \[\lim_{n \to \infty} \re z_n = \lim_{n \to \infty} \log |z_{n + 1}| = \infty.\]
     Poleg tega je \(\lim_{n \to \infty} |f' (z_n)| = \lim_{n \to \infty} |f (z_n)| = \lim_{n \to \infty} |z_{n + 1}| = \infty\). Zato obstaja \(N \in \NN\), da za vsak \(n \geq N\) velja \(|f' (z_n)| \geq 2\). Za \(m > N\) izračunamo odvod \(f^{m} = f^{m - N} \circ f^{N}\) po verižnem pravilu:
     \[|(f^{m})' (z_0)| = \abs{ \prt{f^{N}}' (z_0) } \cdot \prod_{n = N}^{m - 1} |f' (z_n)| \geq 2^{m - N} \cdot \abs{ \prt{f^{N}}' (z_0) }.\]
@@ -19,8 +19,8 @@
     \[\lim_{m \to \infty} |(f^{m})' (z_0)| = \infty.\]
 \end{dokaz}
 
-\begin{trditev}[Mali diski eksplodirajo] \label{prop:small_disks}
-    Naj bo \(z_0 \in I (f)\) in \(z_n = f^{n} (z_0)\). Opazujemo diske \(D_n \coloneq D_{2 \pi} (z_n)\). Potem obstaja \(n_0 \in \NN\) in zaporedje \(\left\{ \phi_n \right\}_{n = n_0}^{\infty}\) holomorfnih preslikav \(\phi_n \colon D_n \to \CC\) z naslednjimi lastnostmi:
+\begin{trditev}[Raztezanje malih diskov] \label{prop:small_disks}
+    Naj bo \(z_0 \in I (f)\) in \(z_n = f^{n} (z_0)\). Za diske \(D_n \coloneq D_{2 \pi} (z_n)\) in nek \(n_0 \in \NN\) obstaja zaporedje \(\left\{ \phi_n \right\}_{n = n_0}^{\infty}\) holomorfnih preslikav \(\phi_n \colon D_n \to \CC\) z naslednjimi lastnostmi:
     \begin{enumerate}
         \item \label{item:ena} \(\phi_n (z_n) = z_0\);
         \item \label{item:dva} za vsak \(z \in D_n\) velja \(f^n (\phi_n (z)) = z\);
@@ -38,37 +38,39 @@
     \[\lim_{n \to \infty} \diam \prt{\phi \prt{D_n}} \leq \lim_{n \to \infty} 4 \pi \sup_{\zeta \in D_n} \abs{\phi_n' (\zeta)} = 0.\]
     Torej točka \ref{item:tri} implicira točko \ref{item:stiri}.
 
-    Za začetek privzamemo, da za vsak \(n \in \NN\) velja \(\absolute{z_n} \geq 2 \pi + 2\). Tako noben disk \(D_n\) ne vsebuje izhodišča. Za vsak \(n \in \NN\) naj bo \(L_n \colon D_n \to \CC\) veja logaritma, tako da je \(L_n (z_n) = L_n (e^{z_{n - 1}}) = z_{n - 1}\). Po predpostavki za vsak \(z \in D_n\) velja \(\absolute{z} \geq 2\) in zato
+    Za začetek privzamemo, da za vsak \(n \in \NN\) velja \(\absolute{z_n} \geq 2 \pi + 2\). Tako noben disk \(D_n\) ne vsebuje izhodišča. Za vsak \(n\) naj bo \(L_n \colon D_n \to \CC\) veja logaritma, tako da je \(L_n (z_n) = L_n (e^{z_{n - 1}}) = z_{n - 1}\). Po predpostavki za vsak \(z \in D_n\) velja \(\absolute{z} \geq 2\) in zato
     \[\absolute{L_n' (z)} = \frac{1}{\absolute{z}} \leq \frac{1}{2}.\]
-    Spet upoštevamo Lagrangeev izrek in vidimo, da za vsak \(n\) in vsak \(z \in D_n\) velja
+    Spet uporabimo Lagrangeev izrek in vidimo, da za vsak \(n\) in vsak \(z \in D_n\) velja
     \[\absolute{L_n (z) - z_{n - 1}} = \absolute{L_n (z) - L_n (z_n)} \leq 2 \pi \cdot \sup_{\zeta \in D_n} \absolute{L_n' (\zeta)} \leq \pi.\]
-    Z indukcijo sklepamo, da je kompozitum \(\phi_n \coloneq L_1 \circ L_2 \circ \dots \circ L_n\) definiran na \(D_n\) in za vsak \(z \in D_n\) velja \(\absolute{\phi_n' (z)} \leq 2^{-n}\). Torej za preslikavo \(\phi_n\) velja točka \ref{item:tri}, točki \ref{item:ena} in \ref{item:dva} pa veljata po konstrukciji.
+    To pomeni \(L_n (D_n) \subset D_{n - 1}\). Z indukcijo sklepamo, da je kompozitum \(\phi_n \coloneq L_1 \circ L_2 \circ \dots \circ L_n\) definiran na \(D_n\) in za vsak \(z \in D_n\) velja \(\absolute{\phi_n' (z)} \leq 2^{-n}\). Torej za preslikavo \(\phi_n\) velja točka \ref{item:tri}, točki \ref{item:ena} in \ref{item:dva} pa veljata po njeni definiciji.
 
-    Če predpostavka \(\absolute{z_n} \geq 2 \pi + 2\) ne velja, sklepamo takole. Ker je \(z_0\) ubežna točka, še vedno obstaja tak \(n_1 \in \NN\), da za vsak \(n > n_1\) velja \(\absolute{z_n} \geq 2 \pi + 2\). To pa pomeni, da za vsak tak \(n\) obstaja holomorfna preslikava \(\psi_n \colon D_n \to D_{n_1}\), za katero veljajo vse točke trditve, tako, da za \(z_0\) izberemo \(z_{n_1}\). Po izreko o inverzni funkciji zdaj obstaja okolica \(U\) točke \(z_{n_1}\) in veja \(\pi \colon U \to \CC\) preslikave \(f^{- n_1}\), ki \(z_{n_1}\) preslika v \(z_0\).
+    Če predpostavka \(\absolute{z_n} \geq 2 \pi + 2\) ne velja, sklepamo takole. Ker je \(z_0\) ubežna točka, še vedno obstaja tak \(n_1 \in \NN\), da za vsak \(n > n_1\) velja \(\absolute{z_n} \geq 2 \pi + 2\). To pa pomeni, da za vsak tak \(n\) obstaja holomorfna preslikava \(\psi_n \colon D_n \to D_{n_1}\), za katero veljajo vse točke trditve tako, da za \(z_0\) v trditvi izberemo \(z_{n_1}\):
+    \begin{enumerate}
+        \item \(\phi_n (z_n) = z_{n_1}\);
+        \item za vsak \(z \in D_n\) velja \(f^{n - n_1} (\psi_n (z)) = z\);
+        \item \(\lim_{n \to \infty} \sup_{z \in D_n} |\psi_n' (z)| = 0\);
+        \item \(\lim_{n \to \infty} \diam (\psi (D_n)) = 0\).
+    \end{enumerate}
+    Po izreku o inverzni funkciji zdaj obstaja okolica \(U\) točke \(z_{n_1}\) in veja \(\pi \colon U \to \CC\) preslikave \(f^{- n_1}\), ki \(z_{n_1}\) preslika v \(z_0\).
 
-    Naj bo \(K\) majhen zaprt disk okrog \(z_{n_1}\), tako da je \(K \subset U\). Po točki \ref{item:stiri} za dovolj velik \(n\) velja \(\psi_n (D_n) \subset K\). Tako lahko definirmo
-    \[\phi_n \colon D_n \to \CC; \qquad \phi_n (z) \coloneq \pi (\psi (z)).\]
-    Taka preslikava po definiciji zadošča točki \ref{item:ena} in \ref{item:dva} in po točki \ref{item:tri}, ki velja za \(\psi_n\), velja
+    Naj bo \(K\) majhen zaprt disk okrog \(z_{n_1}\), tako da je \(K \subset U\). Po točki \ref{item:stiri} za dovolj velik \(n\), na primer \(n \geq n_0\), velja \(\psi_n (D_n) \subset K\). Tako lahko definirmo
+    \[\phi_n \colon D_n \to \CC; \qquad \phi_n (z) \coloneq \pi (\psi_n (z)).\]
+    Taka preslikava po definiciji zadošča točki \ref{item:ena} in \ref{item:dva}. Po točki \ref{item:tri}, ki velja za \(\psi_n\), velja
     \[\sup_{z \in D_n} \absolute{\phi_n' (z)} = \sup_{z \in D_n} \prt{\absolute{\psi_n' (z)} \cdot \absolute{\pi' (\psi_n (z))}} \leq \max_{z \in D_n} \absolute{\psi_n' (z)} \cdot \sup_{w \in K} \absolute{\pi' (w)}.\]
-    Ker je \(K\) kompaktna, zvezna funkcija \(\absolute{pi'}\) na njej zavzame svoj maksimum, ki je neodvisen of \(n\). Zato je
+    Ker je \(K\) kompaktna, zvezna funkcija \(\absolute{\pi'}\) na njej zavzame svoj maksimum, ki je neodvisen of \(n\). Zato je
     \[\lim_{n \to \infty} \max_{z \in D_n} \absolute{\psi_n' (z)} \cdot \sup_{w \in K} \absolute{\pi' (w)} = 0 \qquad\]
     in posledično
     \[\lim_{n \to \infty} \sup_{z \in D_n} \absolute{\phi_n' (z)} = 0.\]
 \end{dokaz}
 
 \begin{trditev}[Slike velikih diskov] \label{prop:lare_disks}
-    Naj bo \(K\) neprazna kompaktna podmnožica \(\CC \setminus \set{0}\). Potem obstaja \(\rho > 0\) tako da velja naslednje. Naj bo \(D\) disk z radijem \(2 \pi\) s središčem v točki \(\zeta\), za katero velja \(\re (\zeta) \geq \rho\). Potem je \(K \subset f^2 (D)\).
+    Naj bo \(K\) neprazna kompaktna podmnožica \(\CC \setminus \set{0}\). Potem obstaja \(\rho > 0\), tako da velja naslednje. Imejmo disk \(D\) z radijem \(2 \pi\) in središčem v točki \(\zeta\), za katero velja \(\re (\zeta) \geq \rho\). Potem je \(K \subset f^2 (D)\).
 \end{trditev}
 
+\noindent Trditev nam pove, da že druga iteracija diska, ki leži `dovolj' na desno, pokrije velik del kompleksne ravnine.
+
 \begin{dokaz}
-    Disk \(D\) vsebuje zaprt kvadrat \(S\) s stranico dolžine \(2 \pi\), prav tako s središčem v \(\zeta\). Naj bo \(a = \re (\zeta) - \pi\) realni del leve navpične stranice \(S\). Potem je \(a + 2 \pi = \re (\zeta) + \pi\) realni del desne navpične stranice \(S\). Preslikava \(f\) kvadrat \(S\) preslika v krožni kolobar \(A\) s središčem v izhodišču, notranjim radijem \(r_{-} = e^a\) in zunanjim radijem \(r_{+} e^{a + 2 \pi}\) (glej sliko \ref{fig:exponential}).
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.6\textwidth]{needham_figure.pdf}
-        \caption[Geometrijsko delovanje kompleksne eksponentne preslikave]{Geometrijska vizualizacija kompleksne eksponentne preslikave. Ilustracija iz knjige \cite{Needham_1997}}
-        \label{fig:exponential}
-    \end{figure}
-    Če je \(a\) dovolj velik, je kolobar \(A\) dovolj širok, da vsebuje pravokotnik višine \(2 \pi\). Slika tega pravokotnika nato pokrije večino kompleksne ravnine, vključno s kompaktno množico \(K\). Bolj natančno; naj bo \(a \geq 0\) in zato \(r_+ - r_- \geq e^{2 \pi} > 2 \pi\). Torej \(A\) vsebuje pravokotnik \(R\) višine \(2 \pi\), tako kot je prikazano na sliki \ref{fig:transitivity}.
+    Disk \(D\) vsebuje zaprt kvadrat \(S\) s stranico dolžine \(2 \pi\), prav tako s središčem v \(\zeta\). Naj bo \(a = \re (\zeta) - \pi\) realni del leve navpične stranice \(S\). Potem je \(a + 2 \pi = \re (\zeta) + \pi\) realni del desne navpične stranice \(S\). Preslikava \(f\) kvadrat \(S\) preslika v krožni kolobar \(A\) s središčem v izhodišču, notranjim radijem \(r_{-} = e^a\) in zunanjim radijem \(r_{+} = e^{a + 2 \pi}\) (glej sliko \ref{fig:exponential}). Če je \(a\) dovolj velik, je kolobar \(A\) dovolj širok, da vsebuje pravokotnik višine \(2 \pi\). Slika tega pravokotnika nato pokrije večino kompleksne ravnine, vključno s kompaktno množico \(K\). Bolj natančno; naj bo \(a \geq 0\) in zato \(r_+ - r_- \geq e^{2 \pi} > 2 \pi\). Torej \(A\) vsebuje pravokotnik \(R\) višine \(2 \pi\), tako kot je prikazano na sliki \ref{fig:transitivity}.
     \begin{figure}%
         \centering
         \input{tikz/transitivity.tex}
@@ -85,7 +87,7 @@
 \noindent Iz dokazanih trditev nemudoma sledi močnejša različica izreka \ref{thm:transitivity}.
 
 \begin{posledica}[Odprte množice se razširijo vsepovsod]
-    Naj bo \(K \subset \CC \setminus \set{0}\) kompaktna in \(U \subset \CC\) odprta in neprazna. Potem obstaja \(N \in \NN\)m da je \(K \subset f^n (U)\) za vse \(n \geq N\).
+    Naj bo \(K \subset \CC \setminus \set{0}\) kompaktna in \(U \subset \CC\) odprta in neprazna. Potem obstaja \(N \in \NN\), da je \(K \subset f^n (U)\) za vse \(n \geq N\).
 \end{posledica}
 
 \noindent \textit{Opomba.} Iz posledice takoj dokažemo izrek, če za \(K\) izberemo točko iz \(V\).
@@ -107,5 +109,5 @@
     \[\DDD \coloneq \set{D_r (z) : \re z, \im z, r \in \QQ}.\]
     Opazimo, da je \(z_0 \in \TTT\) natanko tedaj, ko orbita \(z_0\) seka vsako množico \(\DDD\):
     \[\TTT = \bigcap_{D \in \DDD} \OOO^- (D).\]
-    Torej je \(\TTT\) res neštevna in gosta, saj je števni presek odprtih in gostih podmnožic \(\CC\).
+    Torej je \(\TTT\) res neštevna in gosta, saj je števen presek odprtih in gostih podmnožic \(\CC\).
 \end{dokaz}

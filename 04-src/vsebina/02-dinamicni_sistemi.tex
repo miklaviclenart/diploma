@@ -16,16 +16,11 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
 \noindent Označimo \(f^n \coloneq f \circ f^{n - 1}\), kjer je \(f^0 = \Id\).
 
 \begin{definicija}
-    Naj bo \(X\) množica in \(f \colon X \to X\) preslikava. \emph{Orbita} začetne točke \(x \in X\) pod preslikavo \(f\) je zaporedje \(a_n \coloneq f^n (x)\). Začetni točki pravimo
-    \begin{itemize}
-        \item \emph{ubežna}, če njena orbita divergira k \(\infty\);\footnote{To pomeni \(\lim_{n \to \infty} |f^n (z)| = \infty\).}
-        \item \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x) = x\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\);
-        \item \emph{fiksna}, če je periodična s periodo \(\num{1}\).
-    \end{itemize}
+    Naj bo \(X\) množica in \(f \colon X \to X\) preslikava. \emph{Orbita} začetne točke \(x \in X\) pod preslikavo \(f\) je zaporedje \(\{f^n (x)\}_{n \in \NN}\). Začetni točki pravimo \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x) = x\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\). Periodična točka je \emph{fiksna}, če je njena perioda \(\num{1}\).
 \end{definicija}
 
 \begin{definicija}[Topološka tranzitivnost]
-    Naj bo \((X, \tau)\) topološki prostor in \(f \colon X \to X\) preslikava. Pravimo, da je \(f\) \emph{topološko tranzitivna}, če za vsaki \(U, V \in \tau\), obstajata \(z \in U\) in \(n \in \NN \cup \set{0}\), da je \(f^n (z) \in V\).
+    Naj bo \((X, \tau)\) topološki prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) \emph{topološko tranzitivna}, če za vsaki \(U, V \in \tau\), obstajata \(z \in U\) in \(n \in \NN \cup \set{0}\), da je \(f^n (z) \in V\).
 \end{definicija}
 
 \begin{definicija}[Devaneyjev kaos]
@@ -36,7 +31,11 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
     \end{enumerate}
 \end{definicija}
 
-\noindent Pojem kaosa je leta \num{1989} definiral ameriški matematik Robert L.~Devaney \cite{Devaney_1986}. Za kompleksno eksponentno preslikavo kot posledica sledi iz izreka  \ref{thm:orbits}. Ta izrek je prvi dokazal poljski matematik Micha\l\ Misiurewicz leta \num{1981} \cite{Misiurewicz_1981}. S tem je potrdil domnevo, ki jo je leta \num{1926} postavil francoski matematik Pierre J.~L.~Fatou \cite{Fatou_1926}.
+\begin{zgled}
+    Na krožnici \(S^1 \subset \CC\) definiramo rotacijo za kot \(\theta\):
+    \[R_\theta \colon S^1 \to S^1; \qquad R_\theta (z) = e^{i \theta} z.\]
+    Naj bo \(\theta_1 = \pi\). Potem je vsaka točka periodična s periodo \(\num{2}\), preslikava pa ni topološko  tranzitivna. Naj bo \(\theta_2 = p\), kjer je \(p \in \RR \setminus \QQ\). Potem je preslikava topološko tranzitivna, a niti ena točka ni periodična. Torej je kaos dobro definiran.
+\end{zgled}
 
 \begin{zgled}[Podvojitvena preslikava]
     Naj bo \(f \colon [0, 1) \to [0, 1)\) preslikava, podana z
@@ -53,6 +52,57 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
 
     Za dokaz topološke tranzitivnosti si pomagamo z zapisom števila v dvojiški bazi. Opazimo, da preslikava \(f\) ``odreže'' prvo decimalko števila. Definiramo število, ki vsebuje vsa končna zaporedja, urejena po dolžini:
     \[\alpha \coloneq 0, \underbrace{0 1}_{\text{ena}} \underbrace{00011011}_{\text{dva}} \underbrace{000 001 010 100 011 101 110 111}_{\text{tri}} \dots_{(2)}\]
-    Naj bo \(x = 0, d_1 d_2 d_3 \dots_{(2)}\) in \(\epsilon > 0\). Izberemo tak \(n \in \NN\), da je \(2^{- n} < \epsilon\). Potem obstaja tak \(k \in \NN\), da se število \(f^k (\alpha)\) začne kot \(0, d_1 d_2 \dots d_n d_{n + 1}\), torej da se \(f^k (\alpha)\) in \(x\) začneta razlikovati kvečjemo po \(n + 2\)-ti decimalki. Potem velja
-    \[\abs{f^k (\alpha) - x} \leq \sum_{i = n + 2}^{\infty} \frac{2}{2^{i}} < 2^{- n} < \epsilon.\]
+    Naj bo \(x = 0, d_1 d_2 d_3 \dots_{(2)}\) in \(\varepsilon > 0\). Izberemo tak \(n \in \NN\), da je \(2^{- n} < \varepsilon\). Potem obstaja tak \(k \in \NN\), da se število \(f^k (\alpha)\) začne kot \(0, d_1 d_2 \dots d_n d_{n + 1}\), torej da se \(f^k (\alpha)\) in \(x\) začneta razlikovati kvečjemo po \(n + 2\)-ti decimalki. Potem velja
+    \[\abs{f^k (\alpha) - x} \leq \sum_{i = n + 2}^{\infty} \frac{2}{2^{i}} < 2^{- n} < \varepsilon.\]
 \end{zgled}
+
+\noindent Pojem kaosa je leta \num{1989} definiral ameriški matematik Robert L.~Devaney \cite{Devaney_1986}. Za kompleksno eksponentno preslikavo kot posledica sledi iz izreka  \ref{thm:orbits}. Ta izrek je prvi dokazal poljski matematik Micha\l\ Misiurewicz leta \num{1981} \cite{Misiurewicz_1981}. S tem je potrdil domnevo, ki jo je leta \num{1926} postavil francoski matematik Pierre J.~L.~Fatou \cite{Fatou_1926}.
+
+\subsection{Občutljivost na začetne pogoje}
+
+Devaney je v svoji prvotni definiciji zahteval tudi naslednjo lastnost.
+
+\begin{definicija}[Občutljivost na začetne pogoje]
+    Naj bo \((M, d)\) metrični prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) občutljiva na začetne pogoje, če obstaja \emph{občutljivostna konstanta} \(\Delta > 0\), da za vsak \(x \in M\) in vsak \(\varepsilon > 0\) obstaja \(y \in M\), da je \(d (x, y) < \varepsilon\) in \(d (f^N (x), f^N (y)) \geq \Delta\) za nek \(N \in \NN\).
+\end{definicija}
+
+\noindent To pomeni, da majhna napaka \(\varepsilon\) v začetnih pogojih \(x\) privede do znatnih sprememb pri iteraciji dinamičnega sistema. Vendar pa se izkaže, da te lastnost pri definiciji kaotične preslikave v večini primerov ni potrebno zahtevati. Velja naslednji izrek.
+
+\begin{izrek}
+    Kaotična preslikava je občutljiva na začetne pogoje razen na prostoru, ki je sestavljen iz ene periodične orbite.
+\end{izrek}
+
+\begin{dokaz}
+    Naj bo \(X\) prostor, ki ni zgolj periodična orbita, in \(f \colon X \to X\) kaotična. Ker so periodične točke goste, obstajata vsaj dve različni periodični orbiti. Ker sta disjunktni, obstajata periodični točki \(p, q\), da je \(\Delta \coloneq \min \set{d (f^n (p), f^m (q)) : n, m \in \NN} / 8 > 0\). Pokazali bomo, da je \(\Delta\) občutljivostna konstanta.
+
+    Če je \(x \in X\), potem je orbita ene od točk \(p, q\) vedno oddaljena od \(x\) za vsaj \(4 \Delta\). V nasprotnem primeru, ko bi bile obe v neki točki oddaljene od \(x\) za manj kot \(4 \Delta\), bi bila razdalja med orbitama manjša od \(8 \Delta\). Brez škode za splošnost je to orbita \(q\).
+
+    Naj bo \(\varepsilon \in (0, \Delta)\). Ker so periodične točke goste, obstaja periodična točka \(p \in B (x, \varepsilon)\) s periodo \(n\). Naj bo \(V\) množica točk, ki so po \(n\) iteracijah oddaljene od \(q\) za kvečjemu \(\Delta\):
+    \[V \coloneq \bigcap_{i = 0}^n f^{- i} (B (f^i (q), \Delta)).\]
+    Po topološki tranzitivnosti obstaja \(k \in \NN\), da je \(f^k (B (x, \varepsilon)) \cap V \neq \emptyset\). Torej obstaja \(y \in B (x, \varepsilon)\), da je \(f^k (y) \in V\). Če definiramo \(j \coloneq \lfloor k / n \rfloor + 1\), potem je \(k / n < j \leq (k / n) + 1\) in
+    \[k = n \cdot \frac{k}{n} < n j \leq n \prt{\frac{k}{n} + 1} = k + n.\]
+    Torej, če je \(N \coloneq n j\), potem je \(0 < N - k \leq n\). Ker je \(f^N (p) = p\), po trikotniški neenakosti dobimo
+    \begin{align}
+        d \prt{f^N (p), f^N (y)} &= d \prt{p, f^N (y)} \nonumber\\
+        &\geq d \prt{x, f^{N - k} (q)} - d \prt{f^{N - k} (q), f^N (y)} - d (p, x) \label{eqn:ocena}\\
+        &\geq 4 \Delta - \Delta - \Delta = 2 \Delta, \nonumber
+    \end{align}
+    kjer smo upoštevali \(p \in B (x, \varepsilon) \subset B (x, \Delta)\) in
+    \[f^N (y) = f^{N - k} \prt{f^k (y)} \in f^{N - k} (V) \subset B \prt{f^{N - k} (q), \Delta},\]
+    kar velja po definiciji \(V\). Vemo, da \(p, y \in B (x, \varepsilon)\) in zato po (\ref{eqn:ocena}) velja
+    \[d (f^N (p), f^N (x)) \geq \Delta \qquad \text{ali} \qquad d (f^N (y), f^N (x)) \geq \Delta.\]
+\end{dokaz}
+
+\noindent Vseeno pa je občutljivost na začetne pogoje pomembna pri obravnavi splošnih dinamičnih sistemov. V javnosti je bolj znana kot \emph{metuljev učinek}. Ime izhaja iz vprašanja, ki ga je meteorolog Ed Lorenz leta \num{1972} postavil na srečanju Ameriškega združenja za napredek znanosti: ``Ali lahko zamah kril metulja v Braziliji povzroči tornado v Teksasu?'' Vprašanje služi kot dobra prispodoba za občutljivost na začetne pogoje, a ga ne smemo vzeti dobesedno, saj ne drži \cite{Pielke_2024}.
+
+\begin{primer}
+    Eksponentna funkcija \(f \colon \RR \to \RR\); \(x \mapsto e^x\) je občutljiva na začetne pogoje za običajno metriko. Ker je za vsak \(x \in \RR\) po prvi iteraciji \(e^x > 0\), se lahko omejimo na pozitivna realna števila. Naj bo \(x > 0\) in \(\varepsilon > 0\). Definiramo \(y = x + \varepsilon / 2\). Potem \(d (x, y) = \varepsilon / 2 < \varepsilon\) in
+    \[e^{y} - e^{x} = e^{x + \varepsilon / 2} - e^x = e^x \prt{e^{\varepsilon / 2} - 1} > e^{\varepsilon / 2} - 1 > \frac{\varepsilon}{2}.\]
+    Zaporedje razdalj med iteracijama \(x\) in \(y\) torej divergira.
+\end{primer}
+
+% \noindent Iz definicije je jasno, da je občutljivost na začetne pogoje odvisna od metrike. Zanimivo je vprašanje, ali obstajajo različno metrike, torej da preslikava lastnost ima v eni metriki, a ne v drugi. Iz tega vidika je zanimiva \emph{sferična metrika}. V izogib njeni definiciji bomo navedli le, kdaj je v njej preslikava občutljiva.
+
+% \begin{definicija}
+%     Naj bo \(f \colon \CC \to \CC\) zvezna preslikava. Pravimo, da je \(f\) \emph{v sferični metriki občutljiva na začetne pogoje}, če obstajata \(\delta > 0\) in \(R > 0\) z naslednjo lastnostjo. Za vsako neprazno odprto množico \(U \subset \CC\) obstajata \(z, w \in U\) in \(n \geq 0\), tako da velja \(|f^n (z)| \leq R\) in \(|f^n (z) - f^n (w)| \geq \delta\).
+% \end{definicija}

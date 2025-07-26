@@ -1,10 +1,12 @@
 \section{Gostota ubežnih točk}
 
 Od tu naprej naj velja, da \(f\) vedno označuje kompleksno eksponentno preslikavo
-\[f \colon \CC \to \CC; z \mapsto e^{z}.\]
+\[f \colon \CC \to \CC; \qquad z \mapsto e^{z}.\]
 
 \begin{izrek} \label{thm:escapingdense}
-    Množica ubežnih točk kompleksne eksponentne preslikave \(I (f)\) je gosta v kompleksni ravnini.
+    Ubežna množica kompleksne eksponentne preslikave
+    \[I (f) \coloneq \set{z \in \CC : \lim_{n \to \infty} \abs{f^n (z)} = \infty}\]
+    je gosta v kompleksni ravnini.
 \end{izrek}
 
 \noindent Pomagamo si z naslednjo lemo.
@@ -57,7 +59,7 @@ Od tu naprej naj velja, da \(f\) vedno označuje kompleksno eksponentno preslika
     \[D_n \coloneq f^n (D) \subset U = \CC \setminus [0, \infty) \qquad \text{za vsak } n \geq 0.\]
     Ker je \(f^n \colon D \to U\) holomorfna, velja Pickov izrek \ref{thm:pick} in zato
     \[\delta_n \coloneq \hder{f^n (w_0)}{D}{U} = |(f^n)' (w_0)| \cdot \frac{\rho_U (w_n)}{\rho_D (w_0)} \leq 1.\]
-    Označimo \(\eta_n \coloneq \hder{f (w_n)}{U}{U}\) in opazimo \(\delta_{n + 1} = \delta_n \cdot \eta_n\) za vsak \(n \geq 0\). Po lemi \ref{lem:hyper} vemo, da ja \(\eta_n > 1\). Zato je zaporedje \(\delta_n\) strogo naraščajoče in posledično konvergentno z limito \(\num{1}\). Lahko izračunamo
+    Označimo \(\eta_n \coloneq \hder{f (w_n)}{U}{U}\) in opazimo \(\delta_{n + 1} = \delta_n \cdot \eta_n\) za vsak \(n \geq 0\). Po lemi \ref{lem:hyper} vemo, da je \(\eta_n > 1\). Zato je zaporedje \(\delta_n\) strogo naraščajoče in posledično konvergentno z limito \(\num{1}\). Lahko izračunamo
     \[\lim_{n \to \infty} \eta_n = \lim_{n \to \infty} \frac{\delta_{n + 1}}{\delta_n} = \frac{\lim_{n \to \infty} \delta_{n + 1}}{\lim_{n \to \infty} \delta_n} = 1.\]
     Spet po lemi \ref{lem:hyper} vemo
     \[\lim_{n \to \infty} \min \set{|w_n|, \Arg (w_n)} = 0.\]
