@@ -1,4 +1,10 @@
 \begin{tikzpicture}[every node/.style={font=\scriptsize}]
+\tikzset{desnozgoraj/.style={anchor=base west, yshift=2pt, xshift=-1pt}}
+\tikzset{levozgoraj/.style={anchor=base east, yshift=2pt, xshift=1pt}}
+\tikzset{desnospodaj/.style={anchor=base west, yshift=-8pt, xshift=-1pt}}
+\tikzset{levospodaj/.style={anchor=base east, yshift=-8pt, xshift=1pt}}
+\tikzset{sredinaspodaj/.style={anchor=base, yshift=-8pt}}
+\definecolor{siva}{gray}{0.8}
 
 \begin{scope}[shift={(0,0)}]
     \draw[->] (-0.5,0) -- (3.5,0);
@@ -7,84 +13,90 @@
     \draw[dashed] (1.63, 0) -- (1.63, 0.63);
     \draw[dashed] (2.38, 0) -- (2.38, 0.63);
 
-    \draw (2,1) circle (0.75cm)
+    \draw (2,1) circle (0.75)
         node[above left, xshift=-0.5cm, yshift=0.5cm] {$D$};
 
-    \draw[pattern=north east lines, pattern color=gray!50] (1.63,0.63) rectangle ++(0.75,0.75)
+    \draw[pattern=north east lines, pattern color=siva] (1.63,0.63) rectangle ++(0.75,0.75)
         node[] at (1.8, 1.2) {$S$};
 
+    \filldraw[black] (2, 1) circle (1pt)
+        node[sredinaspodaj]  {$\zeta$}; 
+
     \filldraw[black] (1.63, 0) circle (1pt)
-        node[] at (1.63,-0.2) {$a$};
+        node[sredinaspodaj] {$a$};
     \filldraw[black] (2.38, 0) circle (1pt)
-        node[] at (2.37,-0.2) {$a+2\pi$};
+        node[sredinaspodaj] {$a+2\pi$};
 \end{scope}
 
-\draw[->] (3.2,2) -- (5,2) node[midway, above] {$f$};
+\draw[->] (4.4,0) -- (5.7,0) node[midway, above] {$f$};
 
-\begin{scope}[shift={(7,0)}]
+\begin{scope}[shift={(9,0)}]
     \draw[->] (-2.5,0) -- (2.5,0);
     \draw[->] (0,-2.5) -- (0,2.5);
 
-    \fill[pattern=north east lines, pattern color=gray!50, even odd rule]
-        (0,0) circle (2cm) (0,0) circle (1cm);
-    \draw (0,0) circle (2cm);
-    \draw (0,0) circle (1cm)
+    \fill[pattern=north east lines, pattern color=siva, even odd rule]
+        (0,0) circle (2) (0,0) circle (1);
+    \draw (0,0) circle (2);
+    \draw (0,0) circle (1)
         node at (-1, 1.2) {$A$};
 
     \filldraw[black] (2, 0) circle (1pt)
-        node[above right, inner sep=2pt]  at (2, 0) {$e^{a + 2\pi}$};
+        node[desnozgoraj]  {$e^{a + 2\pi}$};
     \filldraw[black] (1, 0) circle (1pt)
-        node[above right] at (1, 0) {$e^a$};
+        node[desnozgoraj]  {$e^a$};
 \end{scope}
 
 \begin{scope}[shift={(1.5,-6)}]
     \draw[->] (-2,0) -- (2,0);
     \draw[->] (0,-2.5) -- (0,2.5);
 
-    \draw (0,0) circle (1.2cm);
-    \draw (0,0) circle (0.7cm)
-        node at (0.4, -0.9) {$A$};
+    \draw (0,0) circle (1.3);
+    \draw (0,0) circle (0.7)
+        node at (0.44, -0.85) {$A$};
 
-    \draw[thin, pattern=north east lines, pattern color=gray!50]
-        (-0.78,0.7) rectangle ++(1.56,0.2)
-        node[inner sep=0pt] at (0.4, 0.8) {\tiny $R$};
+    \pgfmathsetmacro{\x}{0.82}
+    \draw[thin, pattern=north east lines, pattern color=siva]
+        (-\x,0.7) rectangle ++({2*\x},0.3)
+        node[inner sep=0pt] at (0.4, 0.85) {$R$};
 
-    \draw[dashed] (-0.78, 0) -- (-0.78, 0.7);
-    \draw[dashed] (0.78, 0) -- (0.78, 0.7);
+    \draw[dashed] (-\x, 0) -- (-\x, 0.7);
+    \draw[dashed] (\x, 0) -- (\x, 0.7);
 
-    \filldraw[black] (-0.78, 0) circle (1pt)
-        node[below left, inner sep=2pt] {$-l$};
-    \filldraw[black] (0.78, 0) circle (1pt)
-        node[below right, inner sep=2pt] {$l$};
+    \filldraw[black] (-\x, 0) circle (1pt)
+        node[levospodaj] {$-l$};
+    \filldraw[black] (\x, 0) circle (1pt)
+        node[desnospodaj] {$l$};
 \end{scope}
 
-\draw[->] (3.2,-4) -- (5,-4) node[midway, above] {$f$};
+\draw[->] (4.4,-6) -- (5.7,-6 ) node[midway, above] {$f$};
 
-\begin{scope}[shift={(7,-6)}]
+\begin{scope}[shift={(9,-6)}]
     \draw[->] (-2.5,0) -- (2.5,0);
     \draw[->] (0,-2.5) -- (0,2.5);
 
-    \fill[pattern=north east lines, pattern color=gray!50, even odd rule]
-        (0,0) circle (2.3cm) (0,0) circle (0.25cm);
-    \draw[] (0,0) circle (2.3cm);
-    \draw[] (0,0) circle (0.25cm);
+    \pgfmathsetmacro{\R}{1.9}
 
-    \filldraw[black] (-2.3, 0) circle (1pt)
-        node[above left, inner sep=2pt]  at (-2.3,0) {$-e^l$};
+    \fill[pattern=north east lines, pattern color=siva, even odd rule]
+        (0,0) circle (\R) (0,0) circle (0.25);
+    \draw[] (0,0) circle (\R);
+    \draw[] (0,0) circle (0.25);
+
+    \filldraw[black] (-\R, 0) circle (1pt)
+        node[levozgoraj] {$-e^l$};
     \filldraw[black] (-0.25, 0) circle (1pt)
-        node[above left,inner sep=0pt] at (-0.25,0) {$-e^{-l}$};
+        node[levozgoraj] {$-e^{-l}$};
     \filldraw[black] (0.25, 0) circle (1pt)
-        node[above right, inner sep=1pt] at (0.25,0) {$e^{-l}$};
-    \filldraw[black] (2.3, 0) circle (1pt)
-        node[above right, inner sep=3pt]  at (2.3,0) {$e^l$};
+        node[desnozgoraj] {$e^{-l}$};
+    \filldraw[black] (\R, 0) circle (1pt)
+        node[desnozgoraj] {$e^l$};
 
-    \fill[gray!50]
+    \fill[siva]
       plot[smooth cycle, tension=0.8] coordinates {
-        (1.3,0.9) (1.6,1.2) (0.9,1.9) (0.4,1.9)
-        (0.5,1.1) (0.8,0.3) (1.8,0.1) (2,0.5)
+        (1.4,0.8) (1.3,1.2) (0.9,1.5) (0.4,1.5)
+        (0.2,0.9) (0.8,0.7) (1.4,0.1) (1.7,0.5)
       };
     
-    \node at (1, 1) {$K$};
+    \node at (0.8, 1.1) {$K$};
 \end{scope}
 
 \end{tikzpicture}
