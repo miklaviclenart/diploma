@@ -1,30 +1,34 @@
-\begin{tikzpicture}[every node/.style={font=\scriptsize}]
-\tikzset{desnozgoraj/.style={anchor=base west, yshift=2pt, xshift=-1pt}}
-\tikzset{levozgoraj/.style={anchor=base east, yshift=2pt, xshift=1pt}}
-\tikzset{desnospodaj/.style={anchor=base west, yshift=-8pt, xshift=-1pt}}
-\tikzset{levospodaj/.style={anchor=base east, yshift=-8pt, xshift=1pt}}
-\tikzset{sredinaspodaj/.style={anchor=base, yshift=-8pt}}
-\definecolor{siva}{gray}{0.8}
+\begin{tikzpicture}
+\tikzset{desnozgoraj/.style={anchor=base west, yshift=3pt, xshift=-2pt}}
+\tikzset{levozgoraj/.style={anchor=base east, yshift=3pt, xshift=2pt}}
+\tikzset{desnospodaj/.style={anchor=base west, yshift=-12pt, xshift=-2pt}}
+\tikzset{levospodaj/.style={anchor=base east, yshift=-12pt, xshift=2pt}}
+\tikzset{sredinaspodaj/.style={anchor=base, yshift=-12pt}}
+\definecolor{siva}{gray}{0.8} 
 
 \begin{scope}[shift={(0,0)}]
     \draw[->] (-0.5,0) -- (3.5,0);
     \draw[->] (0,-2.5) -- (0,2.5);
 
-    \draw[dashed] (1.63, 0) -- (1.63, 0.63);
-    \draw[dashed] (2.38, 0) -- (2.38, 0.63);
+    \pgfmathsetmacro{\r}{0.55}
+    \pgfmathsetmacro{\xl}{{2-\r}}
+    \pgfmathsetmacro{\xr}{{2+\r}}
 
-    \draw (2,1) circle (0.75)
-        node[above left, xshift=-0.5cm, yshift=0.5cm] {$D$};
+    \draw[dashed] (\xl, 0) -- (\xl, 0.63);
+    \draw[dashed] (\xr, 0) -- (\xr, 0.63);
 
-    \draw[pattern=north east lines, pattern color=siva] (1.63,0.63) rectangle ++(0.75,0.75)
-        node[] at (1.8, 1.2) {$S$};
+    \draw (2,1) circle ({1.65*\r})
+        node[above left, xshift=-0.6cm, yshift=0.6cm] {$D$};
+
+    \draw[pattern=north east lines, pattern color=siva] ({2-\r},{1-\r}) rectangle ++({2*\r},{2*\r})
+        node[] at (1.7, 1.3) {$S$};
 
     \filldraw[black] (2, 1) circle (1pt)
         node[sredinaspodaj]  {$\zeta$}; 
 
-    \filldraw[black] (1.63, 0) circle (1pt)
+    \filldraw[black] (\xl, 0) circle (1pt)
         node[sredinaspodaj] {$a$};
-    \filldraw[black] (2.38, 0) circle (1pt)
+    \filldraw[black] (\xr, 0) circle (1pt)
         node[sredinaspodaj] {$a+2\pi$};
 \end{scope}
 
@@ -50,14 +54,14 @@
     \draw[->] (-2,0) -- (2,0);
     \draw[->] (0,-2.5) -- (0,2.5);
 
-    \draw (0,0) circle (1.3);
+    \draw (0,0) circle (1.4);
     \draw (0,0) circle (0.7)
-        node at (0.44, -0.85) {$A$};
+        node at (0.5, -0.85) {$A$};
 
-    \pgfmathsetmacro{\x}{0.82}
+    \pgfmathsetmacro{\x}{0.8}
     \draw[thin, pattern=north east lines, pattern color=siva]
-        (-\x,0.7) rectangle ++({2*\x},0.3)
-        node[inner sep=0pt] at (0.4, 0.85) {$R$};
+        (-\x,0.7) rectangle ++({2*\x},0.44)
+        node[inner sep=0pt] at (0.4, 0.92) {$R$};
 
     \draw[dashed] (-\x, 0) -- (-\x, 0.7);
     \draw[dashed] (\x, 0) -- (\x, 0.7);
