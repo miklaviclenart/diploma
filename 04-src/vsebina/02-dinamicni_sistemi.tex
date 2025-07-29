@@ -3,7 +3,7 @@
 V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolucijskim pravilom. Množica stanj je običajno metrični ali topološki prostor \(X\), deterministično evolucijsko pravilo pa preslikava \(F \colon X \to X\). Dinamične sisteme delimo na
 
 \begin{enumerate}
-    \item \emph{diskretne} ali \emph{rekurzivne}, kjer je \(x_n \in X\) in \(x_{n + 1} = F (x_n)\);
+    \item \emph{diskretne} ali \emph{rekurzivne}, kjer je \(x_0 \in X\) in \(x_{n + 1} = F (x_n)\) za \(n \in \NN \cup \{0\}\);
     \item \emph{zvezne}, ki so sistemi diferencialnih enačb: \(\dot{\mathbf{x}} = F (\mathbf{x})\) za \(\mathbf{x} \in X \subseteq \RR^n\).
 \end{enumerate}
 
@@ -13,15 +13,28 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
     Kompleksna števila \(\CC\) skupaj s kompleksno eksponentno preslikavo \(f \colon \CC \to \CC\); \(z \mapsto e^{z}\) so diskretni dinamični sistem.
 \end{zgled}
 
-\noindent Označimo \(f^n \coloneq f \circ f^{n - 1}\), kjer je \(f^0 = \Id\).
+\noindent Za \(n \in \NN \cup \{0\}\) označimo \(f^n \coloneq f \circ f^{n - 1}\), kjer je \(f^0 = \Id\) identiteta.
 
 \begin{definicija}
-    Naj bo \(X\) množica in \(f \colon X \to X\) preslikava. \emph{Orbita} začetne točke \(x \in X\) pod preslikavo \(f\) je zaporedje \(\{f^n (x)\}_{n \in \NN}\). Začetni točki pravimo \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x) = x\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\). Periodična točka je \emph{fiksna}, če je njena perioda \(\num{1}\).
+    Naj bo \(X\) množica in \(f \colon X \to X\) preslikava. \emph{Orbita} začetne točke \(x_0 \in X\) pod preslikavo \(f\) je zaporedje \(\{f^n (x_0)\}_{n \in \NN}\). Začetni točki pravimo \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x_0) = x_0\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\). Periodična točka je \emph{fiksna}, če je njena perioda \(\num{1}\).
 \end{definicija}
 
 \begin{definicija}[Topološka tranzitivnost]
     Naj bo \((X, \tau)\) topološki prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) \emph{topološko tranzitivna}, če za vsaki \(U, V \in \tau\), obstajata \(z \in U\) in \(n \in \NN \cup \set{0}\), da je \(f^n (z) \in V\).
 \end{definicija}
+
+\begin{trditev}
+    Naj bo \((M, d)\) metrični prostor brez izoliranih točk in \(f \colon M \to M\) zvezna preslikava. Če ima \(f\) gosto orbito, to je obstaja element, katerega orbita je gosta podmnožica \(M\), je \(f\) topološko tranzitivna.
+    % Če je \(M\) separabilen in \(\num{2}\)-števen, potem topološka tranzitivnost implicira gosto orbito.
+\end{trditev}
+
+\begin{dokaz}
+    Naj bo \(M\) brez izoliranih točk in \(\zap{z}\) gosta orbita. Potem za neprazni odprti množici \(U, V \subseteq M\) obstajata \(x_k \in U\) in \(x_k \in V \setminus \{x_0, x_1, \dots, x_k\}\). Slednja množica je prav tako odprta in neprazna. Ker je \(m > k\) in \(f^{m - k} (U) \cap V \neq \emptyset\), je \(f\) topološko tranzitivna.
+
+    % Naj bo \(M\) separabilen in \(\num{2}\)-števen ter naj \(f\) nima goste orbite. Naj bo \(\zap{V}\) števna baza prostora. Za vsak \(x \in M\) obstaja \(V_{n (x)}\), tako da za vsak \(k \geq 0\) velja \(f^k (x) \notin V_{n (x)}\). Ker pa je \(f\) topološko tranzitivna je
+    % \[\bigcup_{k = 0}^{\infty} f^{- k} \prt{V_{n (x)}}\]
+    % odprta množica
+\end{dokaz}
 
 \begin{definicija}[Devaneyjev kaos]
     Naj bo \((M, d)\) metrični prostor in \(X \subseteq M\) neskončna. Pravimo, da je zvezna preslikava \(f \colon X \to X\) \emph{kaotična} (po Devaneyju), če sta izpolnjena naslednja pogoja.
@@ -33,8 +46,8 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
 
 \begin{zgled}
     Na krožnici \(S^1 \subset \CC\) definiramo rotacijo za kot \(\theta\):
-    \[R_\theta \colon S^1 \to S^1; \qquad R_\theta (z) = e^{i \theta} z.\]
-    Naj bo \(\theta_1 = \pi\). Potem je vsaka točka periodična s periodo \(\num{2}\), preslikava pa ni topološko  tranzitivna. Naj bo \(\theta_2 = p\), kjer je \(p \in \RR \setminus \QQ\). Potem je preslikava topološko tranzitivna, a niti ena točka ni periodična. Torej je kaos dobro definiran.
+    \[R_\theta \colon S^1 \to S^1; \qquad R_\theta (z) = e^{i \theta \pi} z.\]
+    Naj bo \(\theta_1 = 1\). Potem je vsaka točka periodična s periodo \(\num{2}\), preslikava pa ni topološko  tranzitivna. Naj bo \(\theta_2 = p\), kjer je \(p \in \RR \setminus \QQ\). Potem je preslikava topološko tranzitivna, a niti ena točka ni periodična.
 \end{zgled}
 
 \begin{zgled}[Podvojitvena preslikava]
@@ -46,13 +59,13 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
             2x - 1 & \text{za } \frac{1}{2} \leq x < 1.
         \end{cases}
     \]
-    Trdimo, da je \(f\) kaotična.
+    Trdimo, da je \(f\) kaotična. Označimo \(f_1 (x) = 2 x\) in \(f_2 (x) = 2x - 1\)
 
-    Naj bo \(q \in \NN\) liho število in \(A = \set{\frac{1}{q}, \frac{2}{q}, \dots, \frac{q - 1}{q}} \subset [0, 1)\). Potem je \(f \colon A \to A\) bijektivna. Torej je vsak ulomek z lihim imenovalcem periodična točka. Ker so takšni ulomki gosti v \([0, 1)\), ima \(f\) gosto podmnožico periodičnih točk.
+    Naj bo \(q \in \NN\) liho število in \(A = \set{\frac{1}{q}, \frac{2}{q}, \dots, \frac{q - 1}{q}} \subset [0, 1)\). Ni težko videti, da je \(f \colon A \to A\) injektivna in ker je \(A\) končna, je tudi bijektivna. Torej je vsak ulomek z lihim imenovalcem periodična točka. Ker so takšni ulomki gosti v \([0, 1)\), ima \(f\) gosto podmnožico periodičnih točk.
 
-    Za dokaz topološke tranzitivnosti si pomagamo z zapisom števila v dvojiški bazi. Opazimo, da preslikava \(f\) ``odreže'' prvo decimalko števila. Definiramo število, ki vsebuje vsa končna zaporedja, urejena po dolžini:
+    Za dokaz topološke tranzitivnosti pokažemo, da ima \(f\) gosto orbito. Pomagamo si z zapisom števila v dvojiški bazi. Opazimo, da \(f\) ``odreže'' prvo decimalko števila. Naj bo \(\alpha \in [0, 1)\) tako, da vsebuje vsa končna zaporedja:
     \[\alpha \coloneq 0, \underbrace{0 1}_{\text{ena}} \underbrace{00011011}_{\text{dva}} \underbrace{000 001 010 100 011 101 110 111}_{\text{tri}} \dots_{(2)}\]
-    Naj bo \(x = 0, d_1 d_2 d_3 \dots_{(2)}\) in \(\varepsilon > 0\). Izberemo tak \(n \in \NN\), da je \(2^{- n} < \varepsilon\). Potem obstaja tak \(k \in \NN\), da se število \(f^k (\alpha)\) začne kot \(0, d_1 d_2 \dots d_n d_{n + 1}\), torej da se \(f^k (\alpha)\) in \(x\) začneta razlikovati kvečjemo po \(n + 2\)-ti decimalki. Potem velja
+    Naj bo \(x = 0, d_1 d_2 d_3 \dots_{(2)}\) in \(\varepsilon > 0\). Izberemo tak \(n \in \NN\), da je \(2^{- n} < \varepsilon\). Potem obstaja tak \(k \in \NN\), da se število \(f^k (\alpha)\) začne kot \(0, d_1 d_2 \dots d_n d_{n + 1}\), torej da se \(f^k (\alpha)\) in \(x\) začneta razlikovati kvečjemu po \((n + 2)\)-ti decimalki. Potem velja
     \[\abs{f^k (\alpha) - x} \leq \sum_{i = n + 2}^{\infty} \frac{2}{2^{i}} < 2^{- n} < \varepsilon.\]
 \end{zgled}
 
@@ -69,13 +82,13 @@ Devaney je v svoji prvotni definiciji zahteval tudi naslednjo lastnost.
 \noindent To pomeni, da majhna napaka \(\varepsilon\) v začetnih pogojih \(x\) privede do znatnih sprememb pri iteraciji dinamičnega sistema. Vendar pa se izkaže, da te lastnost pri definiciji kaotične preslikave v večini primerov ni potrebno zahtevati. Velja naslednji izrek.
 
 \begin{izrek}
-    Kaotična preslikava je občutljiva na začetne pogoje razen na prostoru, ki je sestavljen iz ene periodične orbite.
+    Naj bo \((M, d)\) metrični prostor in \(X \subseteq M\) neskončna. Naj bo \(f \colon X \to X\) kaotična preslikava. Potem je \(f\) občutljiva na začetne pogoje, razen v primeru, ko je \(X\) sestavljen iz ene periodične orbite.
 \end{izrek}
 
 \begin{dokaz}
-    Naj bo \(X\) prostor, ki ni zgolj periodična orbita, in \(f \colon X \to X\) kaotična. Ker so periodične točke goste, obstajata vsaj dve različni periodični orbiti. Ker sta disjunktni, obstajata periodični točki \(p, q\), da je \(\Delta \coloneq \min \set{d (f^n (p), f^m (q)) : n, m \in \NN} / 8 > 0\). Pokazali bomo, da je \(\Delta\) občutljivostna konstanta.
+    Predpostavimo, da \(X\) ni zgolj periodična orbita. Ker so periodične točke goste, obstajata vsaj dve različni periodični orbiti. Če bi imeli skupno točko, bi bili enaki. Torej sta disjunktni in zato obstajata periodični točki \(q, r\), da je \(\Delta \coloneq \min \set{d (f^n (q), f^m (r)) : n, m \in \NN} / 8 > 0\). Pokazali bomo, da je \(\Delta\) občutljivostna konstanta.
 
-    Če je \(x \in X\), potem je orbita ene od točk \(p, q\) vedno oddaljena od \(x\) za vsaj \(4 \Delta\). V nasprotnem primeru, ko bi bile obe v neki točki oddaljene od \(x\) za manj kot \(4 \Delta\), bi bila razdalja med orbitama manjša od \(8 \Delta\). Brez škode za splošnost je to orbita \(q\).
+    Če je \(x \in X\), potem je orbita ene od točk \(q, r\) vedno oddaljena od \(x\) za vsaj \(4 \Delta\). V nasprotnem primeru, ko bi bile obe v neki točki oddaljene od \(x\) za manj kot \(4 \Delta\), bi bila razdalja med orbitama manjša od \(8 \Delta\). Brez škode za splošnost je to orbita \(q\).
 
     Naj bo \(\varepsilon \in (0, \Delta)\). Ker so periodične točke goste, obstaja periodična točka \(p \in B (x, \varepsilon)\) s periodo \(n\). Naj bo \(V\) množica točk, ki so po \(n\) iteracijah oddaljene od \(q\) za kvečjemu \(\Delta\):
     \[V \coloneq \bigcap_{i = 0}^n f^{- i} (B (f^i (q), \Delta)).\]
@@ -85,9 +98,9 @@ Devaney je v svoji prvotni definiciji zahteval tudi naslednjo lastnost.
     \begin{align}
         d \prt{f^N (p), f^N (y)} &= d \prt{p, f^N (y)} \nonumber\\
         &\geq d \prt{x, f^{N - k} (q)} - d \prt{f^{N - k} (q), f^N (y)} - d (p, x) \label{eqn:ocena}\\
-        &\geq 4 \Delta - \Delta - \Delta = 2 \Delta, \nonumber
+        &\geq 4 \Delta - \Delta - \Delta = 2 \Delta. \nonumber
     \end{align}
-    kjer smo upoštevali \(p \in B (x, \varepsilon) \subset B (x, \Delta)\) in
+    Tu smo upoštevali \(p \in B (x, \varepsilon) \subset B (x, \Delta)\) in
     \[f^N (y) = f^{N - k} \prt{f^k (y)} \in f^{N - k} (V) \subset B \prt{f^{N - k} (q), \Delta},\]
     kar velja po definiciji \(V\). Vemo, da \(p, y \in B (x, \varepsilon)\) in zato po (\ref{eqn:ocena}) velja
     \[d (f^N (p), f^N (x)) \geq \Delta \qquad \text{ali} \qquad d (f^N (y), f^N (x)) \geq \Delta.\]
