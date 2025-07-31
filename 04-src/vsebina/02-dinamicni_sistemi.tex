@@ -19,6 +19,29 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
     Naj bo \(X\) množica in \(f \colon X \to X\) preslikava. \emph{Orbita} začetne točke \(x_0 \in X\) pod preslikavo \(f\) je zaporedje \(\{f^n (x_0)\}_{n \in \NN}\). Začetni točki pravimo \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x_0) = x_0\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\). Periodična točka je \emph{fiksna}, če je njena perioda \(\num{1}\).
 \end{definicija}
 
+\begin{definicija}
+    Naj bo \((X, d)\) metrični prostor, \(f \colon X \to X\) zvezna in \(x^*\) fiksna točka \(f\). Če obstaja tak \(r > 0\), da na odprti krogli \(B (x^*, r)\) orbita vsake začetne točke enakomerno konvergira proti \(x^*\), potem je \(x^*\) \emph{privlačna}. Če obstaja \(r > 0\), da za vsak \(x_0 \in B (x^*, r)\) in \(x_0 \neq x^*\), obstaja \(n \in \NN\), tako da \(f^n (x_0) \notin B (x^*, r)\).
+\end{definicija}
+
+\begin{izrek}
+    Naj bo \(f \colon \CC \to \CC\) cela funkcija in \(z^*\) njena fiksna točka. Potem je \(z^*\) privlačna natanko tedaj, ko je \(|f' (z^*)| < 1\).
+\end{izrek}
+
+\begin{dokaz}
+    Naj bo \(z^*\) privlačna. Ker za vsak \(z \in \Delta (z^*, r)\) zaporedje \(f^n (z)\) enakomerno konvergira proti \(z^*\), obstaja \(n_0 \in \NN\), tako da \(|f^n (z) - z^*| < r\) za vsak \(z \in \Delta (z^*, r)\) in \(n \geq n_0\). Opazujemo funkcijo \(\phi (z) = (z - z^*) / r\)
+\end{dokaz}
+
+\begin{definicija}
+    Naj bo \(U \subseteq \CC\) odprta in \(f \colon U \to \CC\) holomorfna. Naj bo \(w \in U\) fiksna točka preslikave \(f\). Število \(\lambda \coloneq f' (w)\) imenujemo \emph{večkratnost preslikave \(f\) v točki \(w\)}. Negibna točka \(w\) je
+    \begin{itemize}
+        \item \emph{superprivlačna}, če je \(\lambda = 0\);
+        \item \emph{privlačna}, če je \(|\lambda| < 1\);
+        \item \emph{odbojna}, če je \(|\lambda| > 1\);
+        \item \emph{racionalno nevtralna}, če je \(|\lambda| = 1\) in \(\lambda^n = 1\) za kak \(n \in \NN\);
+        \item \emph{iracionalno nevtralna}, če je \(|\lambda| = 1\) in \(\lambda^n \neq\) za vsak \(n \in \NN\).
+    \end{itemize}
+\end{definicija}
+
 \begin{definicija}[Topološka tranzitivnost]
     Naj bo \((X, \tau)\) topološki prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) \emph{topološko tranzitivna}, če za vsaki \(U, V \in \tau\), obstajata \(z \in U\) in \(n \in \NN \cup \set{0}\), da je \(f^n (z) \in V\).
 \end{definicija}
@@ -50,7 +73,7 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
     Naj bo \(\theta_1 = 1\). Potem je vsaka točka periodična s periodo \(\num{2}\), preslikava pa ni topološko  tranzitivna. Naj bo \(\theta_2 = p\), kjer je \(p \in \RR \setminus \QQ\). Potem je preslikava topološko tranzitivna, a niti ena točka ni periodična.
 \end{zgled}
 
-\begin{zgled}[Podvojitvena preslikava]
+\begin{zgled}[Podvojitvena preslikava] \label{ex:double}
     Naj bo \(f \colon [0, 1) \to [0, 1)\) preslikava, podana z
     \[
         f (x) =
@@ -71,8 +94,9 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
 
 \noindent Pojem kaosa je leta \num{1989} definiral ameriški matematik Robert L.~Devaney \cite{Devaney_1986}. Za kompleksno eksponentno preslikavo kot posledica sledi iz izreka  \ref{thm:orbits}. Ta izrek je prvi dokazal poljski matematik Micha\l\ Misiurewicz leta \num{1981} \cite{Misiurewicz_1981}. S tem je potrdil domnevo, ki jo je leta \num{1926} postavil francoski matematik Pierre J.~L.~Fatou \cite{Fatou_1926}.
 
-\subsection{Občutljivost na začetne pogoje}
+\vspace{1cm}
 
+\noindent \textbf{Občutljivost na začetne pogoje}.
 Devaney je v svoji prvotni definiciji zahteval tudi naslednjo lastnost.
 
 \begin{definicija}[Občutljivost na začetne pogoje]
@@ -114,8 +138,20 @@ Devaney je v svoji prvotni definiciji zahteval tudi naslednjo lastnost.
     Zaporedje razdalj med iteracijama \(x\) in \(y\) torej divergira.
 \end{primer}
 
-% \noindent Iz definicije je jasno, da je občutljivost na začetne pogoje odvisna od metrike. Zanimivo je vprašanje, ali obstajajo različno metrike, torej da preslikava lastnost ima v eni metriki, a ne v drugi. Iz tega vidika je zanimiva \emph{sferična metrika}. V izogib njeni definiciji bomo navedli le, kdaj je v njej preslikava občutljiva.
+\noindent Iz definicije je jasno, da je občutljivost na začetne pogoje odvisna od metrike. Zanimivo je vprašanje, ali obstajajo različno metrike, torej da preslikava lastnost ima v eni metriki, a ne v drugi. Iz tega vidika je zanimiva \emph{sferična metrika}.
 
-% \begin{definicija}
-%     Naj bo \(f \colon \CC \to \CC\) zvezna preslikava. Pravimo, da je \(f\) \emph{v sferični metriki občutljiva na začetne pogoje}, če obstajata \(\delta > 0\) in \(R > 0\) z naslednjo lastnostjo. Za vsako neprazno odprto množico \(U \subset \CC\) obstajata \(z, w \in U\) in \(n \geq 0\), tako da velja \(|f^n (z)| \leq R\) in \(|f^n (z) - f^n (w)| \geq \delta\).
-% \end{definicija}
+\begin{definicija}
+    Naj bosta \(z, w \in \CC \cup \{0\}\) točki na Riemannovi sferi. \emph{Sferična metrika} je preslikava
+    \begin{align*}
+        \chi (z, w) \coloneq \frac{|z - w|}{\sqrt{(1 + |z|^2) (1 + |w^2|)}},\\
+        \chi (z, \infty) = \frac{1}{\sqrt{1 + |z|^2}}, \quad \chi (\infty, \infty) = 0.
+    \end{align*}
+\end{definicija}
+
+\begin{definicija}
+    Naj bo \(f \colon \CC \to \CC\) zvezna preslikava. Pravimo, da je \(f\) \emph{v sferični metriki občutljiva na začetne pogoje}, če obstajata \(\delta > 0\) in \(R > 0\) z naslednjo lastnostjo. Za vsako neprazno odprto množico \(U \subset \CC\) obstajata \(z, w \in U\) in \(n \geq 0\), tako da velja \(|f^n (z)| \leq R\) in \(|f^n (z) - f^n (w)| \geq \delta\).
+\end{definicija}
+
+\begin{trditev}
+    Naj bo \(f \colon \CC \times \CC \to [0, \infty)\) zvezna preslikava, občutljiva na začetne pogoje v sferični metriki. Potem je \(f\) občutljiva na začetne pogoje glede na poljubno metriko \(d \colon \CC \times \CC \to [0, \infty)\), ki je topološko ekvivalentna evklidski (porodi evklidsko topologijo).
+\end{trditev}

@@ -1,4 +1,4 @@
-\section{Tranzitivnost in goste orbite} \label{sec:transitivity}
+\subsection{Tranzitivnost in goste orbite} \label{sec:transitivity}
 
 \begin{izrek}[Topološka tranzitivnost] \label{thm:transitivity}
     Če sta \(U, V \subseteq \CC\) odprti, potem obstaja tak \(n \geq 0\), da velja \(f^{n} (U) \cap V \neq \emptyset\).
@@ -20,7 +20,7 @@
 \end{dokaz}
 
 \begin{trditev}[Raztezanje malih diskov] \label{prop:small_disks}
-    Naj bo \(z_0 \in I (f)\) in \(z_n = f^{n} (z_0)\). Za diske \(D_n \coloneq D_{2 \pi} (z_n)\) in nek \(n_0 \in \NN\) obstaja zaporedje \(\left\{ \phi_n \right\}_{n = n_0}^{\infty}\) holomorfnih preslikav \(\phi_n \colon D_n \to \CC\) z naslednjimi lastnostmi:
+    Naj bo \(z_0 \in I (f)\) in \(z_n = f^{n} (z_0)\). Za diske \(D_n \coloneq \Delta (z_n, 2 \pi)\) in nek \(n_0 \in \NN\) obstaja zaporedje \(\left\{ \phi_n \right\}_{n = n_0}^{\infty}\) holomorfnih preslikav \(\phi_n \colon D_n \to \CC\) z naslednjimi lastnostmi:
     \begin{enumerate}
         \item \label{item:ena} \(\phi_n (z_n) = z_0\);
         \item \label{item:dva} za vsak \(z \in D_n\) velja \(f^n (\phi_n (z)) = z\);
@@ -93,7 +93,7 @@
 \noindent \textit{Opomba.} Iz posledice takoj dokažemo izrek, če za \(K\) izberemo točko iz \(V\).
 
 \begin{dokaz}
-    Ker so ubežne točke goste, obstaja \(z_0 \in I (f) \cap U\). Naj bo \(z_n \coloneq f^n (z_0)\) za \(n \geq 1\) in naj bodo \(D_n \coloneq D_{2 \pi} (z_n)\), \(n_0\) in \(\phi_n\) kot v trditvi \ref{prop:small_disks}. Naj bosta \(\rho\) in \(K\) kot v trditvi \ref{prop:lare_disks}. Ker je \(z_0\) ubežna točka, potem po točki \ref{item:stiri} trditve \ref{prop:small_disks} obstaja \(N_1 \geq n_0\), da je \(\re z_n \geq \rho\) in \(\phi_n (D_n) \subset U\) za vsak \(n \geq N_1\). Naj bo sedaj \(n \geq N_1\). Potem po trditvi \ref{prop:lare_disks} velja
+    Ker so ubežne točke goste, obstaja \(z_0 \in I (f) \cap U\). Naj bo \(z_n \coloneq f^n (z_0)\) za \(n \geq 1\) in naj bodo \(D_n \coloneq \Delta (z_n, 2 \pi)\), \(n_0\) in \(\phi_n\) kot v trditvi \ref{prop:small_disks}. Naj bosta \(\rho\) in \(K\) kot v trditvi \ref{prop:lare_disks}. Ker je \(z_0\) ubežna točka, potem po točki \ref{item:stiri} trditve \ref{prop:small_disks} obstaja \(N_1 \geq n_0\), da je \(\re z_n \geq \rho\) in \(\phi_n (D_n) \subset U\) za vsak \(n \geq N_1\). Naj bo sedaj \(n \geq N_1\). Potem po trditvi \ref{prop:lare_disks} velja
     \[f^{n + 2} \prt{U} \supset f^{n + 2} \prt{\phi_n \prt{D_n}} = f^2 \prt{f^n \prt{\phi_n \prt{D_n}}} = f^2 \prt{D_n} \supset K.\]
     Trditev drži če izberemo \(N \coloneq N_1 + 2\).
 \end{dokaz}
@@ -106,7 +106,7 @@
     Naj bo \(D \subset \CC\) odprta in neprazna množica. Po izreku \ref{thm:transitivity} je inverzna orbita
     \[\OOO^- (D) \coloneq \bigcup_{n \geq 0} f^{- n} (D)\]
     gosta podmnožica \(\CC\). Ker je \(\OOO^- (D)\) unija odprtih množic, je tudi sama odprta. Opazujemo števno množico odprtih diskov z racionalnim središčem in radijem
-    \[\DDD \coloneq \set{D_r (z) : \re z, \im z, r \in \QQ}.\]
+    \[\DDD \coloneq \set{\Delta (z, r) : \re z, \im z, r \in \QQ}.\]
     Opazimo, da je \(z_0 \in \TTT\) natanko tedaj, ko orbita \(z_0\) seka vsako množico \(\DDD\):
     \[\TTT = \bigcap_{D \in \DDD} \OOO^- (D).\]
     Torej je \(\TTT\) res neštevna in gosta, saj je števen presek odprtih in gostih podmnožic \(\CC\).
