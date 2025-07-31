@@ -1,0 +1,164 @@
+\section{Družina \texorpdfstring{\(\lambda e^z\)}{lambda exp (z)}}
+
+Dokazali smo, da je \(e^z\) kaotična na celi kompleksni ravnini. Za splošno kompleksno preslikavo pa to ne drži. V tem poglavju bomo preučili dinamiko \emph{eksponentne družine}
+\[E_\lambda (z) \coloneq \lambda e^z.\]
+Pokažemo, da za \(0 < \lambda < 1/e\), Juliajeva množica \(J (E_\lambda)\) \emph{Cantorjev šopek}. Razdelek je povzet po~\cite[razdelek 9]{Pineiro_2025}.
+
+\subsection{Periodične točke}
+
+Začnemo s preučevanjem realnih fiksnih točk za \(\lambda \in \RR\).
+
+\begin{trditev}
+    Naj bo \(\lambda \in \RR\). Potem o realnih fiksnih točkah eksponentne družine lahko povemo naslednje.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Če je \(\lambda = 1/e\), ima \(E_\lambda\) eno realno fiksno točko \(x^* = 1\).
+        \item Če je \(\lambda > 1/e\), potem \(E_\lambda\) nima realnih fiksnih točk.
+        \item Če je \(0 < \lambda < 1/e\), potem ima \(E_\lambda\) dve realni fiksni točki: \(x^* \in (0, 1)\) (privlačna) ter \(x^{**} > 1\) (odbojna).
+        \item Če je \(\lambda < 0\), potem ima \(E_\lambda\) eno realno fiksno točko \(x^*\):
+            \begin{itemize}
+                \item \(x^*\) je privlačna za \(-e < \lambda < 0\);
+                \item \(x^*\) je odbojna za \(\lambda < -e\);
+                \item \(x^*\) je nevtralna za \(\lambda = 1\).
+            \end{itemize}
+    \end{enumerate}
+\end{trditev}
+
+\begin{dokaz}
+    (1) Naj bo \(\lambda = 1/e\). Potem je \(E_\lambda (1) = e/e = 1\). Ker je \(E_\lambda' (x^*) = \lambda e^{x^*} = x^* = 1\), je to nevtralna fiksna točka. Ker je premica \(y = ex\) tangenta na \(y = e^x\) v točki \(x = 1\), drugih fiksnih točk ni.
+
+    (2) Naj bo \(\lambda > 1/e\). Pokažemo, da je \(f (x) = \lambda e^x - x > 0\) za vsak \(x \in \RR\), torej da \(\lambda e^z\) nima fiksnih točk. Za \(x < 0\) je očitno \(f (x) > 0\). Za \(x > 0\) preučimo odvod
+    \[f' (x) = \lambda \prt{e^x - \frac{1}{\lambda}}.\]
+    Tako je \(f' (x) \leq 0\) za \(0 \leq x \leq \ln (1 / \lambda)\) in \(f' (x) > 0\) za \(x > \ln (1 / \lambda)\). Ker je \(f\) zvezna je \(f (\ln(1/\lambda)) = 1 - \ln (1 / \lambda)\) globalni minimum. Torej za vsak \(x \in [0, \infty)\) velja \(f (x) \geq 1 - \ln (1 / \lambda) > 0\).
+
+    (3) Naj bo \(0 < \lambda < 1/e\). Kot pri točki (2) hitro vidimo, da je \(f\) na \((- \infty, 0)\) pozitivna in negativnih fiksnih točk ni. Na \([0, \infty)\) pa ima \(f\) dve ničli, saj je \(f (1) = \lambda e - 1 < 0\). Ker je za \(x \in (0, 1)\) odvod \(E_\lambda' (x) < 1\), je \(x^*\) privlačna in podobno je \(x^{**}\) odbojna.
+
+    (4) Naj bo \(\lambda < 0\). Potem je \(f' (x) = \lambda e^x - 1 < 0\) za vsak \(x \in \RR\), kar pomeni, da je \(f\) strogo padajoča. Ker je
+    \[\lim_{x \to - \infty} f (x) = + \infty \qquad \text{in} \qquad \lim_{x \to + \infty} f (x) = - \infty\]
+    ima \(f\) natanko eno ničlo, kar pomeni natanko eno fiksno točko \(x^*\) za \(E_\lambda\).
+    \begin{itemize}
+        \item \(-e < \lambda < 0\): v tem primeru \(f (0) = \lambda < 0\) in \(f (-1) = \lambda / e + 1 > 0\) in zato \(x^* \in (-1, 0)\). Ker je \(|E_\lambda' (z^*)| = |E_\lambda (z^*)| < 1\), je privlačna;
+        \item \(\lambda < -e\): v tem primeru \(f (-1) = \lambda / e + 1 < 0\) in zato \(z^* \in (- \infty, -1)\). Podobno kot prej je \(|E_\lambda' (z^*)| > 1\) in zato je \(z^*\) odbojna;
+        \item \(\lambda = - e\): v tem primeru je \(x^* = -1\) in \(|E_\lambda' (-1)| = 1\).
+    \end{itemize}
+\end{dokaz}
+
+\noindent Zgornja trditev nam pove, da je najbolj zanimiva dinamika v primeru \(0 < \lambda < 1/e\). Temu primeru se bomo v nadaljevanju posvetili. Z \(q_\lambda\) označimo privlačno ter z \(p_\lambda\) odbojno točko eksponentne družine.
+
+\begin{lema} \label{lem:enadva}
+    Za vsak \(\lambda \in (0, 1/e)\) velja:
+    \begin{enumerate}[label=(\arabic*)]
+        \item \(q_\lambda < \ln (1 / \lambda) < p_\lambda\);
+        \item če je \(l_\lambda \in (\ln (1 / \lambda), p_\lambda)\) realno število, potem je \(E_\lambda (l_\lambda) < l_\lambda\).
+    \end{enumerate}
+\end{lema}
+
+\begin{dokaz}
+    (1) Ker sta \(q_\lambda\) in \(p_\lambda\) fiksni, velja
+    \begin{gather*}
+        q_\lambda = E_\lambda (q_\lambda) < 1 = E_\lambda (\ln (1 / \lambda)) < E_\lambda (p_\lambda) = p_\lambda\\
+        \iff\\
+        \lambda e^{q_\lambda} < \lambda e^{\ln (1 / \lambda)} < \lambda e^{p_\lambda}
+    \end{gather*}
+    (2) Za \(x \geq 1\) opazujemo funkcijo \(g (x) = e^x / x\). Ker je za \(x > 1\) odvod \(g' (x) > 0\), je \(g\) strogo naraščajoča na \([1, \infty)\). Ker je \(g (1) = e\), \(g (p_\lambda) = 1 / \lambda\) in \(1 < \ln (1 / \lambda) < p_\lambda\), imamo za \(l_\lambda \in (\ln (1 / \lambda), p_\lambda)\) neenakost \(g (l_\lambda) < g (p_\lambda) = 1 / \lambda\).
+\end{dokaz}
+
+\begin{trditev} \label{prop:trinajst}
+    Naj bo \(\lambda \in (0, 1/e)\) in \(l_\lambda \in (\ln (1 / \lambda), p_\lambda)\).
+    \begin{enumerate}[label=(\arabic*)]
+        \item Funkcija \(E_\lambda\) preslika polravnino \(\re z < l_\lambda\) samo vase.
+        \item Polravnina \(\re z < p_\lambda\) je vsebovana v območju privlaka fiksne točke \(q_\lambda\).
+        \item Obstaja \(\mu > 1\), tako da \(|E_\lambda' (z)| \geq \mu\) na celi polravnini \(\re z \geq l_\lambda\).
+        \item Na polravnini \(\re z \geq \ln (1 / \lambda)\) je \(|E_\lambda' (z)| > 1\).
+        \item Naj bo \(\nu = \ln (1 / \lambda) > 1\) in \(H\) polravnina \(\re z < \nu\). Potem je \(H\) vsebovana v neposrednem območju privlaka točke \(q_\lambda\).
+        \item Premica \(\im z = (2n + 1) \pi\) je za vsak \(n \in \ZZ\) vsebovana v
+        \[E_\lambda^{-1} \prt{\Omega_0 \prt{E_\lambda, q_\lambda}} \cap \Omega_0 \prt{E_\lambda, q_\lambda}.\]
+    \end{enumerate}
+\end{trditev}
+
+\begin{dokaz}
+    (1) Naj bo \(z\) vsebovan v polravnini \(\re z < l_\lambda\). Po drugi točki leme \ref{lem:enadva} velja
+    \[\re \prt{E_\lambda (z)} = \lambda e^{\re z} \cos \prt{\im z} < \lambda e^{l_\lambda} = E_\lambda (l_\lambda) < l_\lambda.\]
+
+    (2) Naj bo \(z\) vsebovan v polravnini \(\re z < p_\lambda\) in \(l_\lambda \in (\ln (1 / \lambda), p_\lambda) \cap (\re z, p_\lambda)\). Po \todo{Dodaj trditev} trditvi, uporabljeni na polravnini \(\re \zeta < l_\lambda\), vemo, da vsaka z začetno točko v polravnini \(\re \zeta < l_\lambda\) konvergira k \(q_\lambda\).
+
+    (3) Za \(\re z \geq l_\lambda\) velja
+    \[|E_\lambda' (z)| = \lambda e^{\re z} \geq \lambda e^{l_\lambda} = \mu > \lambda e^{\ln (1 / \lambda)} = 1.\]
+
+    (4) Slepamo podobno kot v točki (2).
+
+    (5) Opazimo, da \(E_\lambda\) preslika polravnino \(H\) v \(\DD \setminus \{0\}\) in zato \(E_\lambda (H) \subset H\). Po \todo{Dodaj trditev} trditvi je \(H\) vsebovan v neposrednem območju privlaka točke \(q_\lambda\).
+
+    (6) Če je \(z = x + (2n + 1) \pi i\), potem je \(E_\lambda (z) = - \lambda e^x \in H \subset \Omega_0 (E_\lambda, q_\lambda)\). Po drugi strani je ombočje privlaka popolnoma invariantno in zato \(z \in \Omega (E_\lambda, q_\lambda)\). Ker je množica \(H \cup \set{z : \im z = (2n + 1) \pi}\) povezana, je \(\set{z : \im z = (2n + 1) \pi}\) vsebovana v \(\Omega_0 (E_\lambda, q_\lambda)\).
+\end{dokaz}
+
+\begin{posledica}
+    Za \(\lambda \in (0, 1/e)\), je Juliajeva množica preslikave \(E_\lambda\) vsebovana v polravnini \(\re z \geq p_\lambda\).
+\end{posledica}
+
+\begin{posledica}
+    Za \(\lambda \in (0, 1/e)\) preslikava \(E_\lambda\) nima nevtralnih fiksnih točk, \(q_\lambda\) pa je edina privlačna fiksna točka.
+\end{posledica}
+
+\begin{dokaz}
+    Če za \(z_0\) velja \(|(E_\lambda)' (z_0)| \leq 1\), potem je \(\re z_0 \leq \ln (1 / \lambda)\). Torej je \(z_0\) vsebovana v polravnini \(\re z < p_\lambda\). Trditev \ref{prop:trinajst} nam pove, da je vsebovana v območju privlaka točke \(q_\lambda\).
+\end{dokaz}
+
+\begin{posledica}
+    Za \(\lambda \in (0, 1/e)\) je vsaka periodična točka \(E_\lambda\), ki ni fiksna, odbojna.
+\end{posledica}
+
+\begin{dokaz}
+    Naj bo \(z_0\) periodična točka \(E_\lambda\) s periodo \(p\) in \(z_0, z_1, \dots, z_{p - 1}\) njena orbita. Vsaka točka \(z_j\) ima periodično orbito, ki zato ni konvergentna. Torej nobena ni vsebovana v polravnini \(\re \zeta < p_\lambda\). Zato \(\re z_j \geq p_\lambda > \ln (1 / \lambda)\). Po tretju točki trditve \ref{prop:trinajst} vemo, da je \(|E_\lambda' (z_j)| > 1\) za \(j = 0, 1, \dots, p - 1\). Po verižnem pravilu izračunamo
+    \[\prt{E_\lambda^p}' (z_0) = \prod_{j = 0}^{p - 1} E_\lambda' (z_j),\]
+    iz česar vidimo \(|(E_\lambda^p)' (z_0)| > 1\).
+\end{dokaz}
+
+Brez dokaza navedemo dva zanimiva rezultata.
+
+\begin{trditev}
+    Za \(\lambda \in (0, 1/e)\) je območje privlaka točke \(q_\lambda\) gosta podmnožica \(\CC\).
+\end{trditev}
+
+\begin{izrek}
+    Za \(\lambda \in (0, 1/e)\) je neposredno območje območje privlaka točke \(q_\lambda\) enako Fatoujevi množici \(F (E_\lambda)\), torej \(\Omega_0 (E_\lambda, q_\lambda) = F (E_\lambda)\).
+\end{izrek}
+
+\subsection{Simbolična dinamika}
+
+Simbolična dinamika je orodje, ki nam pomaga pri preučevanju dinamičnih sistemov. V tem poglavju jo bomo uporabili za opis Juliajeve množice \(J (E_\lambda)\). Z njo smo se srečali že v zgledu \ref{ex:double}, kjer je bila ključna za dokaz topološke tranzitivnosti.
+
+Naj bo \(N \geq 2\) naravno število. Z \(\Sigma_N\) označimo množico neskončnih zaporedij \(\overline{s} = (s_0, s_1, s_2, \dots)\), definirano kot
+\[\Sigma_N \coloneq \set{\overline{s} = (s_0, s_1, s_2, \dots) : - N \leq s_i \leq N, s_i \in \ZZ}.\]
+Na \(\Sigma_N\) definiramo metriko
+\[d (\overline{s}, \overline{s}^*) = \sum_{i = 0}^{\infty} \frac{|s_i - s_i^*|}{N^i}.\]
+Z naslednjo lemo pokažemo, da za vsak \(\overline{s} \in \Sigma_n\) množice
+\[V(\overline{s}, k) = \set{\overline{t} = (t_i) \in \Sigma_N : t_i = s_i, i = 0, 1, \dots, k}\]
+za \(k \geq 0\) tvorijo bazo okolic \(\overline{s}\) za topologijo porojeno z zgornjo metriko.
+
+\begin{lema} \label{lem:seq-metric} \mbox{}
+    \begin{enumerate}[label=(\arabic*)]
+        \item Za vse \(\overline{s}, \overline{t} \in \Sigma_N\), če je \(s_i = t_i\) za \(i \leq k\), potem \[d (\overline{s}, \overline{t}) \leq \frac{2}{N^{k - 1} (N - 1)}.\]
+        \item Če je \(d (\overline{s}, \overline{t}) < 1 / N^k\), potem je \(s_i = t_i\) za \(i \leq k\).
+    \end{enumerate}
+\end{lema}
+
+\begin{dokaz}
+    (1) Naj bosta \(\overline{s}, \overline{t} \in \Sigma_N\) taka, da je \(s_i = t_i\) za \(i \leq k\). Potem je
+    \[d (\overline{s}, \overline{t}) = \sum_{i \geq k + 1} \frac{|s_i - t_i|}{N^i} \leq 2 N \sum_{i \geq k + 1} \frac{1}{N^i} = \frac{2}{N^{k - 1} (N - 1)}.\]
+    (2) Če je \(s_i \neq t_i\) za nek \(i \leq k\), potem je
+    \[d (\overline{s}, \overline{t}) \geq \frac{|s_i - t_i|}{N^i} > \frac{1}{N^i} \geq \frac{1}{N^k}.\]
+\end{dokaz}
+
+\noindent Posledično je topologija, porojena z zgornjo metriko ekvivalentna produktni topologiji na \(\Sigma_N\).
+
+\begin{definicija}
+    Naj bo \((X, d)\) metrični prostor. Če je \(X\) kompaktna, brez izoliranih točk in popolnoma nepovezana, jo imenujemo \emph{Cantorjeva množica}.
+\end{definicija}
+
+\begin{trditev}
+    Množica \(\Sigma_N\) je Cantorjeva.
+\end{trditev}
+
+\begin{dokaz}
+    
+\end{dokaz}
