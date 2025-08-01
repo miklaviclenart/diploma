@@ -7,29 +7,33 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
     \item \emph{zvezne}, ki so sistemi diferencialnih enačb: \(\dot{\mathbf{x}} = F (\mathbf{x})\) za \(\mathbf{x} \in X \subseteq \RR^n\).
 \end{enumerate}
 
-\noindent V zgornjih primerih sta indeksni ali \emph{časovni} množici \(\NN\) in \(\RR\). Splošneje je to lahko poljuben monoid (glej \cite{Giunti_2012}).
+\noindent V zgornjih primerih sta indeksni ali \emph{časovni} množici \(\NN\) in \(\RR\). Splošneje je to lahko poljuben monoid (glej \cite{Giunti_2012}). V izogib pretirani splošnosti se bomo v diplomski nalogi omejili na diskretne dinamične sisteme na metričnih prostorih.
 
 \begin{zgled}
     Kompleksna števila \(\CC\) skupaj s kompleksno eksponentno preslikavo \(f \colon \CC \to \CC\); \(z \mapsto e^{z}\) so diskretni dinamični sistem.
 \end{zgled}
 
-\noindent Za \(n \in \NN \cup \{0\}\) označimo \(f^n \coloneq f \circ f^{n - 1}\), kjer je \(f^0 = \Id\) identiteta.
+\noindent Naj bo \((X, d)\) metrični prostor in \(f \colon X \to X\). Za \(n \in \NN \cup \{0\}\) označimo \(f^n \coloneq f \circ f^{n - 1}\), kjer je \(f^0 = \Id\) identiteta. Zaporedju \(\{f^n\}_{n=1}^{\infty}\) pravimo zaporedje iteracij. Za določen \(x_0 \in X\) zaporedje \(\{f^n (x_0)\}_{n \in \NN}\) imenujemo \emph{orbita} začetne točke \(x_0\). Začetne točke ločimo po obnašanju njihovih orbit.
+
+\subsection{Periodične točke}
+
+Začetni točki je \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x_0) = x_0\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\), točka pa je \emph{\(n\)-periodična}. Periodična točka je \emph{fiksna}, če je njena perioda \(\num{1}\).
 
 \begin{definicija}
-    Naj bo \(X\) množica in \(f \colon X \to X\) preslikava. \emph{Orbita} začetne točke \(x_0 \in X\) pod preslikavo \(f\) je zaporedje \(\{f^n (x_0)\}_{n \in \NN}\). Začetni točki pravimo \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x_0) = x_0\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\). Periodična točka je \emph{fiksna}, če je njena perioda \(\num{1}\).
+    Naj bo \((X, d)\) metrični prostor, \(f \colon X \to X\) zvezna in \(x^*\) fiksna točka \(f\). Če obstaja tak \(r > 0\), da na odprti krogli \(B (x^*, r)\) orbita vsake začetne točke enakomerno konvergira proti \(x^*\), potem je \(x^*\) \emph{privlačna}. Točka \(x^*\) je \emph{odbojna}, če obstaja \(r > 0\), da za vsak \(x_0 \in B (x^*, r)\) in \(x_0 \neq x^*\), obstaja \(n \in \NN\), za katerega je \(f^n (x_0) \notin B (x^*, r)\).
 \end{definicija}
 
-\begin{definicija}
-    Naj bo \((X, d)\) metrični prostor, \(f \colon X \to X\) zvezna in \(x^*\) fiksna točka \(f\). Če obstaja tak \(r > 0\), da na odprti krogli \(B (x^*, r)\) orbita vsake začetne točke enakomerno konvergira proti \(x^*\), potem je \(x^*\) \emph{privlačna}. Če obstaja \(r > 0\), da za vsak \(x_0 \in B (x^*, r)\) in \(x_0 \neq x^*\), obstaja \(n \in \NN\), tako da \(f^n (x_0) \notin B (x^*, r)\).
-\end{definicija}
+\noindent V kompleksni ravnini se definicija poenostavi. Brez dokaza navedemo naslednji izrek.
 
 \begin{izrek}
-    Naj bo \(f \colon \CC \to \CC\) cela funkcija in \(z^*\) njena fiksna točka. Potem je \(z^*\) privlačna natanko tedaj, ko je \(|f' (z^*)| < 1\).
+    Naj bo \(f \colon \CC \to \CC\) cela funkcija in \(z^*\) njena fiksna točka. Potem je \(z^*\) privlačna natanko tedaj, ko je \(|f' (z^*)| < 1\). Dodatno je \(z^*\) odbojna natanko tedaj, ko je \(|f' (z^*)| > 1\).
 \end{izrek}
 
-\begin{dokaz}
-    Naj bo \(z^*\) privlačna. Ker za vsak \(z \in \Delta (z^*, r)\) zaporedje \(f^n (z)\) enakomerno konvergira proti \(z^*\), obstaja \(n_0 \in \NN\), tako da \(|f^n (z) - z^*| < r\) za vsak \(z \in \Delta (z^*, r)\) in \(n \geq n_0\). Opazujemo funkcijo \(\phi (z) = (z - z^*) / r\)
-\end{dokaz}
+% \begin{dokaz}
+%     Naj bo \(z^*\) privlačna. Ker za vsak \(z \in \Delta (z^*, r)\) zaporedje \(f^n (z)\) enakomerno konvergira proti \(z^*\), obstaja \(n_0 \in \NN\), tako da \(|f^n (z) - z^*| < r\) za vsak \(z \in \Delta (z^*, r)\) in \(n \geq n_0\). Opazujemo funkcijo \(\phi (z) = (z - z^*) / r\)
+% \end{dokaz}
+
+\noindent Definicijo tako lahko razširimo.
 
 \begin{definicija}
     Naj bo \(U \subseteq \CC\) odprta in \(f \colon U \to \CC\) holomorfna. Naj bo \(w \in U\) fiksna točka preslikave \(f\). Število \(\lambda \coloneq f' (w)\) imenujemo \emph{večkratnost preslikave \(f\) v točki \(w\)}. Negibna točka \(w\) je
@@ -41,6 +45,38 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
         \item \emph{iracionalno nevtralna}, če je \(|\lambda| = 1\) in \(\lambda^n \neq\) za vsak \(n \in \NN\).
     \end{itemize}
 \end{definicija}
+
+\begin{definicija}
+    Naj bo \(z^*\) fiksna točka preslikave \(f\). Množico
+    \[\Omega (f, z^*) \coloneq \set{z_0 \in \CC : \lim_{n \to \infty} f^n (z_0) = z^*}\]
+    imenujemo \emph{območje privlaka \(z^*\)}.
+\end{definicija}
+
+\begin{izrek}
+    Naj bo \(f\) cela funkcija in \(z^*\) njena privlačna fiksna točka. Potem je \(\Omega (f, z^*)\) odprta in popolnoma invariantna.
+\end{izrek}
+
+\begin{dokaz}
+    (1) Naj bo \(a \in \Omega (f, z^*)\) in \(r > 0\), da je \(\overline{\Delta (z^*, 2r)} \subset \Omega (f, z^*)\). Ker \(f^n (a)\) konvergira k \(z^*\), obstaja \(k \in \NN\), da je \(|f^k (a) - z^*| < r\). Ker je \(f\) zvezna, obstaja \(\delta > 0\), da je \(|f^k (a) - f^k (z)| < r\) za vsak \(z \in \Delta (a, \delta)\). Potem je
+    \[|f^k (z) - z^*| \leq |f^k (z) - f^k (a)| + |f^k (a) - z^*| \leq 2r\]
+    za \(|z - a| < \delta\). Torej je \(f^k (z)\) vsebovana v \(\overline{\Delta (z^*, 2r)}\). Zaradi tega je \(\lim_{n \to \infty} f^{k + n} (z) = z^*\) za vsak \(z \in \Delta (a, \delta)\). Torej je \(\Delta (a, \delta) \subset \Omega (f, z^*)\).
+
+    (2) Naj bo \(z_0 \in \Omega (d, z^*)\). Potem
+    \[\lim_{n \to \infty} f^n \prt{f (z_0)} = \lim_{n \to \infty} f^{n + 1} (z_0) = z^*\]
+    in \(f (z_0) \in \Omega(f, z^*)\). Enako sklepamo da \(f (z_0) \in \Omega (f, z^*)\) implicira \(z_0 \in \Omega (f, z^*)\).
+\end{dokaz}
+
+\noindent Komponenta za povezanost \(\Omega (f, z^*)\), ki vsebuje \(z^*\), se imenuje \emph{neposredno območje privlaka} \(z^*\). Označimo ga z \(\Omega_0 (f, z^*)\).
+
+\begin{trditev} \label{prop:privlak}
+    Naj bo \(f\) cela funkcija in \(\Omega \subsetneq \CC\) preprosto povezano območje, ki je invariantno na \(f\). Če je \(z^{*} \in \Omega\) privlačna fiksna točka \(f\), potem je \(\Omega\) vsebovana v neposrednem območju privlaka \(z^*\).
+\end{trditev}
+
+Posvetimo nekaj časa še nefiksnim periodičnim točkam. Če je \(z_0\) \(p\)-periodična, potem so vse točke \(z_0, f (z_0), f^2 (z_0), \dots, f^{p - 1} (z_0)\) fiksne točke preslikave \(f^p\). Pišemo \(z_j = f^j (z_0)\) in uporabimo verižno pravilo:
+\[(f^p)' (z_j) = f' \prt{f^{p - 1} (z_j)} f' \prt{f^{p - 2} (z_j)} \dots f' \prt{f (z_j)} f' (z_j) = \prod_{k = 0}^{p - 1} f' (z_k).\]
+To pomeni, da imajo vse \(z_j\) isto večkratnost \(K\). Če je \(K < 1\), potem rečemo, da je \(p\)-cikel privlačen. Če pa je \(K > 1\), rečemo, da je \(p\)-cikel odbojen.
+
+\subsection{Kaos}
 
 \begin{definicija}[Topološka tranzitivnost]
     Naj bo \((X, \tau)\) topološki prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) \emph{topološko tranzitivna}, če za vsaki \(U, V \in \tau\), obstajata \(z \in U\) in \(n \in \NN \cup \set{0}\), da je \(f^n (z) \in V\).

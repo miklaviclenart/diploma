@@ -1,39 +1,23 @@
-\section{Hiperbolična geometrija} \label{sec:hipgeom}
+\section{Pregled kompleksne analize} \label{sec:hipgeom}
 
-Hiperbolična geometrija se od evklidske razlikuje v tem, da aksiom
-
-\begin{aksiom}
-    Za poljubno premico \(p\) in točko \(A\), ki ne leži na premici \(p\), obstaja natanko ena premica \(q\), ki vsebuje \(A\) in ne seka premice \(p\).
-\end{aksiom}
-
-\noindent nadomestimo z
-
-\begin{aksiom}
-    Obstajata premica \(p\) in točka \(A\), ki ne leži na premici \(p\), tako, da obstajata vsaj dve premici \(q\) in \(r\), ki vsebujeta \(A\) in ne sekata premice \(p\).
-\end{aksiom}
-
-\noindent Nov aksiom prinaša veliko posledic, med drugim tudi drugo metriko; \emph{hiperbolično metriko}, katere lastnosti bomo uporabili pri dokazu. Metriko najprej definiramo na enotskem disku \(\DD \coloneq \set{z \in \CC : |z| < 1}\) in jo nato razširimo na bolj splošne množice. Za začetek ponovimo nekaj osnovnih pojmov iz kompleksne analize.
+\subsection{Oznake in osnovne definicije}
 
 Uporabljamo standardne oznake. Kompleksno število \(z \in \CC\) lahko zapišemo kot vsoto \(z = x + i y\) ali v polarnem zapisu \(z = r e^{i \theta} = r (\cos \theta + i \sin \theta)\). Kot, ki ga oklepata abscisa in premica skozi \(0\) in \(z\), označimo z \(\Arg (z) \in (- \pi, \pi]\) ali \(\arg (z) \in [0, 2 \pi)\). Z \(\Delta (a, r)\) označimo odprt disk s središčem v \(a\) in radijem \(e\). Torej je \(\DD \coloneq \Delta (0, 1)\). Riemannovo sfero označimo z \(\hat{\CC} \coloneq \CC \cup \{\infty\}\).
 
-% \begin{definicija}
-%     Naj bo \(D\) odprta množica v \(\CC\) in \(f \colon D \to \CC\) funkcija. Če obstaja
-%     \[f' (a) \coloneq \lim_{z \to a} \frac{f (z) - f (a)}{z - a},\]
-%     tedaj število \(f' (a)\) imenujemo odvod funkcije \(f\) v točki \(a\). Če \(f' (a)\) obstaja za vsak \(a \in D\), potem pravimo, da je \(f\) \emph{holomorfna} funkcija na \(D\).
-% \end{definicija}
+Za splošne metrične prostore \((X, d)\) z \(B (x_0, r)\) označimo odprto kroglo z radijem \(r > 0\) in središčem v \(x_0 \in X\). Notranjost množice \(A \subseteq X\) označimo z \(\Int (A)\), njeno zaprtje z \(\overline{A}\) in njeno mejo z \(\partial A\). \emph{Premer} ali \emph{diameter} množice \(A\) je
+\[\diam (A) \coloneq \sup \{d (x, y) : x, y \in A\}.\]
 
-\begin{definicija}
-    Neprazni odprti in povezani podmnožici kompleksnih števil pravimo \emph{območje}.
-\end{definicija}
+Večinoma se bomo ukvarjali s funkcijami \(f \colon \CC \to \CC\). Če je \(f\) holomorfna na \(\CC\), pravimo, da je \emph{cela funkcija}. Vemo, da je to v \(\CC\) ekvivalentno pogoju, da je \(f\) analitična pri vsakem \(z \in \CC\). Cela funkcija je \emph{transcendentna}, če ni polinom ali kvocient dveh polinomov. Funkcija je \emph{konformna} ali \emph{univalentna}, če je analitična in injektivna.
 
-\noindent Intuitivno si \emph{enostavno povezano} območje predstavljamo kot tisto območje, ki nima ``lukenj''. Natančno pa ga definiramo definiramo z naslednjim izrekom.
+Neprazni odprti in povezani podmnožici kompleksnih števil pravimo \emph{območje}. \emph{Enostavno povezano} območje si intuitivno predstavljamo kot tisto območje, ki nima ``lukenj''. Natančno pa ga definiramo definiramo z naslednjim izrekom.
 
 \begin{definicija}[Riemannov upodobitveni izrek]
     Območje \(D \subsetneq \CC\) je \emph{enostavno povezano} natanko tedaj, ko obstaja konformni izomorfizem (bijektivna holomorfna funkcija) \(\phi \colon D \to \DD\).
 \end{definicija}
 
-\vspace{0.5cm}
-\noindent Pri dokazu izreka \ref{thm:orbits} si bomo pomagali tudi z inverzom eksponentne preslikave. Ker pa je \(e^{z + 2 \pi i} = e^x (\cos (y + 2 \pi) + i \sin (y + 2 \pi)) = e^z\), je eksponentna preslikava periodična (glej sliko \ref{fig:exponential}) in posledično nima inverza.
+\subsection{Kompleksni logaritem}
+
+\noindent Kompleksna eksponentna preslikava je bolj zapletena od realne. Ker je \(e^{z + 2 \pi i} = e^x (\cos (y + 2 \pi) + i \sin (y + 2 \pi)) = e^z\), je eksponentna preslikava periodična (glej sliko \ref{fig:exponential}) in posledično nima inverza.
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{needham_figure.pdf}
@@ -56,7 +40,25 @@ bijektivna na \(U\) in ima tam holomorfen inverz \(L \colon U \to \CC\):
 \[L (\omega) \coloneq \log |\omega| + i \cdot \prt{\theta + \Arg \frac{\omega}{e^{i \theta}}}.\]
 Vsaki taki funkciji \(L\) rečemo \emph{veja logaritma}. Če vzamemo \(\theta = 0\) dobimo \emph{glavno} vejo logaritma. Veje logaritma obstajajo tudi na vsakem preprosto povezanem območju, vendar bodo za nas pomembne le zarezane ravnine \(\CC \setminus [0, \infty)\) in diski, ki ne vsebuje izhodišča. Na primer, imejmo disk \(\Delta \subset \CC\), tako da \(0 \notin \Delta\). Naj bo \(\zeta_0 \in \CC\), da je \(e^{\zeta_0} \in \Delta\). Če vzamemo \(\theta = \im \zeta_0\), dobimo holomorfno preslikavo \(L \colon \Delta \to \CC\), za katero velja \(L (e^{\zeta_0}) = \zeta_0\) ter \(e^{L (\omega)} = \omega\) in \(\im \zeta_0 - \pi < \im L (\omega) < \im \zeta_0 + \pi\) za vsak \(\omega \in \Delta\).
 
-\subsection{Hiperbolična metrika na enotskem disku}
+\subsection{Normalne družine}
+
+\subsection{Hiperbolična geometrija}
+
+Hiperbolična geometrija se od evklidske razlikuje v tem, da aksiom
+
+\begin{aksiom}
+    Za poljubno premico \(p\) in točko \(A\), ki ne leži na premici \(p\), obstaja natanko ena premica \(q\), ki vsebuje \(A\) in ne seka premice \(p\).
+\end{aksiom}
+
+\noindent nadomestimo z
+
+\begin{aksiom}
+    Obstajata premica \(p\) in točka \(A\), ki ne leži na premici \(p\), tako, da obstajata vsaj dve premici \(q\) in \(r\), ki vsebujeta \(A\) in ne sekata premice \(p\).
+\end{aksiom}
+
+\noindent Nov aksiom prinaša veliko posledic, med drugim tudi drugo metriko; \emph{hiperbolično metriko}, katere lastnosti bomo uporabili pri dokazu. Metriko najprej definiramo na enotskem disku \(\DD \coloneq \set{z \in \CC : |z| < 1}\) in jo nato razširimo na bolj splošne množice. Za začetek ponovimo nekaj osnovnih pojmov iz kompleksne analize.
+
+\subsubsection{Hiperbolična metrika na enotskem disku}
 
 Hiperbolično metriko podamo prek \emph{hiperboličnega ločnega elementa}:
 \[\dd \rho_{\DD} (z) = \frac{2 |\dd z|}{1 - |z|^2},\]
@@ -77,7 +79,7 @@ Iz tega izhaja naslednja definicija.
     kjer \(\gamma\) teče po vseh odsekoma \(C^1\) krivuljah v \(\DD\), ki povezujejo točki \(z\) in \(w\).
 \end{definicija}
 
-\subsection{Hiperbolična metrika na enostavno povezanih območjih}
+\subsubsection{Hiperbolična metrika na enostavno povezanih območjih}
 
 Definicijo nam iz enotskega diska na enostavno povezana območja prenese naslednji izrek.
 
