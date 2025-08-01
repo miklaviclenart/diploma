@@ -118,7 +118,7 @@ Brez dokaza navedemo dva zanimiva rezultata.
 \end{trditev}
 
 \begin{izrek}
-    Za \(\lambda \in (0, 1/e)\) je neposredno območje območje privlaka točke \(q_\lambda\) enako Fatoujevi množici \(F (E_\lambda)\), torej \(\Omega_0 (E_\lambda, q_\lambda) = F (E_\lambda)\).
+    Za \(\lambda \in (0, 1/e)\) je neposredno območje privlaka točke \(q_\lambda\) enako Fatoujevi množici \(F (E_\lambda)\), torej \(\Omega_0 (E_\lambda, q_\lambda) = F (E_\lambda)\).
 \end{izrek}
 
 \subsection{Simbolična dinamika}
@@ -143,7 +143,7 @@ Na \(\Sigma_N\) definiramo metriko
 
 Z naslednjo lemo pokažemo, da za vsak \(\overline{s} \in \Sigma_n\) množice
 \[V(\overline{s}, k) = \set{\overline{t} = (t_i) \in \Sigma_N : t_i = s_i, i = 0, 1, \dots, k}\]
-za \(k \geq 0\) tvorijo bazo okolic \(\overline{s}\) za topologijo porojeno z zgornjo metriko.
+za \(k \geq 0\) tvorijo bazo okolic \(\overline{s}\) za topologijo, porojeno z zgornjo metriko.
 
 \begin{lema} \label{lem:seq-metric}
     Naj bosta \(\overline{s}, \overline{t} \in \Sigma_N\). Potem veljata naslednji trditvi.
@@ -201,7 +201,7 @@ Tu je \(r_\lambda\) tak, da velja \(\lambda e^{r_\lambda} > r_\lambda + (2N + 1)
     \caption{Ilustracija konstrukcije. Sivi pravokotnik je \(B (N)\).}
     \label{fig:konstrukcija}
 \end{figure}
-Funkcija \(E_\lambda\) preslika desno stranico \(B (N)\) v krog s središčem v izhodišču in polmerom \(\lambda e^{r_\lambda}\). Podobno se leva stranica preslika v krog z radijem \(\lambda e^{l_\lambda}\). Opazujemo kolobar \(A = \{z : \lambda e^{l_\lambda} \leq |z| \leq \lambda e^{r_\lambda}\}\). Pokazali bomo, da ima \(A\) naslednji dve lastnosti.
+Funkcija \(E_\lambda\) preslika desno stranico \(B (N)\) v krožnico s središčem v izhodišču in polmerom \(\lambda e^{r_\lambda}\). Podobno se leva stranica preslika v krožnico z radijem \(\lambda e^{l_\lambda}\). Opazujemo kolobar \(A = \{z : \lambda e^{l_\lambda} \leq |z| \leq \lambda e^{r_\lambda}\}\). Pokazali bomo, da ima \(A\) naslednji dve lastnosti.
 
 \vspace{5mm}
 \noindent \textbf{Lastnost 1}. Velja \(B (N) \subset \Int (A)\). Res, če je \(z = x + i y \in B (N)\), dobimo
@@ -281,8 +281,8 @@ vsebuje natanko eno točko, ki jo označimo z \(z_{\overline{s}}\). Uporabimo tr
     Po definiciji preslikave \(\phi\) velja
     \[\phi (\overline{s}^o), \phi (\overline{s}) \in L_s^{[k + 1]} \prt{N (N)}.\]
     Za vsaka \(z_1, z_2 \in B (N)\) velja
-    \[\left| L_s^{[k + 1]} (z_1) - L_s^{[k + 1]} (z_2) \right| \leq |z_1 - z_2| \sup_{z \in B (N)} \sup_{z \in B (N)} \left| (L_s^{[k + 1]})' (z) \right|.\]
-    Od tu sklepamo
+    \[\left| L_s^{[k + 1]} (z_1) - L_s^{[k + 1]} (z_2) \right| \leq |z_1 - z_2| \sup_{z \in B (N)} \left| (L_s^{[k + 1]})' (z) \right|.\]
+    Od tod sklepamo
     \[\left| \phi (\overline{s}) - \phi (\overline{s}^o) \right| \leq \diam \prt{B (N)} \frac{1}{\mu^{k + 1}} < \varepsilon.\]
 
     (4) Ker je \(\Sigma_N\) kompakten, je \(\phi^{-1}\) zvezna.
@@ -298,4 +298,4 @@ vsebuje natanko eno točko, ki jo označimo z \(z_{\overline{s}}\). Uporabimo tr
 
 \noindent Končno lahko dokažemo enakost
 \[\overline{\bigcup_{n \geq 1} \Lambda_N} = J (E_\lambda).\]
-Po enačbi \eqref{eqn:mu-ocena} je \(|E_\lambda' (z)| \geq \mu > 1\) za vsak \(z \in \Lambda_N\). Po izreku \todo{thm 6.2.3} je \(\Lambda_N \subset J (E_\lambda)\). Po drugi strani pa vemo, da je \(J (f)\) zaprtje množice vseh odbojnih periodičnih točk. Zato je dovolj da dokažemo, da so vse odbojne periodične točke vsebovane v \(\bigcup_N \Lambda_N\). Naj bo \(z_0\) odbojna periodična točka preslikave \(E_\lambda\). Ker je vsebovana v Juliajevi množici, nam posledica \ref{cor:jul-e} pove, da leži na polravnini \(\re z \geq l_\lambda\). Torej je za dovolj velik \(N\) je celoten odbojen cikel vsebovan v \(B (N)\). Ker je tudi orbita \(z_0\) vsebovana v \(B (N)\), je \(z_0 \in \Lambda_N\).
+Po enačbi \eqref{eqn:mu-ocena} je \(|E_\lambda' (z)| \geq \mu > 1\) za vsak \(z \in \Lambda_N\). Po izreku \todo{thm 6.2.3} je \(\Lambda_N \subset J (E_\lambda)\). Po drugi strani pa vemo, da je \(J (f)\) zaprtje množice vseh odbojnih periodičnih točk. Zato je dovolj, da dokažemo, da so vse odbojne periodične točke vsebovane v \(\bigcup_N \Lambda_N\). Naj bo \(z_0\) odbojna periodična točka preslikave \(E_\lambda\). Ker je vsebovana v Juliajevi množici, nam posledica \ref{cor:jul-e} pove, da leži na polravnini \(\re z \geq l_\lambda\). Torej je za dovolj velik \(N\) celoten odbojni cikel vsebovan v \(B (N)\). Ker je tudi orbita \(z_0\) vsebovana v \(B (N)\), je \(z_0 \in \Lambda_N\).
