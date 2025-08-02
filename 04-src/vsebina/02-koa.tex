@@ -17,11 +17,11 @@ Neprazni odprti in povezani podmnožici kompleksnih števil pravimo \emph{območ
 
 \subsection{Kompleksni logaritem}
 
-\noindent Kompleksna eksponentna preslikava je bolj zapletena od realne. Ker je \(e^{z + 2 \pi i} = e^x (\cos (y + 2 \pi) + i \sin (y + 2 \pi)) = e^z\), je eksponentna preslikava periodična (glej sliko \ref{fig:exponential}) in posledično nima inverza.
+\noindent Kompleksna eksponentna preslikava je bolj zapletena od realne. Ker je \(e^{z + 2 \pi i} = e^x (\cos (y + 2 \pi) + i \sin (y + 2 \pi)) = e^z\), je periodična (glej sliko \ref{fig:exponential}). Posledično nima inverza.
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{needham_figure.pdf}
-    \caption[Geometrijsko delovanje kompleksne eksponentne preslikave]{Geometrijska vizualizacija kompleksne eksponentne preslikave. Ilustracija je povzeta po knjigi \cite{Needham_1997}}
+    \caption[Eksponentne preslikave]{Eksponentna preslikava, po knjigi \cite{Needham_1997}}
     \label{fig:exponential}
 \end{figure}
 Res, naj bo \(w = u + i v\). Rešimo enačbo:
@@ -41,6 +41,14 @@ bijektivna na \(U\) in ima tam holomorfen inverz \(L \colon U \to \CC\):
 Vsaki taki funkciji \(L\) rečemo \emph{veja logaritma}. Če vzamemo \(\theta = 0\) dobimo \emph{glavno} vejo logaritma. Veje logaritma obstajajo tudi na vsakem preprosto povezanem območju, vendar bodo za nas pomembne le zarezane ravnine \(\CC \setminus [0, \infty)\) in diski, ki ne vsebuje izhodišča. Na primer, imejmo disk \(\Delta \subset \CC\), tako da \(0 \notin \Delta\). Naj bo \(\zeta_0 \in \CC\), da je \(e^{\zeta_0} \in \Delta\). Če vzamemo \(\theta = \im \zeta_0\), dobimo holomorfno preslikavo \(L \colon \Delta \to \CC\), za katero velja \(L (e^{\zeta_0}) = \zeta_0\) ter \(e^{L (\omega)} = \omega\) in \(\im \zeta_0 - \pi < \im L (\omega) < \im \zeta_0 + \pi\) za vsak \(\omega \in \Delta\).
 
 \subsection{Normalne družine}
+
+\begin{definicija}
+    Zaporedje holomorfnnih funkcij \((f_n)\) na območju \(D \subseteq \CC\) konvergira k \(f\) \emph{enakomerno po kompaktih}, če za vsako kompaktno podmnožico \(K \subset D\) in vsak \(\varepsilon > 0\) obstaja obstaja \(n_0 \in \NN\), da za \(n \geq n_0\) velja \(|f_n (z) - f(z)| < \varepsilon\) za vse \(z \in K\).
+\end{definicija}
+
+\begin{definicija}
+    Naj bo \(\FFF\) družina holomorfnih funkcij na območju \(D \subseteq \CC\). Pravimo, da je družina \emph{normalna}, če za vsako zaporedje funkcij \((f_n) \subset \FFF\) obstaja podzaporedje \((f_{n_k})\), ki konvergira enakonerno po kompaktih k neki \(f \in \FFF\) ali pa k \(f \equiv \infty\).
+\end{definicija}
 
 \subsection{Hiperbolična geometrija}
 
