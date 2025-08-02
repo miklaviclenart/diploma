@@ -2,7 +2,7 @@
 
 Dokazali smo, da je \(e^z\) kaotična na celi kompleksni ravnini. Za splošno kompleksno preslikavo pa to ne drži. V tem poglavju bomo preučili dinamiko \emph{eksponentne družine}
 \[E_\lambda (z) \coloneq \lambda e^z.\]
-Pokažemo, da za \(0 < \lambda < 1/e\), Juliajeva množica \(J (E_\lambda)\) \emph{Cantorjev šopek}. Razdelek je povzet po~\cite[razdelek 9]{Pineiro_2025}.
+Za \(0 < \lambda < 1/e\) konstruiramo Juliajevo množico \(J (E_\lambda)\). Razdelek je povzet po~\cite[razdelek 9]{Pineiro_2025}.
 
 \subsection{Periodične točke}
 
@@ -42,7 +42,7 @@ Začnemo s preučevanjem realnih fiksnih točk za \(\lambda \in \RR\).
     \end{itemize}
 \end{dokaz}
 
-\noindent Zgornja trditev nam pove, da je najbolj zanimiva dinamika v primeru \(0 < \lambda < 1/e\). Temu primeru se bomo v nadaljevanju posvetili. Z \(q_\lambda\) označimo privlačno ter z \(p_\lambda\) odbojno točko eksponentne družine.
+\noindent Zgornja trditev nam nakaže, da je najbolj zanimiva dinamika v primeru \(0 < \lambda < 1/e\). Temu primeru se bomo v nadaljevanju posvetili. S \(q_\lambda\) označimo privlačno ter s \(p_\lambda\) odbojno točko eksponentne družine.
 
 \begin{lema} \label{lem:enadva}
     Za vsak \(\lambda \in (0, 1/e)\) velja:
@@ -141,7 +141,7 @@ Na \(\Sigma_N\) definiramo metriko
     \[d(\overline{s}, \overline{t}) \geq \frac{1}{2^j} \geq \frac{1}{N^n}.\]
 \end{dokaz}
 
-Z naslednjo lemo pokažemo, da za vsak \(\overline{s} \in \Sigma_n\) množice
+\noindent Z naslednjo lemo pokažemo, da za vsak \(\overline{s} \in \Sigma_n\) množice
 \[V(\overline{s}, k) = \set{\overline{t} = (t_i) \in \Sigma_N : t_i = s_i, i = 0, 1, \dots, k}\]
 za \(k \geq 0\) tvorijo bazo okolic \(\overline{s}\) za topologijo porojeno z zgornjo metriko.
 
@@ -179,9 +179,9 @@ Eksplicitno lahko navedemo \(n\)-to iteracijo kot \(\sigma^n (s_0, s_1, s_2, \do
     \[d (\overline{s}, \overline{t}) \leq \frac{2}{N^{k - 1} (N - 1)} < \varepsilon.\]
     To pomeni, da krogla \(B (\overline{s}, \varepsilon)\) vsebuje neskončno elementov.
 
-    (2) Dokažemo, da je \(\Sigma_N\) popolnoma nepovezana. Recimo, da obstaja povezana \(X \subset \Sigma_N\) in vzamemo \(\overline{s}, \overline{s}^* \in \Sigma_N\) za katera \(\overline{s} \neq \overline{s}^*\). Potem obstaja \(i \in \NN\), tako da \(s_i \neq s_i^*\). Opazujemo množici
-    \[X_1 \coloneq \set{\overline{t} \in \Sigma_N : t_i = s_i} \qquad \text{in} \qquad X_2 = \set{\overline{t} \in \Sigma_N : t_i \neq s_i}.\]
-    Opazimo, da je \((X_1 \cap X) \cup (X_2 \cap X_1) = X\), \(X_1 \cap X_2 = \emptyset\), \(\overline{s} \in X_1\) in \(\overline{s}^* \in X_2\). Do protislovja bomo torej prišli, če pokažemo, da sta \(X_1\) in \(X_2\) odprti. Ker je
+    (2) Dokažemo, da je \(\Sigma_N\) popolnoma nepovezana. Recimo, da obstaja povezana \(X \subset \Sigma_N\) in vzamemo \(\overline{s}, \overline{s}^* \in \Sigma_N\) za katera \(\overline{s} \neq \overline{s}^*\). Potem obstaja \(i \in \NN\), tako da \(s_i \neq s_i^*\). Definiramo množici
+    \[X_1 \coloneq \set{\overline{t} \in \Sigma_N : t_i = s_i} \qquad \text{in} \qquad X_2 = \set{\overline{t} \in \Sigma_N : t_i \neq s_i}\]
+    in opazimo, da je \((X_1 \cap X) \cup (X_2 \cap X_1) = X\), \(X_1 \cap X_2 = \emptyset\), \(\overline{s} \in X_1\) in \(\overline{s}^* \in X_2\). Do protislovja bomo torej prišli, če pokažemo, da sta \(X_1\) in \(X_2\) odprti. Ker je
     \[X_2 = \bigcup_{s \neq s_i} \set{\overline{t} \in \Sigma_N : t_i = s},\]
     je dovolj da pokažemo, da je \(X_1\) odprta. Za \(\overline{t} \in X_1\) izberemo tak \(\varepsilon\), da bo \(\varepsilon < 1 / N^i\). Po lemi \ref{lem:seq-metric} \(\overline{r} \in B (\overline{t}, \varepsilon)\) implicira \(r_j = t_j\) za \(j \leq i\). Torej \(r_i = s_i\) in zato \(B (\overline{t}, \varepsilon) \subset X_1\).
 
@@ -198,7 +198,7 @@ kjer je \(r_\lambda\) izbran tako, da \(\lambda e^{r_\lambda} > r_\lambda + (2N 
 \begin{figure}%
     \centering
     \input{tikz/konstrukcija.tex}
-    \caption{Ilustracija konstrukcije. Sivi pravokotnik je \(B (N)\).}
+    \caption{Ilustracija h konstrukciji.}
     \label{fig:konstrukcija}
 \end{figure}
 Preslikava \(E_\lambda\) desno stranico pravokotnika \(B (N)\) preslika v krožnico s središčem v izhodišču in polmerom \(\lambda e^{r_\lambda}\), medtem ko se leva stranica preslika v krog s središčem v izhodišču in radijem \(\lambda e^{l_\lambda}\). Oglejmo si kolobar
@@ -294,9 +294,7 @@ Ker je \(\mu > 1\), desna stran konvergira proti \num{0} in zato tudi \(d_n\) ko
     \[\frac{\diam (B (N))}{\mu^{k + 1}} < \varepsilon,\]
     kjer je \(\mu > 1\) iz ocene \(|E_\lambda'| \geq \mu\) \eqref{eqn:mu-ocena}. Potem ima vsak \(\overline{s}\) iz okolice
     \[U = \set{\overline{s} \in \Sigma_N : s_i = s_i^o \text{ za } 0 \leq i \leq k}\]
-    prvih \((k + 1)\) simbolov enakih kot \(\overline{s}^o\). Tako za obe točki \(\phi (\overline{s})\) in \(\phi (\overline{s}^o)\) velja
-    \[\phi (\overline{s}), \phi (\overline{s}^o) \in L_s^{[k + 1]} \prt{B (N)}.\]
-    Iz neenakosti v dokazu konvergence premerov \(d_n\) tudi tukaj sledi
+    prvih \((k + 1)\) simbolov enakih kot \(\overline{s}^o\). Tako za obe točki \(\phi (\overline{s})\) in \(\phi (\overline{s}^o)\) velja \(\phi (\overline{s}), \phi (\overline{s}^o) \in L_s^{[k + 1]} \prt{B (N)}\). Iz neenakosti v dokazu konvergence premerov \(d_n\) tudi tukaj sledi
     \[\left| \phi (\overline{s}) - \phi (\overline{s}^o) \right| \leq \diam \prt{B (N)} \frac{1}{\mu^{k + 1}} < \varepsilon.\]
     Tako je \(\phi\) zvezna.
 

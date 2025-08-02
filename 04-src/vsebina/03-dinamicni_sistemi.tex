@@ -17,7 +17,7 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
 
 \subsection{Periodične točke}
 
-Začetni točki je \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x_0) = x_0\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\), točka pa je \emph{\(n\)-periodična}. Periodična točka je \emph{fiksna}, če je njena perioda \(\num{1}\).
+Začetna točka je \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x_0) = x_0\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\), točka pa je \emph{\(n\)-periodična}. Periodična točka je \emph{fiksna}, če je njena perioda \(\num{1}\).
 
 \begin{definicija}
     Naj bo \((X, d)\) metrični prostor, \(f \colon X \to X\) zvezna in \(x^*\) fiksna točka \(f\). Če obstaja tak \(r > 0\), da na odprti krogli \(B (x^*, r)\) orbita vsake začetne točke enakomerno konvergira proti \(x^*\), potem je \(x^*\) \emph{privlačna}. Točka \(x^*\) je \emph{odbojna}, če obstaja \(r > 0\), da za vsak \(x_0 \in B (x^*, r)\) in \(x_0 \neq x^*\), obstaja \(n \in \NN\), za katerega je \(f^n (x_0) \notin B (x^*, r)\).
@@ -72,7 +72,7 @@ Začetni točki je \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^
     Naj bo \(f\) cela funkcija in \(\Omega \subsetneq \CC\) preprosto povezano območje, ki je invariantno na \(f\). Če je \(z^{*} \in \Omega\) privlačna fiksna točka \(f\), potem je \(\Omega\) vsebovana v neposrednem območju privlaka \(z^*\).
 \end{trditev}
 
-Posvetimo nekaj časa še nefiksnim periodičnim točkam. Če je \(z_0\) \(p\)-periodična, potem so vse točke \(z_0, f (z_0), f^2 (z_0), \dots, f^{p - 1} (z_0)\) fiksne točke preslikave \(f^p\). Pišemo \(z_j = f^j (z_0)\) in uporabimo verižno pravilo:
+Posvetimo se še nefiksnim periodičnim točkam. Če je \(z_0\) \(p\)-periodična, potem so vse točke \(z_0, f (z_0), f^2 (z_0), \dots, f^{p - 1} (z_0)\) fiksne točke preslikave \(f^p\). Pišemo \(z_j = f^j (z_0)\) in uporabimo verižno pravilo:
 \[(f^p)' (z_j) = f' \prt{f^{p - 1} (z_j)} f' \prt{f^{p - 2} (z_j)} \dots f' \prt{f (z_j)} f' (z_j) = \prod_{k = 0}^{p - 1} f' (z_k).\]
 To pomeni, da imajo vse \(z_j\) isto večkratnost \(K\). Če je \(K < 1\), potem rečemo, da je \(p\)-cikel privlačen. Če pa je \(K > 1\), rečemo, da je \(p\)-cikel odbojen.
 
@@ -192,9 +192,9 @@ Devaney je v svoji prvotni definiciji zahteval tudi naslednjo lastnost.
 %     Naj bo \(f \colon \CC \times \CC \to [0, \infty)\) zvezna preslikava, občutljiva na začetne pogoje v sferični metriki. Potem je \(f\) občutljiva na začetne pogoje glede na poljubno metriko \(d \colon \CC \times \CC \to [0, \infty)\), ki je topološko ekvivalentna evklidski (porodi evklidsko topologijo).
 % \end{trditev}
 
-\subsection{Fatujeva in Juliajeva množica}
+\subsection{Fatoujeva in Juliajeva množica}
 
-Za celo funkcijo \(f\) je \emph{Fatujeva množica} sestavljena iz vseh točk \(z_0\), da je \((f^n)\) normalna na neki okolici točke \(z_0\). Označimo jo z \(F (f)\). Njen komplement \(J (f) \coloneq \CC \setminus F (f)\) je \emph{Juliajeva množica}.
+Za celo funkcijo \(f\) je \emph{Fatoujeva množica} sestavljena iz vseh točk \(z_0\), da je \((f^n)\) normalna na neki okolici točke \(z_0\). Označimo jo z \(F (f)\). Njen komplement \(J (f) \coloneq \CC \setminus F (f)\) je \emph{Juliajeva množica}.
 
 \begin{izrek} \label{thm:julm}
     Naj bo \(f\) cela funkcija in \(M \subset \CC\) taka invariantna množica, da ima vsak njen element omejeno orbito. Če obstaja \(\mu > 1\), tako da je \(|f' (z)| \geq \mu\) za vsak \(z \in M\), potem velja \(M \subseteq J (f)\).
