@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fmfdelo}[2025/03/12 Zakljucna dela na FMF]
+\ProvidesClass{fmfdelo}[2025/07/14 Zakljucna dela na FMF]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NALAGANJE PAKETOV
@@ -209,39 +209,39 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \AtEndPreamble{%
-\let\oldtexorpdfstring\texorpdfstring
-\renewcommand{\texorpdfstring}[2]{#2}
-\let\sep{\protect\sep}
-\newoutputstream{xmpdatafile}
-\openoutputfile{\jobname.xmpdata}{xmpdatafile}
-\ifthenelse{\boolean{@anglescina}}{
-  \addtostream{xmpdatafile}{%
-  \protect\Title{\@title}
-  \protect\Author{\@avtor}
-  \protect\Keywords{\@keywords}
-  \protect\Subject{\@thesistype, \@programme, \@klasifikacija}
-}}{
-  \addtostream{xmpdatafile}{%
-  \protect\Title{\@naslov}
-  \protect\Author{\@avtor}
-  \protect\Keywords{\@kljucnebesede}
-  \protect\Subject{\@tipdela, \@program, \@klasifikacija}
-}}
-\closeoutputstream{xmpdatafile}
+  \let\oldtexorpdfstring\texorpdfstring
+  \renewcommand{\texorpdfstring}[2]{#2}
+  \let\sep{\protect\sep}
+  \newoutputstream{xmpdatafile}
+  \openoutputfile{\jobname.xmpdata}{xmpdatafile}
+  \ifthenelse{\boolean{@anglescina}}{
+    \addtostream{xmpdatafile}{%
+      \protect\Title{\@title}
+      \protect\Author{\@avtor}
+      \protect\Keywords{\@keywords}
+      \protect\Subject{\@thesistype, \@programme, \@klasifikacija}
+    }}{
+    \addtostream{xmpdatafile}{%
+      \protect\Title{\@naslov}
+      \protect\Author{\@avtor}
+      \protect\Keywords{\@kljucnebesede}
+      \protect\Subject{\@tipdela, \@program, \@klasifikacija}
+    }}
+  \closeoutputstream{xmpdatafile}
 
-\let\texorpdfstring\oldtexorpdfstring
+  \let\texorpdfstring\oldtexorpdfstring
 
-% Nalozimo paket za zagotavljanje PDF/A-2B (ustrezni fonti, barvni profili, UTF-8 zapis simbolov, ...)
-\RequirePackage[a-2b]{pdfx}
-\ifthenelse{\boolean{@tisk}}{
-  \definecolor{linkcolor}{RGB}{0,0,0}
-}{
-  \definecolor{linkcolor}{RGB}{0,84,147}
-}
-\hypersetup{bookmarksopen, bookmarksdepth=3, colorlinks=true,
-  linkcolor=linkcolor, anchorcolor=linkcolor, citecolor=linkcolor, filecolor=linkcolor,
-  menucolor=linkcolor, runcolor=linkcolor, urlcolor=linkcolor, pdfencoding=auto,
-  breaklinks=true, psdextra}
+  % Nalozimo paket za zagotavljanje PDF/A-2B (ustrezni fonti, barvni profili, UTF-8 zapis simbolov, ...)
+  \RequirePackage[a-2b]{pdfx}
+  \ifthenelse{\boolean{@tisk}}{
+    \definecolor{linkcolor}{RGB}{0,0,0}
+  }{
+    \definecolor{linkcolor}{RGB}{0,84,147}
+  }
+  \hypersetup{bookmarksopen, bookmarksdepth=3, colorlinks=true,
+    linkcolor=linkcolor, anchorcolor=linkcolor, citecolor=linkcolor, filecolor=linkcolor,
+    menucolor=linkcolor, runcolor=linkcolor, urlcolor=linkcolor, pdfencoding=auto,
+    breaklinks=true, psdextra}
 }
 
 
@@ -251,176 +251,176 @@
 
 
 \RequirePackage[style=\@citationstyle,
-                hyperref=auto,
-                isbn=false,
-                doi=true,
-                url=true,
-                date=year,
-                giveninits=true,
-                maxnames=3,
-                useprefix=true,
-                backend=\@bibbackend]{biblatex}
+  hyperref=auto,
+  isbn=false,
+  doi=true,
+  url=true,
+  date=year,
+  giveninits=true,
+  maxnames=3,
+  useprefix=true,
+  backend=\@bibbackend]{biblatex}
 
 \AtEndPreamble{%
-\ifdefined\@literatura
-\addbibresource{\@literatura}
-\fi
-\@sloeng{
-  \DefineBibliographyStrings{slovene}{%
-    bathesis  = {diplomsko delo},
-    mathesis  = {magistrsko delo},
-    phdthesis = {doktorska disertacija},
-    urlfrom   = {dostopno na},
-    urlseen   = {ogled},
-    andothers = {in dr.},
+  \ifdefined\@literatura
+    \addbibresource{\@literatura}
+  \fi
+  \@sloeng{
+    \DefineBibliographyStrings{slovene}{%
+      bathesis  = {diplomsko delo},
+      mathesis  = {magistrsko delo},
+      phdthesis = {doktorska disertacija},
+      urlfrom   = {dostopno na},
+      urlseen   = {ogled},
+      andothers = {in dr.},
+    }
+  }{
+    \DefineBibliographyStrings{english}{%
+      bathesis  = {Bachelor's thesis},
+      mathesis  = {Master's thesis},
+    }
   }
-}{
-  \DefineBibliographyStrings{english}{%
-    bathesis  = {Bachelor's thesis},
-    mathesis  = {Master's thesis},
+  % fix spacing
+  \setlength{\biblabelsep}{\labelsep}
+  \setlength{\bibitemsep}{1.5\itemsep}
+  % redeclare unit separator from period to comma
+  \renewcommand*{\newunitpunct}{\addcomma\space}
+  % re-declare field formats (font, brackets ...)
+  % omit " around title and make it italic
+  \DeclareFieldFormat*{title}{\textit{#1}}
+  % omit italics
+  \DeclareFieldFormat*{journaltitle}{#1}
+  \DeclareFieldFormat*{booktitle}{#1}
+  \DeclareFieldFormat*{plain}{#1}
+  % put brackets around number
+  \DeclareFieldFormat*{number}{\mkbibparens{#1}}
+
+  \@unless{\boolean{@anglescina}}{
+    % capitalise according to slovenian rules
+    \DeclareFieldFormat{sentencecase}{\MakeSentenceCase{#1}}
+    \renewbibmacro*{title}{%
+      \ifthenelse{\iffieldundef{title}\AND\iffieldundef{subtitle}}
+      {}
+      {\ifthenelse{\ifentrytype{article}\OR\ifentrytype{inbook}%
+          \OR\ifentrytype{incollection}\OR\ifentrytype{inproceedings}%
+          \OR\ifentrytype{inreference}\OR\ifentrytype{book}}
+        {\printtext[title]{%
+            \printfield[sentencecase]{title}%
+            \setunit{\subtitlepunct}%
+            \printfield[sentencecase]{subtitle}}}%
+        {\printtext[title]{%
+            \printfield[titlecase]{title}%
+            \setunit{\subtitlepunct}%
+            \printfield[titlecase]{subtitle}}}%
+        \newunit}%
+      \printfield{titleaddon}}
   }
-}
-% fix spacing
-\setlength{\biblabelsep}{\labelsep}
-\setlength{\bibitemsep}{1.5\itemsep}
-% redeclare unit separator from period to comma
-\renewcommand*{\newunitpunct}{\addcomma\space}
-% re-declare field formats (font, brackets ...)
-% omit " around title and make it italic
-\DeclareFieldFormat*{title}{\textit{#1}}
-% omit italics
-\DeclareFieldFormat*{journaltitle}{#1}
-\DeclareFieldFormat*{booktitle}{#1}
-\DeclareFieldFormat*{plain}{#1}
-% put brackets around number
-\DeclareFieldFormat*{number}{\mkbibparens{#1}}
 
-\@unless{\boolean{@anglescina}}{
-% capitalise according to slovenian rules
-\DeclareFieldFormat{sentencecase}{\MakeSentenceCase{#1}}
-\renewbibmacro*{title}{%
-  \ifthenelse{\iffieldundef{title}\AND\iffieldundef{subtitle}}
-    {}
-    {\ifthenelse{\ifentrytype{article}\OR\ifentrytype{inbook}%
-      \OR\ifentrytype{incollection}\OR\ifentrytype{inproceedings}%
-      \OR\ifentrytype{inreference}\OR\ifentrytype{book}}
-      {\printtext[title]{%
-        \printfield[sentencecase]{title}%
-        \setunit{\subtitlepunct}%
-        \printfield[sentencecase]{subtitle}}}%
-      {\printtext[title]{%
-        \printfield[titlecase]{title}%
-        \setunit{\subtitlepunct}%
-        \printfield[titlecase]{subtitle}}}%
-     \newunit}%
-  \printfield{titleaddon}}
-}
-
-% remove v: and language
-\DeclareBibliographyDriver{article}{%
-  \usebibmacro{bibindex}%
-  \usebibmacro{begentry}%
-  \usebibmacro{author/translator+others}%
-  \setunit{\printdelim{nametitledelim}}\newblock
-  \usebibmacro{title}%
-  \newunit\newblock
-  \usebibmacro{byauthor}%
-  \newunit\newblock
-  \usebibmacro{bytranslator+others}%
-  \newunit\newblock
-  \printfield{version}%
-  \newunit\newblock
-  % \usebibmacro{in:}%
-  \usebibmacro{journal+issuetitle}%
-  \newunit
-  \usebibmacro{byeditor+others}%
-  \newunit
-  \usebibmacro{note+pages}%
-  \newunit\newblock
-  \iftoggle{bbx:isbn}
+  % remove v: and language
+  \DeclareBibliographyDriver{article}{%
+    \usebibmacro{bibindex}%
+    \usebibmacro{begentry}%
+    \usebibmacro{author/translator+others}%
+    \setunit{\printdelim{nametitledelim}}\newblock
+    \usebibmacro{title}%
+    \newunit\newblock
+    \usebibmacro{byauthor}%
+    \newunit\newblock
+    \usebibmacro{bytranslator+others}%
+    \newunit\newblock
+    \printfield{version}%
+    \newunit\newblock
+    % \usebibmacro{in:}%
+    \usebibmacro{journal+issuetitle}%
+    \newunit
+    \usebibmacro{byeditor+others}%
+    \newunit
+    \usebibmacro{note+pages}%
+    \newunit\newblock
+    \iftoggle{bbx:isbn}
     {\printfield{issn}}
     {}%
-  \newunit\newblock
-  \usebibmacro{doi+eprint+url}%
-  \newunit\newblock
-  \usebibmacro{addendum+pubstate}%
-  \setunit{\bibpagerefpunct}\newblock
-  \usebibmacro{pageref}%
-  \newunit\newblock
-  \iftoggle{bbx:related}
+    \newunit\newblock
+    \usebibmacro{doi+eprint+url}%
+    \newunit\newblock
+    \usebibmacro{addendum+pubstate}%
+    \setunit{\bibpagerefpunct}\newblock
+    \usebibmacro{pageref}%
+    \newunit\newblock
+    \iftoggle{bbx:related}
     {\usebibmacro{related:init}%
-     \usebibmacro{related}}
+      \usebibmacro{related}}
     {}%
-  \usebibmacro{finentry}}
+    \usebibmacro{finentry}}
 
-% print format <vol>(<number>) (year) <pages>
-% remove str. for article (and periodical?)
-\renewbibmacro*{volume+number+eid}{%
-  \printfield[bold]{volume}%
-  \printfield{number}%
-  \setunit{\space}%
-  \printfield[number]{year}%
-  \setunit{\space}%
-  \printfield[plain]{pages}}
+  % print format <vol>(<number>) (year) <pages>
+  % remove str. for article (and periodical?)
+  \renewbibmacro*{volume+number+eid}{%
+    \printfield[bold]{volume}%
+    \printfield{number}%
+    \setunit{\space}%
+    \printfield[number]{year}%
+    \setunit{\space}%
+    \printfield[plain]{pages}}
 
-% do not print the pages in this part (already done before)
-\renewbibmacro*{note+pages}{%
-  \printfield{note}}
-% do not print the year in this part (already done before)
-\renewbibmacro*{issue+date}{}
-% print format <publisher>, <location>, year
-\renewbibmacro*{publisher+location+date}{%
-  \printlist{publisher}%
-  \setunit{\addcomma\space}%
-  \printlist{location}%
-  \setunit{\addcomma\space}%
-  \printfield{year}}
+  % do not print the pages in this part (already done before)
+  \renewbibmacro*{note+pages}{%
+    \printfield{note}}
+  % do not print the year in this part (already done before)
+  \renewbibmacro*{issue+date}{}
+  % print format <publisher>, <location>, year
+  \renewbibmacro*{publisher+location+date}{%
+    \printlist{publisher}%
+    \setunit{\addcomma\space}%
+    \printlist{location}%
+    \setunit{\addcomma\space}%
+    \printfield{year}}
 
-\renewbibmacro*{byeditor+others}{%
-  \ifnameundef{editor}
+  \renewbibmacro*{byeditor+others}{%
+    \ifnameundef{editor}
     {}
     {\addspace%
-    \mkbibparens{%
-      \setunit{}%
-      \usebibmacro{byeditor+othersstrg}%
-      \setunit{\addspace}%
-      \printnames[byeditor]{editor}%
-      \clearname{editor}%
-      \newunit}}%
-  \usebibmacro{byeditorx}%
-  \usebibmacro{bytranslator+others}}
+      \mkbibparens{%
+        \setunit{}%
+        \usebibmacro{byeditor+othersstrg}%
+        \setunit{\addspace}%
+        \printnames[byeditor]{editor}%
+        \clearname{editor}%
+        \newunit}}%
+    \usebibmacro{byeditorx}%
+    \usebibmacro{bytranslator+others}}
 
-\DeclareFieldFormat*{volume}{}
-\renewbibmacro*{series+number}{%
-  \printfield{series}%
-  \setunit{\space}%
-  \printfield[bold]{volume}}
+  \DeclareFieldFormat*{volume}{}
+  \renewbibmacro*{series+number}{%
+    \printfield{series}%
+    \setunit{\space}%
+    \printfield[bold]{volume}}
 
-\DeclareFieldFormat{url}{\bibstring{urlfrom}\space\url{#1}}
-\DeclareFieldFormat{urldate}{\mkbibbrackets{\bibstring{urlseen}\space#1}}
-\renewbibmacro*{url+urldate}{%
-  \usebibmacro{urldate}%
-  \newunit%
-  \printfield{url}}
+  \DeclareFieldFormat{url}{\bibstring{urlfrom}\space\url{#1}}
+  \DeclareFieldFormat{urldate}{\mkbibbrackets{\bibstring{urlseen}\space#1}}
+  \renewbibmacro*{url+urldate}{%
+    \usebibmacro{urldate}%
+    \newunit%
+    \printfield{url}}
 
-% automatically strip `van` and `von` from start of surname,
-% if `sortname` is not already defined
-% vir: https://tex.stackexchange.com/a/136565
-\DeclareSourcemap{%
-  \maps[datatype=bibtex]{
-    \map[overwrite=false]{
-      \step[fieldsource=translator]
-      \step[fieldset=sortname, origfieldval]
-      \step[fieldsource=editor]
-      \step[fieldset=sortname, origfieldval]
-      \step[fieldsource=author]
-      \step[fieldset=sortname, origfieldval]
-    }
-    \map[overwrite=false]{
-      \step[fieldsource=sortname, match=\regexp{(^|\s+)\Kv[a|o]n\s+}, replace={$1}]
+  % automatically strip `van` and `von` from start of surname,
+  % if `sortname` is not already defined
+  % vir: https://tex.stackexchange.com/a/136565
+  \DeclareSourcemap{%
+    \maps[datatype=bibtex]{
+      \map[overwrite=false]{
+        \step[fieldsource=author]
+        \step[fieldset=sortname, origfieldval]
+        \step[fieldsource=editor]
+        \step[fieldset=sortname, origfieldval]
+        \step[fieldsource=translator]
+        \step[fieldset=sortname, origfieldval]
+      }
+      \map[overwrite=false]{
+        \step[fieldsource=sortname, match=\regexp{(^|\s+)\Kv[a|o]n\s+}, replace={$1}]
+      }
     }
   }
-}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -447,44 +447,44 @@
 \newtheorem{primer*}[definicija]{Primer}
 \newenvironment{primer}[1][]{
   \begin{primer*}[#1]\renewcommand*{\qedsymbol}{$\diamondsuit$}\pushQED{\qed}
-}{
-  \popQED\end{primer*}
+    }{
+    \popQED\end{primer*}
 }
 \newtheorem{zgled*}[definicija]{Zgled}
 \newenvironment{zgled}[1][]{
   \begin{zgled*}[#1]\renewcommand*{\qedsymbol}{$\diamondsuit$}\pushQED{\qed}
-}{
-  \popQED\end{zgled*}
+    }{
+    \popQED\end{zgled*}
 }
 \@ifthen{\boolean{@anglescina}}{
-\newtheorem{axiom}{Axiom}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{remark}[definition]{Remark}
-\newtheorem{example*}[definition]{Example}
-\newenvironment{example}[1][]{
-  \begin{example*}[#1]\renewcommand*{\qedsymbol}{$\diamondsuit$}\pushQED{\qed}
-}{
-  \popQED\end{example*}
-}
+  \newtheorem{axiom}{Axiom}
+  \newtheorem{definition}{Definition}[section]
+  \newtheorem{remark}[definition]{Remark}
+  \newtheorem{example*}[definition]{Example}
+  \newenvironment{example}[1][]{
+    \begin{example*}[#1]\renewcommand*{\qedsymbol}{$\diamondsuit$}\pushQED{\qed}
+      }{
+      \popQED\end{example*}
+  }
 }
 
- % poševno napisan tekst
+% poševno napisan tekst
 \theoremstyle{plain}
 \newtheorem{lema}[definicija]{Lema}
 \newtheorem{izrek}[definicija]{Izrek}
 \newtheorem{trditev}[definicija]{Trditev}
 \newtheorem{posledica}[definicija]{Posledica}
 \@ifthen{\boolean{@anglescina}}{
-\newtheorem{lemma}[definition]{Lemma}
-\newtheorem{theorem}[definition]{Theorem}
-\newtheorem{proposition}[definition]{Proposition}
-\newtheorem{corollary}[definition]{Corollary}
+  \newtheorem{lemma}[definition]{Lemma}
+  \newtheorem{theorem}[definition]{Theorem}
+  \newtheorem{proposition}[definition]{Proposition}
+  \newtheorem{corollary}[definition]{Corollary}
 }
 \@ifthen{\boolean{@trst}}{
-\newtheorem{teorema}[definition]{Teorema}
-\newtheorem{proposizione}[definition]{Proposizione}
-\newtheorem{corollario}[definition]{Corollario}
-\newenvironment{dimostrazione}[1][Dimostrazione]{\begin{proof}[#1]}{\end{proof}}
+  \newtheorem{teorema}[definition]{Teorema}
+  \newtheorem{proposizione}[definition]{Proposizione}
+  \newtheorem{corollario}[definition]{Corollario}
+  \newenvironment{dimostrazione}[1][Dimostrazione]{\begin{proof}[#1]}{\end{proof}}
 }
 
 \numberwithin{equation}{section}  % števec za enačbe zgleda kot (2.7) in se resetira v vsakem razdelku
@@ -562,48 +562,48 @@
   \thispagestyle{empty}
   \noindent
   {\large
-  UNIVERZA V LJUBLJANI\\[1mm]
-  FAKULTETA ZA MATEMATIKO IN FIZIKO
-  \@ifthen{\boolean{@fri}}{\\[1mm]FAKULTETA ZA RAČUNALNIŠTVO IN INFORMATIKO}
-  \\[5mm]
-  \@program\@unless{\boolean{@enovitistudij}}{\ -- \@stopnja}
+    UNIVERZA V LJUBLJANI\\[1mm]
+    FAKULTETA ZA MATEMATIKO IN FIZIKO
+    \@ifthen{\boolean{@fri}}{\\[1mm]FAKULTETA ZA RAČUNALNIŠTVO IN INFORMATIKO}
+    \\[5mm]
+    \@program\@unless{\boolean{@enovitistudij}}{\ -- \@stopnja}
   }
   \vfill
   \begin{center}
-  {\large
-  \@avtor\\[2mm]
-  {\Large\textbf{\MakeUppercase{\@naslov}}}\\[10mm]
-  \@tipdela\\[1cm]
-  \begin{tabular}{rl} \@mentorji \end{tabular}
-  }
+    {\large
+    \@avtor\\[2mm]
+    {\Large\textbf{\MakeUppercase{\@naslov}}}\\[10mm]
+    \@tipdela\\[1cm]
+    \begin{tabular}{rl} \@mentorji \end{tabular}
+    }
   \end{center}
   \vfill
 
   \noindent{\large
-  Ljubljana, \@letnica}
+    Ljubljana, \@letnica}
   \cleardoublepage
 }
 \def\@frontpages@en@frontpage{
   \thispagestyle{empty}
   \noindent{\large
-  UNIVERSITY OF LJUBLJANA\\[1mm]
-  FACULTY OF MATHEMATICS AND PHYSICS
-  \@ifthen{\boolean{@fri}}{\\[1mm]FACULTY OF COMPUTER AND INFORMATION SCIENCE}
-  \\[5mm]
-  \@programme\ -- \@cycle}
+    UNIVERSITY OF LJUBLJANA\\[1mm]
+    FACULTY OF MATHEMATICS AND PHYSICS
+    \@ifthen{\boolean{@fri}}{\\[1mm]FACULTY OF COMPUTER AND INFORMATION SCIENCE}
+    \\[5mm]
+    \@programme\ -- \@cycle}
   \vfill
 
   \begin{center}{\large
-  \@avtor\\[2mm]
-  {\Large\textbf{\MakeUppercase{\@title}}}\\[10mm]
-  \@thesistype\\[1cm]
-  \begin{tabular}{rl} \@supervisors \end{tabular}
-  }
+    \@avtor\\[2mm]
+    {\Large\textbf{\MakeUppercase{\@title}}}\\[10mm]
+    \@thesistype\\[1cm]
+    \begin{tabular}{rl} \@supervisors \end{tabular}
+    }
   \end{center}
   \vfill
 
   \noindent{\large
-  Ljubljana, \@letnica}
+    Ljubljana, \@letnica}
   \cleardoublepage
 }
 \newcommand{\dvastolpca}[3][0.45]{
@@ -641,11 +641,11 @@
   \vfill
 
   \begin{center}{\large
-  \@avtor\\[2mm]
-  {\Large\textbf{\MakeUppercase{\@title}}}\\[10mm]
-  \@thesistype\\[1cm]
-  \begin{tabular}{rl} \@supervisors \end{tabular}
-  }
+    \@avtor\\[2mm]
+    {\Large\textbf{\MakeUppercase{\@title}}}\\[10mm]
+    \@thesistype\\[1cm]
+    \begin{tabular}{rl} \@supervisors \end{tabular}
+    }
   \end{center}
   \vfill
 
@@ -677,18 +677,18 @@
   \end{minipage}
   \vfill
   \begin{center}
-  {\large
-  \@avtor\\[2mm]
-  \dvastolpca
-    {\Large\textbf{\MakeUppercase{\@it@title}}}
-    {\Large\textbf{\MakeUppercase{\@naslov}}}
-  \\[10mm]
-  \dvastolpca
-    {\large\@it@thesistype}
-    {\large\@tipdela}
-  \\[1cm]
-  \begin{tabular}{rl} \@it@supervisors \\ \@mentorji \end{tabular}
-  }
+    {\large
+      \@avtor\\[2mm]
+      \dvastolpca
+      {\Large\textbf{\MakeUppercase{\@it@title}}}
+      {\Large\textbf{\MakeUppercase{\@naslov}}}
+      \\[10mm]
+      \dvastolpca
+      {\large\@it@thesistype}
+      {\large\@tipdela}
+      \\[1cm]
+      \begin{tabular}{rl} \@it@supervisors \\ \@mentorji \end{tabular}
+    }
   \end{center}
   \vfill
 
@@ -733,46 +733,46 @@
 }
 \def\@frontpages@trst@abstract{
   \begin{otherlanguage}{italian}
-  \begin{center}
-    \textbf{\@it@title}\\[3mm]
-    \textsc{Sommario}
-  \end{center}
-  \@it@abstract
+    \begin{center}
+      \textbf{\@it@title}\\[3mm]
+      \textsc{Sommario}
+    \end{center}
+    \@it@abstract
   \end{otherlanguage}
   \vfill
 }
 \def\@frontpages@sl@kljucnebesede{
   \noindent
   \textbf{Math. Subj. Class. (2020):} \@klasifikacija \\[1mm]
-  \def\sep{, } % Pri izpisu ključne besede ločimo z vejico.
+  \def\sep{, }% Pri izpisu ključne besede ločimo z vejico.
   \textbf{Ključne besede:} \@kljucnebesede \\[1mm]
   \textbf{Keywords:} \@keywords
 }
 \def\@frontpages@en@keywords{
   \noindent
   \textbf{Math. Subj. Class. (2020):} \@klasifikacija \\[1mm]
-  \def\sep{, } % Pri izpisu ključne besede ločimo z vejico.
+  \def\sep{, }% Pri izpisu ključne besede ločimo z vejico.
   \textbf{Keywords:} \@keywords \\[1mm]
   \textbf{Ključne besede:} \@kljucnebesede
 }
 \def\@frontpages@trst@keywords{
   \noindent
   \textbf{Math. Subj. Class. (2020):} \@klasifikacija \\[1mm]
-  \def\sep{, } % Pri izpisu ključne besede ločimo z vejico.
+  \def\sep{, }% Pri izpisu ključne besede ločimo z vejico.
   \textbf{Keywords:} \@keywords \\[1mm]
   \textbf{Parole chiave:} \@it@keywords \\[1mm]
   \textbf{Ključne besede:} \@kljucnebesede
 }
 
 \AfterEndPreamble{%
-% začetne strani številčimo z rimskimi številkami
-\pagenumbering{roman}
-\pagestyle{plain}
-\@frontpages
+  % začetne strani številčimo z rimskimi številkami
+  \pagenumbering{roman}
+  \pagestyle{plain}
+  \@frontpages
 
-% vsebino številčimo z arabskimi številkami od 1 naprej
-\setcounter{page}{1}
-\pagenumbering{arabic}
+  % vsebino številčimo z arabskimi številkami od 1 naprej
+  \setcounter{page}{1}
+  \pagenumbering{arabic}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -794,6 +794,7 @@
   % nastavi številčenje po podrazdelkih
   \def\thesection{}
   \def\thesubsection{\@arabic\c@subsection}
+  \setcounter{subsection}{0}
   \numberwithin{equation}{subsection}
 
   % premakne nivoje razdelkov en nivo nižje, da nivo `\section' spada pod razdelek razširjenega povzetka
@@ -819,48 +820,48 @@
 
 
 \AtEndDocument{%
-\ifdefined\@slovar
-\pdfbookmark[1]{Slovar strokovnih izrazov}{slovar}
-\section*{Slovar strokovnih izrazov}
-\@slovar
-\fi
-\ifdefined\@literatura
-\cleardoublepage
-\phantomsection
-\@sloeng
-  {\addcontentsline{toc}{section}{Literatura}}
-  {\addcontentsline{toc}{section}{References}}
-\printbibliography
-\fi
+  \ifdefined\@slovar
+    \pdfbookmark[1]{Slovar strokovnih izrazov}{slovar}
+    \section*{Slovar strokovnih izrazov}
+    \@slovar
+  \fi
+  \ifdefined\@literatura
+    \cleardoublepage
+    \phantomsection
+    \@sloeng
+    {\addcontentsline{toc}{section}{Literatura}}
+    {\addcontentsline{toc}{section}{References}}
+    \printbibliography
+  \fi
 
-\@ifthen{\boolean{@trst}}{
-  \newtheorem{assioma}{Assioma}
-  \newtheorem{definizione}{Definizione}[subsection]
-  \newtheorem{osservazione}[definition]{Osservazione}
-  \newtheorem{esempio*}[definition]{Esempio}
-  \newenvironment{esempio}[1][]{
-    \begin{esempio*}[#1]\renewcommand*{\qedsymbol}{$\diamondsuit$}\pushQED{\qed}
-  }{
-    \popQED\end{esempio*}
+  \@ifthen{\boolean{@trst}}{
+    \newtheorem{assioma}{Assioma}
+    \newtheorem{definizione}{Definizione}[subsection]
+    \newtheorem{osservazione}[definition]{Osservazione}
+    \newtheorem{esempio*}[definition]{Esempio}
+    \newenvironment{esempio}[1][]{
+      \begin{esempio*}[#1]\renewcommand*{\qedsymbol}{$\diamondsuit$}\pushQED{\qed}
+        }{
+        \popQED\end{esempio*}
+    }
+
+    \cleardoublepage
+    \@make@razsirjenipovzetek{italian}{Sintesi estesa}{\@it@razsirjenipovzetek}
+  }
+  \@ifthen{\boolean{@anglescina}}{
+    % spremeni številčenje definicij, izrekov, ipd. na ustrezen nivo
+    \let\definicija\undefined
+    \let\c@definicija\undefined
+    \theoremstyle{definition}
+    \newtheorem{definicija}{Definicija}[subsection]
+
+    \cleardoublepage
+    \@make@razsirjenipovzetek{slovene}{Razširjeni povzetek}{\@razsirjenipovzetek}
   }
 
-  \cleardoublepage
-  \@make@razsirjenipovzetek{italian}{Sintesi estesa}{\@it@razsirjenipovzetek}
-}
-\@ifthen{\boolean{@anglescina}}{
-  % spremeni številčenje definicij, izrekov, ipd. na ustrezen nivo
-  \let\definicija\undefined
-  \let\c@definicija\undefined
-  \theoremstyle{definition}
-  \newtheorem{definicija}{Definicija}[subsection]
-
-  \cleardoublepage
-  \@make@razsirjenipovzetek{slovene}{Razsirjeni povzetek}{\@razsirjenipovzetek}
-}
-
-% only print the index (and clear the page) if the \index command has been used
-\@ifthen{\boolean{@index}}{
-  \cleardoublepage
-  \printindex
-}
+  % only print the index (and clear the page) if the \index command has been used
+  \@ifthen{\boolean{@index}}{
+    \cleardoublepage
+    \printindex
+  }
 }
