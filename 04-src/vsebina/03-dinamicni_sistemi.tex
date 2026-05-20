@@ -29,7 +29,7 @@ Začetna točka je \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^
     Naj bosta \(X\) in \(Y\) metrična prostora ter \(f \colon X \to X\) in \(g \colon Y \to Y\) zvezni. Pravimo, da sta \(f\) in \(g\) \emph{konjugirani}, če obstaja homeomorfizem \(h \colon X \to Y\), da velja \(h \circ f = g \circ h\). Tedaj pravimo, da \(h\) konjugira \(f\) in \(g\).
 \end{definicija}
 
-Konjugiranost je ekvivalenčna z lastnostjo, da za vsak \(n \in \NN\) velja \(f^n = h^{-1} \circ g^n \circ h\). Za nas je zanimiva, saj imajo njeni ekvivalenčni razredi enako dinamiko, kar nam nakaže naslednja trditev.
+Konjugiranost je ekvivalenčna relacija z lastnostjo, da za vsak \(n \in \NN\) velja \(f^n = h^{-1} \circ g^n \circ h\). Za nas je zanimiva, saj imajo njeni ekvivalenčni razredi enako dinamiko, kar nam nakaže naslednja trditev.
 
 \begin{trditev}
     Naj bosta \(f \colon X \to X\) in \(g \colon Y \to Y\) konjugirani.
@@ -50,7 +50,7 @@ Konjugiranost je ekvivalenčna z lastnostjo, da za vsak \(n \in \NN\) velja \(f^
     Za vsak \(y \in B (y^*, s)\) z \(y \neq y^*\) obstaja \(x \in B (x^*, r)\) z \(x \neq x^*\), da je \(y = h (x)\). Ker je \(x^*\), obstaja tak \(n \in \NN\), da \(f^n (x) = f^n (h^{-1} (y)) \notin B (x^*, r)\). A ker je \(f^n (h^{-1} (y)) = h^{-1} (g^n (y))\), sklepamo, da \(h^{-1} (g^n (y)) \notin B (x^*, r)\) in zato \(g^n (y) \notin h (B (x^*, r))\). Po enačbi \eqref{eqn:podmnozica} torej sledi, da \(g^n (y) \notin B (y^*, s)\).
 \end{dokaz}
 
-Definicija privlačne in odbojne točke se v kompleksni ravnini poenostavi.
+\noindent Definicijo privlačne in odbojne točke nam v kompleksni ravnini poenostavi naslednji izrek.
 
 \begin{izrek}
     Naj bo \(f\) cela funkcija in \(z^*\) njena fiksna točka. Potem je \(z^*\) privlačna natanko tedaj, ko je \(|f' (z^*)| < 1\). Dodatno je \(z^*\) odbojna natanko tedaj, ko je \(|f' (z^*)| > 1\).
@@ -76,7 +76,7 @@ Definicija privlačne in odbojne točke se v kompleksni ravnini poenostavi.
     Obratno, naj obstaja \(k > 1\), da velja \(|f' (z^*)| > k\). Podobno kot prej obstaja \(r > 0\), da je \(|f (z) - f (z^*)| \geq k |z - z^*|\) za vsak \(z \in \Delta (z^*, r)\) in \(z \neq z^*\). Recimo, da obstaja \(z_0\), da velja \(f^n (z_0) \in \Delta (z^*, r)\) za vsak \(n \in \NN\). Tedaj lahko induktivno pokažemo, da velja \(|f^n (z_0) - z^*| \geq k^n |z_0 - z^*|\). Ker je \(\lim_{n \to \infty} k^n = \infty\), smo prišli do protislovja. Torej je \(z^*\) res odbojna.
 \end{dokaz}
 
-\noindent Definicijo tako lahko razširimo.
+\noindent V luči zgornjega izreka lahko definicijo razširimo.
 
 \begin{definicija}
     Naj bo \(U \subseteq \CC\) odprta in \(f \colon U \to \CC\) holomorfna. Naj bo \(w \in U\) fiksna točka preslikave \(f\). Število \(\lambda \coloneq f' (w)\) imenujemo \emph{večkratnost preslikave \(f\) v točki \(w\)}. Fiksna točka \(w\) je
@@ -258,7 +258,7 @@ Za celo funkcijo \(f\) je \emph{Fatoujeva množica} sestavljena iz vseh točk \(
     Naj bo \(z_0 \in \partial (B (f))\). Recimo, da \(z_0 \notin J (f)\). Potem je \((f^n)\) normalna na neki kompaktni okolici \(U\) točke \(z_0\). Ker je točka \(z_0\) robna, obstajata \(z_1, z_2 \in U\), tako da je orbita točke \(z_1\) omejena, orbita točke \(z_2\) pa ne. Torej ima \((f^n (z_n))\) divergentno podzaporedje \((f^{n_k} (z_2))_k\). Ker pa je \((f^n)\) normalna na \(U\), obstaja podzaporedje zaporedja \((f^{n_k} (z_2))_k\), ki enakomerno konvergira na \(U\). Ker je \((f^n (z_1))\) omejena in \((f^{n_k} (z_2))_k\) divergira k \(\infty\), smo prišli do protislovja.
 \end{dokaz}
 
-Če na tem mestu upoštevamo izrek \ref{thm:orbits}, hitro vidimo, da je za kompleksno eksponentno preslikavo \(J (f) = \CC\) in \(F (f) = \emptyset\). To pa ne drži tudi za poljubno celo funkcijo. Če za primer navedemo \(f (z) \coloneq (e^z - 1) / 4\), potem \((f^n)\) na \(\DD\) konvergira proti \(0\) enakomerno po kompaktih. Torej Fatoujeva množica vsebuje cel enotski disk.
+\noindent Če na tem mestu upoštevamo izrek \ref{thm:orbits}, hitro vidimo, da je za kompleksno eksponentno preslikavo \(J (f) = \CC\) in \(F (f) = \emptyset\). To pa ne drži tudi za poljubno celo funkcijo. Če za primer navedemo \(f (z) \coloneq (e^z - 1) / 4\), potem \((f^n)\) na \(\DD\) konvergira proti \(0\) enakomerno po kompaktih. Torej Fatoujeva množica vsebuje cel enotski disk.
 
 Kot zanimivost omenimo, da enakost \(\partial (B (f)) = J (f)\) velja za polinome. V tem primeru zato množici \(B (f)\) pravimo \emph{napolnjena Juliajeva množica}. Posledično je zgornji izrek uporaben za vizualizacijo Juliajeve množice. Na njem temelji na primer \emph{algoritem vzvratne iteracije}. Slike, ki nastanejo, pa so pogosto zanimive, kot vidimo na sliki \ref{fig:julia}. Tu je upodobljena Juliajeva množica funkcije \(z^2 + c\) za \(c \approx \complexnum{-0.5125+0.5213i}\). Z modro in zeleno barvo obarvana obnočja so Fatoujeva množica, medtem ko so rumeno obarvana območja Juliajeva množica.
 \begin{figure}
