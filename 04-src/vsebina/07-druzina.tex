@@ -1,8 +1,8 @@
 \section{Družina \texorpdfstring{\(\lambda e^z\)}{\lambda exp(z)}}
 
-Dokazali smo, da je \(e^z\) kaotična na celi kompleksni ravnini. Za splošno kompleksno preslikavo pa to ne drži. V tem poglavju bomo preučili dinamiko \emph{eksponentne družine}
+Dokazali smo, da je \(e^z\) kaotična na celi kompleksni ravnini. Zanimivo pa je, da to ne drži nujno že, če preslikavo pomnožimo s konstanto. V tem poglavju bomo preučili dinamiko \emph{eksponentne družine}
 \[E_\lambda (z) \coloneq \lambda e^z.\]
-Za \(0 < \lambda < 1/e\) konstruiramo Juliajevo množico \(J (E_\lambda)\). Razdelek je povzet po~\cite[razdelek 9]{Pineiro_2025}.
+Za \(0 < \lambda < 1/e\) bomo poiskali Juliajevo množico \(J (E_\lambda)\). Poglavje je povzeto po knjigi~\cite[poglavje 9]{Pineiro_2025}.
 
 \subsection{Periodične točke}
 
@@ -15,11 +15,11 @@ Začnemo s preučevanjem realnih fiksnih točk za \(\lambda \in \RR\).
         \item Če je \(\lambda > 1/e\), potem \(E_\lambda\) nima realnih fiksnih točk.
         \item Če je \(0 < \lambda < 1/e\), potem ima \(E_\lambda\) dve realni fiksni točki: \(x^* \in (0, 1)\) (privlačna) ter \(x^{**} > 1\) (odbojna).
         \item Če je \(\lambda < 0\), potem ima \(E_\lambda\) eno realno fiksno točko \(x^*\):
-            \begin{itemize}
-                \item \(x^*\) je privlačna za \(-e < \lambda < 0\);
-                \item \(x^*\) je odbojna za \(\lambda < -e\);
-                \item \(x^*\) je nevtralna za \(\lambda = 1\).
-            \end{itemize}
+              \begin{itemize}
+                  \item \(x^*\) je privlačna za \(-e < \lambda < 0\);
+                  \item \(x^*\) je odbojna za \(\lambda < -e\);
+                  \item \(x^*\) je nevtralna za \(\lambda = 1\).
+              \end{itemize}
     \end{enumerate}
 \end{trditev}
 
@@ -34,7 +34,7 @@ Začnemo s preučevanjem realnih fiksnih točk za \(\lambda \in \RR\).
 
     (4) Naj bo \(\lambda < 0\). Potem je \(f' (x) = \lambda e^x - 1 < 0\) za vsak \(x \in \RR\), kar pomeni, da je \(f\) strogo padajoča. Ker je
     \[\lim_{x \to - \infty} f (x) = + \infty \qquad \text{in} \qquad \lim_{x \to + \infty} f (x) = - \infty\]
-    ima \(f\) natanko eno ničlo, kar pomeni natanko eno fiksno točko \(x^*\) za \(E_\lambda\).
+    ima \(f\) natanko eno ničlo, kar pomeni natanko eno fiksno točko \(x^*\) za \(E_\lambda\). Ločimo primere:
     \begin{itemize}
         \item \(-e < \lambda < 0\): v tem primeru \(f (0) = \lambda < 0\) in \(f (-1) = \lambda / e + 1 > 0\) in zato \(x^* \in (-1, 0)\). Ker je \(|E_\lambda' (z^*)| = |E_\lambda (z^*)| < 1\), je privlačna;
         \item \(\lambda < -e\): v tem primeru \(f (-1) = \lambda / e + 1 < 0\) in zato \(z^* \in (- \infty, -1)\). Podobno kot prej je \(|E_\lambda' (z^*)| > 1\) in zato je \(z^*\) odbojna;
@@ -69,7 +69,7 @@ Začnemo s preučevanjem realnih fiksnih točk za \(\lambda \in \RR\).
         \item Na polravnini \(\re z \geq \ln (1 / \lambda)\) je \(|E_\lambda' (z)| > 1\).
         \item Naj bo \(\nu = \ln (1 / \lambda) > 1\) in \(H\) polravnina \(\re z < \nu\). Potem je \(H\) vsebovana v neposrednem območju privlaka točke \(q_\lambda\).
         \item Premica \(\im z = (2n + 1) \pi\) je za vsak \(n \in \ZZ\) vsebovana v
-        \[E_\lambda^{-1} \prt{\Omega_0 \prt{E_\lambda, q_\lambda}} \cap \Omega_0 \prt{E_\lambda, q_\lambda}.\]
+              \[E_\lambda^{-1} \prt{\Omega_0 \prt{E_\lambda, q_\lambda}} \cap \Omega_0 \prt{E_\lambda, q_\lambda}.\]
     \end{enumerate}
 \end{trditev}
 
@@ -108,10 +108,10 @@ Začnemo s preučevanjem realnih fiksnih točk za \(\lambda \in \RR\).
 \begin{dokaz}
     Naj bo \(z_0\) periodična točka \(E_\lambda\) s periodo \(p\) in \(z_0, z_1, \dots, z_{p - 1}\) njena orbita. Vsaka točka \(z_j\) ima periodično orbito, ki zato ni konvergentna. Torej nobena ni vsebovana v polravnini \(\re \zeta < p_\lambda\). Zato \(\re z_j \geq p_\lambda > \ln (1 / \lambda)\). Po tretju točki trditve \ref{prop:trinajst} vemo, da je \(|E_\lambda' (z_j)| > 1\) za \(j = 0, 1, \dots, p - 1\). Po verižnem pravilu izračunamo
     \[\prt{E_\lambda^p}' (z_0) = \prod_{j = 0}^{p - 1} E_\lambda' (z_j),\]
-    iz česar vidimo \(|(E_\lambda^p)' (z_0)| > 1\).
+    iz česar vidimo, da velja \(|(E_\lambda^p)' (z_0)| > 1\).
 \end{dokaz}
 
-Brez dokaza navedemo dva zanimiva rezultata.
+Za konec navedemo dva zanimiva rezultata. Dokaz najdemo v knjigi \cite[trditev 9.1.7, izrek 9.1.8]{Pineiro_2025}.
 
 \begin{trditev}
     Za \(\lambda \in (0, 1/e)\) je območje privlaka točke \(q_\lambda\) gosta podmnožica \(\CC\).
@@ -162,9 +162,11 @@ za \(k \geq 0\) tvorijo bazo okolic \(\overline{s}\) za topologijo porojeno z zg
 
 \noindent Topologija, porojena z zgornjo metriko, je torej ekvivalentna produktni topologiji.
 
-V simbolični dinamiki je pomembna \emph{preslikava zamika}: \(\sigma \colon \Sigma_N \to \Sigma_N\):
+V simbolični dinamiki je pomembna \emph{preslikava zamika}, to je preslikava \(\sigma \colon \Sigma_N \to \Sigma_N\) podana s predpisom:
 \[\sigma (s_0, s_1, s_2, \dots) = (s_1, s_2, s_3, \dots).\]
-Eksplicitno lahko navedemo \(n\)-to iteracijo kot \(\sigma^n (s_0, s_1, s_2, \dots) = (s_n, s_{n + 1}, s_{n + 2}, \dots)\). Poleg tega je \(\sigma\) zvezna. Res, naj bo \(\varepsilon > 0\). Izberemo tak \(i \in \NN\), da je \(1 / N^i < \varepsilon\), in \(\delta = 1 / N^{n + 1}\). Če sta \(\overline{s}, \overline{t} \in \Sigma_N\) taka, da je \(d(\overline{s}, \overline{t}) < \delta\), potem mora po izreku \ref{thm:blizu} veljati \(s_i = t_i\) za vsak \(i \leq n + 1\). To pomeni, da se \(\overline{s}\) in \(\overline{t}\) ujemata na prvih \((n + 1)\) mestih. Torej se \(\sigma (\overline{s})\) in \(\sigma (\overline{t})\) ujemata na prvih \(n\) mestih in spet po istem izreku velja \(d (\sigma (\overline{s}), \sigma (\overline{t})) < \varepsilon\).
+Eksplicitno lahko navedemo \(n\)-to iteracijo kot
+\[\sigma^n (s_0, s_1, s_2, \dots) = (s_n, s_{n + 1}, s_{n + 2}, \dots).\]
+Poleg tega je \(\sigma\) zvezna. Res, naj bo \(\varepsilon > 0\). Izberemo tak \(i \in \NN\), da je \(1 / N^i < \varepsilon\), in \(\delta = 1 / N^{n + 1}\). Če sta \(\overline{s}, \overline{t} \in \Sigma_N\) taka, da je \(d(\overline{s}, \overline{t}) < \delta\), potem mora po izreku \ref{thm:blizu} veljati \(s_i = t_i\) za vsak \(i \leq n + 1\). To pomeni, da se \(\overline{s}\) in \(\overline{t}\) ujemata na prvih \((n + 1)\) mestih. Torej se \(\sigma (\overline{s})\) in \(\sigma (\overline{t})\) ujemata na prvih \(n\) mestih in spet po istem izreku velja \(d (\sigma (\overline{s}), \sigma (\overline{t})) < \varepsilon\).
 
 \begin{definicija}
     Naj bo \((X, d)\) metrični prostor. Če je \(X\) kompaktna, brez izoliranih točk in popolnoma nepovezana, jo imenujemo \emph{Cantorjeva množica}.
@@ -175,11 +177,11 @@ Eksplicitno lahko navedemo \(n\)-to iteracijo kot \(\sigma^n (s_0, s_1, s_2, \do
 \end{trditev}
 
 \begin{dokaz}
-    (1) Dokažemo, da ni izoliranih točk. Naj bo \(\overline{s} \in \Sigma_N\), \(\varepsilon > 0\) in \(k \in \NN\) tak, da je \(2/N^{k - 1} (N -1) < \varepsilon\). Po lemi \ref{lem:seq-metric}, če je \(\overline{t} \in \Sigma_N\) tak, da je \(t_i = s_i\) za \(i \leq k\), potem
+    (1) Dokažimo, da ni izoliranih točk. Naj bo \(\overline{s} \in \Sigma_N\), \(\varepsilon > 0\) in \(k \in \NN\) tak, da je \(2/N^{k - 1} (N -1) < \varepsilon\). Po lemi \ref{lem:seq-metric}, če je \(\overline{t} \in \Sigma_N\) tak, da je \(t_i = s_i\) za \(i \leq k\), potem
     \[d (\overline{s}, \overline{t}) \leq \frac{2}{N^{k - 1} (N - 1)} < \varepsilon.\]
     To pomeni, da krogla \(B (\overline{s}, \varepsilon)\) vsebuje neskončno elementov.
 
-    (2) Dokažemo, da je \(\Sigma_N\) popolnoma nepovezana. Recimo, da obstaja povezana \(X \subset \Sigma_N\) in vzamemo \(\overline{s}, \overline{s}^* \in \Sigma_N\) za katera \(\overline{s} \neq \overline{s}^*\). Potem obstaja \(i \in \NN\), tako da \(s_i \neq s_i^*\). Definiramo množici
+    (2) Dokažimo, da je \(\Sigma_N\) popolnoma nepovezana. Recimo, da obstaja povezana \(X \subset \Sigma_N\) in vzamemo \(\overline{s}, \overline{s}^* \in \Sigma_N\) za katera \(\overline{s} \neq \overline{s}^*\). Potem obstaja \(i \in \NN\), tako da \(s_i \neq s_i^*\). Definiramo množici
     \[X_1 \coloneq \set{\overline{t} \in \Sigma_N : t_i = s_i} \qquad \text{in} \qquad X_2 = \set{\overline{t} \in \Sigma_N : t_i \neq s_i}\]
     in opazimo, da je \((X_1 \cap X) \cup (X_2 \cap X_1) = X\), \(X_1 \cap X_2 = \emptyset\), \(\overline{s} \in X_1\) in \(\overline{s}^* \in X_2\). Do protislovja bomo torej prišli, če pokažemo, da sta \(X_1\) in \(X_2\) odprti. Ker je
     \[X_2 = \bigcup_{s \neq s_i} \set{\overline{t} \in \Sigma_N : t_i = s},\]
@@ -190,7 +192,7 @@ Eksplicitno lahko navedemo \(n\)-to iteracijo kot \(\sigma^n (s_0, s_1, s_2, \do
 
 \subsection{Juliajeva množica \texorpdfstring{\(E_\lambda\)}{E\_\lambda} za \texorpdfstring{\(0 < \lambda < 1/e\)}{0 < \lambda < 1/e}}
 
-V tem razdelku naj bo vedno \(0 < \lambda < 1/e\). Oznake ostajajo enake kot prej: \(q_\lambda\) in \(p_\lambda\) sta privlačna in odbijajoča točka, za kateri velja \(0 < q_\lambda < 1 < p_\lambda\). Za dan \(\lambda\) in \(l_\lambda \in (\ln (1 / \lambda), p_\lambda)\) bomo v polravnini \(\re z \geq l_\lambda\) konstruirali družino Cantorjevih množic, ki so invariantne za \(E_\lambda\).
+V tem poglavju naj bo vedno \(0 < \lambda < 1/e\). Oznake ostajajo enake kot prej: \(q_\lambda\) in \(p_\lambda\) sta privlačna in odbijajoča točka, za kateri velja \(0 < q_\lambda < 1 < p_\lambda\). Za dan \(\lambda\) in \(l_\lambda \in (\ln (1 / \lambda), p_\lambda)\) bomo v polravnini \(\re z \geq l_\lambda\) konstruirali družino Cantorjevih množic, ki so invariantne za \(E_\lambda\).
 
 Naj bo \(N \in \NN\) označimo
 \[B(N) \coloneq \set{x + iy \in \CC : x \in [l_\lambda, r_\lambda], y \in [- (2N + 1) \pi, (2N + 1) \pi]},\]
@@ -218,7 +220,7 @@ torej je \(|z|\) strogo večji od notranjega radija \(A\).
 \[|E_\lambda (z)| = \lambda e^x \leq \lambda e^{r_\lambda} \qquad \text{in} \qquad |E_\lambda (z)| = \lambda e^x \geq \lambda e^{l_\lambda}.\]
 \vspace{5mm}
 
-\noindent Vrnemo se nazaj k konstrukciji. Za vsak \(i = -N, \dots, N\) definiramo `podpravokotnik'
+\noindent Vrnemo se nazaj h konstrukciji. Za vsak \(i = -N, \dots, N\) definiramo `podpravokotnik'
 \[R_i \coloneq \set{x + iy \in \CC : x \in [l_\lambda, r_\lambda], y \in [(2i - 1) \pi, (2i + 1) \pi]}.\]
 Ker po lastnosti 2 \(E_\lambda\) preslika \(R_i\) v \(A\), ostaja pokazati le, je ta preslikava surjektivna. Naj bo \(w = r \lambda e^{i \theta} \in A\), torej \(r \in (e^{l_\lambda}, e^{r_\lambda})\) in \(\theta \in [(2i - 1) \pi, (2i + 1) \pi]\). Če vzamemo \(x = \ln r\) in postavimo \(z = x + i \theta\), je po definiciji \(z \in R_i\) in
 \[E_\lambda (z) = \lambda e^x e^{i \theta} = \lambda r e^{i \theta} = w.\]
@@ -270,13 +272,13 @@ konvergira proti \num{0}. Naj bosta \(z_1, z_2 \in B(N)\). Z neenakostjo \(|E_\l
 \[\prt{L_s^{[n]}}' (z) = \prt{E_\lambda^n}' \prt{L_s^{[n]} (z)}^{-1} \implies \abs{\prt{L_s^{[n]}}' (z)} \leq \mu^{- (n + 1)}.\]
 Zato
 \[ \begin{multlined}[12cm]
-    \left| L_s^{[n]}(z_2) - L_s^{[n]}(z_1) \right| = \left| \int_{z_1}^{z_2} \prt{L_s^{[n]}}' (z) \, \dd z \right|\\
-    \leq |z_2 - z_1| \cdot \sup_{z \in B(N)}\left| \left( L_s^{[n]} \right)'(z) \right| \leq \frac{\diam (B(N))}{\mu^{n+1}}.
-\end{multlined} \]
+        \left| L_s^{[n]}(z_2) - L_s^{[n]}(z_1) \right| = \left| \int_{z_1}^{z_2} \prt{L_s^{[n]}}' (z) \, \dd z \right|\\
+        \leq |z_2 - z_1| \cdot \sup_{z \in B(N)}\left| \left( L_s^{[n]} \right)'(z) \right| \leq \frac{\diam (B(N))}{\mu^{n+1}}.
+    \end{multlined} \]
 Ker je \(\mu > 1\), desna stran konvergira proti \num{0} in zato tudi \(d_n\) konvergirajo proti \num{0}.
 
 \begin{izrek}
-    Preslikava \(\phi \colon \Sigma_N \to \Lambda_N\); \(\phi (\overline{s}) = z_{\overline{s}}\) je homeomorfizem, ki konjugira skrčitev \(E_\lambda\) na \(\Lambda_N\) ter preslikavo zamika \(\sigma\). 
+    Preslikava \(\phi \colon \Sigma_N \to \Lambda_N\); \(\phi (\overline{s}) = z_{\overline{s}}\) je homeomorfizem, ki konjugira skrčitev \(E_\lambda\) na \(\Lambda_N\) ter preslikavo zamika \(\sigma\), torej \(\phi \circ \sigma = E_\lambda \circ \phi\).
 \end{izrek}
 
 \begin{dokaz}

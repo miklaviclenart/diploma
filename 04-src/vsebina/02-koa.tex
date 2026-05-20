@@ -1,23 +1,29 @@
-\section{Pregled kompleksne analize} \label{sec:hipgeom}
+\section{Osnove kompleksne analize} \label{sec:hipgeom}
 
-\subsection{Oznake in osnovne definicije}
+V tem poglavju ponovimo nekaj osnovnih oznak in definicij iz kompleksne analize, ki jih bomo uporabljali kasneje. Nato uvedemo pojem \emph{normalna družina} in \emph{hiperbolična metrika}, katere lastnosti bodo ključne pri glavnem dokazu dela.
 
-Uporabljamo standardne oznake. Kompleksno število \(z \in \CC\) lahko zapišemo kot vsoto \(z = x + i y\) ali v polarnem zapisu \(z = r e^{i \theta} = r (\cos \theta + i \sin \theta)\). Kot, ki ga oklepata abscisa in premica skozi \(0\) in \(z\), označimo z \(\Arg (z) \in (- \pi, \pi]\) ali \(\arg (z) \in [0, 2 \pi)\). Z \(\Delta (a, r)\) označimo odprt disk s središčem v \(a\) in radijem \(e\). Torej je \(\DD \coloneq \Delta (0, 1)\). Riemannovo sfero označimo z \(\hat{\CC} \coloneq \CC \cup \{\infty\}\).
+\subsection{Oznake in definicije}
 
-Za splošne metrične prostore \((X, d)\) z \(B (x_0, r)\) označimo odprto kroglo z radijem \(r > 0\) in središčem v \(x_0 \in X\). Notranjost množice \(A \subseteq X\) označimo z \(\Int (A)\), njeno zaprtje z \(\overline{A}\) in njeno mejo z \(\partial A\). \emph{Premer} ali \emph{diameter} množice \(A\) je
+Kompleksno število \(z \in \CC\) lahko zapišemo kot vsoto \(z = x + i y\) ali v polarnem zapisu \(z = r e^{i \theta} = r (\cos \theta + i \sin \theta)\). Kot, ki ga oklepata abscisa in premica skozi \(0\) in \(z\), označimo z \(\Arg (z) \in (- \pi, \pi]\) ali \(\arg (z) \in [0, 2 \pi)\). Z \(\Delta (a, r)\) označimo odprt disk s središčem v \(a\) in radijem \(r\). Za enotski disk nadalje uporabimo oznako \(\DD \coloneq \Delta (0, 1)\), za Riemannovo sfero pa \(\widehat{\CC} \coloneq \CC \cup \{\infty\}\).
+
+Za splošne metrične prostore \((X, d)\) z \(B (x_0, r)\) označimo odprto kroglo z radijem \(r > 0\) in središčem v \(x_0 \in X\). Notranjost množice \(A \subseteq X\) označimo z \(\Int (A)\), njeno zaprtje z \(\overline{A}\) in njen rob z \(\partial A\). \emph{Premer} ali \emph{diameter} množice \(A\) definiramo kot
 \[\diam (A) \coloneq \sup \{d (x, y) : x, y \in A\}.\]
 
-Večinoma se bomo ukvarjali s funkcijami \(f \colon \CC \to \CC\). Če je \(f\) holomorfna na \(\CC\), pravimo, da je \emph{cela funkcija}. Vemo, da je to v \(\CC\) ekvivalentno pogoju, da je \(f\) analitična pri vsakem \(z \in \CC\). Cela funkcija je \emph{transcendentna}, če ni polinom ali kvocient dveh polinomov. Funkcija je \emph{konformna} ali \emph{univalentna}, če je analitična in injektivna.
+Neprazni odprti in povezani podmnožici kompleksnih števil \(D \subseteq \CC\) pravimo \emph{območje}. Večinoma se bomo ukvarjali s kompleksnimi funkcijami ene spremenljivke \(f \colon D \to \CC\). Če je \(f\) holomorfna na \(\CC\), pravimo, da je \emph{cela funkcija}. Vemo, da je to v \(\CC\) ekvivalentno pogoju, da je \(f\) analitična pri vsakem \(z \in \CC\). Cela funkcija je \emph{transcendentna}, če ni polinom ali kvocient dveh polinomov. Pravimo, da je funkcija \emph{konformna}, če ohranja kote in smisel vrtenja. Vemo, da so holomorfne funkcije konformne natanko tedaj, ko je njihov odvod neničelen (glej \cite[izrek 78]{Globevnik_2010}).
 
-Neprazni odprti in povezani podmnožici kompleksnih števil pravimo \emph{območje}. \emph{Enostavno povezano} območje si intuitivno predstavljamo kot tisto območje, ki nima ``lukenj''. Natančno pa ga definiramo definiramo z naslednjim izrekom.
+Funkcija \(f \colon D \to D'\) je \emph{biholomorfna}, če je bijektivna, holomorfna in ima holomorfen inverz \(f^{-1} \colon D' \to D\). \emph{Enostavno povezano} območje si intuitivno predstavljamo kot tisto območje, ki nima ``lukenj''. Natančno pa ga definiramo definiramo z naslednjim izrekom.
 
 \begin{definicija}[Riemannov upodobitveni izrek]
-    Območje \(D \subsetneq \CC\) je \emph{enostavno povezano} natanko tedaj, ko obstaja konformni izomorfizem (bijektivna holomorfna funkcija) \(\phi \colon D \to \DD\).
+    Območje \(D \subsetneq \CC\) je \emph{enostavno povezano} natanko tedaj, ko obstaja biholomorfna funkcija \(\phi \colon D \to \DD\).
 \end{definicija}
 
 \subsection{Kompleksni logaritem}
 
-\noindent Kompleksna eksponentna preslikava je bolj zapletena od realne. Ker je \(e^{z + 2 \pi i} = e^x (\cos (y + 2 \pi) + i \sin (y + 2 \pi)) = e^z\), je periodična (glej sliko \ref{fig:exponential}). Posledično nima inverza.
+\noindent Kompleksna eksponentna preslikava je podana s predpisom
+\[e^z = e^x (\cos y + i \sin y).\]
+Ker je
+\[e^{z + 2 \pi i} = e^x (\cos (y + 2 \pi) + i \sin (y + 2 \pi)) = e^z,\]
+je periodična (glej sliko \ref{fig:exponential}). Posledično nima inverza.
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{needham_figure.pdf}
@@ -26,25 +32,46 @@ Neprazni odprti in povezani podmnožici kompleksnih števil pravimo \emph{območ
 \end{figure}
 Res, naj bo \(w = u + i v\). Rešimo enačbo:
 \begin{align*}
-    e^w = z &\iff e^u (\cos v + i \sin v) = x + i y\\
-            &\iff e^u = \sqrt{x^2 + y^2} \quad \text{in} \quad v = \Arg z + 2 k \pi.
+    e^w = z & \iff e^u (\cos v + i \sin v) = x + i y                                    \\
+            & \iff e^u = \sqrt{x^2 + y^2} \quad \text{in} \quad v = \Arg (z) + 2 k \pi.
 \end{align*}
 Torej je \(e^w = z\) natanko tedaj, ko je
-\[w = \ln |z| + i \Arg z + 2 k \pi i,\]
+\[w = \ln |z| + i \Arg (z) + 2 k \pi i,\]
 za vsak \(k \in \ZZ\). Prav tako bi lahko namesto \(\Arg\) izbrali \(\arg\). Da lahko definiramo inverz, moramo domeno omejiti. Naj bo \(\theta \in \RR\). Potem je
 \[\begin{multlined}[10cm]
-    \exp \colon  \set{\zeta \in \CC \colon \theta -\pi < \im \zeta < \theta + \pi}\\
-    \to \set{\omega \in \CC \colon \Arg \omega \not\equiv \theta - \pi\ (\operatorname{mod}\, 2 \pi)} \eqcolon U
-\end{multlined}\]
+        \exp \colon  \set{\zeta \in \CC \colon \theta -\pi < \im \zeta < \theta + \pi}\\
+        \to \set{\omega \in \CC \colon \Arg (\omega) \not\equiv \theta - \pi\ (\operatorname{mod}\, 2 \pi)} \eqcolon U
+    \end{multlined}\]
 bijektivna na \(U\) in ima tam holomorfen inverz \(L \colon U \to \CC\):
-\[L (\omega) \coloneq \log |\omega| + i \cdot \prt{\theta + \Arg \frac{\omega}{e^{i \theta}}}.\]
+\[L (\omega) \coloneq \log |\omega| + i \cdot \prt{\theta + \Arg \prt{\frac{\omega}{e^{i \theta}}}}.\]
 Vsaki taki funkciji \(L\) rečemo \emph{veja logaritma}. Če vzamemo \(\theta = 0\) dobimo \emph{glavno} vejo logaritma. Veje logaritma obstajajo tudi na vsakem preprosto povezanem območju, vendar bodo za nas pomembne le zarezane ravnine \(\CC \setminus [0, \infty)\) in diski, ki ne vsebuje izhodišča. Na primer, imejmo disk \(\Delta \subset \CC\), tako da \(0 \notin \Delta\). Naj bo \(\zeta_0 \in \CC\), da je \(e^{\zeta_0} \in \Delta\). Če vzamemo \(\theta = \im \zeta_0\), dobimo holomorfno preslikavo \(L \colon \Delta \to \CC\), za katero velja \(L (e^{\zeta_0}) = \zeta_0\) ter \(e^{L (\omega)} = \omega\) in \(\im \zeta_0 - \pi < \im L (\omega) < \im \zeta_0 + \pi\) za vsak \(\omega \in \Delta\).
 
 \subsection{Normalne družine}
 
+Naj bosta \(X\) in \(Y\) topološka prostora. Množico zveznih preslikav \(f \colon X \to Y\) opremimo s kompaktno-odprto topologijo. Tedaj relativno kompaktnim množicam pravimo \emph{normalne družine}. V tem poglavju jih bomo prek topologije enakomerne konvergence po kompaktih normalne družine definirali za holomorfne funkcije na nekem območju \(D \subseteq \CC\). Vemo, da sta zgornji topologiji na metričnih prostorih enaki.
 \begin{definicija}
     Zaporedje holomorfnnih funkcij \((f_n)\) na območju \(D \subseteq \CC\) konvergira k \(f\) \emph{enakomerno po kompaktih}, če za vsako kompaktno podmnožico \(K \subset D\) in vsak \(\varepsilon > 0\) obstaja obstaja \(n_0 \in \NN\), da za \(n \geq n_0\) velja \(|f_n (z) - f(z)| < \varepsilon\) za vse \(z \in K\).
 \end{definicija}
+
+\begin{primer} \label{ex:primer}
+    Zaporedje \(f_n \colon \DD \to \CC\), \(f_n (z) = z^n\) konvergira k \(f \equiv 0\) enakomerno po kompaktih. Res, naj bo \(K \subset \DD\) kompaktna. Tedaj obstaja \(r < 1\), da za vsak \(z \in K\) velja \(|z| < r\). Zato velja
+    \[\abs{f_n (z) - f (z)} = \abs{z^n - 0} < r^n.\]
+    Trditev sledi, saj je za vsak \(\varepsilon > 0\) tudi \(r^n < \varepsilon\) za dovolj velik \(n\).
+\end{primer}
+
+\noindent Naslednji izrek nam pove, da je konvergenca enakomerno po kompaktih v družini holomorfnih funkcij smiselna, saj ohranja holomorfnost.
+
+\begin{izrek}
+    Naj bo \((f_n)\) zaporedje holomorfnih funkcij na območju \(D \subseteq \CC\), ki konvergira k \(f\) enakomerno po kompaktih. Potem je tudi \(f\) holomorfna na \(D\).
+\end{izrek}
+
+\begin{dokaz}
+    Naj bo \(\overline{\Delta (a, r)} \subseteq D\). Ker je \(\overline{\Delta (a, r)}\) kompaktna, zaporedje \(f_n\) tu enakomerno konvergira proti \(f\). Poleg tega vsaka funkcija \(f_n\) za vsak \(z \in \Delta (a, r)\) zadošča Cauchyjevi integralski formuli
+    \[f_n (z) = \frac{1}{2 \pi i} \int_{\partial \Delta (a, r)} \frac{f_n (w)}{w - z} \, \dd w.\]
+    Ker je konvergenca enakomerna, lahko zamenjamo limito in integral
+    \[f (z) = \lim_{n \to \infty} f_n (z) = \lim_{n \to \infty} \frac{1}{2 \pi i} \int_{\partial \Delta (a, r)} \frac{f_n (w)}{w - z} \, \dd w = \frac{1}{2 \pi i} \int_{\partial \Delta (a, r)} \frac{f (w)}{w - z} \, \dd w.\]
+    Funkcijo na desni lahko razvijemo v vrsto okoli \(z = a\) in zato je holomorfna na \(\Delta (a, r)\). Torej je taka tudi \(f\).
+\end{dokaz}
 
 \begin{definicija}
     Naj bo \(\FFF\) družina holomorfnih funkcij na območju \(D \subseteq \CC\). Pravimo, da je družina \emph{normalna}, če za vsako zaporedje funkcij \((f_n) \subset \FFF\) obstaja podzaporedje \((f_{n_k})\), ki konvergira enakomerno po kompaktih k neki \(f \in \FFF\) ali pa k \(f \equiv \infty\).
@@ -52,25 +79,26 @@ Vsaki taki funkciji \(L\) rečemo \emph{veja logaritma}. Če vzamemo \(\theta = 
 
 \subsection{Hiperbolična geometrija}
 
-Hiperbolična geometrija se od evklidske razlikuje v tem, da aksiom
+Temelj evklidske geometrije nam postavi pet Evklidovih aksiomov.
+\begin{enumerate}
+    \item Skozi poljubni dve točki poteka natanko ena premica.
+    \item Premica je neomejena.
+    \item Za vsako daljico obstaja krožnica, ki ima to daljico za polmer in eno od krajišč za središče.
+    \item Vsi pravi koti so skladni.
+    \item Za poljubno premico \(p\) in točko \(A\), ki ne leži na premici \(p\), obstaja natanko ena premica \(q\), ki vsebuje \(A\) in ne seka premice \(p\).
+\end{enumerate}
 
-\begin{aksiom}
-    Za poljubno premico \(p\) in točko \(A\), ki ne leži na premici \(p\), obstaja natanko ena premica \(q\), ki vsebuje \(A\) in ne seka premice \(p\).
-\end{aksiom}
+\noindent Zadnji peti aksiom se imenuje \emph{aksiom o vzporednici}. V hiperbolični geometriji ga nadomestimo z
 
-\noindent nadomestimo z
+\begin{enumerate}[resume]
+    \item[5'.] Obstajata premica \(p\) in točka \(A\), ki ne leži na premici \(p\), tako da obstajata vsaj dve premici \(q\) in \(r\), ki vsebujeta \(A\) in ne sekata premice \(p\).
+\end{enumerate}
 
-\begin{aksiom}
-    Obstajata premica \(p\) in točka \(A\), ki ne leži na premici \(p\), tako da obstajata vsaj dve premici \(q\) in \(r\), ki vsebujeta \(A\) in ne sekata premice \(p\).
-\end{aksiom}
+\noindent Nov aksiom prinaša veliko posledic, med drugim tudi drugo metriko; \emph{hiperbolično metriko}, katere lastnosti bomo uporabili pri dokazu. Metriko najprej definiramo na enotskem disku \(\DD\) in jo nato razširimo na bolj splošne množice.
 
-\noindent Nov aksiom prinaša veliko posledic, med drugim tudi drugo metriko; \emph{hiperbolično metriko}, katere lastnosti bomo uporabili pri dokazu. Metriko najprej definiramo na enotskem disku \(\DD \coloneq \set{z \in \CC : |z| < 1}\) in jo nato razširimo na bolj splošne množice. Za začetek ponovimo nekaj osnovnih pojmov iz kompleksne analize.
-
-\subsubsection{Hiperbolična metrika na enotskem disku}
-
-Hiperbolično metriko podamo prek \emph{hiperboličnega ločnega elementa}:
-\[\dd \rho_{\DD} (z) = \frac{2 |\dd z|}{1 - |z|^2},\]
-ki nam pove, da se infinitezimalna sprememba v točki \(z\) v hiperbolični metriki izrazi kot infinitezimalna sprememba v evklidski metriki, pomnožena s t.i.~\emph{gostoto} hiperbolične metrike
+Hiperbolično metriko podamo prek \emph{hiperboličnega ločnega elementa} najprej na enotskem disku:
+\[\dd \rho_{\DD} (z) = \frac{2 |\dd z|}{1 - |z|^2}.\]
+Hiperbolični ločni element nam pove, da se infinitezimalna sprememba v točki \(z\) v hiperbolični metriki izrazi kot infinitezimalna sprememba v evklidski metriki, pomnožena s t.i.~\emph{gostoto} hiperbolične metrike
 \[\rho_{\DD} (z) = \frac{2}{1 - |z|^2}.\]
 Iz tega izhaja naslednja definicija.
 
@@ -87,33 +115,31 @@ Iz tega izhaja naslednja definicija.
     kjer \(\gamma\) teče po vseh odsekoma \(C^1\) krivuljah v \(\DD\), ki povezujejo točki \(z\) in \(w\).
 \end{definicija}
 
-\subsubsection{Hiperbolična metrika na enostavno povezanih območjih}
-
-Definicijo nam iz enotskega diska na enostavno povezana območja prenese naslednji izrek.
+Definicijo nam iz enotskega diska na enostavno povezana območja prenese naslednji izrek, katerega dokaz najdemo v delu \cite[izrek 6.4]{Beardon_2006}.
 
 \begin{izrek}[Pick] \label{thm:pick}
-    Naj bosta \(U, V \subsetneq \CC\) enostavno povezani območji in \(f \colon U \to V\) holomorfna preslikava. Potem na \(U\) obstaja enolično določen hiperbolični ločni element, da velja naslednje.
+    Naj bosta \(U, V \subsetneq \CC\) enostavno povezani območji in \(f \colon U \to V\) holomorfna preslikava. Potem na \(U\) obstaja enolično določen hiperbolični ločni element \(\rho_U |\dd z|\), da veljo naslednje izjave.
     \begin{enumerate}
         \item Za vsak \(z \in \DD\) velja \(\rho_{\DD} (z) = \frac{2}{1 - |z|^2}\).
         \item Preslikava \(f\) ne veča \emph{hiperboličnega odvoda}, to je \[\hder{f (z)}{U}{V} \coloneq |f' (z)| \cdot \frac{\rho_V (f (z))}{\rho_U (z)} \leq 1.\]
         \item Enakost \(\hder{f (z)}{U}{V} = 1\) velja natanko tedaj, ko je \(f\) konformni izomorfizem.
-        \item Če je \(U \subsetneq V\), potem za vsak \(z \in U\) velja \(\rho_U (z) > \rho_V (z)\). 
+        \item Če je \(U \subsetneq V\), potem za vsak \(z \in U\) velja \(\rho_U (z) > \rho_V (z)\).
     \end{enumerate}
 \end{izrek}
 
-\noindent Druga in tretja točka sta pripravni za eksplicitno računanje gostot hiperbolične metrike.
+\noindent S pomočjo druge in tretje točka lahko izračunamo gostoto hiperbolične metrike eksplicitno. To je prikazano v naslednji trditvi.
 
-\begin{trditev}[Zgledi hiperbolične metrike] \label{prop:hypexamples} \mbox{}
+\begin{trditev}[Zgledi hiperboličnih metrik] \label{prop:hypexamples} \mbox{}
     \begin{enumerate}
         \item Za desno polravnino \(\HH \coloneq \set{ z \in \CC : \re (z) > 0 }\) je \(\rho_\HH = \frac{1}{\re (z)}\).
         \item Za zgornjo polravnino \(\KK \coloneq \set{z \in \CC : \im (z) > 0}\) je \(\rho_{\KK} (z) = \frac{1}{\im (z)}\)
-        \item Za pas \(S \coloneq \set{z \in \CC : |\im (z)| < \pi}\) višine \(2 \pi\) je \(\rho_{S} = \frac{1}{2 \cos (\im (z) / 2)}\).
+        \item Za pas \(S \coloneq \set{z \in \CC : |\im (z)| < \pi}\) je \(\rho_{S} = \frac{1}{2 \cos (\im (z) / 2)}\).
         \item Za zarezani ravnini velja
-            \[
-                \rho_{\CC \setminus [0, \infty)} (z) = \frac{1}{2 |z| \sin (\arg (z) / 2)},
-                \qquad
-                \rho_{\CC \setminus (-\infty, 0]} (z) = \frac{1}{2 |z| \cos (\Arg (z) / 2)}.
-            \]
+              \[
+                  \rho_{\CC \setminus [0, \infty)} (z) = \frac{1}{2 |z| \sin (\arg (z) / 2)},
+                  \qquad
+                  \rho_{\CC \setminus (-\infty, 0]} (z) = \frac{1}{2 |z| \cos (\Arg (z) / 2)}.
+              \]
     \end{enumerate}
 \end{trditev}
 

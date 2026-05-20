@@ -1,7 +1,9 @@
 \subsection{Tranzitivnost in goste orbite} \label{sec:transitivity}
 
-\begin{izrek}[Topološka tranzitivnost] \label{thm:transitivity}
-    Če sta \(U, V \subseteq \CC\) odprti, potem obstaja tak \(n \geq 0\), da velja \(f^{n} (U) \cap V \neq \emptyset\).
+Pokazali bomo, da kompleksna eksponentna preslikava \(f\) ustreza definiciji topološke tranzitivnosti. Po trditvi \ref{prop:tridevet} nato vemo, da ima \(f\) gosto orbito. Kot posledica pa bomo dokazali še več, to je, da je množica točk z gosto orbito gosta.
+
+\begin{izrek} \label{thm:transitivity}
+    Kompleksna eksponentna preslikava je topološko tranzitivna.
 \end{izrek}
 
 \noindent Pomagamo si z naslednjimi pomožnimi rezultati.
@@ -15,7 +17,7 @@
     \[\lim_{n \to \infty} \re z_n = \lim_{n \to \infty} \log |z_{n + 1}| = \infty.\]
     Poleg tega je \(\lim_{n \to \infty} |f' (z_n)| = \lim_{n \to \infty} |f (z_n)| = \lim_{n \to \infty} |z_{n + 1}| = \infty\). Zato obstaja \(N \in \NN\), da za vsak \(n \geq N\) velja \(|f' (z_n)| \geq 2\). Za \(m > N\) izračunamo odvod \(f^{m} = f^{m - N} \circ f^{N}\) po verižnem pravilu:
     \[|(f^{m})' (z_0)| = \abs{ \prt{f^{N}}' (z_0) } \cdot \prod_{n = N}^{m - 1} |f' (z_n)| \geq 2^{m - N} \cdot \abs{ \prt{f^{N}}' (z_0) }.\]
-    Za vsak \(z \in \CC\) velja \(f' (z) \neq 0\) in zato \(|(f^N)' (z_0)| \neq 0\). Zato sklepamo
+    Za vsak \(z \in \CC\) velja \(f' (z) \neq 0\) in zato \(|(f^N)' (z_0)| \neq 0\). Zato sklepamo, da je
     \[\lim_{m \to \infty} |(f^{m})' (z_0)| = \infty.\]
 \end{dokaz}
 
@@ -42,9 +44,11 @@
     \[\absolute{L_n' (z)} = \frac{1}{\absolute{z}} \leq \frac{1}{2}.\]
     Spet uporabimo Lagrangeev izrek in vidimo, da za vsak \(n\) in vsak \(z \in D_n\) velja
     \[\absolute{L_n (z) - z_{n - 1}} = \absolute{L_n (z) - L_n (z_n)} \leq 2 \pi \cdot \sup_{\zeta \in D_n} \absolute{L_n' (\zeta)} \leq \pi.\]
-    To pomeni \(L_n (D_n) \subset D_{n - 1}\). Z indukcijo sklepamo, da je kompozitum \(\phi_n \coloneq L_1 \circ L_2 \circ \dots \circ L_n\) definiran na \(D_n\) in za vsak \(z \in D_n\) velja \(\absolute{\phi_n' (z)} \leq 2^{-n}\). Torej za preslikavo \(\phi_n\) velja točka \ref{item:tri}, točki \ref{item:ena} in \ref{item:dva} pa veljata po njeni definiciji.
+    To pomeni, da imamo \(L_n (D_n) \subset D_{n - 1}\). Z indukcijo sklepamo, da je kompozitum
+    \[\phi_n \coloneq L_1 \circ L_2 \circ \dots \circ L_n\]
+    definiran na \(D_n\) in za vsak \(z \in D_n\) velja \(\absolute{\phi_n' (z)} \leq 2^{-n}\). Torej za preslikavo \(\phi_n\) velja točka \ref{item:tri}, točki \ref{item:ena} in \ref{item:dva} pa veljata po njeni definiciji.
 
-    Če predpostavka \(\absolute{z_n} \geq 2 \pi + 2\) ne velja, sklepamo takole. Ker je \(z_0\) ubežna točka, še vedno obstaja tak \(n_1 \in \NN\), da za vsak \(n > n_1\) velja \(\absolute{z_n} \geq 2 \pi + 2\). To pa pomeni, da za vsak tak \(n\) obstaja holomorfna preslikava \(\psi_n \colon D_n \to D_{n_1}\), za katero veljajo vse točke trditve tako, da za \(z_0\) v trditvi izberemo \(z_{n_1}\):
+    Če predpostavka \(\absolute{z_n} \geq 2 \pi + 2\) ne velja, sklepamo takole. Ker je \(z_0\) ubežna točka, še vedno obstaja tak \(n_1 \in \NN\), da za vsak \(n > n_1\) velja \(\absolute{z_n} \geq 2 \pi + 2\). To pa pomeni, da za vsak tak \(n\) obstaja holomorfna preslikava \(\psi_n \colon D_n \to D_{n_1}\), za katero veljajo vse točke trditve tako, da za \(z_0\) v trditvi izberemo \(z_{n_1}\) na sledeč način:
     \begin{enumerate}
         \item \(\phi_n (z_n) = z_{n_1}\);
         \item za vsak \(z \in D_n\) velja \(f^{n - n_1} (\psi_n (z)) = z\);
@@ -96,7 +100,7 @@
 \begin{dokaz}
     Ker so ubežne točke goste, obstaja \(z_0 \in I (f) \cap U\). Naj bo \(z_n \coloneq f^n (z_0)\) za \(n \geq 1\) in naj bodo \(D_n \coloneq \Delta (z_n, 2 \pi)\), \(n_0\) in \(\phi_n\) kot v trditvi \ref{prop:small_disks}. Naj bosta \(\rho\) in \(K\) kot v trditvi \ref{prop:lare_disks}. Ker je \(z_0\) ubežna točka, potem po točki \ref{item:stiri} trditve \ref{prop:small_disks} obstaja \(N_1 \geq n_0\), da je \(\re z_n \geq \rho\) in \(\phi_n (D_n) \subset U\) za vsak \(n \geq N_1\). Naj bo sedaj \(n \geq N_1\). Potem po trditvi \ref{prop:lare_disks} velja
     \[f^{n + 2} \prt{U} \supset f^{n + 2} \prt{\phi_n \prt{D_n}} = f^2 \prt{f^n \prt{\phi_n \prt{D_n}}} = f^2 \prt{D_n} \supset K.\]
-    Trditev drži če izberemo \(N \coloneq N_1 + 2\).
+    Trditev drži, če izberemo \(N \coloneq N_1 + 2\).
 \end{dokaz}
 
 \begin{posledica}[Goste orbite]

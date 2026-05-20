@@ -1,13 +1,15 @@
 \section{Dinamični sistemi} \label{sec:dis}
 
-V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolucijskim pravilom. Množica stanj je običajno metrični ali topološki prostor \(X\), deterministično evolucijsko pravilo pa preslikava \(F \colon X \to X\). Dinamične sisteme delimo na
+V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolucijskim pravilom. Množica stanj običajno predstavlja metrični ali topološki prostor \(X\), deterministično evolucijsko pravilo pa preslikava \(F \colon X \to X\).
 
-\begin{enumerate}
-    \item \emph{diskretne} ali \emph{rekurzivne}, kjer je \(x_0 \in X\) in \(x_{n + 1} = F (x_n)\) za \(n \in \NN \cup \{0\}\);
-    \item \emph{zvezne}, ki so sistemi diferencialnih enačb: \(\dot{\mathbf{x}} = F (\mathbf{x})\) za \(\mathbf{x} \in X \subseteq \RR^n\).
-\end{enumerate}
+% Dinamične sisteme delimo na
 
-\noindent V zgornjih primerih sta indeksni ali \emph{časovni} množici \(\NN\) in \(\RR\). Splošneje je to lahko poljuben monoid (glej \cite{Giunti_2012}). V izogib pretirani splošnosti se bomo v diplomski nalogi omejili na diskretne dinamične sisteme na metričnih prostorih.
+% \begin{enumerate}
+%     \item \emph{diskretne} ali \emph{rekurzivne}, kjer je \(x_0 \in X\) in \(x_{n + 1} = F (x_n)\) za \(n \in \NN \cup \{0\}\);
+%     \item \emph{zvezne}, ki so sistemi diferencialnih enačb: \(\dot{\mathbf{x}} = F (\mathbf{x})\) za \(\mathbf{x} \in X \subseteq \RR^n\).
+% \end{enumerate}
+
+% \noindent V zgornjih primerih sta indeksni ali \emph{časovni} množici \(\NN\) in \(\RR\). Splošneje je to lahko poljuben monoid (glej \cite{Giunti_2012}). V izogib pretirani splošnosti se bomo v diplomski nalogi omejili na diskretne dinamične sisteme na metričnih prostorih.
 
 \begin{zgled}
     Kompleksna števila \(\CC\) skupaj s kompleksno eksponentno preslikavo \(f \colon \CC \to \CC\); \(z \mapsto e^{z}\) so diskretni dinamični sistem.
@@ -17,26 +19,67 @@ V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolu
 
 \subsection{Periodične točke}
 
-Začetna točka je \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x_0) = x_0\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\), točka pa je \emph{\(n\)-periodična}. Periodična točka je \emph{fiksna}, če je njena perioda \(\num{1}\).
+Začetna točka je \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x_0) = x_0\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\), točka pa je \emph{\(n\)-periodična}. Periodična točka je \emph{fiksna}, če je njena perioda \(\num{1}\). V nadaljevanju bomo preučili lastnosti fiksnih točk. Poglavje je povzeto po knjigi \cite[poglavje 4.]{Pineiro_2025}.
 
 \begin{definicija}
     Naj bo \((X, d)\) metrični prostor, \(f \colon X \to X\) zvezna in \(x^*\) fiksna točka \(f\). Če obstaja tak \(r > 0\), da na odprti krogli \(B (x^*, r)\) orbita vsake začetne točke enakomerno konvergira proti \(x^*\), potem je \(x^*\) \emph{privlačna}. Točka \(x^*\) je \emph{odbojna}, če obstaja \(r > 0\), da za vsak \(x_0 \in B (x^*, r)\) in \(x_0 \neq x^*\), obstaja \(n \in \NN\), za katerega je \(f^n (x_0) \notin B (x^*, r)\).
 \end{definicija}
 
-\noindent V kompleksni ravnini se definicija poenostavi. Brez dokaza navedemo naslednji izrek.
+\begin{definicija}
+    Naj bosta \(X\) in \(Y\) metrična prostora ter \(f \colon X \to X\) in \(g \colon Y \to Y\) zvezni. Pravimo, da sta \(f\) in \(g\) \emph{konjugirani}, če obstaja homeomorfizem \(h \colon X \to Y\), da velja \(h \circ f = g \circ h\). Tedaj pravimo, da \(h\) konjugira \(f\) in \(g\).
+\end{definicija}
+
+Konjugiranost je ekvivalenčna z lastnostjo, da za vsak \(n \in \NN\) velja \(f^n = h^{-1} \circ g^n \circ h\). Za nas je zanimiva, saj imajo njeni ekvivalenčni razredi enako dinamiko, kar nam nakaže naslednja trditev.
+
+\begin{trditev}
+    Naj bosta \(f \colon X \to X\) in \(g \colon Y \to Y\) konjugirani.
+    \begin{enumerate}
+        \item Če je \(x^* \in X\) fiksna točka \(f\), tedaj je \(y^* = h (x^*) \in Y\) fiksna točka \(g\).
+        \item Če je \(x^*\) privlačna fiksna točka \(f\), tedaj je \(y^* = h (x^*)\) privlačna fiksna točka \(g\).
+        \item Če je \(x^*\) odbojna fiksna točka \(f\), tedaj je \(y^* = h (x^*)\) odbojna fiksna točka \(g\).
+    \end{enumerate}
+\end{trditev}
+
+\begin{dokaz}
+    Naj bo \(x^*\) fiksna točka \(f\). Tedaj \(g (y^*) = g (g (x^*)) = h (f (x^*)) = h (x^*) = y^*\). Če je \(x^*\) privlačna, tedaj obstaja \(r > 0\), da zaporedje \(f^n (x)\) enakomerno konvergira k \(x^*\) na \(B (x^*, r)\). Ker je \(h^{-1}\) zvezna, obstaja \(s > 0\), tako da za \(B (y^*, s)\) velja \(h^{-1} (y) \in B (x^*, r)\). To pomeni, da zaporedje \(f^n (h^{-1} (y))\) enakomerno konvergira k \(x^*\) na \(B (y^*, s)\). Ker je \(h\) zvezna pa velja
+    \[\lim_{n \to \infty} g^n (y) = \lim_{n \to \infty} h \circ f^n \circ h^{-1} (y) = h \prt{\lim_{n \to \infty} f^n \prt{h^{-1} (y)}} = h (x^*) = y^*\]
+    enakomerno na \(B (y^*, s)\). Če je \(x^*\) odbojna, obstaja \(r > 0\), da za vsak \(x_0 \in B (x^*, r)\) in \(x_0 \neq x^*\), obstaja \(n \in \NN\), za katerega je \(f^n (x_0) \notin B (x^*, r)\). Ker je \(h\) zvezna, je \(h (B (x^*, r))\) odprta okolica \(y^*\). Torej obstaja \(s > 0\), da velja
+    \begin{equation} \label{eqn:podmnozica}
+        B (y^*, s) \subset h (B (x^*, r)).
+    \end{equation}
+    Za vsak \(y \in B (y^*, s)\) z \(y \neq y^*\) obstaja \(x \in B (x^*, r)\) z \(x \neq x^*\), da je \(y = h (x)\). Ker je \(x^*\), obstaja tak \(n \in \NN\), da \(f^n (x) = f^n (h^{-1} (y)) \notin B (x^*, r)\). A ker je \(f^n (h^{-1} (y)) = h^{-1} (g^n (y))\), sklepamo, da \(h^{-1} (g^n (y)) \notin B (x^*, r)\) in zato \(g^n (y) \notin h (B (x^*, r))\). Po enačbi \eqref{eqn:podmnozica} torej sledi, da \(g^n (y) \notin B (y^*, s)\).
+\end{dokaz}
+
+Definicija privlačne in odbojne točke se v kompleksni ravnini poenostavi.
 
 \begin{izrek}
-    Naj bo \(f \colon \CC \to \CC\) cela funkcija in \(z^*\) njena fiksna točka. Potem je \(z^*\) privlačna natanko tedaj, ko je \(|f' (z^*)| < 1\). Dodatno je \(z^*\) odbojna natanko tedaj, ko je \(|f' (z^*)| > 1\).
+    Naj bo \(f\) cela funkcija in \(z^*\) njena fiksna točka. Potem je \(z^*\) privlačna natanko tedaj, ko je \(|f' (z^*)| < 1\). Dodatno je \(z^*\) odbojna natanko tedaj, ko je \(|f' (z^*)| > 1\).
 \end{izrek}
 
-% \begin{dokaz}
-%     Naj bo \(z^*\) privlačna. Ker za vsak \(z \in \Delta (z^*, r)\) zaporedje \(f^n (z)\) enakomerno konvergira proti \(z^*\), obstaja \(n_0 \in \NN\), tako da \(|f^n (z) - z^*| < r\) za vsak \(z \in \Delta (z^*, r)\) in \(n \geq n_0\). Opazujemo funkcijo \(\phi (z) = (z - z^*) / r\)
-% \end{dokaz}
+\begin{dokaz}
+    Naj bo \(z^*\) privlačna. Ker za vsak \(z \in \Delta (z^*, r)\) zaporedje \(f^n (z)\) enakomerno konvergira proti \(z^*\), obstaja \(n_0 \in \NN\), tako da \(|f^n (z) - z^*| < r\) za vsak \(z \in \Delta (z^*, r)\) in \(n \geq n_0\). Opazujemo funkcijo \(\phi (z) = (z - z^*) / r\), ki za vsak \(n \geq n_0\) konjugira \(f^n\) in \(F_n \coloneq \phi \circ f^n \circ \phi^{-1}\). Ko poenostavimo dobimo
+    \[F_n (w) = \frac{f^n (r w + z^*) - z^*}{r},\]
+    kjer je vsaka \(F_n\) definirana na \(\DD\), ima vrednosti v \(\overline{\DD}\) in zadošča \(F_n (0) = 0\). Schwarzova lema nam pove, da je \(|F_n' (0)| \leq 1\). Recimo, da velja \(|F_n' (0)| = 1\). Spet po Schwarzovi lemi je \(F_n\) rotacija, torej \(F_n (w) = a_n w\) za \(|a_n| = 1\). Tedaj velja
+    \[\abs{F_n (w)} = \abs{w} = \frac{\abs{f^n (r w + z^*) - z^*}}{r}\]
+    ali ekvivalentno \(\abs{f^n (z) - z^*} = \abs{z - z^*}\) za vsak \(z \in \Delta (z^*, r)\). Ker to pomeni, da \(f^n (z)\) ne konvergira proti \(z^*\), smo prišli do protislovja.
+
+    Obratno, naj obstaja \(k \in \RR\), da vejla \(|f' (z^*)| < k < 1\). Iz definicije odvoda sledi, da obstaja \(r > 0\), da za vsak \(z \in \Delta (z^*, r)\) z \(z \neq z^*\) velja
+    \[\abs{\frac{f (z) - f (z^*)}{z - z^*}} < k.\]
+    To je ekvivalentno \(|f (z) - z^*| \leq k |z - z^*|\). Induktivno nato pokažemo, da velja \(|f^n (z) - z^*| \leq k^n |z - z^*|\) za \(z \in \Delta (z^*, r)\) in \(z \neq z^*\). Ker je \(\lim_{n \to \infty} k^n = 0\), je \(z^*\) res privlačna.
+
+    Naj bo sedaj \(z^*\) odbojna. Iz zgornjega dokaza vemo, da velja \(|f' (z^*)| \geq 1\). Ker \(|f' (z^*)| \neq 0\), je \(f\) lokalni biholomorfizem na neki okolici točke \(z^*\). Torej lahko izberemo kompaktno okolico \(V\) točke \(z^*\), na kateri je \(f\) biholomorfna, \(z^*\) pa točke v \(V\) odbije, torej njihove orbite divergirajo iz \(V\). Za vsak \(k \in \NN\) nato definiramo
+    \[V_k \coloneq V \cap f^{-1} (V) \cap \cdots \cap f^{- k} (V).\]
+    Vsaka \(V_k\) je kompaktna okolica \(z^*\), ki vsebuje vse točke \(z\), za katere \(f^j (z) \in V\) za \(1 \leq j \leq k\). Če označimo \(V_0 = V\), je zaporedje \((V_k)_{k \geq 0}\) padajoče zaporedje kompaktnih množic z \(\bigcap_k V_k = \set{z^*}\). Poleg tega iz definicije \(V_k\) sledi zveza \(f (V_k) = V_{k - 1} \cap f (V)\). Ker obstaja \(k_0 \in \NN\), tako da za vsak \(k \geq k_0\) velja \(V_k \subset f (V)\), velja tudi \(f (V_k) = V_{k - 1}\) za \(k \geq k_0\). Izberemo torej \(r > 0\), da \(\Delta (z^*, r) \subset V_{k_0}\) in tak \(h > k_0\), da je \(V_h \subset \Delta (z^*, r / 2)\). Z \(g\) označimo \((h - k_0)\)-to iteracijo \(f^{-1}\), to je \(g = (f^{-1})^{h - k_0}\). Tedaj vidimo, da velja
+    \[g \prt{\Delta (z^*, r)} \subset V_h \subset \Delta (z^*, r).\]
+    Ker sta \(\Delta (z^*, r)\) in \(g \prt{\Delta (z^*, r)}\) enostavno povezani območji, lahko uporabimo Schwarzovo lemo, ki nam pove, da je \(|g' (z^*)| < 1\). Ker velja \(g' (z^*) = (1 / f' (z^*))^{h - k_0}\), je res \(|f' (z^*)| > 1\).
+
+    Obratno, naj obstaja \(k > 1\), da velja \(|f' (z^*)| > k\). Podobno kot prej obstaja \(r > 0\), da je \(|f (z) - f (z^*)| \geq k |z - z^*|\) za vsak \(z \in \Delta (z^*, r)\) in \(z \neq z^*\). Recimo, da obstaja \(z_0\), da velja \(f^n (z_0) \in \Delta (z^*, r)\) za vsak \(n \in \NN\). Tedaj lahko induktivno pokažemo, da velja \(|f^n (z_0) - z^*| \geq k^n |z_0 - z^*|\). Ker je \(\lim_{n \to \infty} k^n = \infty\), smo prišli do protislovja. Torej je \(z^*\) res odbojna.
+\end{dokaz}
 
 \noindent Definicijo tako lahko razširimo.
 
 \begin{definicija}
-    Naj bo \(U \subseteq \CC\) odprta in \(f \colon U \to \CC\) holomorfna. Naj bo \(w \in U\) fiksna točka preslikave \(f\). Število \(\lambda \coloneq f' (w)\) imenujemo \emph{večkratnost preslikave \(f\) v točki \(w\)}. Negibna točka \(w\) je
+    Naj bo \(U \subseteq \CC\) odprta in \(f \colon U \to \CC\) holomorfna. Naj bo \(w \in U\) fiksna točka preslikave \(f\). Število \(\lambda \coloneq f' (w)\) imenujemo \emph{večkratnost preslikave \(f\) v točki \(w\)}. Fiksna točka \(w\) je
     \begin{itemize}
         \item \emph{superprivlačna}, če je \(\lambda = 0\);
         \item \emph{privlačna}, če je \(|\lambda| < 1\);
@@ -52,38 +95,44 @@ Začetna točka je \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^
     imenujemo \emph{območje privlaka \(z^*\)}.
 \end{definicija}
 
+Množica \(A\) je za funkcijo \(f\) \emph{naprej invariantna}, če je \(f (A) = A\), in \emph{nazaj invariantna}, če je \(f^{-1} (A) = A\). Če je množica naprej in nazaj invariantna, pravimo, da je \emph{popolnoma invariantna}.
+
 \begin{izrek}
     Naj bo \(f\) cela funkcija in \(z^*\) njena privlačna fiksna točka. Potem je \(\Omega (f, z^*)\) odprta in popolnoma invariantna.
 \end{izrek}
 
 \begin{dokaz}
-    (1) Naj bo \(a \in \Omega (f, z^*)\) in \(r > 0\), da je \(\overline{\Delta (z^*, 2r)} \subset \Omega (f, z^*)\). Ker \(f^n (a)\) konvergira k \(z^*\), obstaja \(k \in \NN\), da je \(|f^k (a) - z^*| < r\). Ker je \(f\) zvezna, obstaja \(\delta > 0\), da je \(|f^k (a) - f^k (z)| < r\) za vsak \(z \in \Delta (a, \delta)\). Potem je
+    Naj bo \(a \in \Omega (f, z^*)\) in \(r > 0\), da je \(\overline{\Delta (z^*, 2r)} \subset \Omega (f, z^*)\). Ker \(f^n (a)\) konvergira k \(z^*\), obstaja \(k \in \NN\), da je \(|f^k (a) - z^*| < r\). Ker je \(f\) zvezna, obstaja \(\delta > 0\), da je \(|f^k (a) - f^k (z)| < r\) za vsak \(z \in \Delta (a, \delta)\). Potem je
     \[|f^k (z) - z^*| \leq |f^k (z) - f^k (a)| + |f^k (a) - z^*| \leq 2r\]
     za \(|z - a| < \delta\). Torej je \(f^k (z)\) vsebovana v \(\overline{\Delta (z^*, 2r)}\). Zaradi tega je \(\lim_{n \to \infty} f^{k + n} (z) = z^*\) za vsak \(z \in \Delta (a, \delta)\). Torej je \(\Delta (a, \delta) \subset \Omega (f, z^*)\).
 
-    (2) Naj bo \(z_0 \in \Omega (d, z^*)\). Potem
+    Naj bo \(z_0 \in \Omega (d, z^*)\). Potem
     \[\lim_{n \to \infty} f^n \prt{f (z_0)} = \lim_{n \to \infty} f^{n + 1} (z_0) = z^*\]
-    in \(f (z_0) \in \Omega(f, z^*)\). Enako sklepamo da \(f (z_0) \in \Omega (f, z^*)\) implicira \(z_0 \in \Omega (f, z^*)\).
+    in \(f (z_0) \in \Omega(f, z^*)\). Enako sklepamo, da \(f (z_0) \in \Omega (f, z^*)\) implicira \(z_0 \in \Omega (f, z^*)\).
 \end{dokaz}
 
 \noindent Komponenta za povezanost \(\Omega (f, z^*)\), ki vsebuje \(z^*\), se imenuje \emph{neposredno območje privlaka} \(z^*\). Označimo ga z \(\Omega_0 (f, z^*)\).
 
 \begin{trditev} \label{prop:privlak}
-    Naj bo \(f\) cela funkcija in \(\Omega \subsetneq \CC\) preprosto povezano območje, ki je invariantno na \(f\). Če je \(z^{*} \in \Omega\) privlačna fiksna točka \(f\), potem je \(\Omega\) vsebovana v neposrednem območju privlaka \(z^*\).
+    Naj bo \(f\) cela funkcija in \(\Omega \subsetneq \CC\) enostavno povezano območje, ki je popolnoma invariantno za \(f\). Če je \(z^{*} \in \Omega\) privlačna fiksna točka \(f\), potem je \(\Omega\) vsebovana v neposrednem območju privlaka \(z^*\).
 \end{trditev}
 
 Posvetimo se še nefiksnim periodičnim točkam. Če je \(z_0\) \(p\)-periodična, potem so vse točke \(z_0, f (z_0), f^2 (z_0), \dots, f^{p - 1} (z_0)\) fiksne točke preslikave \(f^p\). Pišemo \(z_j = f^j (z_0)\) in uporabimo verižno pravilo:
 \[(f^p)' (z_j) = f' \prt{f^{p - 1} (z_j)} f' \prt{f^{p - 2} (z_j)} \dots f' \prt{f (z_j)} f' (z_j) = \prod_{k = 0}^{p - 1} f' (z_k).\]
-To pomeni, da imajo vse \(z_j\) isto večkratnost \(K\). Če je \(K < 1\), potem rečemo, da je \(p\)-cikel privlačen. Če pa je \(K > 1\), rečemo, da je \(p\)-cikel odbojen.
+To pomeni, da imajo vse točke \(z_j\) isto večkratnost \(K\). Če je \(K < 1\), potem rečemo, da je \(p\)-cikel privlačen. Če pa je \(K > 1\), rečemo, da je \(p\)-cikel odbojen.
 
 \subsection{Kaos}
+
+Beseda kaos je razumljiva vsakomur, običajno pa si jo predstavljamo kot nered ali zmedo. Pri matematični definiciji pa je potrebno več dela. Uporabimo definicijo Roberta L.~Devaneya, ki se nasloni na periodične točke in topološko tranzitivnost.
 
 \begin{definicija}[Topološka tranzitivnost]
     Naj bo \((X, \tau)\) topološki prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) \emph{topološko tranzitivna}, če za vsaki \(U, V \in \tau\), obstajata \(z \in U\) in \(n \in \NN \cup \set{0}\), da je \(f^n (z) \in V\).
 \end{definicija}
 
-\begin{trditev}
-    Naj bo \((M, d)\) metrični prostor brez izoliranih točk in \(f \colon M \to M\) zvezna preslikava. Če ima \(f\) gosto orbito, to je obstaja element, katerega orbita je gosta podmnožica \(M\), je \(f\) topološko tranzitivna.
+Pravimo, da ima preslikava \(f\) \emph{gosto orbito}, če obstaja element \(x \in X\), katerega orbita je gosta podmnožica \(X\).
+
+\begin{trditev} \label{prop:tridevet}
+    Naj bo \((M, d)\) metrični prostor brez izoliranih točk in \(f \colon M \to M\) zvezna preslikava. Če ima \(f\) gosto orbito, je topološko tranzitivna.
     % Če je \(M\) separabilen in \(\num{2}\)-števen, potem topološka tranzitivnost implicira gosto orbito.
 \end{trditev}
 
@@ -114,7 +163,7 @@ To pomeni, da imajo vse \(z_j\) isto večkratnost \(K\). Če je \(K < 1\), potem
     \[
         f (x) =
         \begin{cases}
-            2x & \text{za } 0 \leq x < \frac{1}{2}\\
+            2x     & \text{za } 0 \leq x < \frac{1}{2}  \\
             2x - 1 & \text{za } \frac{1}{2} \leq x < 1.
         \end{cases}
     \]
@@ -128,15 +177,12 @@ To pomeni, da imajo vse \(z_j\) isto večkratnost \(K\). Če je \(K < 1\), potem
     \[\abs{f^k (\alpha) - x} \leq \sum_{i = n + 2}^{\infty} \frac{2}{2^{i}} < 2^{- n} < \varepsilon.\]
 \end{zgled}
 
-\noindent Pojem kaosa je leta \num{1989} definiral ameriški matematik Robert L.~Devaney \cite{Devaney_1986}. Za kompleksno eksponentno preslikavo kot posledica sledi iz izreka  \ref{thm:orbits}. Ta izrek je prvi dokazal poljski matematik Micha\l\ Misiurewicz leta \num{1981} \cite{Misiurewicz_1981}. S tem je potrdil domnevo, ki jo je leta \num{1926} postavil francoski matematik Pierre J.~L.~Fatou \cite{Fatou_1926}.
+\noindent Pojem kaosa je leta \num{1989} definiral ameriški matematik Robert L.~Devaney \cite{Devaney_1986}. Za kompleksno eksponentno preslikavo kot posledica sledi iz izreka \ref{thm:orbits}. Res, goste periodične točke sledijo direktno po tretji točki izreka, topološka tranzitivnost pa po drugi točki in trditvi \ref{prop:tridevet}. Izrek \ref{thm:orbits} je prvi dokazal poljski matematik Micha\l\ Misiurewicz leta \num{1981} \cite{Misiurewicz_1981}. S tem je potrdil domnevo, ki jo je leta \num{1926} postavil francoski matematik Pierre J.~L.~Fatou \cite{Fatou_1926}.
 
-\vspace{1cm}
-
-\noindent \textbf{Občutljivost na začetne pogoje}.
 Devaney je v svoji prvotni definiciji zahteval tudi naslednjo lastnost.
 
 \begin{definicija}[Občutljivost na začetne pogoje]
-    Naj bo \((M, d)\) metrični prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) občutljiva na začetne pogoje, če obstaja \emph{občutljivostna konstanta} \(\Delta > 0\), da za vsak \(x \in M\) in vsak \(\varepsilon > 0\) obstaja \(y \in M\), da je \(d (x, y) < \varepsilon\) in \(d (f^N (x), f^N (y)) \geq \Delta\) za nek \(N \in \NN\).
+    Naj bo \((M, d)\) metrični prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) občutljiva na začetne pogoje, če obstaja \emph{občutljivostna konstanta} \(\delta > 0\), da za vsak \(x \in M\) in vsak \(\varepsilon > 0\) obstaja \(y \in M\), da je \(d (x, y) < \varepsilon\) in \(d (f^N (x), f^N (y)) \geq \delta\) za nek \(N \in \NN\).
 \end{definicija}
 
 \noindent To pomeni, da majhna napaka \(\varepsilon\) v začetnih pogojih \(x\) privede do znatnih sprememb pri iteraciji dinamičnega sistema. Vendar pa se izkaže, da te lastnost pri definiciji kaotične preslikave v večini primerov ni potrebno zahtevati. Velja naslednji izrek.
@@ -146,24 +192,25 @@ Devaney je v svoji prvotni definiciji zahteval tudi naslednjo lastnost.
 \end{izrek}
 
 \begin{dokaz}
-    Predpostavimo, da \(X\) ni zgolj periodična orbita. Ker so periodične točke goste, obstajata vsaj dve različni periodični orbiti. Če bi imeli skupno točko, bi bili enaki. Torej sta disjunktni in zato obstajata periodični točki \(q, r\), da je \(\Delta \coloneq \min \set{d (f^n (q), f^m (r)) : n, m \in \NN} / 8 > 0\). Pokazali bomo, da je \(\Delta\) občutljivostna konstanta.
+    Predpostavimo, da \(X\) ni zgolj periodična orbita. Ker so periodične točke goste, obstajata vsaj dve različni periodični orbiti. Če bi imeli skupno točko, bi bili enaki. Torej sta disjunktni in zato obstajata periodični točki \(q, r\), da je
+    \[\delta \coloneq \frac{1}{8} \min \set{d (f^n (q), f^m (r)) : n, m \in \NN} > 0.\] Pokazali bomo, da je \(\delta\) občutljivostna konstanta.
 
-    Če je \(x \in X\), potem je orbita ene od točk \(q, r\) vedno oddaljena od \(x\) za vsaj \(4 \Delta\). V nasprotnem primeru, ko bi bile obe v neki točki oddaljene od \(x\) za manj kot \(4 \Delta\), bi bila razdalja med orbitama manjša od \(8 \Delta\). Brez škode za splošnost je to orbita \(q\).
+    Če je \(x \in X\), potem je orbita ene od točk \(q, r\) vedno oddaljena od \(x\) za vsaj \(4 \delta\). V nasprotnem primeru, ko bi bile obe v neki točki oddaljene od \(x\) za manj kot \(4 \delta\), bi bila razdalja med orbitama manjša od \(8 \delta\). Brez škode za splošnost je to orbita \(q\).
 
-    Naj bo \(\varepsilon \in (0, \Delta)\). Ker so periodične točke goste, obstaja periodična točka \(p \in B (x, \varepsilon)\) s periodo \(n\). Naj bo \(V\) množica točk, ki so po \(n\) iteracijah oddaljene od \(q\) za kvečjemu \(\Delta\):
-    \[V \coloneq \bigcap_{i = 0}^n f^{- i} (B (f^i (q), \Delta)).\]
+    Naj bo \(\varepsilon \in (0, \delta)\). Ker so periodične točke goste, obstaja periodična točka \(p \in B (x, \varepsilon)\) s periodo \(n\). Naj bo \(V\) množica točk, ki so po \(n\) iteracijah oddaljene od \(q\) za kvečjemu \(\delta\):
+    \[V \coloneq \bigcap_{i = 0}^n f^{- i} (B (f^i (q), \delta)).\]
     Po topološki tranzitivnosti obstaja \(k \in \NN\), da je \(f^k (B (x, \varepsilon)) \cap V \neq \emptyset\). Torej obstaja \(y \in B (x, \varepsilon)\), da je \(f^k (y) \in V\). Če definiramo \(j \coloneq \lfloor k / n \rfloor + 1\), potem je \(k / n < j \leq (k / n) + 1\) in
     \[k = n \cdot \frac{k}{n} < n j \leq n \prt{\frac{k}{n} + 1} = k + n.\]
     Torej, če je \(N \coloneq n j\), potem je \(0 < N - k \leq n\). Ker je \(f^N (p) = p\), po trikotniški neenakosti dobimo
     \begin{align}
-        d \prt{f^N (p), f^N (y)} &= d \prt{p, f^N (y)} \nonumber\\
-        &\geq d \prt{x, f^{N - k} (q)} - d \prt{f^{N - k} (q), f^N (y)} - d (p, x) \label{eqn:ocena}\\
-        &\geq 4 \Delta - \Delta - \Delta = 2 \Delta. \nonumber
+        d \prt{f^N (p), f^N (y)} & = d \prt{p, f^N (y)} \nonumber                                                              \\
+                                 & \geq d \prt{x, f^{N - k} (q)} - d \prt{f^{N - k} (q), f^N (y)} - d (p, x) \label{eqn:ocena} \\
+                                 & \geq 4 \delta - \delta - \delta = 2 \delta. \nonumber
     \end{align}
-    Tu smo upoštevali \(p \in B (x, \varepsilon) \subset B (x, \Delta)\) in
-    \[f^N (y) = f^{N - k} \prt{f^k (y)} \in f^{N - k} (V) \subset B \prt{f^{N - k} (q), \Delta},\]
+    Tu smo upoštevali \(p \in B (x, \varepsilon) \subset B (x, \delta)\) in
+    \[f^N (y) = f^{N - k} \prt{f^k (y)} \in f^{N - k} (V) \subset B \prt{f^{N - k} (q), \delta},\]
     kar velja po definiciji \(V\). Vemo, da \(p, y \in B (x, \varepsilon)\) in zato po (\ref{eqn:ocena}) velja
-    \[d (f^N (p), f^N (x)) \geq \Delta \qquad \text{ali} \qquad d (f^N (y), f^N (x)) \geq \Delta.\]
+    \[d (f^N (p), f^N (x)) \geq \delta \qquad \text{ali} \qquad d (f^N (y), f^N (x)) \geq \delta.\]
 \end{dokaz}
 
 \noindent Vseeno pa je občutljivost na začetne pogoje pomembna pri obravnavi splošnih dinamičnih sistemov. V javnosti je bolj znana kot \emph{metuljev učinek}. Ime izhaja iz vprašanja, ki ga je meteorolog Ed Lorenz leta \num{1972} postavil na srečanju Ameriškega združenja za napredek znanosti: ``Ali lahko zamah kril metulja v Braziliji povzroči tornado v Teksasu?'' Vprašanje služi kot dobra prispodoba za občutljivost na začetne pogoje, a ga ne smemo vzeti dobesedno, saj ne drži \cite{Pielke_2024}.
@@ -194,8 +241,29 @@ Devaney je v svoji prvotni definiciji zahteval tudi naslednjo lastnost.
 
 \subsection{Fatoujeva in Juliajeva množica}
 
-Za celo funkcijo \(f\) je \emph{Fatoujeva množica} sestavljena iz vseh točk \(z_0\), da je \((f^n)\) normalna na neki okolici točke \(z_0\). Označimo jo z \(F (f)\). Njen komplement \(J (f) \coloneq \CC \setminus F (f)\) je \emph{Juliajeva množica}.
+Pri preučevanju dinamike funkcij, lahko domeno razdelimo na dva množici. Prvi, na kateri je obnašanje funkcije ``predvidljivo'', pravimo Fatoujeva množica, drugi, kjer je obnašanje kaotično, pa pravimo Juliajeva množica. Natančno ju definiramo sledeče.
 
-\begin{izrek} \label{thm:julm}
-    Naj bo \(f\) cela funkcija in \(M \subset \CC\) taka invariantna množica, da ima vsak njen element omejeno orbito. Če obstaja \(\mu > 1\), tako da je \(|f' (z)| \geq \mu\) za vsak \(z \in M\), potem velja \(M \subseteq J (f)\).
+Za celo funkcijo \(f\) je \emph{Fatoujeva množica} sestavljena iz vseh točk \(z_0\), za katere velja, da je \((f^n)\) normalna na neki okolici točke \(z_0\). Označimo jo z \(F (f)\). Njen komplement \(J (f) \coloneq \CC \setminus F (f)\) je \emph{Juliajeva množica}. Po definiciji vidimo, da je Fatoujeva množica vedno odprta, Juliajeva pa vedno zaprta.
+
+\begin{primer}
+    Po primeru \ref{ex:primer} zaporedje iteracij funkcije \(f (z) = z^2\) na \(\DD\) konvergira k \(f \equiv 0\) enakomerno po kompaktih. Podobno premislimo, da na \(\CC \setminus \overline{\DD}\) konvergira k \(f \equiv \infty\) enakomerno po kompaktih. Na \(\partial \DD\) zaporedje divergira. Zato je \(F (f) = \CC \setminus \partial \DD\) in \(J (f) = \partial \DD\).
+\end{primer}
+
+\begin{izrek}
+    Naj bo \(B (f)\) množica vseh točk \(z \in \CC\) z omejeno orbito. Tedaj velja
+    \[\partial (B (f)) \subset J (f).\]
 \end{izrek}
+
+\begin{dokaz}
+    Naj bo \(z_0 \in \partial (B (f))\). Recimo, da \(z_0 \notin J (f)\). Potem je \((f^n)\) normalna na neki kompaktni okolici \(U\) točke \(z_0\). Ker je točka \(z_0\) robna, obstajata \(z_1, z_2 \in U\), tako da je orbita točke \(z_1\) omejena, orbita točke \(z_2\) pa ne. Torej ima \((f^n (z_n))\) divergentno podzaporedje \((f^{n_k} (z_2))_k\). Ker pa je \((f^n)\) normalna na \(U\), obstaja podzaporedje zaporedja \((f^{n_k} (z_2))_k\), ki enakomerno konvergira na \(U\). Ker je \((f^n (z_1))\) omejena in \((f^{n_k} (z_2))_k\) divergira k \(\infty\), smo prišli do protislovja.
+\end{dokaz}
+
+Če na tem mestu upoštevamo izrek \ref{thm:orbits}, hitro vidimo, da je za kompleksno eksponentno preslikavo \(J (f) = \CC\) in \(F (f) = \emptyset\). To pa ne drži tudi za poljubno celo funkcijo. Če za primer navedemo \(f (z) \coloneq (e^z - 1) / 4\), potem \((f^n)\) na \(\DD\) konvergira proti \(0\) enakomerno po kompaktih. Torej Fatoujeva množica vsebuje cel enotski disk.
+
+Kot zanimivost omenimo, da enakost \(\partial (B (f)) = J (f)\) velja za polinome. V tem primeru zato množici \(B (f)\) pravimo \emph{napolnjena Juliajeva množica}. Posledično je zgornji izrek uporaben za vizualizacijo Juliajeve množice. Na njem temelji na primer \emph{algoritem vzvratne iteracije}. Slike, ki nastanejo, pa so pogosto zanimive, kot vidimo na sliki \ref{fig:julia}. Tu je upodobljena Juliajeva množica funkcije \(z^2 + c\) za \(c \approx \complexnum{-0.5125+0.5213i}\). Z modro in zeleno barvo obarvana obnočja so Fatoujeva množica, medtem ko so rumeno obarvana območja Juliajeva množica.
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{julia_set.pdf}
+    \caption[Juliajeva množica]{Juliajeva množica funkcije \(z^2 + c\), pridobljeno iz \href{https://commons.wikimedia.org/w/index.php?curid=75993344}{Wikipedia Commons}.}
+    \label{fig:julia}
+\end{figure}

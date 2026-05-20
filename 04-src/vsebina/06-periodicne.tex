@@ -51,15 +51,15 @@ Pravimo, da je periodična točka \(p\) s periodo \(n\) \emph{odbojna}, če je \
 \begin{dokaz}[Dokaz izreka \ref{thm:periodicdense}]
     Naj bo \(U \subset \CC\) odprta in neprazna množica. Po izreku \ref{thm:escapingdense} obstaja ubežna točka \(z_0 \in U \setminus \set{0}\). Naj bo \(\Delta\) disk s središčem v \(z_0\) in \(\rho > 0\) kot v lemi \ref{lem:inversebranches}. Disku \(\Delta\) zmanjšamo polmer, da velja \(\Delta \subset U\).
 
-    Naj bo \(\Delta_1\) disk s središčem v \(z_0\), tako da velja \(\overline{\Delta_1} \subset \Delta\). Naj bodo \(z_n \coloneq f^n (z_0)\) in \(D_n \coloneq \Delta (z_n, 2 \pi)\) kot v razdelku \ref{sec:transitivity}. Naj bodo \(\set{\phi_n}_{n \geq n_0}\) inverzne veje iz trditve \ref{prop:small_disks}. Po točkah \ref{item:tri} in \ref{item:stiri} iz te trditve vemo, da je \(n_0\) dovolj velik, da velja \(\phi_n (z) \in \Delta_1\) in \(|\phi_n' (z)| \leq 1 / 2\) za vsak \(z \in D_n\).
+    Naj bo \(\Delta_1\) disk s središčem v \(z_0\), tako da velja \(\overline{\Delta_1} \subset \Delta\). Naj bodo \(z_n \coloneq f^n (z_0)\) in \(D_n \coloneq \Delta (z_n, 2 \pi)\) kot v poglavju \ref{sec:transitivity}. Naj bodo \(\set{\phi_n}_{n \geq n_0}\) inverzne veje iz trditve \ref{prop:small_disks}. Po točkah \ref{item:tri} in \ref{item:stiri} iz te trditve vemo, da je \(n_0\) dovolj velik, da velja \(\phi_n (z) \in \Delta_1\) in \(|\phi_n' (z)| \leq 1 / 2\) za vsak \(z \in D_n\).
 
     Ker je \(z_0\) ubežna, obsataja \(N \geq n_0\) z \(\re z_n \geq \rho\) za vsak \(n \geq N\). Po lemi \ref{lem:inversebranches} imamo vejo \(\psi_n\) preslikave \(f^{-2}\) ki preslika \(\Delta\) v \(D_n\), za katero za vsak \(z \in \Delta\) velja \(|\psi_n' (z)| \leq 1\).
-    
-    Sledi \(\phi_n (\psi_n (\overline{\Delta_1}))\) in da je \(\phi_n \circ \psi_{n} \colon \overline{\Delta_1} \to \overline{\Delta_1}\) skrčitev. Ker je \(\overline{\Delta_1}\) kompaktna množica in zato poln podprostor prostora \(\CC\), lahko uporabimo Banachovo skrčitveno načelo, ki nam pove, da obstaja fiksna točka \(p \in \overline{\Delta}\). Po konstrukciji
+
+    Sledi \(\phi_n (\psi_n (\overline{\Delta_1}))\) in da je \(\phi_n \circ \psi_{n} \colon \overline{\Delta_1} \to \overline{\Delta_1}\) skrčitev. Ker je \(\overline{\Delta_1}\) kompaktna množica in zato poln podprostor prostora \(\CC\), lahko uporabimo Banachovo skrčitveno načelo, ki nam pove, da obstaja fiksna točka \(p \in \overline{\Delta}\). Po konstrukciji velja
     \begin{align*}
-        f^{n + 2} (p) &= f^2 (f^n (\phi_n (\psi_n (p)))) = f^2 (\psi_n (p)) = p\\
+        f^{n + 2} (p)      & = f^2 (f^n (\phi_n (\psi_n (p)))) = f^2 (\psi_n (p)) = p       \\
         \intertext{in}
-        |(f^{n + 2})' (p)| &= \frac{1}{|\psi_n' (p)| \cdot |\phi_n' (\psi_n (p))|} \geq 2.
+        |(f^{n + 2})' (p)| & = \frac{1}{|\psi_n' (p)| \cdot |\phi_n' (\psi_n (p))|} \geq 2.
     \end{align*}
     Torej je \(p\) res odbojna periodična točka \(f\).
 \end{dokaz}

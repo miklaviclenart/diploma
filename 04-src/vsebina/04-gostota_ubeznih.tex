@@ -1,14 +1,16 @@
-\section{Dokaz kaotičnosti}
+\section{Kaotičnost kompleksnega eksponentna}
 
 Od tu naprej naj velja, da \(f\) vedno označuje kompleksno eksponentno preslikavo
 \[f \colon \CC \to \CC; \qquad z \mapsto e^{z}.\]
+V tem poglavju dokažemo izrek \ref{thm:orbits}, v vsakem od podpoglavji po eno točko. Dokaz je povzet po članku \cite{Shen_2015}.
 
-\subsection{Gostota ubežnih točk}
+\subsection{Gostost ubežnih točk}
+
+Točka \(z \in \CC\) je \emph{ubežna}, če njena orbita divergira k \(\infty\). Množici vseh ubežnih točk \(I (f)\) pravimo \emph{ubežna množica}, torej
+\[I (f) \coloneq \set{z \in \CC : \lim_{n \to \infty} \abs{f^n (z)} = \infty}\]
 
 \begin{izrek} \label{thm:escapingdense}
-    Ubežna množica kompleksne eksponentne preslikave
-    \[I (f) \coloneq \set{z \in \CC : \lim_{n \to \infty} \abs{f^n (z)} = \infty}\]
-    je gosta v kompleksni ravnini.
+    Ubežna množica kompleksne eksponentne preslikave je gosta podmnožica kompleksne ravnine.
 \end{izrek}
 
 \noindent Pomagamo si z naslednjo lemo.
@@ -25,9 +27,9 @@ Od tu naprej naj velja, da \(f\) vedno označuje kompleksno eksponentno preslika
         =
         |f' (\zeta)| \cdot \frac{2 |\zeta| \cdot \sin \prt{\frac{1}{2} \arg (\zeta)}}{2 |e^{\zeta}| \cdot \sin \prt{\frac{1}{2} \arg (e^{\zeta})}}
         =
-        \frac{r \cdot \sin (\theta / 2)}{\sin \prt{\frac{1}{2} \arg (e^{\zeta})}}.    
+        \frac{r \cdot \sin (\theta / 2)}{\sin \prt{\frac{1}{2} \arg (e^{\zeta})}}.
     \]
-    Da poenostavimo imenovalec, opazimo, da je \(e^{\zeta} = e^{r (\cos \theta + i \sin \theta)}\) periodična s periodo \(2 \pi\). Zato velja \(\arg (e^{\zeta}) \equiv r \cdot \sin (\theta) \pmod{2 \pi}\). Dodatno je še \(|\sin|\) periodična s periodo \(\pi\) in zato \(|\sin (\arg (e^{\zeta}) / 2)| = |\sin (r \cdot \sin (\theta) / 2)|\). Zato velja
+    Da poenostavimo imenovalec, opazimo, da je \(e^{\zeta} = e^{r (\cos \theta + i \sin \theta)}\) periodična s periodo \(2 \pi\). Zato velja \(\arg (e^{\zeta}) \equiv r \cdot \sin (\theta) \pmod{2 \pi}\). Dodatno je še \(|\sin|\) periodična s periodo \(\pi\) in zato velja \(|\sin (\arg (e^{\zeta}) / 2)| = |\sin (r \cdot \sin (\theta) / 2)|\). Posledično je
     \[\hder{f (\zeta)}{U}{U} = \frac{r \cdot \sin (\theta / 2)}{|\sin (\frac{r}{2} \cdot \sin (\theta))|}.\]
     Upoštevamo, da za vsak \(x \in \RR\) velja \(|\sin (x)| \leq |x|\):
     \[\hder{f (\zeta)}{U}{U} \geq \frac{r \cdot \sin (\theta / 2)}{\frac{r}{2} \cdot |\sin (\theta)|} = \frac{2 \cdot \sin (\theta / 2)}{|\sin (\theta)|}.\]
@@ -57,7 +59,7 @@ Od tu naprej naj velja, da \(f\) vedno označuje kompleksno eksponentno preslika
 % \end{dokaz}
 
 \begin{dokaz}[Dokaz izreka \ref{thm:escapingdense}]
-    Naj bo \(w_0 \in \CC\) in \(w_n = f^n (w_0)\) za \(n \in \NN\). Naj bo \(D\) disk s središčem v \(w_0\). Vemo, da je \([0, \infty) \subset I (f)\), zato je dovolj, da dokažemo, da za nek \(n \in \NN\) velja \(f^n (D) \cap I (f) \neq \emptyset\). Dokazujemo s protislovjem, zato predpostavimo, da za vsak \(n \in \NN\) velja \(f^n (D) \cap I (f) = \emptyset\). Torej je
+    Naj bo \(w_0 \in \CC\) in \(w_n = f^n (w_0)\) za \(n \in \NN\). Naj bo \(D \coloneq \Delta (w_0, r)\). Vemo, da je \([0, \infty) \subset I (f)\), zato je dovolj, da dokažemo, da za nek \(n \in \NN\) velja \(f^n (D) \cap I (f) \neq \emptyset\). Dokazujemo s protislovjem, zato predpostavimo, da za vsak \(n \in \NN\) velja \(f^n (D) \cap I (f) = \emptyset\). Torej je
     \[D_n \coloneq f^n (D) \subset U = \CC \setminus [0, \infty) \qquad \text{za vsak } n \geq 0.\]
     Ker je \(f^n \colon D \to U\) holomorfna, velja Pickov izrek \ref{thm:pick} in zato
     \[\delta_n \coloneq \hder{f^n (w_0)}{D}{U} = |(f^n)' (w_0)| \cdot \frac{\rho_U (w_n)}{\rho_D (w_0)} \leq 1.\]
@@ -69,7 +71,7 @@ Od tu naprej naj velja, da \(f\) vedno označuje kompleksno eksponentno preslika
     \[\re w_{n_{k - 1}} = \log |w_{n_{k}}| \qquad \text{in} \qquad \lim_{k \to \infty} \log |w_{n_{k}}| = \log z_0 < z_0.\]
     Ker je \(z_0\) najmanjše stekališče zaporedja \(w_n\), podzaporedje \(w_{n_{k}}\) ne more imeti končnega stekališča in zato je
     \[\lim_{k \to \infty} |\im w_{n_{k-1}}| = \infty.\]
-    To je v protislovju z \eqref{eqn:eta}.
+    To je v protislovju s \eqref{eqn:eta}.
 \end{dokaz}
 
 % Dokaz pušča odprto možnost, da ima množica ubežnih točk neprazno notranjost ali celo \(I (f) = \CC\). To izključimo z naslednjim izrekom.

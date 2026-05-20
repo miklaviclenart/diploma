@@ -1,108 +1,108 @@
 \begin{tikzpicture}
-\tikzset{desnozgoraj/.style={anchor=base west, yshift=3pt, xshift=-2pt}}
-\tikzset{levozgoraj/.style={anchor=base east, yshift=3pt, xshift=2pt}}
-\tikzset{desnospodaj/.style={anchor=base west, yshift=-12pt, xshift=-2pt}}
-\tikzset{levospodaj/.style={anchor=base east, yshift=-12pt, xshift=2pt}}
-\tikzset{sredinaspodaj/.style={anchor=base, yshift=-12pt}}
-\definecolor{siva}{gray}{0.8} 
+    \tikzset{desnozgoraj/.style={anchor=base west, yshift=3pt, xshift=-2pt}}
+    \tikzset{levozgoraj/.style={anchor=base east, yshift=3pt, xshift=2pt}}
+    \tikzset{desnospodaj/.style={anchor=base west, yshift=-12pt, xshift=-2pt}}
+    \tikzset{levospodaj/.style={anchor=base east, yshift=-12pt, xshift=2pt}}
+    \tikzset{sredinaspodaj/.style={anchor=base, yshift=-12pt}}
+    \definecolor{siva}{gray}{0.8}
 
-\begin{scope}[shift={(0,0)}]
-    \draw[->] (-0.5,0) -- (3.5,0);
-    \draw[->] (0,-2.5) -- (0,2.5);
+    \begin{scope}[shift={(0,0)}]
+        \draw[->] (-0.5,0) -- (3.5,0);
+        \draw[->] (0,-2.5) -- (0,2.5);
 
-    \pgfmathsetmacro{\r}{1.1}
-    \pgfmathsetmacro{\xo}{2}
-    \pgfmathsetmacro{\yo}{1.3}
-    \pgfmathsetmacro{\xl}{{2-\r/2}}
-    \pgfmathsetmacro{\xr}{{2+\r/2}}
+        \pgfmathsetmacro{\r}{1.1}
+        \pgfmathsetmacro{\xo}{2}
+        \pgfmathsetmacro{\yo}{1.3}
+        \pgfmathsetmacro{\xl}{{2-\r/2}}
+        \pgfmathsetmacro{\xr}{{2+\r/2}}
 
-    \draw[dashed] (\xl, 0) -- (\xl, {\yo-\r/2});
-    \draw[dashed] (\xr, 0) -- (\xr, {\yo-\r/2});
+        \draw[dashed] (\xl, 0) -- (\xl, {\yo-\r/2});
+        \draw[dashed] (\xr, 0) -- (\xr, {\yo-\r/2});
 
-    \draw (\xo, \yo) circle ({\r})
-        node[above left, xshift=-0.85cm, yshift=0.5cm] {$D$};
+        \draw (\xo, \yo) circle ({\r})
+            node[above left, xshift=-0.85cm, yshift=0.5cm] {$D$};
 
-    \draw[pattern=north east lines, pattern color=siva] ({\xo-\r/2},{\yo-\r/2}) rectangle ++({\r},{\r})
-        node[] at ({\xo - 0.3}, {\yo + 0.3}) {$S$};
+        \draw[pattern=north east lines, pattern color=siva] ({\xo-\r/2},{\yo-\r/2}) rectangle ++({\r},{\r})
+            node[] at ({\xo - 0.3}, {\yo + 0.3}) {$S$};
 
-    \filldraw[black] (\xo, \yo) circle (1pt)
-        node[sredinaspodaj]  {$\zeta$}; 
+        \filldraw[black] (\xo, \yo) circle (1pt)
+            node[sredinaspodaj]  {$\zeta$};
 
-    \filldraw[black] (\xl, 0) circle (1pt)
-        node[sredinaspodaj] {$a$};
-    \filldraw[black] (\xr, 0) circle (1pt)
-        node[sredinaspodaj] {$a+2\pi$};
-\end{scope}
+        \filldraw[black] (\xl, 0) circle (1pt)
+            node[sredinaspodaj] {$a$};
+        \filldraw[black] (\xr, 0) circle (1pt)
+            node[sredinaspodaj] {$a+2\pi$};
+    \end{scope}
 
-\draw[->] (4.4,0) -- (5.7,0) node[midway, above] {$f$};
+    \draw[->] (4.4,0) -- (5.7,0) node[midway, above] {$f$};
 
-\begin{scope}[shift={(9,0)}]
-    \draw[->] (-2.5,0) -- (2.5,0);
-    \draw[->] (0,-2.5) -- (0,2.5);
+    \begin{scope}[shift={(9,0)}]
+        \draw[->] (-2.5,0) -- (2.5,0);
+        \draw[->] (0,-2.5) -- (0,2.5);
 
-    \fill[pattern=north east lines, pattern color=siva, even odd rule]
+        \fill[pattern=north east lines, pattern color=siva, even odd rule]
         (0,0) circle (2) (0,0) circle (1);
-    \draw (0,0) circle (2);
-    \draw (0,0) circle (1)
-        node at (1, -1) {$A$};
+        \draw (0,0) circle (2);
+        \draw (0,0) circle (1)
+            node at (1, -1) {$A$};
 
-    \filldraw[black] (2, 0) circle (1pt)
-        node[desnozgoraj]  {$e^{a + 2\pi}$};
-    \filldraw[black] (1, 0) circle (1pt)
-        node[desnozgoraj]  {$e^a$};
-\end{scope}
+        \filldraw[black] (2, 0) circle (1pt)
+            node[desnozgoraj]  {$e^{a + 2\pi}$};
+        \filldraw[black] (1, 0) circle (1pt)
+            node[desnozgoraj]  {$e^a$};
+    \end{scope}
 
-\begin{scope}[shift={(1.5,-6)}]
-    \draw[->] (-2.5,0) -- (2.5,0);
-    \draw[->] (0,-2.5) -- (0,2.5);
+    \begin{scope}[shift={(1.5,-6)}]
+        \draw[->] (-2.5,0) -- (2.5,0);
+        \draw[->] (0,-2.5) -- (0,2.5);
 
-    \draw (0,0) circle (2);
-    \draw (0,0) circle (1)
-        node at (1, -1) {$A$};
+        \draw (0,0) circle (2);
+        \draw (0,0) circle (1)
+            node at (1, -1) {$A$};
 
-    \pgfmathsetmacro{\x}{1.18}
-    \draw[thin, pattern=north west lines, pattern color=siva]
+        \pgfmathsetmacro{\x}{1.18}
+        \draw[thin, pattern=north west lines, pattern color=siva]
         (-\x,1) rectangle ++({2*\x},0.6)
-        node[inner sep=0pt] at (0.7, 1.3) {$R$};
+            node[inner sep=0pt] at (0.7, 1.3) {$R$};
 
-    \draw[dashed] (-\x, 0) -- (-\x, 1);
-    \draw[dashed] (\x, 0) -- (\x, 1);
+        \draw[dashed] (-\x, 0) -- (-\x, 1);
+        \draw[dashed] (\x, 0) -- (\x, 1);
 
-    \filldraw[black] (-\x, 0) circle (1pt)
-        node[levospodaj] {$-l$};
-    \filldraw[black] (\x, 0) circle (1pt)
-        node[desnospodaj] {$l$};
-\end{scope}
+        \filldraw[black] (-\x, 0) circle (1pt)
+            node[levospodaj] {$-l$};
+        \filldraw[black] (\x, 0) circle (1pt)
+            node[desnospodaj] {$l$};
+    \end{scope}
 
-\draw[->] (4.4,-6) -- (5.7,-6 ) node[midway, above] {$f$};
+    \draw[->] (4.4,-6) -- (5.7,-6 ) node[midway, above] {$f$};
 
-\begin{scope}[shift={(9,-6)}]
-    \draw[->] (-2.5,0) -- (2.5,0);
-    \draw[->] (0,-2.5) -- (0,2.5);
+    \begin{scope}[shift={(9,-6)}]
+        \draw[->] (-2.5,0) -- (2.5,0);
+        \draw[->] (0,-2.5) -- (0,2.5);
 
-    \pgfmathsetmacro{\R}{1.9}
+        \pgfmathsetmacro{\R}{1.9}
 
-    \fill[pattern=north west lines, pattern color=siva, even odd rule]
+        \fill[pattern=north west lines, pattern color=siva, even odd rule]
         (0,0) circle (\R) (0,0) circle (0.25);
-    \draw[] (0,0) circle (\R);
-    \draw[] (0,0) circle (0.25);
+        \draw[] (0,0) circle (\R);
+        \draw[] (0,0) circle (0.25);
 
-    \filldraw[black] (-\R, 0) circle (1pt)
-        node[levozgoraj] {$-e^l$};
-    \filldraw[black] (-0.25, 0) circle (1pt)
-        node[levozgoraj] {$-e^{-l}$};
-    \filldraw[black] (0.25, 0) circle (1pt)
-        node[desnozgoraj] {$e^{-l}$};
-    \filldraw[black] (\R, 0) circle (1pt)
-        node[desnozgoraj] {$e^l$};
+        \filldraw[black] (-\R, 0) circle (1pt)
+            node[levozgoraj] {$-e^l$};
+        \filldraw[black] (-0.25, 0) circle (1pt)
+            node[levozgoraj] {$-e^{-l}$};
+        \filldraw[black] (0.25, 0) circle (1pt)
+            node[desnozgoraj] {$e^{-l}$};
+        \filldraw[black] (\R, 0) circle (1pt)
+            node[desnozgoraj] {$e^l$};
 
-    \fill[siva]
-      plot[smooth cycle, tension=0.8] coordinates {
-        (1.4,0.8) (1.3,1.2) (0.9,1.5) (0.4,1.5)
-        (0.2,0.9) (0.8,0.7) (1.4,0.1) (1.7,0.5)
-      };
-    
-    \node at (0.8, 1.1) {$K$};
-\end{scope}
+        \fill[siva]
+        plot[smooth cycle, tension=0.8] coordinates {
+                (1.4,0.8) (1.3,1.2) (0.9,1.5) (0.4,1.5)
+                (0.2,0.9) (0.8,0.7) (1.4,0.1) (1.7,0.5)
+            };
+
+        \node at (0.8, 1.1) {$K$};
+    \end{scope}
 
 \end{tikzpicture}
