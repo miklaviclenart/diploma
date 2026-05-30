@@ -66,11 +66,11 @@ Točka \(z \in \CC\) je \emph{ubežna}, če njena orbita divergira k \(\infty\).
     Označimo \(\eta_n \coloneq \hder{f (w_n)}{U}{U}\) in opazimo \(\delta_{n + 1} = \delta_n \cdot \eta_n\) za vsak \(n \geq 0\). Po lemi \ref{lem:hyper} vemo, da je \(\eta_n > 1\). Zato je zaporedje \(\delta_n\) strogo naraščajoče in posledično konvergentno z limito \(\num{1}\). Lahko izračunamo
     \[\lim_{n \to \infty} \eta_n = \lim_{n \to \infty} \frac{\delta_{n + 1}}{\delta_n} = \frac{\lim_{n \to \infty} \delta_{n + 1}}{\lim_{n \to \infty} \delta_n} = 1.\]
     Spet po lemi \ref{lem:hyper} vemo
-    \[\lim_{n \to \infty} \min \set{|w_n|, \Arg (w_n)} = 0.\]
-    Zato morajo vsa stekališča zaporedja \(\zap{w}\) ležati na intervalu \([0, \infty)\). Ker \(w_0\) po predpostavki ni ubežna, množica stekališč ni prazna. Ker je tudi zaprta, ima minimum, ki ga označimo z \(z_0 \in [0, \infty)\). Po izreku obstaja podzaporedje \(w_{n_{k}}\), ki konvergira k \(z_0\). Opazimo, da velja
-    \[\re w_{n_{k - 1}} = \log |w_{n_{k}}| \qquad \text{in} \qquad \lim_{k \to \infty} \log |w_{n_{k}}| = \log z_0 < z_0.\]
+    \[\lim_{n \to \infty} \min \bigl\{ |w_n|, \Arg (w_n) \bigr\} = 0.\]
+    Zato morajo vsa stekališča zaporedja \(\zap{w}\) ležati na intervalu \([0, \infty)\). Ker \(w_0\) po predpostavki ni ubežna, množica stekališč ni prazna. Ker je tudi zaprta, ima minimum, ki ga označimo z \(z_0 \in [0, \infty)\). Vemo, da je število \(z_0\) stekališče zaporedja \(w_n\) natanko tedaj, ko obstaja podzaporedje, ki konvergira k \(z_0\) (glej \cite[izrek 11]{Globevnik_2012}). To podzaporedje označimo z \(w_{n_{k}}\). Opazimo, da velja
+    \[\re w_{n_{k - 1}} = \log \, \bigl| w_{n_{k}} \bigr| \qquad \text{in} \qquad \lim_{k \to \infty} \log \, \bigl| w_{n_{k}} \bigr| = \log z_0 < z_0.\]
     Ker je \(z_0\) najmanjše stekališče zaporedja \(w_n\), podzaporedje \(w_{n_{k}}\) ne more imeti končnega stekališča in zato je
-    \[\lim_{k \to \infty} |\im w_{n_{k-1}}| = \infty.\]
+    \[\lim_{k \to \infty} \, \bigl|\im w_{n_{k-1}}\bigr| = \infty.\]
     To je v protislovju s \eqref{eqn:eta}.
 \end{dokaz}
 

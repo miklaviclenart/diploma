@@ -18,18 +18,17 @@
 
 Naj bo \(x_0\) poljubno realno število. Oglejmo si, kaj se dogaja z zaporedjem iteracij števila \(x_0\) glede na funkcijo \(e^{x}\):
 \[x_0 \mapsto e^{x_0} \mapsto e^{e^{x_0}} \mapsto e^{e^{e^{x_0}}} \mapsto \cdots\]
-Hitro se prepričamo, da je vsako tako zaporedje divergentno. Če pa zaporedje opazujemo kot iteracijo kompleksnega števila \(z_0\) glede na preslikavo \(e^z\):
-\[z_0 \mapsto e^{z_0} \mapsto e^{e^{z_0}} \mapsto e^{e^{e^{z_0}}} \mapsto \cdots,\]
-se stvar zaplete. Izkaže se, da na vsaki odprti množici obstajajo števila, katerih orbite se med seboj kvalitativno razlikujejo. V tej nalogi bomo torej opazovali rekurzivno zaporedje, dano s predpisom \(z_{n + 1} = e^{z_n}\). Ogledali si ga bomo za različne začetne vrednosti \(z_0\). Elementom takega zaporedja pravimo \emph{orbita} števila \(z_0\). Dokazali bomo naslednji izrek.
+Hitro se prepričamo, da je vsako tako zaporedje divergentno. Res, zaporedje zgornjih števil je ne glede na začetni pogoj \(x_0\) strogo naraščajoče in neomejeno, njegova dinamika pa razmeroma nezanimiva.
+
+Povsem drugačno obnašanje eksponentna funkcija ponudi, če jo s predpisom \(e^{x + iy} = e^x (\cos y + i \sin y)\) razširimo na kompleksno ravnino. Izkaže se, da na vsaki odprti množici obstajajo števila, katerih orbite se med seboj kvalitativno razlikujejo. Analiza njihovega obnašanja bo osrednji problem tega diplomskega seminarja. Opazovali bomo torej rekurzivno zaporedje, dano s predpisom \(z_{n + 1} = e^{z_n}\). Ogledali si ga bomo za različne začetne vrednosti \(z_0 \in \CC\). Elementom takega zaporedja pravimo \emph{orbita} števila \(z_0\). Dokazali bomo naslednji izrek.
 
 \begin{izrek}[Orbite kompleksne eksponentne preslikave] \label{thm:orbits}
     Vsaka od naslednjih množic je za preslikavo \(f \colon \CC \to \CC\); \(z \mapsto e^{z}\) gosta v kompleksni ravnini:
     \begin{enumerate}
         \item množica števil, katerih orbita divergira k \(\infty\);
         \item množica števil, katerih orbita gosto pokrije kompleksno ravnino;
-        \item množica periodičnih točk; števil \(z_0\), za katere obstaja \(k > 0\), da je \(z_k = z_0\).
+        \item množica periodičnih točk, t.j.~števil \(z_0\), za katere obstaja \(k > 0\), da je \(z_k = z_0\).
     \end{enumerate}
 \end{izrek}
 
-\noindent Iz izreka nemudoma sledi, da je eksponentna preslikava \emph{kaotična}: pojem, ki ga bomo natančno definirali v poglavju \ref{sec:dis}. Dokaz izreka služi kot dober uvod v \emph{transcendentno dinamiko}, ki jo bomo dodatno obravnavali v zadnjem poglavju. Potrebovali pa bomo tudi nekaj definicij in rezultatov iz kompleksne analize, ki bodo izpeljani v naslednjem poglavju.
-%\ref{sec:hipgeom}
+\noindent Iz izreka nemudoma sledi, da je eksponentna preslikava \emph{kaotična}, kar bomo natančno definirali v poglavju \ref{sec:dis}. Dokaz izreka služi kot dober uvod v \emph{transcendentno dinamiko}, ki jo bomo dodatno obravnavali v zadnjem poglavju. Potrebovali pa bomo tudi nekaj definicij in rezultatov iz kompleksne analize, ki bodo ponovljeni in izpeljani v poglavju \ref{sec:hipgeom}.

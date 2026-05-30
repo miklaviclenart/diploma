@@ -2,35 +2,52 @@
 
 V tem poglavju ponovimo nekaj osnovnih oznak in definicij iz kompleksne analize, ki jih bomo uporabljali kasneje. Nato uvedemo pojem \emph{normalna družina} in \emph{hiperbolična metrika}, katere lastnosti bodo ključne pri glavnem dokazu dela.
 
-\subsection{Oznake in definicije}
+\subsection{Osnove holomorfnosti}
 
-Kompleksno število \(z \in \CC\) lahko zapišemo kot vsoto \(z = x + i y\) ali v polarnem zapisu \(z = r e^{i \theta} = r (\cos \theta + i \sin \theta)\). Kot, ki ga oklepata abscisa in premica skozi \(0\) in \(z\), označimo z \(\Arg (z) \in (- \pi, \pi]\) ali \(\arg (z) \in [0, 2 \pi)\). Z \(\Delta (a, r)\) označimo odprt disk s središčem v \(a\) in radijem \(r\). Za enotski disk nadalje uporabimo oznako \(\DD \coloneq \Delta (0, 1)\), za Riemannovo sfero pa \(\widehat{\CC} \coloneq \CC \cup \{\infty\}\).
+Kompleksno število \(z \in \CC\) lahko zapišemo kot vsoto \(z = x + i y\) ali v polarnem zapisu \(z = r e^{i \theta} = r (\cos \theta + i \sin \theta)\). Kot, ki ga oklepata abscisa in premica skozi \(0\) in \(z\), označimo z \(\Arg (z) \in (- \pi, \pi]\) ali \(\arg (z) \in [0, 2 \pi)\). Z \(\Delta (a, r)\) označimo odprt disk s središčem v \(a\) in radijem \(r\). Za enotski disk nadalje uporabimo oznako \(\DD \coloneq \Delta (0, 1)\).
 
-Za splošne metrične prostore \((X, d)\) z \(B (x_0, r)\) označimo odprto kroglo z radijem \(r > 0\) in središčem v \(x_0 \in X\). Notranjost množice \(A \subseteq X\) označimo z \(\Int (A)\), njeno zaprtje z \(\overline{A}\) in njen rob z \(\partial A\). \emph{Premer} ali \emph{diameter} množice \(A\) definiramo kot
-\[\diam (A) \coloneq \sup \{d (x, y) : x, y \in A\}.\]
+Neprazni, odprti in povezani podmnožici kompleksnih števil \(D \subseteq \CC\) pravimo \emph{območje}. Večinoma se bomo ukvarjali s kompleksnimi funkcijami ene spremenljivke \(f \colon D \to \CC\). Le-te lahko zapišemo kot vsoto realnega in imaginarnega dela \(f = u + iv\), kjer sta za \(z = x + i y\) \(u = u (x, y)\) in \(v = v (x, y)\) ustrezni realni funkciji. Naj bo od tu naprej \(U \subseteq \CC\) odprta množica.
 
-Neprazni odprti in povezani podmnožici kompleksnih števil \(D \subseteq \CC\) pravimo \emph{območje}. Večinoma se bomo ukvarjali s kompleksnimi funkcijami ene spremenljivke \(f \colon D \to \CC\). Če je \(f\) holomorfna na \(\CC\), pravimo, da je \emph{cela funkcija}. Vemo, da je to v \(\CC\) ekvivalentno pogoju, da je \(f\) analitična pri vsakem \(z \in \CC\). Cela funkcija je \emph{transcendentna}, če ni polinom ali kvocient dveh polinomov. Pravimo, da je funkcija \emph{konformna}, če ohranja kote in smisel vrtenja. Vemo, da so holomorfne funkcije konformne natanko tedaj, ko je njihov odvod neničelen (glej \cite[izrek 78]{Globevnik_2010}).
+\begin{definicija}
+    Pravimo, da je funkcija \(f \colon U \to \CC\) \emph{holomorfna} v \(z \in U\), če obstaja limita
+    \[\lim_{w \to z} \frac{f (w) - f (z)}{w - z} = \lim_{\zeta \to 0} \frac{f (z + \zeta) - f (z)}{\zeta}.\]
+\end{definicija}
 
-Funkcija \(f \colon D \to D'\) je \emph{biholomorfna}, če je bijektivna, holomorfna in ima holomorfen inverz \(f^{-1} \colon D' \to D\). \emph{Enostavno povezano} območje si intuitivno predstavljamo kot tisto območje, ki nima ``lukenj''. Natančno pa ga definiramo definiramo z naslednjim izrekom.
+Holomorfnost razumemo kot odvedljivost v kompleksnem smislu. Zato zgornji limiti pravimo \emph{odvod funkcije \(f\) v točki \(z\)} in jo označimo z \(f' (z)\). Kot za realne veljajo tudi za kompleksne funkcije običajna pravila za odvajanje. Poleg tega pa nam holomorfnost karakterizira tudi naslednji izrek.
+
+\begin{izrek} \label{thm:cr}
+    Funkcija \(f = u + i v\) je holomorfna natanko tedaj, ko funkciji \(u\) in \(v\) zadoščata \emph{Cauchy-Riemannovemu sistemu enačb}
+    \begin{equation} \tag{CR} \label{eq:cr}
+        \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \qquad \frac{\partial u}{\partial y} = - \frac{\partial v}{\partial x}.
+    \end{equation}
+    Natančneje, funkcija \(f\) je na množici \(U\) holomorfna natanko tedaj, ko sta \(u\) in \(v\) na množici \(\set{(x, y) \in \RR^2 : x + i y \in U}\) zvezno parcialno odvedljivi in zadoščata sistemu \eqref{eq:cr}.
+\end{izrek}
+
+\begin{dokaz}
+    Označimo \(f = u + i v\), \(z_0 = x + i y\) in \(\zeta = h + i k\). Potem je
+    \[\frac{f (z + \zeta) - f (z)}{\zeta} = \frac{u (x + h, y + k) - u (x, y)}{h + i k} + i \frac{v (x + h, y + k) - v (x, y)}{h + i k}.\]
+    Ker za \(f (z) \neq 0\) lahko obravnavamo \(\widetilde{f} \coloneq f - f (z)\), lahko brez škode za splošnost predpostavimo \(f (z) = 0\). Tedaj se zgornja enačba poenostavi v
+    \[\frac{f (z + \zeta)}{\zeta} = \frac{u (x + h, y + k)}{h + i k} + i \frac{v (x + h, y + k)}{h + i k}.\]
+    Krajše pišemo \(\)nožimo z \((h - i k)\)
+\end{dokaz}
+
+Če je \(f\) holomorfna na \(\CC\), pravimo, da je \emph{cela funkcija}. Vemo, da je to v \(\CC\) ekvivalentno pogoju, da je \(f\) kompleksno analitična pri vsakem \(z \in \CC\). Cela funkcija je \emph{transcendentna}, če ni polinom ali kvocient dveh polinomov. Pravimo, da je funkcija \emph{konformna}, če ohranja kote in smisel vrtenja. Vemo, da so holomorfne funkcije konformne natanko tedaj, ko je njihov odvod neničelen (glej \cite[izrek 78]{Globevnik_2010}).
+
+Funkcija \(f \colon U \to U'\) je \emph{biholomorfna}, če je bijektivna, holomorfna in ima holomorfen inverz \(f^{-1} \colon U' \to U\). Če je \(D\) območje in \(f \colon D \to D'\) bijektivna in holomorfna, vemo, da je biholomorfna (glej \cite[izrek 77]{Globevnik_2010}). \emph{Enostavno povezano} območje si intuitivno predstavljamo kot tisto območje, ki nima ``lukenj''. Natančno pa ga definiramo definiramo z naslednjim izrekom.
 
 \begin{definicija}[Riemannov upodobitveni izrek]
     Območje \(D \subsetneq \CC\) je \emph{enostavno povezano} natanko tedaj, ko obstaja biholomorfna funkcija \(\phi \colon D \to \DD\).
 \end{definicija}
 
-\subsection{Kompleksni logaritem}
+\subsection{Kompleksni eksponent in logaritem}
 
 \noindent Kompleksna eksponentna preslikava je podana s predpisom
 \[e^z = e^x (\cos y + i \sin y).\]
-Ker je
+Označimo \(u (x, y) = e^x \cos y\) in \(v (x, y) = e^x \sin y\) in izračunamo
+\[\frac{\partial u}{\partial x} (x, y) = e^x \cos y = \frac{\partial v}{\partial y} (x, y), \qquad \frac{\partial u}{\partial y} (x, y) = - e^x \sin y = -\frac{\partial v}{\partial x} (x, y).\]
+Po izreku \ref{thm:cr} je kompleksni eksponent holomorfen na \(\CC\), torej cela funkcija. Dodatno pa je tudi konformna funkcija, saj je odvod neničelen. Ker je
 \[e^{z + 2 \pi i} = e^x (\cos (y + 2 \pi) + i \sin (y + 2 \pi)) = e^z,\]
-je periodična (glej sliko \ref{fig:exponential}). Posledično nima inverza.
-\begin{figure}
-    \centering
-    \includegraphics[width=0.6\textwidth]{needham_figure.pdf}
-    \caption[Eksponentne preslikave]{Eksponentna preslikava, po knjigi \cite{Needham_1997}.}
-    \label{fig:exponential}
-\end{figure}
-Res, naj bo \(w = u + i v\). Rešimo enačbo:
+je tudi periodičen in posledično nima inverza. Res, naj bo \(w = u + i v\). Rešimo enačbo:
 \begin{align*}
     e^w = z & \iff e^u (\cos v + i \sin v) = x + i y                                    \\
             & \iff e^u = \sqrt{x^2 + y^2} \quad \text{in} \quad v = \Arg (z) + 2 k \pi.
@@ -44,38 +61,23 @@ za vsak \(k \in \ZZ\). Prav tako bi lahko namesto \(\Arg\) izbrali \(\arg\). Da 
     \end{multlined}\]
 bijektivna na \(U\) in ima tam holomorfen inverz \(L \colon U \to \CC\):
 \[L (\omega) \coloneq \log |\omega| + i \cdot \prt{\theta + \Arg \prt{\frac{\omega}{e^{i \theta}}}}.\]
-Vsaki taki funkciji \(L\) rečemo \emph{veja logaritma}. Če vzamemo \(\theta = 0\) dobimo \emph{glavno} vejo logaritma. Veje logaritma obstajajo tudi na vsakem preprosto povezanem območju, vendar bodo za nas pomembne le zarezane ravnine \(\CC \setminus [0, \infty)\) in diski, ki ne vsebuje izhodišča. Na primer, imejmo disk \(\Delta \subset \CC\), tako da \(0 \notin \Delta\). Naj bo \(\zeta_0 \in \CC\), da je \(e^{\zeta_0} \in \Delta\). Če vzamemo \(\theta = \im \zeta_0\), dobimo holomorfno preslikavo \(L \colon \Delta \to \CC\), za katero velja \(L (e^{\zeta_0}) = \zeta_0\) ter \(e^{L (\omega)} = \omega\) in \(\im \zeta_0 - \pi < \im L (\omega) < \im \zeta_0 + \pi\) za vsak \(\omega \in \Delta\).
+Tako je kompleksni eksponent na zgoraj definiranih območjih biholomorfizem. Vsaki taki funkciji \(L\) rečemo \emph{veja logaritma}. Če vzamemo \(\theta = 0\) dobimo \emph{glavno} vejo logaritma. Veje logaritma obstajajo tudi na vsakem enostavno povezanem območju, vendar bodo za nas pomembne le zarezane ravnine \(\CC \setminus [0, \infty)\) in diski, ki ne vsebuje izhodišča. Na primer, imejmo disk \(\Delta \subset \CC\), tako da \(0 \notin \Delta\). Naj bo \(\zeta_0 \in \CC\), da je \(e^{\zeta_0} \in \Delta\). Če vzamemo \(\theta = \im \zeta_0\), dobimo holomorfno preslikavo \(L \colon \Delta \to \CC\), za katero velja \(L (e^{\zeta_0}) = \zeta_0\) ter \(e^{L (\omega)} = \omega\) in \(\im \zeta_0 - \pi < \im L (\omega) < \im \zeta_0 + \pi\) za vsak \(\omega \in \Delta\).
 
-\subsection{Normalne družine}
-
-Naj bosta \(X\) in \(Y\) topološka prostora. Množico zveznih preslikav \(f \colon X \to Y\) opremimo s kompaktno-odprto topologijo. Tedaj relativno kompaktnim množicam pravimo \emph{normalne družine}. V tem poglavju jih bomo prek topologije enakomerne konvergence po kompaktih definirali za holomorfne funkcije na nekem območju \(D \subseteq \CC\). Vemo namreč, da sta zgornji topologiji na metričnih prostorih enaki.
-\begin{definicija}
-    Zaporedje holomorfnnih funkcij \((f_n)\) na območju \(D \subseteq \CC\) konvergira k \(f\) \emph{enakomerno po kompaktih}, če za vsako kompaktno podmnožico \(K \subset D\) in vsak \(\varepsilon > 0\) obstaja obstaja \(n_0 \in \NN\), da za \(n \geq n_0\) velja \(|f_n (z) - f(z)| < \varepsilon\) za vse \(z \in K\).
-\end{definicija}
-
-\begin{primer} \label{ex:primer}
-    Zaporedje \(f_n \colon \DD \to \CC\), \(f_n (z) = z^n\) konvergira k \(f \equiv 0\) enakomerno po kompaktih. Res, naj bo \(K \subset \DD\) kompaktna. Tedaj obstaja \(r < 1\), da za vsak \(z \in K\) velja \(|z| < r\). Zato velja
-    \[\abs{f_n (z) - f (z)} = \abs{z^n - 0} < r^n.\]
-    Trditev sledi, saj je za vsak \(\varepsilon > 0\) tudi \(r^n < \varepsilon\) za dovolj velik \(n\).
-\end{primer}
-
-\noindent Naslednji izrek nam pove, da je konvergenca enakomerno po kompaktih v družini holomorfnih funkcij smiselna, saj ohranja holomorfnost.
-
-\begin{izrek}
-    Naj bo \((f_n)\) zaporedje holomorfnih funkcij na območju \(D \subseteq \CC\), ki konvergira k \(f\) enakomerno po kompaktih. Potem je tudi \(f\) holomorfna na \(D\).
-\end{izrek}
-
-\begin{dokaz}
-    Naj bo \(\overline{\Delta (a, r)} \subseteq D\). Ker je \(\overline{\Delta (a, r)}\) kompaktna, zaporedje \(f_n\) tu enakomerno konvergira proti \(f\). Poleg tega vsaka funkcija \(f_n\) za vsak \(z \in \Delta (a, r)\) zadošča Cauchyjevi integralski formuli
-    \[f_n (z) = \frac{1}{2 \pi i} \int_{\partial \Delta (a, r)} \frac{f_n (w)}{w - z} \, \dd w.\]
-    Ker je konvergenca enakomerna, lahko zamenjamo limito in integral
-    \[f (z) = \lim_{n \to \infty} f_n (z) = \lim_{n \to \infty} \frac{1}{2 \pi i} \int_{\partial \Delta (a, r)} \frac{f_n (w)}{w - z} \, \dd w = \frac{1}{2 \pi i} \int_{\partial \Delta (a, r)} \frac{f (w)}{w - z} \, \dd w.\]
-    Funkcijo na desni lahko razvijemo v vrsto okoli \(z = a\) in zato je holomorfna na \(\Delta (a, r)\). Torej je taka tudi \(f\).
-\end{dokaz}
-
-\begin{definicija}
-    Naj bo \(\FFF\) družina holomorfnih funkcij na območju \(D \subseteq \CC\). Pravimo, da je družina \emph{normalna}, če za vsako zaporedje funkcij \((f_n) \subset \FFF\) obstaja podzaporedje \((f_{n_k})\), ki konvergira enakomerno po kompaktih k neki \(f \in \FFF\) ali pa k \(f \equiv \infty\).
-\end{definicija}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{needham_figure.pdf}
+    \caption[Eksponentne preslikave]{Eksponentna preslikava, po knjigi \cite{Needham_1997}.}
+    \label{fig:exponential}
+\end{figure}
+Dobro vizualizacijo kompleksnega eksponenta nam nudi slika \ref{fig:exponential}, na kateri je \(w = e^z\). Na neformalen način navedemo naslednja opažanja.
+\begin{itemize}
+    \item Če točka \(z\) potuje navzgor s hitrostjo \(v\), potem se točka \(w\) vrti okrog izhodišča s kotno hitrostjo \(v\). Ko \(z\) prepotuje razdaljo \(2 \pi\), \(w\) enkrat zaokroži okoli izhodišča. Torej je preslikava periodična s periodo \(2 \pi i\).
+    \item Če točka \(z\) potuje proti levi s konstantno hitrostjo, točka \(w\) potuje proti izhodišču s pojemajočo hitrostjo. Obratno, če \(z\) potuje proti desni, potem \(w\) potuje stan od izhodišča s pospešeno hitrostjo.
+    \item Po prejšnjih dveh alinejah bo celo \(w\)-ravnino brez točke \(w = 0\) pokril vodoraven pas višine \(2 \pi\) v \(z\)-ravnini.
+    \item Vodoravne premice se preslikajo v žarke iz izhodišča, v posebnem se realna os preslika v \([0, \infty)\). Navpične črte se preslikajo v krožnice okrog izhodišča, v posebnem se imaginarna os preslika v enotsko križnico. Splošna premica se preslika v spiralo, ki se navija okrog izhodišča.
+    \item Sivo obarvana leva polravnina se preslika v enotski disk, desna polravnina pa v njegov komplement.
+    \item Slike majhnih kvadratkov nas spominjajo na kvadratke, kar ponazarja, da je preslikava konformna---ohranja kote.
+\end{itemize}
 
 \subsection{Hiperbolična geometrija}
 

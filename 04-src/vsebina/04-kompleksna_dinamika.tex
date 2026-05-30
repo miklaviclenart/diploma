@@ -1,0 +1,134 @@
+\section{Kompleksna dinamika}
+
+\subsection{Kompleksne periodične točke}
+
+\noindent Definicijo privlačne in odbojne točke nam v kompleksni ravnini poenostavi naslednji izrek.
+
+\begin{izrek}
+    Naj bo \(f\) cela funkcija in \(z^*\) njena fiksna točka. Potem je \(z^*\) privlačna natanko tedaj, ko je \(|f' (z^*)| < 1\). Dodatno je \(z^*\) odbojna natanko tedaj, ko je \(|f' (z^*)| > 1\).
+\end{izrek}
+
+\begin{dokaz}
+    Naj bo \(z^*\) privlačna. Ker za vsak \(z \in \Delta (z^*, r)\) zaporedje \(f^n (z)\) enakomerno konvergira proti \(z^*\), obstaja \(n_0 \in \NN\), tako da \(|f^n (z) - z^*| < r\) za vsak \(z \in \Delta (z^*, r)\) in \(n \geq n_0\). Opazujemo funkcijo \(\phi (z) = (z - z^*) / r\), ki za vsak \(n \geq n_0\) konjugira \(f^n\) in \(F_n \coloneq \phi \circ f^n \circ \phi^{-1}\). Ko poenostavimo dobimo
+    \[F_n (w) = \frac{f^n (r w + z^*) - z^*}{r},\]
+    kjer je vsaka \(F_n\) definirana na \(\DD\), ima vrednosti v \(\overline{\DD}\) in zadošča \(F_n (0) = 0\). Schwarzova lema nam pove, da je \(|F_n' (0)| \leq 1\). Recimo, da velja \(|F_n' (0)| = 1\). Spet po Schwarzovi lemi je \(F_n\) rotacija, torej \(F_n (w) = a_n w\) za \(|a_n| = 1\). Tedaj velja
+    \[\abs{F_n (w)} = \abs{w} = \frac{\abs{f^n (r w + z^*) - z^*}}{r}\]
+    ali ekvivalentno \(\abs{f^n (z) - z^*} = \abs{z - z^*}\) za vsak \(z \in \Delta (z^*, r)\). Ker to pomeni, da \(f^n (z)\) ne konvergira proti \(z^*\), smo prišli do protislovja.
+
+    Obratno, naj obstaja \(k \in \RR\), da vejla \(|f' (z^*)| < k < 1\). Iz definicije odvoda sledi, da obstaja \(r > 0\), da za vsak \(z \in \Delta (z^*, r)\) z \(z \neq z^*\) velja
+    \[\abs{\frac{f (z) - f (z^*)}{z - z^*}} < k.\]
+    To je ekvivalentno \(|f (z) - z^*| \leq k |z - z^*|\). Induktivno nato pokažemo, da velja \(|f^n (z) - z^*| \leq k^n |z - z^*|\) za \(z \in \Delta (z^*, r)\) in \(z \neq z^*\). Ker je \(\lim_{n \to \infty} k^n = 0\), je \(z^*\) res privlačna.
+
+    Naj bo sedaj \(z^*\) odbojna. Iz zgornjega dokaza vemo, da velja \(|f' (z^*)| \geq 1\). Ker \(|f' (z^*)| \neq 0\), je \(f\) lokalni biholomorfizem na neki okolici točke \(z^*\). Torej lahko izberemo kompaktno okolico \(V\) točke \(z^*\), na kateri je \(f\) biholomorfna, \(z^*\) pa točke v \(V\) odbije, torej njihove orbite divergirajo iz \(V\). Za vsak \(k \in \NN\) nato definiramo
+    \[V_k \coloneq V \cap f^{-1} (V) \cap \cdots \cap f^{- k} (V).\]
+    Vsaka \(V_k\) je kompaktna okolica \(z^*\), ki vsebuje vse točke \(z\), za katere \(f^j (z) \in V\) za \(1 \leq j \leq k\). Če označimo \(V_0 = V\), je zaporedje \((V_k)_{k \geq 0}\) padajoče zaporedje kompaktnih množic z \(\bigcap_k V_k = \set{z^*}\). Poleg tega iz definicije \(V_k\) sledi zveza \(f (V_k) = V_{k - 1} \cap f (V)\). Ker obstaja \(k_0 \in \NN\), tako da za vsak \(k \geq k_0\) velja \(V_k \subset f (V)\), velja tudi \(f (V_k) = V_{k - 1}\) za \(k \geq k_0\). Izberemo torej \(r > 0\), da \(\Delta (z^*, r) \subset V_{k_0}\) in tak \(h > k_0\), da je \(V_h \subset \Delta (z^*, r / 2)\). Z \(g\) označimo \((h - k_0)\)-to iteracijo \(f^{-1}\), to je \(g = (f^{-1})^{h - k_0}\). Tedaj vidimo, da velja
+    \[g \prt{\Delta (z^*, r)} \subset V_h \subset \Delta (z^*, r).\]
+    Ker sta \(\Delta (z^*, r)\) in \(g \prt{\Delta (z^*, r)}\) enostavno povezani območji, lahko uporabimo Schwarzovo lemo, ki nam pove, da je \(|g' (z^*)| < 1\). Ker velja \(g' (z^*) = (1 / f' (z^*))^{h - k_0}\), je res \(|f' (z^*)| > 1\).
+
+    Obratno, naj obstaja \(k > 1\), da velja \(|f' (z^*)| > k\). Podobno kot prej obstaja \(r > 0\), da je \(|f (z) - f (z^*)| \geq k |z - z^*|\) za vsak \(z \in \Delta (z^*, r)\) in \(z \neq z^*\). Recimo, da obstaja \(z_0\), da velja \(f^n (z_0) \in \Delta (z^*, r)\) za vsak \(n \in \NN\). Tedaj lahko induktivno pokažemo, da velja \(|f^n (z_0) - z^*| \geq k^n |z_0 - z^*|\). Ker je \(\lim_{n \to \infty} k^n = \infty\), smo prišli do protislovja. Torej je \(z^*\) res odbojna.
+\end{dokaz}
+
+\noindent V luči zgornjega izreka lahko definicijo razširimo.
+
+\begin{definicija}
+    Naj bo \(U \subseteq \CC\) odprta in \(f \colon U \to \CC\) holomorfna. Naj bo \(w \in U\) fiksna točka preslikave \(f\). Število \(\lambda \coloneq f' (w)\) imenujemo \emph{multiplikator preslikave \(f\) v točki \(w\)}. Fiksna točka \(w\) je
+    \begin{itemize}
+        \item \emph{superprivlačna}, če je \(\lambda = 0\);
+        \item \emph{privlačna}, če je \(|\lambda| < 1\);
+        \item \emph{odbojna}, če je \(|\lambda| > 1\);
+        \item \emph{racionalno nevtralna}, če je \(|\lambda| = 1\) in \(\lambda^n = 1\) za kak \(n \in \NN\);
+        \item \emph{iracionalno nevtralna}, če je \(|\lambda| = 1\) in \(\lambda^n \neq\) za vsak \(n \in \NN\).
+    \end{itemize}
+\end{definicija}
+
+\begin{definicija}
+    Naj bo \(z^*\) fiksna točka preslikave \(f\). Množico
+    \[\Omega (f, z^*) \coloneq \set{z_0 \in \CC : \lim_{n \to \infty} f^n (z_0) = z^*}\]
+    imenujemo \emph{območje privlaka \(z^*\)}.
+\end{definicija}
+
+Množica \(A\) je za funkcijo \(f\) \emph{naprej invariantna}, če je \(f (A) = A\), in \emph{nazaj invariantna}, če je \(f^{-1} (A) = A\). Če je množica naprej in nazaj invariantna, pravimo, da je \emph{popolnoma invariantna}.
+
+\begin{izrek}
+    Naj bo \(f\) cela funkcija in \(z^*\) njena privlačna fiksna točka. Potem je \(\Omega (f, z^*)\) odprta in popolnoma invariantna.
+\end{izrek}
+
+\begin{dokaz}
+    Naj bo \(a \in \Omega (f, z^*)\) in \(r > 0\), da je \(\overline{\Delta (z^*, 2r)} \subset \Omega (f, z^*)\). Ker \(f^n (a)\) konvergira k \(z^*\), obstaja \(k \in \NN\), da je \(|f^k (a) - z^*| < r\). Ker je \(f\) zvezna, obstaja \(\delta > 0\), da je \(|f^k (a) - f^k (z)| < r\) za vsak \(z \in \Delta (a, \delta)\). Potem je
+    \[|f^k (z) - z^*| \leq |f^k (z) - f^k (a)| + |f^k (a) - z^*| \leq 2r\]
+    za \(|z - a| < \delta\). Torej je \(f^k (z)\) vsebovana v \(\overline{\Delta (z^*, 2r)}\). Zaradi tega je \(\lim_{n \to \infty} f^{k + n} (z) = z^*\) za vsak \(z \in \Delta (a, \delta)\). Torej je \(\Delta (a, \delta) \subset \Omega (f, z^*)\).
+
+    Naj bo \(z_0 \in \Omega (d, z^*)\). Potem
+    \[\lim_{n \to \infty} f^n \prt{f (z_0)} = \lim_{n \to \infty} f^{n + 1} (z_0) = z^*\]
+    in \(f (z_0) \in \Omega(f, z^*)\). Enako sklepamo, da \(f (z_0) \in \Omega (f, z^*)\) implicira \(z_0 \in \Omega (f, z^*)\).
+\end{dokaz}
+
+\noindent Komponenta za povezanost \(\Omega (f, z^*)\), ki vsebuje \(z^*\), se imenuje \emph{neposredno območje privlaka} \(z^*\). Označimo ga z \(\Omega_0 (f, z^*)\).
+
+\begin{trditev} \label{prop:privlak}
+    Naj bo \(f\) cela funkcija in \(\Omega \subsetneq \CC\) enostavno povezano območje, ki je popolnoma invariantno za \(f\). Če je \(z^{*} \in \Omega\) privlačna fiksna točka \(f\), potem je \(\Omega\) vsebovana v neposrednem območju privlaka \(z^*\).
+\end{trditev}
+
+Posvetimo se še nefiksnim periodičnim točkam. Če je \(z_0\) \(p\)-periodična, potem so vse točke \(z_0, f (z_0), f^2 (z_0), \dots, f^{p - 1} (z_0)\) fiksne točke preslikave \(f^p\). Pišemo \(z_j = f^j (z_0)\) in uporabimo verižno pravilo:
+\[(f^p)' (z_j) = f' \prt{f^{p - 1} (z_j)} f' \prt{f^{p - 2} (z_j)} \dots f' \prt{f (z_j)} f' (z_j) = \prod_{k = 0}^{p - 1} f' (z_k).\]
+To pomeni, da imajo vse točke \(z_j\) isti multiplikator \(K\). Če je \(K < 1\), potem rečemo, da je \(p\)-cikel privlačen. Če pa je \(K > 1\), rečemo, da je \(p\)-cikel odbojen.
+
+\subsection{Normalne družine}
+
+Naj bosta \(X\) in \(Y\) topološka prostora. Množico zveznih preslikav \(f \colon X \to Y\) opremimo s kompaktno-odprto topologijo. Tedaj relativno kompaktnim množicam pravimo \emph{normalne družine}. V tem poglavju jih bomo prek topologije enakomerne konvergence po kompaktih definirali za holomorfne funkcije na nekem območju \(D \subseteq \CC\). Vemo namreč, da sta zgornji topologiji na metričnih prostorih enaki.
+\begin{definicija}
+    Zaporedje holomorfnnih funkcij \((f_n)\) na območju \(D \subseteq \CC\) konvergira k \(f\) \emph{enakomerno po kompaktih}, če za vsako kompaktno podmnožico \(K \subset D\) in vsak \(\varepsilon > 0\) obstaja obstaja \(n_0 \in \NN\), da za \(n \geq n_0\) velja \(|f_n (z) - f(z)| < \varepsilon\) za vse \(z \in K\).
+\end{definicija}
+
+\begin{primer} \label{ex:primer}
+    Zaporedje \(f_n \colon \DD \to \CC\), \(f_n (z) = z^n\) konvergira k \(f \equiv 0\) enakomerno po kompaktih. Res, naj bo \(K \subset \DD\) kompaktna. Tedaj obstaja \(r < 1\), da za vsak \(z \in K\) velja \(|z| < r\). Zato velja
+    \[\abs{f_n (z) - f (z)} = \abs{z^n - 0} < r^n.\]
+    Trditev sledi, saj je za vsak \(\varepsilon > 0\) tudi \(r^n < \varepsilon\) za dovolj velik \(n\).
+\end{primer}
+
+\noindent Naslednji izrek nam pove, da je konvergenca enakomerno po kompaktih v družini holomorfnih funkcij smiselna, saj ohranja holomorfnost.
+
+\begin{izrek}
+    Naj bo \((f_n)\) zaporedje holomorfnih funkcij na območju \(D \subseteq \CC\), ki konvergira k \(f\) enakomerno po kompaktih. Potem je tudi \(f\) holomorfna na \(D\).
+\end{izrek}
+
+\begin{dokaz}
+    Naj bo \(\overline{\Delta (a, r)} \subseteq D\). Ker je \(\overline{\Delta (a, r)}\) kompaktna, zaporedje \(f_n\) tu enakomerno konvergira proti \(f\). Poleg tega vsaka funkcija \(f_n\) za vsak \(z \in \Delta (a, r)\) zadošča Cauchyjevi integralski formuli
+    \[f_n (z) = \frac{1}{2 \pi i} \int_{\partial \Delta (a, r)} \frac{f_n (w)}{w - z} \, \dd w.\]
+    Ker je konvergenca enakomerna, lahko zamenjamo limito in integral
+    \[f (z) = \lim_{n \to \infty} f_n (z) = \lim_{n \to \infty} \frac{1}{2 \pi i} \int_{\partial \Delta (a, r)} \frac{f_n (w)}{w - z} \, \dd w = \frac{1}{2 \pi i} \int_{\partial \Delta (a, r)} \frac{f (w)}{w - z} \, \dd w.\]
+    Funkcijo na desni lahko razvijemo v vrsto okoli \(z = a\) in zato je holomorfna na \(\Delta (a, r)\). Torej je taka tudi \(f\).
+\end{dokaz}
+
+\begin{definicija}
+    Naj bo \(\FFF\) družina holomorfnih funkcij na območju \(D \subseteq \CC\). Pravimo, da je družina \emph{normalna}, če za vsako zaporedje funkcij \((f_n) \subset \FFF\) obstaja podzaporedje \((f_{n_k})\), ki konvergira enakomerno po kompaktih k neki \(f \in \FFF\) ali pa k \(f \equiv \infty\).
+\end{definicija}
+
+\subsection{Fatoujeva in Juliajeva množica}
+
+Pri preučevanju dinamike funkcij, lahko domeno razdelimo na dva množici. Prvi, na kateri je obnašanje funkcije ``predvidljivo'', pravimo Fatoujeva množica, drugi, kjer je obnašanje kaotično, pa pravimo Juliajeva množica. Natančno ju definiramo sledeče.
+
+Za celo funkcijo \(f\) je \emph{Fatoujeva množica} sestavljena iz vseh točk \(z_0\), za katere velja, da je \((f^n)\) normalna na neki okolici točke \(z_0\). Označimo jo z \(F (f)\). Njen komplement \(J (f) \coloneq \CC \setminus F (f)\) je \emph{Juliajeva množica}. Po definiciji vidimo, da je Fatoujeva množica vedno odprta, Juliajeva pa vedno zaprta.
+
+\begin{primer}
+    Po primeru \ref{ex:primer} zaporedje iteracij funkcije \(f (z) = z^2\) na \(\DD\) konvergira k \(f \equiv 0\) enakomerno po kompaktih. Podobno premislimo, da na \(\CC \setminus \overline{\DD}\) konvergira k \(f \equiv \infty\) enakomerno po kompaktih. Na \(\partial \DD\) zaporedje divergira. Zato je \(F (f) = \CC \setminus \partial \DD\) in \(J (f) = \partial \DD\).
+\end{primer}
+
+\begin{izrek}
+    Naj bo \(B (f)\) množica vseh točk \(z \in \CC\) z omejeno orbito. Tedaj velja
+    \[\partial (B (f)) \subset J (f).\]
+\end{izrek}
+
+\begin{dokaz}
+    Naj bo \(z_0 \in \partial (B (f))\). Recimo, da \(z_0 \notin J (f)\). Potem je \((f^n)\) normalna na neki kompaktni okolici \(U\) točke \(z_0\). Ker je točka \(z_0\) robna, obstajata \(z_1, z_2 \in U\), tako da je orbita točke \(z_1\) omejena, orbita točke \(z_2\) pa ne. Torej ima \((f^n (z_n))\) divergentno podzaporedje \((f^{n_k} (z_2))_k\). Ker pa je \((f^n)\) normalna na \(U\), obstaja podzaporedje zaporedja \((f^{n_k} (z_2))_k\), ki enakomerno konvergira na \(U\). Ker je \((f^n (z_1))\) omejena in \((f^{n_k} (z_2))_k\) divergira k \(\infty\), smo prišli do protislovja.
+\end{dokaz}
+
+\noindent Če na tem mestu upoštevamo izrek \ref{thm:orbits}, hitro vidimo, da je za kompleksno eksponentno preslikavo \(J (f) = \CC\) in \(F (f) = \emptyset\). To pa ne drži tudi za poljubno celo funkcijo. Če za primer navedemo \(f (z) \coloneq (e^z - 1) / 4\), potem \((f^n)\) na \(\DD\) konvergira proti \(0\) enakomerno po kompaktih. Torej Fatoujeva množica vsebuje cel enotski disk.
+
+Kot zanimivost omenimo, da za polinome velja enakost \(\partial (B (f)) = J (f)\). V tem primeru zato množici \(B (f)\) pravimo \emph{napolnjena Juliajeva množica}. Posledično je zgornji izrek uporaben za vizualizacijo Juliajeve množice. Na njem temelji na primer \emph{algoritem vzvratne iteracije}. Slike, ki nastanejo, pa so pogosto zanimive, kot vidimo na sliki \ref{fig:julia}. Tu je upodobljena Juliajeva množica funkcije \(z^2 + c\) za \(c \approx \complexnum{-0.5125+0.5213i}\). Z modro in zeleno barvo obarvana obnočja so Fatoujeva množica, medtem ko so rumeno obarvana območja Juliajeva množica.
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{julia_set.pdf}
+    \caption[Juliajeva množica]{Juliajeva množica funkcije \(z^2 + c\), koda prirejeno po \href{https://commons.wikimedia.org/w/index.php?curid=75993344}{Wikipedia Commons}.}
+    \label{fig:julia}
+\end{figure}
