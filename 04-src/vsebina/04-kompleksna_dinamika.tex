@@ -72,7 +72,7 @@ Množica \(A\) je za funkcijo \(f\) \emph{naprej invariantna}, če je \(f (A) = 
 \begin{dokaz}
     Po Riemannovem upodobitvenem izreku obstaja biholomorfna funkcija \(\phi \colon \DD \to \Omega\), za katero velja \(\phi (0) = z^*\). Definiramo konjugiranko \(g \coloneq \phi^{-1} \circ f \circ \phi\); \(g \colon \DD \to \DD\). Potem je \(g\) holomorfna, \(\DD\) popolnoma invariantna za \(g\) in velja \(g (0) = 0\). Poleg tega je \(0\) privlačna fiksna točka \(g\), saj velja \(g' (0) = f' (z^*)\). Torej lahko uporabimo Schwarzovo lemo \ref{lem:schwarz}, ki nam pove, da za vsak \(z \in \DD\)  velja \(|g^{n+1} (z)| = |g (g^n (z))| \leq |g^n (z)|\). To pomeni, da je zaporedje \(|g^n (z)|\) padajoče. Ker je omejeno, konvergira k nekemu \(r \in [0, 1)\).
 
-    Dokazati moramo, da je \(r = 0\). Ker je zaporedje \(g^n (z)\) omejeno, ima konvergentno podzaporedje \(g^{n_k} (z)\) z limito \(w^* \in \DD\). Po zveznosti absolutne vrednosti tedaj velja
+    Dokazati moramo, da je \(r = 0\). Ker je zaporedje \(g^n (z)\) omejeno, ima po Bolzano-Weierstrassovem izreku (glej \cite[str.~51]{Pavesic_2017}) konvergentno podzaporedje \(g^{n_k} (z)\) z limito \(w^* \in \DD\). Po zveznosti absolutne vrednosti tedaj velja
     \[|w^*| = \abs{\lim_{k \to \infty} g^{n_k} (z)} = \lim_{k \to \infty} |g^{n_k} (z)| = r.\]
     Ker pa je \(w^*\) tudi fiksna točka funkcije \(g\), po Schwarzovi lemi velja \(w = 0\) in zato \(r = 0\). Naj bo \(w \in \Omega\). Potem je \(\phi (w) \in \DD\) in zato
     \[\lim_{n \to \infty} f^n (w) = \lim_{n \to \infty} \phi \prt{g^{n} \prt{\phi^{-1} (w)}} = \phi (0) = z^*.\]
@@ -155,7 +155,7 @@ Vrnimo se k lastnostim Juliajeve množice. Naslednji izrek nam bo koristil kasne
 \begin{dokaz}
     Po izreku \ref{thm:rob} je dovolj pokazati, da je \(M\) vsebovana v \(\partial (B (f))\). Naj bo \(z \in M\). Ker je \(M\) naprej invariantna in \(|f' (z)| \geq \mu > 1\), po verižnem pravilu velja
     \[\abs{\prt{f^n}' (z)} = \prod_{k = 0}^{n - 1} \abs{f' \prt{ f^k (z)}} \geq \mu^n.\]
-    Recimo, da obstaja notranja točka \(z \in B (f)\). Tedaj je \(f^n\) omejena okolici \(\Delta (z, r) \subset B (f)\). Po Cauchyjevi oceni za odvode (glej \cite[izrek 62]{Globevnik_2010}) velja
+    Recimo, da obstaja notranja točka \(z \in B (f)\) in naj bo \(\Delta (z, r) \subset B (f)\) njena okolica. Tedaj je \(f^n\) na \(\Delta (z, r)\) omejena. Po Cauchyjevi oceni za odvode (glej \cite[izrek 62]{Globevnik_2010}) velja
     \[\abs{\prt{f^n}' (z)} \leq C,\]
     kjer je \(C\) konstanta, neodvisna od \(n\). Prišli smo do protislovja.
 \end{dokaz}
