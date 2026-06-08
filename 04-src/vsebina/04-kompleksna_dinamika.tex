@@ -1,4 +1,4 @@
-\section{Kompleksna dinamika}
+\section{Kompleksna dinamika} \label{sec:komdin}
 
 \subsection{Kompleksne periodične točke}
 
@@ -11,7 +11,7 @@
 \begin{dokaz}
     Naj bo \(z^*\) privlačna. Ker za vsak \(z \in \Delta (z^*, r)\) zaporedje \(f^n (z)\) enakomerno konvergira proti \(z^*\), obstaja \(n_0 \in \NN\), tako da \(|f^n (z) - z^*| < r\) za vsak \(z \in \Delta (z^*, r)\) in \(n \geq n_0\). Opazujemo funkcijo \(\phi (z) = (z - z^*) / r\), ki za vsak \(n \geq n_0\) konjugira \(f^n\) in \(F_n \coloneq \phi \circ f^n \circ \phi^{-1}\). Ko poenostavimo dobimo
     \[F_n (w) = \frac{f^n (r w + z^*) - z^*}{r},\]
-    kjer je vsaka \(F_n\) definirana na \(\DD\), ima vrednosti v \(\overline{\DD}\) in zadošča \(F_n (0) = 0\). Schwarzova lema nam pove, da je \(|F_n' (0)| \leq 1\). Recimo, da velja \(|F_n' (0)| = 1\). Spet po Schwarzovi lemi je \(F_n\) rotacija, torej \(F_n (w) = a_n w\) za \(|a_n| = 1\). Tedaj velja
+    kjer je vsaka \(F_n\) definirana na \(\DD\), ima vrednosti v \(\overline{\DD}\) in zadošča \(F_n (0) = 0\). Schwarzova lema \ref{lem:schwarz} nam pove, da je \(|F_n' (0)| \leq 1\). Recimo, da velja \(|F_n' (0)| = 1\). Spet po Schwarzovi lemi je \(F_n\) rotacija, torej \(F_n (w) = a_n w\) za \(|a_n| = 1\). Tedaj velja
     \[\abs{F_n (w)} = \abs{w} = \frac{\abs{f^n (r w + z^*) - z^*}}{r}\]
     ali ekvivalentno \(\abs{f^n (z) - z^*} = \abs{z - z^*}\) za vsak \(z \in \Delta (z^*, r)\). Ker to pomeni, da \(f^n (z)\) ne konvergira proti \(z^*\), smo prišli do protislovja.
 
@@ -19,11 +19,11 @@
     \[\abs{\frac{f (z) - f (z^*)}{z - z^*}} < k.\]
     To je ekvivalentno \(|f (z) - z^*| \leq k |z - z^*|\). Induktivno nato pokažemo, da velja \(|f^n (z) - z^*| \leq k^n |z - z^*|\) za \(z \in \Delta (z^*, r)\) in \(z \neq z^*\). Ker je \(\lim_{n \to \infty} k^n = 0\), je \(z^*\) res privlačna.
 
-    Naj bo sedaj \(z^*\) odbojna. Iz zgornjega dokaza vemo, da velja \(|f' (z^*)| \geq 1\). Ker \(|f' (z^*)| \neq 0\), je \(f\) lokalni biholomorfizem na neki okolici točke \(z^*\). Torej lahko izberemo kompaktno okolico \(V\) točke \(z^*\), na kateri je \(f\) biholomorfna, \(z^*\) pa točke v \(V\) odbije, torej njihove orbite divergirajo iz \(V\). Za vsak \(k \in \NN\) nato definiramo
+    Naj bo sedaj \(z^*\) odbojna. Iz zgornjega dokaza vemo, da velja \(|f' (z^*)| \geq 1\). Ker \(|f' (z^*)| \neq 0\), je \(f\) lokalno biholomorfna na neki okolici točke \(z^*\). Torej lahko izberemo kompaktno okolico \(V\) točke \(z^*\), na kateri je \(f\) biholomorfna, \(z^*\) pa točke v \(V\) odbije, torej njihove orbite divergirajo iz \(V\). Za vsak \(k \in \NN\) nato definiramo
     \[V_k \coloneq V \cap f^{-1} (V) \cap \cdots \cap f^{- k} (V).\]
     Vsaka \(V_k\) je kompaktna okolica \(z^*\), ki vsebuje vse točke \(z\), za katere \(f^j (z) \in V\) za \(1 \leq j \leq k\). Če označimo \(V_0 = V\), je zaporedje \((V_k)_{k \geq 0}\) padajoče zaporedje kompaktnih množic z \(\bigcap_k V_k = \set{z^*}\). Poleg tega iz definicije \(V_k\) sledi zveza \(f (V_k) = V_{k - 1} \cap f (V)\). Ker obstaja \(k_0 \in \NN\), tako da za vsak \(k \geq k_0\) velja \(V_k \subset f (V)\), velja tudi \(f (V_k) = V_{k - 1}\) za \(k \geq k_0\). Izberemo torej \(r > 0\), da \(\Delta (z^*, r) \subset V_{k_0}\) in tak \(h > k_0\), da je \(V_h \subset \Delta (z^*, r / 2)\). Z \(g\) označimo \((h - k_0)\)-to iteracijo \(f^{-1}\), to je \(g = (f^{-1})^{h - k_0}\). Tedaj vidimo, da velja
     \[g \prt{\Delta (z^*, r)} \subset V_h \subset \Delta (z^*, r).\]
-    Ker sta \(\Delta (z^*, r)\) in \(g \prt{\Delta (z^*, r)}\) enostavno povezani območji, lahko uporabimo Schwarzovo lemo, ki nam pove, da je \(|g' (z^*)| < 1\). Ker velja \(g' (z^*) = (1 / f' (z^*))^{h - k_0}\), je res \(|f' (z^*)| > 1\).
+    Ker sta \(\Delta (z^*, r)\) in \(g \prt{\Delta (z^*, r)}\) enostavno povezani območji, lahko uporabimo Schwarzovo lemo \ref{lem:schwarz}, ki nam pove, da je \(|g' (z^*)| < 1\). Ker velja \(g' (z^*) = (1 / f' (z^*))^{h - k_0}\), je res \(|f' (z^*)| > 1\).
 
     Obratno, naj obstaja \(k > 1\), da velja \(|f' (z^*)| > k\). Podobno kot prej obstaja \(r > 0\), da je \(|f (z) - f (z^*)| \geq k |z - z^*|\) za vsak \(z \in \Delta (z^*, r)\) in \(z \neq z^*\). Recimo, da obstaja \(z_0\), da velja \(f^n (z_0) \in \Delta (z^*, r)\) za vsak \(n \in \NN\). Tedaj lahko induktivno pokažemo, da velja \(|f^n (z_0) - z^*| \geq k^n |z_0 - z^*|\). Ker je \(\lim_{n \to \infty} k^n = \infty\), smo prišli do protislovja. Torej je \(z^*\) res odbojna.
 \end{dokaz}
@@ -63,11 +63,20 @@ Množica \(A\) je za funkcijo \(f\) \emph{naprej invariantna}, če je \(f (A) = 
     in \(f (z_0) \in \Omega(f, z^*)\). Enako sklepamo, da \(f (z_0) \in \Omega (f, z^*)\) implicira \(z_0 \in \Omega (f, z^*)\).
 \end{dokaz}
 
-\noindent Komponenta za povezanost \(\Omega (f, z^*)\), ki vsebuje \(z^*\), se imenuje \emph{neposredno območje privlaka} \(z^*\). Označimo ga z \(\Omega_0 (f, z^*)\).
+\noindent Komponenta za povezanost \(\Omega (f, z^*)\), ki vsebuje \(z^*\), se imenuje \emph{neposredno območje privlaka} \(z^*\). Označimo ga z \(\Omega_0 (f, z^*)\). Ker je \(f (\Omega_0 (f, z^*))\) povezana in vsebuje točko \(z^*\), velja \(f (\Omega_0 (f, z^*)) \subset \Omega_0 (f, z^*)\).
 
 \begin{trditev} \label{prop:privlak}
-    Naj bo \(f\) cela funkcija in \(\Omega \subsetneq \CC\) enostavno povezano območje, ki je popolnoma invariantno za \(f\). Če je \(z^{*} \in \Omega\) privlačna fiksna točka \(f\), potem je \(\Omega\) vsebovana v neposrednem območju privlaka \(z^*\).
+    Naj bo \(f\) cela funkcija in \(\Omega \subset \CC\) enostavno povezano območje, ki je popolnoma invariantno za \(f\). Če je \(z^{*} \in \Omega\) privlačna fiksna točka \(f\), potem je \(\Omega\) vsebovana v neposrednem območju privlaka \(z^*\).
 \end{trditev}
+
+\begin{dokaz}
+    Po Riemannovem upodobitvenem izreku obstaja biholomorfna funkcija \(\phi \colon \DD \to \Omega\), za katero velja \(\phi (0) = z^*\). Definiramo konjugiranko \(g \coloneq \phi^{-1} \circ f \circ \phi\); \(g \colon \DD \to \DD\). Potem je \(g\) holomorfna, \(\DD\) popolnoma invariantna za \(g\) in velja \(g (0) = 0\). Poleg tega je \(0\) privlačna fiksna točka \(g\), saj velja \(g' (0) = f' (z^*)\). Torej lahko uporabimo Schwarzovo lemo \ref{lem:schwarz}, ki nam pove, da za vsak \(z \in \DD\)  velja \(|g^{n+1} (z)| = |g (g^n (z))| \leq |g^n (z)|\). To pomeni, da je zaporedje \(|g^n (z)|\) padajoče. Ker je omejeno, konvergira k nekemu \(r \in [0, 1)\).
+
+    Dokazati moramo, da je \(r = 0\). Ker je zaporedje \(g^n (z)\) omejeno, ima konvergentno podzaporedje \(g^{n_k} (z)\) z limito \(w^* \in \DD\). Po zveznosti absolutne vrednosti tedaj velja
+    \[|w^*| = \abs{\lim_{k \to \infty} g^{n_k} (z)} = \lim_{k \to \infty} |g^{n_k} (z)| = r.\]
+    Ker pa je \(w^*\) tudi fiksna točka funkcije \(g\), po Schwarzovi lemi velja \(w = 0\) in zato \(r = 0\). Naj bo \(w \in \Omega\). Potem je \(\phi (w) \in \DD\) in zato
+    \[\lim_{n \to \infty} f^n (w) = \lim_{n \to \infty} \phi \prt{g^{n} \prt{\phi^{-1} (w)}} = \phi (0) = z^*.\]
+\end{dokaz}
 
 Posvetimo se še nefiksnim periodičnim točkam. Če je \(z_0\) \(p\)-periodična, potem so vse točke \(z_0, f (z_0), f^2 (z_0), \dots, f^{p - 1} (z_0)\) fiksne točke preslikave \(f^p\). Pišemo \(z_j = f^j (z_0)\) in uporabimo verižno pravilo:
 \[(f^p)' (z_j) = f' \prt{f^{p - 1} (z_j)} f' \prt{f^{p - 2} (z_j)} \dots f' \prt{f (z_j)} f' (z_j) = \prod_{k = 0}^{p - 1} f' (z_k).\]
@@ -75,9 +84,13 @@ To pomeni, da imajo vse točke \(z_j\) isti multiplikator \(K\). Če je \(K < 1\
 
 \subsection{Normalne družine}
 
-Naj bosta \(X\) in \(Y\) topološka prostora. Množico zveznih preslikav \(f \colon X \to Y\) opremimo s kompaktno-odprto topologijo. Tedaj relativno kompaktnim množicam pravimo \emph{normalne družine}. V tem poglavju jih bomo prek topologije enakomerne konvergence po kompaktih definirali za holomorfne funkcije na nekem območju \(D \subseteq \CC\). Vemo namreč, da sta zgornji topologiji na metričnih prostorih enaki.
+Naj bosta \(X\) in \(Y\) topološka prostora in \(C (X, Y)\) množica vseh zveznih preslikav med njima. Za kompaktno množico \(K \subseteq X\) in odprto množico \(U \subseteq Y\) naj bo \(\langle K, U \rangle\) množica vseh preslikav, ki slikajo \(K\) v \(U\), to je
+\[\langle K, U \rangle \coloneq \set{f \in C (X, Y) : f (K) \subseteq U}.\]
+Najmanjšo topologijo, v kateri so vse take množice odprte, imenujemo \emph{kompaktno-odprta topologija}. Relativno kompaktne množice v tej topologiji imenujemo \emph{normalne družine}. V tem poglavju jih bomo prek topologije enakomerne konvergence po kompaktih definirali za holomorfne funkcije na nekem območju \(D \subseteq \CC\). Vemo namreč, da sta zgornji topologiji na metričnih prostorih enaki (glej \cite[trditev 3.2]{Pavesic_2017}).
 \begin{definicija}
-    Zaporedje holomorfnnih funkcij \((f_n)\) na območju \(D \subseteq \CC\) konvergira k \(f\) \emph{enakomerno po kompaktih}, če za vsako kompaktno podmnožico \(K \subset D\) in vsak \(\varepsilon > 0\) obstaja obstaja \(n_0 \in \NN\), da za \(n \geq n_0\) velja \(|f_n (z) - f(z)| < \varepsilon\) za vse \(z \in K\).
+    Zaporedje holomorfnih funkcij \((f_n)\) na območju \(D \subseteq \CC\) konvergira k \(f\) \emph{enakomerno po kompaktih}, če za vsako kompaktno podmnožico \(K \subset D\) in vsak \(\varepsilon > 0\) obstaja obstaja \(n_0 \in \NN\), da za \(n \geq n_0\) velja \(|f_n (z) - f(z)| < \varepsilon\) za vse \(z \in K\).
+
+    Zaporedje \((f_n)\) divergira k \(\infty\) enakomerno po kompaktih, če za vsako kompaktno podmnožico \(K \subset D\) in vsak \(M > 0\) obstaja obstaja \(n_0 \in \NN\), da za \(n \geq n_0\) velja \(|f_n (z)| > M\) za vse \(z \in K\).
 \end{definicija}
 
 \begin{primer} \label{ex:primer}
@@ -101,20 +114,20 @@ Naj bosta \(X\) in \(Y\) topološka prostora. Množico zveznih preslikav \(f \co
 \end{dokaz}
 
 \begin{definicija}
-    Naj bo \(\FFF\) družina holomorfnih funkcij na območju \(D \subseteq \CC\). Pravimo, da je družina \emph{normalna}, če za vsako zaporedje funkcij \((f_n) \subset \FFF\) obstaja podzaporedje \((f_{n_k})\), ki konvergira enakomerno po kompaktih k neki \(f \in \FFF\) ali pa k \(f \equiv \infty\).
+    Naj bo \(\FFF\) družina holomorfnih funkcij na območju \(D \subseteq \CC\). Družino \(\FFF\) imenujemo \emph{normalna}, če za vsako zaporedje funkcij \((f_n) \subset \FFF\) obstaja podzaporedje \((f_{n_k})\), ki konvergira enakomerno po kompaktih k neki \(f \in \FFF\) ali pa divergira k \(\infty\).
 \end{definicija}
 
 \subsection{Fatoujeva in Juliajeva množica}
 
-Pri preučevanju dinamike funkcij, lahko domeno razdelimo na dva množici. Prvi, na kateri je obnašanje funkcije ``predvidljivo'', pravimo Fatoujeva množica, drugi, kjer je obnašanje kaotično, pa pravimo Juliajeva množica. Natančno ju definiramo sledeče.
+Pri preučevanju dinamike funkcij, lahko domeno razdelimo na dva množici. Prvo, na kateri je obnašanje funkcije ``predvidljivo'', imenujemo Fatoujeva množica, drugo, na kateri je obnašanje kaotično, pa imenujemo Juliajeva množica. Natančno ju definiramo sledeče.
 
 Za celo funkcijo \(f\) je \emph{Fatoujeva množica} sestavljena iz vseh točk \(z_0\), za katere velja, da je \((f^n)\) normalna na neki okolici točke \(z_0\). Označimo jo z \(F (f)\). Njen komplement \(J (f) \coloneq \CC \setminus F (f)\) je \emph{Juliajeva množica}. Po definiciji vidimo, da je Fatoujeva množica vedno odprta, Juliajeva pa vedno zaprta.
 
 \begin{primer}
-    Po primeru \ref{ex:primer} zaporedje iteracij funkcije \(f (z) = z^2\) na \(\DD\) konvergira k \(f \equiv 0\) enakomerno po kompaktih. Podobno premislimo, da na \(\CC \setminus \overline{\DD}\) konvergira k \(f \equiv \infty\) enakomerno po kompaktih. Na \(\partial \DD\) zaporedje divergira. Zato je \(F (f) = \CC \setminus \partial \DD\) in \(J (f) = \partial \DD\).
+    Po primeru \ref{ex:primer} zaporedje iteracij funkcije \(f (z) = z^2\) na \(\DD\) konvergira k \(f \equiv 0\) enakomerno po kompaktih. Podobno premislimo, da na \(\CC \setminus \overline{\DD}\) zaporedje divergira k \(\infty\) enakomerno po kompaktih. Na \(\partial \DD\) zaporedje divergira. Zato je \(F (f) = \CC \setminus \partial \DD\) in \(J (f) = \partial \DD\).
 \end{primer}
 
-\begin{izrek}
+\begin{izrek} \label{thm:rob}
     Naj bo \(B (f)\) množica vseh točk \(z \in \CC\) z omejeno orbito. Tedaj velja
     \[\partial (B (f)) \subset J (f).\]
 \end{izrek}
@@ -129,6 +142,30 @@ Kot zanimivost omenimo, da za polinome velja enakost \(\partial (B (f)) = J (f)\
 \begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{julia_set.pdf}
-    \caption[Juliajeva množica]{Juliajeva množica funkcije \(z^2 + c\), koda prirejeno po \href{https://commons.wikimedia.org/w/index.php?curid=75993344}{Wikipedia Commons}.}
+    \caption[Juliajeva množica]{Juliajeva množica funkcije \(z^2 + c\), koda prirejena po \href{https://commons.wikimedia.org/w/index.php?curid=75993344}{Wikipedia Commons}.}
     \label{fig:julia}
 \end{figure}
+
+Vrnimo se k lastnostim Juliajeve množice. Naslednji izrek nam bo koristil kasneje.
+
+\begin{izrek} \label{thm:julm}
+    Naj bo \(f\) cela funkcija in \(M \subset \CC\) naprej invariantna množica, vsebovana v \(B (f)\). Če obstaja \(\mu > 1\), da za vsak \(z \in M\) velja \(|f' (z)| \geq \mu\), potem je \(M\) vsebovana v \(J (f)\).
+\end{izrek}
+
+\begin{dokaz}
+    Po izreku \ref{thm:rob} je dovolj pokazati, da je \(M\) vsebovana v \(\partial (B (f))\). Naj bo \(z \in M\). Ker je \(M\) naprej invariantna in \(|f' (z)| \geq \mu > 1\), po verižnem pravilu velja
+    \[\abs{\prt{f^n}' (z)} = \prod_{k = 0}^{n - 1} \abs{f' \prt{ f^k (z)}} \geq \mu^n.\]
+    Recimo, da obstaja notranja točka \(z \in B (f)\). Tedaj je \(f^n\) omejena okolici \(\Delta (z, r) \subset B (f)\). Po Cauchyjevi oceni za odvode (glej \cite[izrek 62]{Globevnik_2010}) velja
+    \[\abs{\prt{f^n}' (z)} \leq C,\]
+    kjer je \(C\) konstanta, neodvisna od \(n\). Prišli smo do protislovja.
+\end{dokaz}
+
+Za konec navedemo še znamemit izrek in njegovo posledico. Da izrek drži za racionalne funkcije so vedeli že prej, za splošne cele funkcije pa ga je prvi dokazal angleški matematik Alan Baker leta \num{1968} v članku \cite{Baker_1968}. Dokaz posledice najdemo v knjigi \cite[izreka 6.2.4 in 6.3.12]{Pineiro_2025}.
+
+\begin{izrek} \label{thm:closure}
+    Juliajeva množica je enaka zaprtju množice odbojnih periodičnih točk.
+\end{izrek}
+
+\begin{posledica}
+    Juliajeva množica \(J (f)\) je vedno neštevno neskončna in velja \(f^{-1} (J (f)) = J (f)\). Poleg tega je funkcija \(f \colon J (f) \to J (f)\) kaotična.
+\end{posledica}

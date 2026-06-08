@@ -1,8 +1,8 @@
 \section{Kaotični sistemi} \label{sec:dis}
 
-V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolucijskim pravilom. Množica stanj običajno predstavlja metrični ali topološki prostor \(X\), deterministično evolucijsko pravilo pa preslikava \(F \colon X \to X\). V tem poglavju predstavimo osnovno teorijo dinamičnih sistemov, pri čemer se omejimo na metrične prostore.
+V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolucijskim pravilom. Množica stanj običajno predstavlja metrični ali topološki prostor \(X\), deterministično evolucijsko pravilo pa preslikava \(F \colon X \to X\). V tem poglavju predstavimo osnovno teorijo dinamičnih sistemov, pri čemer se omejimo na metrične prostore. Pripomnimo pa, da večina rezultatov velja tudi za splošne topološke prostore.
 
-Naj bo \((X, d)\) metrični prostor in \(f \colon X \to X\). Za \(n \in \NN \cup \{0\}\) označimo \(f^n \coloneq f \circ f^{n - 1}\), kjer je \(f^0 = \Id\) identiteta. Zaporedju \(\{f^n\}_{n=1}^{\infty}\) pravimo zaporedje iteracij. Za določen \(x_0 \in X\) zaporedje \(\{f^n (x_0)\}_{n \in \NN}\) imenujemo \emph{orbita} začetne točke \(x_0\). Začetne točke ločimo po obnašanju njihovih orbit, posebno vlogo pa igrajo periodične točke.
+Naj bo torej \(X\) metrični prostor in \(f \colon X \to X\). Za \(n \in \NN \cup \{0\}\) označimo \(f^n \coloneq f \circ f^{n - 1}\), kjer je \(f^0 = \Id\) identiteta. Zaporedju \(\{f^n\}_{n=1}^{\infty}\) pravimo zaporedje iteracij. Za določen \(x_0 \in X\) zaporedje \(\{f^n (x_0)\}_{n \in \NN}\) imenujemo \emph{orbita} začetne točke \(x_0\). Začetne točke ločimo po obnašanju njihovih orbit, posebno vlogo pa igrajo periodične točke.
 
 % \begin{zgled}
 %     Kompleksna števila \(\CC\) skupaj s kompleksno eksponentno preslikavo \(f \colon \CC \to \CC\); \(z \mapsto e^{z}\) so (diskretni) dinamični sistem.
@@ -25,7 +25,7 @@ Naj bo \((X, d)\) metrični prostor in \(f \colon X \to X\). Za \(n \in \NN \cup
 Začetna točka je \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x_0) = x_0\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\), točka pa je \emph{\(n\)-periodična}. Periodična točka je \emph{fiksna}, če je njena perioda \(\num{1}\). V nadaljevanju bomo preučili lastnosti fiksnih točk.
 
 \begin{definicija}
-    Naj bo \((X, d)\) metrični prostor, \(f \colon X \to X\) zvezna in \(x^*\) fiksna točka \(f\). Če obstaja tak \(r > 0\), da na odprti krogli \(B (x^*, r)\) orbita vsake začetne točke enakomerno konvergira proti \(x^*\), potem je \(x^*\) \emph{privlačna}. Točka \(x^*\) je \emph{odbojna}, če obstaja \(r > 0\), da za vsak \(x_0 \in B (x^*, r)\) in \(x_0 \neq x^*\), obstaja \(n \in \NN\), za katerega je \(f^n (x_0) \notin B (x^*, r)\).
+    Naj bo \(X\) metrični prostor, \(f \colon X \to X\) zvezna in \(x^*\) fiksna točka \(f\). Če obstaja tak \(r > 0\), da na odprti krogli \(B (x^*, r)\) orbita vsake začetne točke enakomerno konvergira proti \(x^*\), potem je \(x^*\) \emph{privlačna}. Točka \(x^*\) je \emph{odbojna}, če obstaja \(r > 0\), da za vsak \(x_0 \in B (x^*, r)\) in \(x_0 \neq x^*\), obstaja \(n \in \NN\), za katerega je \(f^n (x_0) \notin B (x^*, r)\).
 \end{definicija}
 
 \begin{definicija}
@@ -60,18 +60,18 @@ Konjugiranost je ekvivalenčna relacija z lastnostjo, da za vsak \(n \in \NN\) v
 Beseda kaos je razumljiva vsakomur, običajno si jo predstavljamo kot nered ali zmedo. V naravoslovju ima ta pojem več ne-ekvivalentnih definicij. Mi se bomo naslonili na definicijo ameriškega matematika Roberta L.~Devaneya iz leta \num{1989} \cite{Devaney_1986}, v kateri je kaos opredeljen prek periodičnih točk in topološke tranzitivnosti.
 
 \begin{definicija}[Topološka tranzitivnost]
-    Naj bo \(X\) topološki prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) \emph{topološko tranzitivna}, če za vsaki odprti množici \(U\) in \(V\) obstajata \(z \in U\) in \(n \in \NN \cup \set{0}\), da je \(f^n (z) \in V\).
+    Naj bo \(X\) metrični prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) \emph{topološko tranzitivna}, če za vsaki odprti množici \(U\) in \(V\) obstajata \(z \in U\) in \(n \in \NN \cup \set{0}\), da je \(f^n (z) \in V\).
 \end{definicija}
 
 Pravimo, da ima preslikava \(f\) \emph{gosto orbito}, če obstaja element \(x \in X\), katerega orbita je gosta podmnožica \(X\).
 
 \begin{trditev} \label{prop:tridevet}
-    Naj bo \((M, d)\) metrični prostor brez izoliranih točk in \(f \colon M \to M\) zvezna preslikava. Če ima \(f\) gosto orbito, je topološko tranzitivna.
+    Naj bo \(X\) metrični prostor brez izoliranih točk in \(f \colon X \to X\) zvezna preslikava. Če ima \(f\) gosto orbito, je topološko tranzitivna.
     % Če je \(M\) separabilen in \(\num{2}\)-števen, potem topološka tranzitivnost implicira gosto orbito.
 \end{trditev}
 
 \begin{dokaz}
-    Naj bo \(M\) brez izoliranih točk in \(\zap{z}\) gosta orbita. Potem za neprazni odprti množici \(U, V \subseteq M\) obstajata \(x_k \in U\) in \(x_k \in V \setminus \{x_0, x_1, \dots, x_k\}\). Slednja množica je prav tako odprta in neprazna. Ker je \(m > k\) in \(f^{m - k} (U) \cap V \neq \emptyset\), je \(f\) topološko tranzitivna.
+    Naj bo \(X\) brez izoliranih točk in \(\zap{z}\) gosta orbita. Potem za neprazni odprti množici \(U, V \subseteq M\) obstajata \(x_k \in U\) in \(x_k \in V \setminus \{x_0, x_1, \dots, x_k\}\). Slednja množica je prav tako odprta in neprazna. Ker je \(m > k\) in \(f^{m - k} (U) \cap V \neq \emptyset\), je \(f\) topološko tranzitivna.
 
     % Naj bo \(M\) separabilen in \(\num{2}\)-števen ter naj \(f\) nima goste orbite. Naj bo \(\zap{V}\) števna baza prostora. Za vsak \(x \in M\) obstaja \(V_{n (x)}\), tako da za vsak \(k \geq 0\) velja \(f^k (x) \notin V_{n (x)}\). Ker pa je \(f\) topološko tranzitivna je
     % \[\bigcup_{k = 0}^{\infty} f^{- k} \prt{V_{n (x)}}\]
@@ -79,7 +79,7 @@ Pravimo, da ima preslikava \(f\) \emph{gosto orbito}, če obstaja element \(x \i
 \end{dokaz}
 
 \begin{definicija}[Devaneyjev kaos]
-    Naj bo \((M, d)\) metrični prostor in \(X \subseteq M\) neskončna. Pravimo, da je zvezna preslikava \(f \colon X \to X\) \emph{kaotična} (po Devaneyju), če sta izpolnjena naslednja pogoja.
+    Naj bo \(X\) neskončen metrični prostor. Pravimo, da je zvezna preslikava \(f \colon X \to X\) \emph{kaotična} (po Devaneyju), če sta izpolnjena naslednja pogoja.
     \begin{enumerate}
         \item Množica periodičnih točk je gosta v množici \(X\).
         \item Preslikava \(f\) je topološko tranzitivna.
@@ -107,22 +107,22 @@ Pravimo, da ima preslikava \(f\) \emph{gosto orbito}, če obstaja element \(x \i
 
     Za dokaz topološke tranzitivnosti pokažemo, da ima \(f\) gosto orbito. Pomagamo si z zapisom števila v dvojiški bazi. Opazimo, da \(f\) ``odreže'' prvo decimalko števila. Naj bo \(\alpha \in [0, 1)\) tako, da vsebuje vsa končna zaporedja:
     \[\alpha \coloneq 0, \underbrace{0 1}_{\text{ena}} \underbrace{00011011}_{\text{dva}} \underbrace{000 001 010 100 011 101 110 111}_{\text{tri}} \dots_{(2)}\]
-    Naj bo \(x = 0, d_1 d_2 d_3 \dots_{(2)}\) in \(\varepsilon > 0\). Izberemo tak \(n \in \NN\), da je \(2^{- n} < \varepsilon\). Potem obstaja tak \(k \in \NN\), da se število \(f^k (\alpha)\) začne kot \(0, d_1 d_2 \dots d_n d_{n + 1}\), torej da se \(f^k (\alpha)\) in \(x\) začneta razlikovati kvečjemu po \((n + 2)\)-ti decimalki. Potem velja
+    Naj bo \(x = 0{,}d_1 d_2 d_3 \dots_{(2)}\) in \(\varepsilon > 0\). Izberemo tak \(n \in \NN\), da je \(2^{- n} < \varepsilon\). Potem obstaja tak \(k \in \NN\), da se število \(f^k (\alpha)\) začne kot \(0{,}d_1 d_2 \dots d_n d_{n + 1}\), torej da se \(f^k (\alpha)\) in \(x\) začneta razlikovati kvečjemu po \((n + 2)\)-ti decimalki. Potem velja
     \[\abs{f^k (\alpha) - x} \leq \sum_{i = n + 2}^{\infty} \frac{2}{2^{i}} < 2^{- n} < \varepsilon.\]
 \end{zgled}
 
-\noindent Za kompleksno eksponentno preslikavo kaotičnost sledi kot posledica izreka \ref{thm:orbits}. Res, goste periodične točke sledijo direktno po tretji točki izreka, topološka tranzitivnost pa po drugi točki in trditvi \ref{prop:tridevet}. Izrek \ref{thm:orbits} je prvi dokazal poljski matematik Micha\l\ Misiurewicz leta \num{1981} \cite{Misiurewicz_1981}. S tem je potrdil domnevo, ki jo je leta \num{1926} postavil francoski matematik Pierre J.~L.~Fatou \cite{Fatou_1926}.
+\noindent Za kompleksno eksponentno preslikavo kaotičnost sledi kot posledica izreka \ref{thm:orbits}. Res, goste periodične točke sledijo po tretji točki izreka, topološka tranzitivnost pa zaradi goste orbite po drugi točki. Izrek je prvi dokazal poljski matematik Micha\l\ Misiurewicz leta \num{1981} \cite{Misiurewicz_1981}. S tem je potrdil domnevo, ki jo je leta \num{1926} postavil francoski matematik Pierre J.~L.~Fatou \cite{Fatou_1926}.
 
-Devaney je v svoji prvotni definiciji zahteval tudi naslednjo lastnost.
+Devaney je v svoji prvotni definiciji kaotičnosti zahteval tudi naslednjo lastnost.
 
 \begin{definicija}[Občutljivost na začetne pogoje]
-    Naj bo \((M, d)\) metrični prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) občutljiva na začetne pogoje, če obstaja \emph{občutljivostna konstanta} \(\delta > 0\), da za vsak \(x \in M\) in vsak \(\varepsilon > 0\) obstaja \(y \in M\), da je \(d (x, y) < \varepsilon\) in \(d (f^N (x), f^N (y)) \geq \delta\) za nek \(N \in \NN\).
+    Naj bo \((X, d)\) metrični prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) občutljiva na začetne pogoje, če obstaja \emph{občutljivostna konstanta} \(\delta > 0\), da za vsak \(x \in M\) in vsak \(\varepsilon > 0\) obstaja \(y \in M\), da je \(d (x, y) < \varepsilon\) in \(d (f^N (x), f^N (y)) \geq \delta\) za nek \(N \in \NN\).
 \end{definicija}
 
-\noindent To pomeni, da majhna napaka \(\varepsilon\) v začetnih pogojih \(x\) privede do znatnih sprememb pri iteraciji dinamičnega sistema. Vendar pa se izkaže, da te lastnost pri definiciji kaotične preslikave v večini primerov ni potrebno zahtevati. Velja naslednji izrek.
+\noindent To pomeni, da majhna napaka \(\varepsilon\) v začetnih pogojih \(x\) privede do znatnih sprememb pri iteraciji dinamičnega sistema. Vendar pa se izkaže, da te lastnosti pri definiciji kaotične preslikave v večini primerov ni potrebno zahtevati. Velja naslednji izrek.
 
 \begin{izrek}
-    Naj bo \((M, d)\) metrični prostor in \(X \subseteq M\) neskončna. Naj bo \(f \colon X \to X\) kaotična preslikava. Potem je \(f\) občutljiva na začetne pogoje, razen v primeru, ko je \(X\) sestavljen iz ene periodične orbite.
+    Naj bo \((X, d)\) neskončen metrični prostor in \(f \colon X \to X\) kaotična preslikava. Potem je \(f\) občutljiva na začetne pogoje, razen v primeru, ko je \(X\) sestavljen iz ene periodične orbite.
 \end{izrek}
 
 \begin{dokaz}
@@ -218,10 +218,10 @@ V simbolični dinamiki je pomembna \emph{preslikava zamika}, to je preslikava \(
 \[\sigma (s_0, s_1, s_2, \dots) = (s_1, s_2, s_3, \dots).\]
 Njena \(n\)-ta iteracija je podana s predpisom
 \[\sigma^n (s_0, s_1, s_2, \dots) = (s_n, s_{n + 1}, s_{n + 2}, \dots).\]
-Poleg tega je \(\sigma\) zvezna. Res, naj bo \(\varepsilon > 0\). Izberemo tak \(i \in \NN\), da je \(1 / N^i < \varepsilon\), in \(\delta = 1 / N^{n + 1}\). Če sta \(\overline{s}, \overline{t} \in \Sigma_N\) taka, da je \(d(\overline{s}, \overline{t}) < \delta\), potem mora po izreku \ref{thm:blizu} veljati \(s_i = t_i\) za vsak \(i \leq n + 1\). To pomeni, da se \(\overline{s}\) in \(\overline{t}\) ujemata na prvih \((n + 1)\) mestih. Torej se \(\sigma (\overline{s})\) in \(\sigma (\overline{t})\) ujemata na prvih \(n\) mestih in spet po istem izreku velja \(d (\sigma (\overline{s}), \sigma (\overline{t})) < \varepsilon\).
+Izkaže se, da je \(\sigma\) zvezna. Res, naj bo \(\varepsilon > 0\). Izberemo tak \(i \in \NN\), da je \(1 / N^i < \varepsilon\), in \(\delta = 1 / N^{n + 1}\). Če sta \(\overline{s}, \overline{t} \in \Sigma_N\) taka, da je \(d(\overline{s}, \overline{t}) < \delta\), potem mora po izreku \ref{thm:blizu} veljati \(s_i = t_i\) za vsak \(i \leq n + 1\). To pomeni, da se \(\overline{s}\) in \(\overline{t}\) ujemata na prvih \((n + 1)\) mestih. Torej se \(\sigma (\overline{s})\) in \(\sigma (\overline{t})\) ujemata na prvih \(n\) mestih in spet po istem izreku velja \(d (\sigma (\overline{s}), \sigma (\overline{t})) < \varepsilon\).
 
 \begin{definicija}
-    Naj bo \((X, d)\) metrični prostor. Če je \(X\) kompaktna, brez izoliranih točk in popolnoma nepovezana, jo imenujemo \emph{Cantorjeva množica}.
+    Kompaktno popolnoma nepovezano množico brez izoliranih točk imenujemo \emph{Cantorjeva množica}.
 \end{definicija}
 
 \begin{trditev}

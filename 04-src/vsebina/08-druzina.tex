@@ -1,4 +1,4 @@
-\section{Družina \texorpdfstring{\(\lambda e^z\)}{\lambda exp(z)}}
+\section{Družina \texorpdfstring{\(\lambda e^z\)}{\lambda exp(z)}} \label{sec:druzina}
 
 Dokazali smo, da je \(e^z\) kaotična na celi kompleksni ravnini. Zanimivo pa je, da to ne drži nujno že, če preslikavo pomnožimo s konstanto. V tem poglavju bomo preučili dinamiko \emph{eksponentne družine}
 \[E_\lambda (z) \coloneq \lambda e^z.\]
@@ -150,7 +150,7 @@ torej je \(|z|\) strogo večji od notranjega radija \(A\).
 \noindent \textbf{Lastnost 2}. Funkcija \(E_\lambda\) preslika \(B (N)\) v \(A\). Res, naj bo \(z \in B (N)\). Potem \(E_\lambda (z) = \lambda e^x e^{i y}\) in zato
 \[|E_\lambda (z)| = \lambda e^x \leq \lambda e^{r_\lambda} \quad \text{in} \quad |E_\lambda (z)| = \lambda e^x \geq \lambda e^{l_\lambda}.\]
 
-Vrnemo se nazaj h konstrukciji. Za vsak \(i = -N, \dots, N\) definiramo `podpravokotnik'
+\noindent Vrnemo se nazaj h konstrukciji. Za vsak \(i = -N, \dots, N\) definiramo `podpravokotnik'
 \[R_i \coloneq \set{x + iy \in \CC : x \in [l_\lambda, r_\lambda], y \in [(2i - 1) \pi, (2i + 1) \pi]}.\]
 Ker po lastnosti 2 \(E_\lambda\) preslika \(R_i\) v \(A\), ostaja pokazati le, je ta preslikava surjektivna. Naj bo \(w = r \lambda e^{i \theta} \in A\), torej \(r \in (e^{l_\lambda}, e^{r_\lambda})\) in \(\theta \in [(2i - 1) \pi, (2i + 1) \pi]\). Če vzamemo \(x = \ln r\) in postavimo \(z = x + i \theta\), je po definiciji \(z \in R_i\) in
 \[E_\lambda (z) = \lambda e^x e^{i \theta} = \lambda r e^{i \theta} = w.\]
@@ -158,7 +158,7 @@ Tako je res \(E_\lambda (R_i) = A\). Ker to drži za vsak \(i = -N, \dots, N\), 
 
 Po točki (3) trditve \ref{prop:trinajst} obstaja \(\mu > 1\), da velja
 \begin{equation} \label{eqn:mu-ocena}
-    \bigl| E_\lambda' (z) \bigr| \geq \mu > 1 \quad \text{na polravnini } \re z \geq l_\lambda.
+    \bigl| E_\lambda' (z) \bigr| \geq \mu > 1 \text{ na polravnini } \re z \geq l_\lambda.
 \end{equation}
 Zato je ta neenakost izpolnjena tudi na vsakem podpravokotniku \(R_i\). Definiramo
 \[\Lambda_N \coloneq \set{z \in B(N) : E_\lambda^j (z) \in B (N) \text{ za vse } j \geq 0},\]
@@ -237,5 +237,5 @@ Ker je \(\mu > 1\), desna stran konvergira proti \num{0} in zato tudi \(d_n\) ko
 
 \noindent Končno lahko dokažemo enakost
 \[\overline{\bigcup_{n \geq 1} \Lambda_N} = J (E_\lambda).\]
-Po neenakosti \(|E_\lambda' (z)| \geq \mu > 1\) \eqref{eqn:mu-ocena} za vsak \(z \in \Lambda_N\) in izreku \ref{thm:julm} je \(\Lambda_N \subset J (E_\lambda)\). Ker je \(J (E_\lambda)\) zaprtje množice vseh odbojnih periodičnih točk je dovolj, da dokažemo, da je vaka taka točka v kakšni od množic \(\Lambda_N\). Naj bo \(z_0\) odbojna periodična točka preslikave \(E_\lambda\). S posledico \ref{cor:jul-e} vemo, da \(z \in \{\re z \geq l_\lambda\}\). Periodičen cikel \(\{z_0, E_\lambda (z_0), \dots\}\) je tako omeje na polravnini \(\{\re z \geq l_\lambda\}\), zato je za dovolj velik \(N\) v celoti vsebovan v \(B (N)\). Po definiciji \(\Lambda_N\) so vse točke cikla v \(\Lambda_N\), torej je tudi \(z_0 \in \Lambda_N\).
+Po neenakosti \(|E_\lambda' (z)| \geq \mu > 1\) \eqref{eqn:mu-ocena} za vsak \(z \in \Lambda_N\) in izreku \ref{thm:julm}, velja \(\Lambda_N \subset J (E_\lambda)\). Ker je \(J (E_\lambda)\) po izreku \ref{thm:closure} zaprtje množice vseh odbojnih periodičnih točk, je dovolj, da dokažemo, da je vaka taka točka v kakšni od množic \(\Lambda_N\). Naj bo \(z_0\) odbojna periodična točka preslikave \(E_\lambda\). S posledico \ref{cor:jul-e} vemo, da \(z \in \{\re z \geq l_\lambda\}\). Periodičen cikel \(\{z_0, E_\lambda (z_0), \dots\}\) je tako omeje na polravnini \(\{\re z \geq l_\lambda\}\), zato je za dovolj velik \(N\) v celoti vsebovan v \(B (N)\). Po definiciji \(\Lambda_N\) so vse točke cikla v \(\Lambda_N\), torej je tudi \(z_0 \in \Lambda_N\).
 

@@ -1,4 +1,4 @@
-\section{Kaotičnost kompleksnega eksponentna}
+\section{Kaotičnost kompleksnega eksponentna} \label{sec:dokaz}
 
 Od tu naprej naj velja, da \(f\) vedno označuje kompleksno eksponentno preslikavo
 \[f \colon \CC \to \CC; \qquad z \mapsto e^{z}.\]
@@ -6,7 +6,7 @@ V tem poglavju dokažemo izrek \ref{thm:orbits}, v vsakem od podpoglavji po eno 
 
 \subsection{Gostost ubežnih točk}
 
-Točka \(z \in \CC\) je \emph{ubežna}, če njena orbita divergira k \(\infty\). Množici vseh ubežnih točk \(I (f)\) pravimo \emph{ubežna množica}, torej
+Točka \(z \in \CC\) je \emph{ubežna}, če njena orbita divergira k \(\infty\). Množico vseh ubežnih točk \(I (f)\) imenujemo \emph{ubežna množica}, torej
 \[I (f) \coloneq \set{z \in \CC : \lim_{n \to \infty} \abs{f^n (z)} = \infty}\]
 
 \begin{izrek} \label{thm:escapingdense}
@@ -68,7 +68,7 @@ Točka \(z \in \CC\) je \emph{ubežna}, če njena orbita divergira k \(\infty\).
     Spet po lemi \ref{lem:hyper} vemo
     \[\lim_{n \to \infty} \min \bigl\{ |w_n|, \Arg (w_n) \bigr\} = 0.\]
     Zato morajo vsa stekališča zaporedja \(\zap{w}\) ležati na intervalu \([0, \infty)\). Ker \(w_0\) po predpostavki ni ubežna, množica stekališč ni prazna. Ker je tudi zaprta, ima minimum, ki ga označimo z \(z_0 \in [0, \infty)\). Vemo, da je število \(z_0\) stekališče zaporedja \(w_n\) natanko tedaj, ko obstaja podzaporedje, ki konvergira k \(z_0\) (glej \cite[izrek 11]{Globevnik_2012}). To podzaporedje označimo z \(w_{n_{k}}\). Opazimo, da velja
-    \[\re w_{n_{k - 1}} = \log \, \bigl| w_{n_{k}} \bigr| \qquad \text{in} \qquad \lim_{k \to \infty} \log \, \bigl| w_{n_{k}} \bigr| = \log z_0 < z_0.\]
+    \[\re w_{n_{k - 1}} = \log \, \bigl| w_{n_{k}} \bigr| \quad \text{in} \quad \lim_{k \to \infty} \log \, \bigl| w_{n_{k}} \bigr| = \log z_0 < z_0.\]
     Ker je \(z_0\) najmanjše stekališče zaporedja \(w_n\), podzaporedje \(w_{n_{k}}\) ne more imeti končnega stekališča in zato je
     \[\lim_{k \to \infty} \, \bigl|\im w_{n_{k-1}}\bigr| = \infty.\]
     To je v protislovju s \eqref{eqn:eta}.

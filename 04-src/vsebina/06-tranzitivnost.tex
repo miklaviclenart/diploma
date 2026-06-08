@@ -16,7 +16,7 @@ Pokazali bomo, da kompleksna eksponentna preslikava \(f\) ustreza definiciji top
     Po rekurzivni zvezi \(z_{n + 1} = e^{z_n}\) in definiciji \(I (f)\) velja
     \[\lim_{n \to \infty} \re z_n = \lim_{n \to \infty} \log |z_{n + 1}| = \infty.\]
     Poleg tega je \(\lim_{n \to \infty} |f' (z_n)| = \lim_{n \to \infty} |f (z_n)| = \lim_{n \to \infty} |z_{n + 1}| = \infty\). Zato obstaja \(N \in \NN\), da za vsak \(n \geq N\) velja \(|f' (z_n)| \geq 2\). Za \(m > N\) izračunamo odvod \(f^{m} = f^{m - N} \circ f^{N}\) po verižnem pravilu:
-    \[|(f^{m})' (z_0)| = \abs{ \prt{f^{N}}' (z_0) } \cdot \prod_{n = N}^{m - 1} |f' (z_n)| \geq 2^{m - N} \cdot \abs{ \prt{f^{N}}' (z_0) }.\]
+    \[\abs{\prt{f^{m}}' (z_0)} = \abs{ \prt{f^{N}}' (z_0) } \cdot \prod_{n = N}^{m - 1} \abs{f' (z_n)} \geq 2^{m - N} \cdot \abs{ \prt{f^{N}}' (z_0) }.\]
     Za vsak \(z \in \CC\) velja \(f' (z) \neq 0\) in zato \(|(f^N)' (z_0)| \neq 0\). Zato sklepamo, da je
     \[\lim_{m \to \infty} |(f^{m})' (z_0)| = \infty.\]
 \end{dokaz}

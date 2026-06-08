@@ -1,12 +1,12 @@
 \section{Osnove kompleksne analize} \label{sec:hipgeom}
 
-V tem poglavju ponovimo nekaj osnovnih oznak in definicij iz kompleksne analize, ki jih bomo uporabljali kasneje. Nato uvedemo pojem \emph{normalna družina} in \emph{hiperbolična metrika}, katere lastnosti bodo ključne pri glavnem dokazu dela.
+V tem poglavju ponovimo nekaj osnovnih oznak in definicij iz kompleksne analize, ki jih bomo uporabljali kasneje. Nato obravnavamo kompleksni eksponent in logaritem, za tem pa uvedemo še \emph{hiperbolično metriko} in preučimo njene lastnosti.
 
 \subsection{Osnove holomorfnosti}
 
 Kompleksno število \(z \in \CC\) lahko zapišemo kot vsoto \(z = x + i y\) ali v polarnem zapisu \(z = r e^{i \theta} = r (\cos \theta + i \sin \theta)\). Kot, ki ga oklepata abscisa in premica skozi \(0\) in \(z\), označimo z \(\Arg (z) \in (- \pi, \pi]\) ali \(\arg (z) \in [0, 2 \pi)\). Z \(\Delta (a, r)\) označimo odprt disk s središčem v \(a\) in radijem \(r\). Za enotski disk nadalje uporabimo oznako \(\DD \coloneq \Delta (0, 1)\).
 
-Neprazni, odprti in povezani podmnožici kompleksnih števil \(D \subseteq \CC\) pravimo \emph{območje}. Večinoma se bomo ukvarjali s kompleksnimi funkcijami ene spremenljivke \(f \colon D \to \CC\). Le-te lahko zapišemo kot vsoto realnega in imaginarnega dela \(f = u + iv\), kjer sta za \(z = x + i y\) \(u = u (x, y)\) in \(v = v (x, y)\) ustrezni realni funkciji. Naj bo od tu naprej \(U \subseteq \CC\) odprta množica.
+Neprazno, odprto in povezano podmnožico kompleksnih števil \(D \subseteq \CC\) imenujemo \emph{območje}. Večinoma se bomo ukvarjali s kompleksnimi funkcijami ene spremenljivke \(f \colon D \to \CC\). Le-te lahko zapišemo kot vsoto realnega in imaginarnega dela \(f = u + iv\), kjer sta \(u = u (x, y)\) in \(v = v (x, y)\) ustrezni realni funkciji. Naj bo od tu naprej \(U \subseteq \CC\) odprta množica.
 
 \begin{definicija}
     Pravimo, da je funkcija \(f \colon U \to \CC\) \emph{holomorfna} v \(z \in U\), če obstaja limita
@@ -24,12 +24,31 @@ Holomorfnost razumemo kot odvedljivost v kompleksnem smislu. Zato zgornji limiti
 \end{izrek}
 
 \begin{dokaz}
-    Označimo \(f = u + i v\), \(z_0 = x + i y\) in \(\zeta = h + i k\). Potem je
-    \[\frac{f (z + \zeta) - f (z)}{\zeta} = \frac{u (x + h, y + k) - u (x, y)}{h + i k} + i \frac{v (x + h, y + k) - v (x, y)}{h + i k}.\]
-    Ker za \(f (z) \neq 0\) lahko obravnavamo \(\widetilde{f} \coloneq f - f (z)\), lahko brez škode za splošnost predpostavimo \(f (z) = 0\). Tedaj se zgornja enačba poenostavi v
-    \[\frac{f (z + \zeta)}{\zeta} = \frac{u (x + h, y + k)}{h + i k} + i \frac{v (x + h, y + k)}{h + i k}.\]
-    Krajše pišemo \(\)nožimo z \((h - i k)\)
+    Naj bo \(f = u + i v\), \(z_0 = x + i y\) in \(\zeta = h + i k\). Od \(f\) lahko, ne da bi to vplivalo na odvedljivost, odštejemo konstanto \(f (z_0)\). Zato privzamemo, da velja \(f (z_0) = 0\). Če krajše pišemo \(u = u (x + h, y + k) - u (x, y)\) in \(v = v (x + h, y + k) - v (x, y)\), velja
+    \[\frac{f (z_0 + \zeta)}{\zeta} = \frac{u + i v}{h + i k} = \frac{u h + v k}{h^2 + k^2} + i \frac{v h - u k}{h^2 + k^2}.\]
+    Uvedemo polarne koordinate \(h = i \cos \varphi\) in \(k = r \sin \varphi\), v katerih velja
+    \[\frac{h^2}{h^2 + k^2} = \cos^2 \varphi, \quad \frac{k^2}{h^2 + k^2} = \sin^2 \varphi.\]
+    S tem se zgornji izraz poenostavi v
+    \[\frac{f (z_0 + \zeta)}{\zeta} = \frac{u}{h} \cos^2 \varphi + \frac{v}{k} \sin^2 \varphi + i \prt{\frac{v}{h} \cos^2 \varphi - \frac{u}{k} \sin^2 \varphi}.\]
+    V izraz na ustreznih mestih vrinemo parcialne odvode ter poenostavimo, da dobimo
+    \[
+        \begin{multlined}[15cm]
+            \frac{f (z_0 + \zeta)}{\zeta} = \prt{\frac{u}{h} - u_x} \cos^2 \varphi + \prt{\frac{v}{k} - v_y} \sin^2 \varphi + u_x + (v_y - u_x) \sin^2 \varphi\\
+            + i \left[ \prt{\frac{v}{h} - v_x} \cos^2 \varphi - \prt{\frac{u}{k} - u_y} \sin^2 \varphi + v_x - (u_y + v_x) \sin^2 \varphi \right].
+        \end{multlined}
+    \]
+    Ko gre \(\zeta \to 0\), gredo po definiciji parcialnega odvoda proti \(0\) tudi razlike v oklepajih. Vidimo, da bo limita \(\zeta \to 0\) izraza na levi obstajala natanko tedaj, ko bo veljalo \(v_y - u_x = u_y + v_x = 0\). V tem primeru bo \(f' (z_0) = u_x + i v_x\).
 \end{dokaz}
+
+Za holomorfne funkcije, ki fiksirajo izhodišče, velja nasledja lema. Njen dokaz najdemo v knjigi \cite[lema 1]{Globevnik_2010}.
+
+\begin{lema}[Schwarz] \label{lem:schwarz}
+    Naj bo \(f \colon \DD \to \DD\) holomorfna funkcija, za katero velja \(f (0) = 0\). Potem drži natanko ena od naslednjih trditev.
+    \begin{enumerate}
+        \item Velja \(|f (z)| < |z|\) za \(z \neq 0\) in \(|f' (0)| < 1\).
+        \item Obstaja \(\theta \in \RR\), da za vsak \(z\) velja \(f (z) = e^{i \theta}\) in \(|f' (0)| = |e^{i \theta}| = 1\).
+    \end{enumerate}
+\end{lema}
 
 Če je \(f\) holomorfna na \(\CC\), pravimo, da je \emph{cela funkcija}. Vemo, da je to v \(\CC\) ekvivalentno pogoju, da je \(f\) kompleksno analitična pri vsakem \(z \in \CC\). Cela funkcija je \emph{transcendentna}, če ni polinom ali kvocient dveh polinomov. Pravimo, da je funkcija \emph{konformna}, če ohranja kote in smisel vrtenja. Vemo, da so holomorfne funkcije konformne natanko tedaj, ko je njihov odvod neničelen (glej \cite[izrek 78]{Globevnik_2010}).
 
@@ -47,25 +66,25 @@ Označimo \(u (x, y) = e^x \cos y\) in \(v (x, y) = e^x \sin y\) in izračunamo
 \[\frac{\partial u}{\partial x} (x, y) = e^x \cos y = \frac{\partial v}{\partial y} (x, y), \qquad \frac{\partial u}{\partial y} (x, y) = - e^x \sin y = -\frac{\partial v}{\partial x} (x, y).\]
 Po izreku \ref{thm:cr} je kompleksni eksponent holomorfen na \(\CC\), torej cela funkcija. Dodatno pa je tudi konformna funkcija, saj je odvod neničelen. Ker je
 \[e^{z + 2 \pi i} = e^x (\cos (y + 2 \pi) + i \sin (y + 2 \pi)) = e^z,\]
-je tudi periodičen in posledično nima inverza. Res, naj bo \(w = u + i v\). Rešimo enačbo:
+je tudi \(2\pi i\)-periodičen in posledično nima inverza. Res, naj bo \(w = u + i v\). Rešimo enačbo:
 \begin{align*}
     e^w = z & \iff e^u (\cos v + i \sin v) = x + i y                                    \\
             & \iff e^u = \sqrt{x^2 + y^2} \quad \text{in} \quad v = \Arg (z) + 2 k \pi.
 \end{align*}
 Torej je \(e^w = z\) natanko tedaj, ko je
-\[w = \ln |z| + i \Arg (z) + 2 k \pi i,\]
-za vsak \(k \in \ZZ\). Prav tako bi lahko namesto \(\Arg\) izbrali \(\arg\). Da lahko definiramo inverz, moramo domeno omejiti. Naj bo \(\theta \in \RR\). Potem je
+\[w = \ln |z| + i \Arg (z) + 2 k \pi i\]
+za nek \(k \in \ZZ\). Prav tako bi lahko namesto \(\Arg\) izbrali \(\arg\). Da lahko definiramo inverz, moramo domeno omejiti. Naj bo \(\theta \in \RR\). Potem je
 \[\begin{multlined}[10cm]
         \exp \colon  \set{\zeta \in \CC \colon \theta -\pi < \im \zeta < \theta + \pi}\\
         \to \set{\omega \in \CC \colon \Arg (\omega) \not\equiv \theta - \pi\ (\operatorname{mod}\, 2 \pi)} \eqcolon U
     \end{multlined}\]
 bijektivna na \(U\) in ima tam holomorfen inverz \(L \colon U \to \CC\):
 \[L (\omega) \coloneq \log |\omega| + i \cdot \prt{\theta + \Arg \prt{\frac{\omega}{e^{i \theta}}}}.\]
-Tako je kompleksni eksponent na zgoraj definiranih območjih biholomorfizem. Vsaki taki funkciji \(L\) rečemo \emph{veja logaritma}. Če vzamemo \(\theta = 0\) dobimo \emph{glavno} vejo logaritma. Veje logaritma obstajajo tudi na vsakem enostavno povezanem območju, vendar bodo za nas pomembne le zarezane ravnine \(\CC \setminus [0, \infty)\) in diski, ki ne vsebuje izhodišča. Na primer, imejmo disk \(\Delta \subset \CC\), tako da \(0 \notin \Delta\). Naj bo \(\zeta_0 \in \CC\), da je \(e^{\zeta_0} \in \Delta\). Če vzamemo \(\theta = \im \zeta_0\), dobimo holomorfno preslikavo \(L \colon \Delta \to \CC\), za katero velja \(L (e^{\zeta_0}) = \zeta_0\) ter \(e^{L (\omega)} = \omega\) in \(\im \zeta_0 - \pi < \im L (\omega) < \im \zeta_0 + \pi\) za vsak \(\omega \in \Delta\).
+Tako je kompleksni eksponent na zgoraj definiranih območjih biholomorfen. Vsaki taki funkciji \(L\) rečemo \emph{veja logaritma}. Če vzamemo \(\theta = 0\) dobimo \emph{glavno} vejo logaritma. Veje logaritma obstajajo tudi na vsakem enostavno povezanem območju, vendar bodo za nas pomembne le zarezane ravnine \(\CC \setminus [0, \infty)\) in diski, ki ne vsebuje izhodišča. Na primer, imejmo disk \(\Delta \subset \CC\), tako da \(0 \notin \Delta\). Naj bo \(\zeta_0 \in \CC\), da je \(e^{\zeta_0} \in \Delta\). Če vzamemo \(\theta = \im \zeta_0\), dobimo holomorfno preslikavo \(L \colon \Delta \to \CC\), za katero velja \(L (e^{\zeta_0}) = \zeta_0\) ter \(e^{L (\omega)} = \omega\) in \(\im \zeta_0 - \pi < \im L (\omega) < \im \zeta_0 + \pi\) za vsak \(\omega \in \Delta\).
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{needham_figure.pdf}
+    \includegraphics[width=1\textwidth]{needham_figure.pdf}
     \caption[Eksponentne preslikave]{Eksponentna preslikava, po knjigi \cite{Needham_1997}.}
     \label{fig:exponential}
 \end{figure}
@@ -120,11 +139,11 @@ Iz tega izhaja naslednja definicija.
 Definicijo nam iz enotskega diska na enostavno povezana območja prenese naslednji izrek, katerega dokaz najdemo v delu \cite[izrek 6.4]{Beardon_2006}.
 
 \begin{izrek}[Pick] \label{thm:pick}
-    Naj bosta \(U, V \subsetneq \CC\) enostavno povezani območji in \(f \colon U \to V\) holomorfna preslikava. Potem na \(U\) obstaja enolično določen hiperbolični ločni element \(\rho_U |\dd z|\), da veljo naslednje izjave.
+    Naj bosta \(U, V \subsetneq \CC\) enostavno povezani območji in \(f \colon U \to V\) holomorfna preslikava. Potem na \(U\) obstaja enolično določen hiperbolični ločni element \(\rho_U\), da veljo naslednje izjave.
     \begin{enumerate}
         \item Za vsak \(z \in \DD\) velja \(\rho_{\DD} (z) = \frac{2}{1 - |z|^2}\).
         \item Preslikava \(f\) ne veča \emph{hiperboličnega odvoda}, to je \[\hder{f (z)}{U}{V} \coloneq |f' (z)| \cdot \frac{\rho_V (f (z))}{\rho_U (z)} \leq 1.\]
-        \item Enakost \(\hder{f (z)}{U}{V} = 1\) velja natanko tedaj, ko je \(f\) konformni izomorfizem.
+        \item Enakost \(\hder{f (z)}{U}{V} = 1\) velja natanko tedaj, ko je \(f\) biholomorfna.
         \item Če je \(U \subsetneq V\), potem za vsak \(z \in U\) velja \(\rho_U (z) > \rho_V (z)\).
     \end{enumerate}
 \end{izrek}
@@ -146,13 +165,13 @@ Definicijo nam iz enotskega diska na enostavno povezana območja prenese nasledn
 \end{trditev}
 
 \begin{dokaz}
-    Uporabimo izrek \ref{thm:pick} na štirih konformnih izomorfizmih. Naj bo \(\varphi_1 \colon \HH \to \DD\); \(z \mapsto (1 - z) / (1 + z)\). Potem je
+    Uporabimo izrek \ref{thm:pick} na štirih biholomorfnih funkcijah. Naj bo \(\varphi_1 \colon \HH \to \DD\); \(z \mapsto (1 - z) / (1 + z)\). Potem je
     \[\rho_{\HH} (z) = \rho_{\DD} (\varphi_1 (z)) \cdot \abs{\varphi_1' (z)} = \frac{2}{1 - |\varphi_1 (z)|^2} \cdot \frac{2}{|z + 1|^2} = \frac{4}{|1 + z|^2 - |1- z|^2}.\]
     Za \(z = x + i y\) razpišemo \(|1 \pm z|^2 = 1 \pm 2x + x^2 + y^2\) in dobimo želen rezultat. Naj bo \(\varphi_2 (z) \colon \KK \to \DD\); \(\varphi_2 (z) = (z - i) / (z + i)\). Potem po zgornjem postopku dobimo
     \[\rho_{\KK} (z) = \rho_{\DD} (\varphi_2 (z)) \cdot \abs{\varphi_2' (z)} = \frac{4}{|z + i|^2 - |z - i|^2} = \frac{1}{\im (z)}.\]
     Naj bo \(\varphi_3 \colon S \to \HH\); \(z \mapsto e^{z / 2}\). Potem je
     \[\rho_S (z) = \rho_{\HH} (\varphi_2 (z)) \cdot |\varphi_2' (z)| = \frac{|\varphi_2 (z)|}{2 \re \varphi_2 (z)} = \frac{1}{2 \cos (\arg (\varphi_2 (z)))} = \frac{1}{2 \cos (\im (z) / 2)}.\]
-    Naj bo \(\varphi_4 \colon \CC \setminus (- \infty, 0] \to \HH\); \(z \mapsto \sqrt{z}\). To je konformni izomorfizem, če se omejimo na rešitev \(r e^{i \theta} \mapsto \sqrt{r} e^{i \theta / 2}\) za \(\theta \in (- \pi, \pi)\). Potem je
+    Naj bo \(\varphi_4 \colon \CC \setminus (- \infty, 0] \to \HH\); \(z \mapsto \sqrt{z}\). Ta funkcija je biholomorfna, če se omejimo na rešitev \(r e^{i \theta} \mapsto \sqrt{r} e^{i \theta / 2}\) za \(\theta \in (- \pi, \pi)\). Potem je
     \[\rho_{\CC \setminus (- \infty, 0]} (z) = \rho_{\HH} (\varphi_4 (z)) \cdot |\varphi_4' (z)| = \frac{1}{2 |\sqrt{z}| \re (\sqrt{z})}.\]
     Dobljeno poenostavimo s polarnim zapisom, da dobimo
     \[\frac{1}{2 r \cos (\theta / 2)} = \frac{1}{2 |z| \cos (\Arg (z) / 2)}.\]
