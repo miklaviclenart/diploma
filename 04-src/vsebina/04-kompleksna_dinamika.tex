@@ -9,7 +9,7 @@
 \end{izrek}
 
 \begin{dokaz}
-    Naj bo \(z^*\) privlačna. Ker za vsak \(z \in \Delta (z^*, r)\) zaporedje \(f^n (z)\) enakomerno konvergira proti \(z^*\), obstaja \(n_0 \in \NN\), tako da \(|f^n (z) - z^*| < r\) za vsak \(z \in \Delta (z^*, r)\) in \(n \geq n_0\). Opazujemo funkcijo \(\phi (z) = (z - z^*) / r\), ki za vsak \(n \geq n_0\) konjugira \(f^n\) in \(F_n \coloneq \phi \circ f^n \circ \phi^{-1}\). Ko poenostavimo dobimo
+    Naj bo \(z^*\) privlačna. Ker za vsak \(z \in \Delta (z^*, r)\) zaporedje \(f^n (z)\) enakomerno konvergira proti \(z^*\), obstaja \(n_0 \in \NN\), tako da \(|f^n (z) - z^*| < r\) za vsak \(z \in \Delta (z^*, r)\) in \(n \geq n_0\). Opazujemo funkcijo \(\phi (z) = (z - z^*) / r\), ki za vsak \(n \geq n_0\) konjugira \(f^n\) in \(F_n \coloneq \phi \circ f^n \circ \phi^{-1}\). Ko poenostavimo, dobimo
     \[F_n (w) = \frac{f^n (r w + z^*) - z^*}{r},\]
     kjer je vsaka \(F_n\) definirana na \(\DD\), ima vrednosti v \(\overline{\DD}\) in zadošča \(F_n (0) = 0\). Schwarzova lema \ref{lem:schwarz} nam pove, da je \(|F_n' (0)| \leq 1\). Recimo, da velja \(|F_n' (0)| = 1\). Spet po Schwarzovi lemi je \(F_n\) rotacija, torej \(F_n (w) = a_n w\) za \(|a_n| = 1\). Tedaj velja
     \[\abs{F_n (w)} = \abs{w} = \frac{\abs{f^n (r w + z^*) - z^*}}{r}\]
@@ -66,7 +66,7 @@ Množica \(A\) je za funkcijo \(f\) \emph{naprej invariantna}, če je \(f (A) = 
 \noindent Komponenta za povezanost \(\Omega (f, z^*)\), ki vsebuje \(z^*\), se imenuje \emph{neposredno območje privlaka} \(z^*\). Označimo ga z \(\Omega_0 (f, z^*)\). Ker je \(f (\Omega_0 (f, z^*))\) povezana in vsebuje točko \(z^*\), velja \(f (\Omega_0 (f, z^*)) \subset \Omega_0 (f, z^*)\).
 
 \begin{trditev} \label{prop:privlak}
-    Naj bo \(f\) cela funkcija in \(\Omega \subset \CC\) enostavno povezano območje, ki je popolnoma invariantno za \(f\). Če je \(z^{*} \in \Omega\) (super)privlačna fiksna točka \(f\), potem je \(\Omega\) vsebovana v neposrednem območju privlaka \(z^*\).
+    Naj bo \(f\) cela funkcija in \(\Omega \subset \CC\) enostavno povezano območje, ki je popolnoma invariantno za \(f\). Če je \(z^{*} \in \Omega\) (super)privlačna fiksna točka \(f\), je \(\Omega\) vsebovana v neposrednem območju privlaka \(z^*\).
 \end{trditev}
 
 \begin{dokaz}
@@ -80,7 +80,7 @@ Množica \(A\) je za funkcijo \(f\) \emph{naprej invariantna}, če je \(f (A) = 
 
 Posvetimo se še nefiksnim periodičnim točkam. Če je \(z_0\) \(p\)-periodična, potem so vse točke \(z_0, f (z_0), f^2 (z_0), \dots, f^{p - 1} (z_0)\) fiksne točke preslikave \(f^p\). Pišemo \(z_j = f^j (z_0)\) in uporabimo verižno pravilo:
 \[(f^p)' (z_j) = f' \prt{f^{p - 1} (z_j)} f' \prt{f^{p - 2} (z_j)} \dots f' \prt{f (z_j)} f' (z_j) = \prod_{k = 0}^{p - 1} f' (z_k).\]
-To pomeni, da imajo vse točke \(z_j\) isti multiplikator \(K\). Če je \(K < 1\), potem rečemo, da je \(p\)-cikel privlačen. Če pa je \(K > 1\), rečemo, da je \(p\)-cikel odbojen.
+To pomeni, da imajo vse točke \(z_j\) isti multiplikator \(K\). Če je \(K < 1\), pravimo, da je \(p\)-cikel privlačen. Če pa je \(K > 1\), pravimo, da je \(p\)-cikel odbojen.
 
 \subsection{Normalne družine}
 
@@ -151,7 +151,7 @@ Kot zanimivost omenimo, da za polinome velja enakost \(\partial (B (f)) = J (f)\
 Vrnimo se k lastnostim Juliajeve množice. Naslednji izrek nam bo koristil kasneje.
 
 \begin{izrek} \label{thm:julm}
-    Naj bo \(f\) cela funkcija in \(M \subset \CC\) naprej invariantna množica, vsebovana v \(B (f)\). Če obstaja \(\mu > 1\), da za vsak \(z \in M\) velja \(|f' (z)| \geq \mu\), potem je \(M\) vsebovana v \(J (f)\).
+    Naj bo \(f\) cela funkcija in \(M \subset \CC\) naprej invariantna množica, vsebovana v \(B (f)\). Če obstaja \(\mu > 1\), da za vsak \(z \in M\) velja \(|f' (z)| \geq \mu\), je \(M\) vsebovana v \(J (f)\).
 \end{izrek}
 
 \begin{dokaz}

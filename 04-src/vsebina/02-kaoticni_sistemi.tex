@@ -25,7 +25,7 @@ Naj bo torej \(X\) metrični prostor in \(f \colon X \to X\). Za \(n \in \NN \cu
 Začetna točka je \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x_0) = x_0\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\), točka pa je \emph{\(n\)-periodična}. Periodična točka je \emph{fiksna}, če je njena perioda enaka \num{1}. V nadaljevanju bomo preučili lastnosti fiksnih točk.
 
 \begin{definicija}
-    Naj bo \(X\) metrični prostor, \(f \colon X \to X\) zvezna in \(x^*\) fiksna točka \(f\). Če obstaja tak \(r > 0\), da na odprti krogli \(B (x^*, r)\) orbita vsake začetne točke enakomerno konvergira proti \(x^*\), potem je \(x^*\) \emph{privlačna}. Točka \(x^*\) je \emph{odbojna}, če obstaja \(r > 0\), da za vsak \(x_0 \in B (x^*, r)\) in \(x_0 \neq x^*\), obstaja \(n \in \NN\), za katerega je \(f^n (x_0) \notin B (x^*, r)\).
+    Naj bo \(X\) metrični prostor, \(f \colon X \to X\) zvezna in \(x^*\) fiksna točka \(f\). Če obstaja tak \(r > 0\), da na odprti krogli \(B (x^*, r)\) orbita vsake začetne točke enakomerno konvergira proti \(x^*\), je \(x^*\) \emph{privlačna}. Točka \(x^*\) je \emph{odbojna}, če obstaja \(r > 0\), da za vsak \(x_0 \in B (x^*, r)\) in \(x_0 \neq x^*\), obstaja \(n \in \NN\), za katerega je \(f^n (x_0) \notin B (x^*, r)\).
 \end{definicija}
 
 \begin{definicija}
@@ -52,7 +52,7 @@ Konjugiranost je ekvivalenčna relacija z lastnostjo, da za vsak \(n \in \NN\) v
     \begin{equation} \label{eqn:podmnozica}
         B (y^*, s) \subset h (B (x^*, r)).
     \end{equation}
-    Za vsak \(y \in B (y^*, s)\) z \(y \neq y^*\) obstaja \(x \in B (x^*, r)\) z \(x \neq x^*\), da je \(y = h (x)\). Ker je \(x^*\), obstaja tak \(n \in \NN\), da \(f^n (x) = f^n (h^{-1} (y)) \notin B (x^*, r)\). A ker je \(f^n (h^{-1} (y)) = h^{-1} (g^n (y))\), sklepamo, da \(h^{-1} (g^n (y)) \notin B (x^*, r)\) in zato \(g^n (y) \notin h (B (x^*, r))\). Po enačbi \eqref{eqn:podmnozica} torej sledi, da \(g^n (y) \notin B (y^*, s)\).
+    Za vsak \(y \in B (y^*, s)\) z \(y \neq y^*\) obstaja \(x \in B (x^*, r)\) z \(x \neq x^*\), da je \(y = h (x)\). Ker je \(x^*\) odbojna, obstaja tak \(n \in \NN\), da \(f^n (x) = f^n (h^{-1} (y)) \notin B (x^*, r)\). A ker je \(f^n (h^{-1} (y)) = h^{-1} (g^n (y))\), sklepamo, da \(h^{-1} (g^n (y)) \notin B (x^*, r)\) in zato \(g^n (y) \notin h (B (x^*, r))\). Po enačbi \eqref{eqn:podmnozica} torej sledi, da \(g^n (y) \notin B (y^*, s)\).
 \end{dokaz}
 
 \subsection{Kaos}
@@ -101,7 +101,7 @@ Pravimo, da ima preslikava \(f\) \emph{gosto orbito}, če obstaja element \(x \i
             2x - 1 & \text{za } \frac{1}{2} \leq x < 1.
         \end{cases}
     \]
-    Trdimo, da je \(f\) kaotična. Označimo \(f_1 (x) = 2 x\) in \(f_2 (x) = 2x - 1\)
+    Trdimo, da je \(f\) kaotična. Označimo \(f_1 (x) = 2 x\) in \(f_2 (x) = 2x - 1\).
 
     Naj bo \(q \in \NN\) liho število in \(A = \set{\frac{1}{q}, \frac{2}{q}, \dots, \frac{q - 1}{q}} \subset [0, 1)\). Ni težko videti, da je \(f \colon A \to A\) injektivna in ker je \(A\) končna, je tudi bijektivna. Torej je vsak ulomek z lihim imenovalcem periodična točka. Ker so takšni ulomki gosti v \([0, 1)\), ima \(f\) gosto podmnožico periodičnih točk.
 
@@ -129,13 +129,13 @@ Devaney je v svoji prvotni definiciji kaotičnosti zahteval tudi naslednjo lastn
     Predpostavimo, da \(X\) ni zgolj periodična orbita. Ker so periodične točke goste, obstajata vsaj dve različni periodični orbiti. Če bi imeli skupno točko, bi bili enaki. Torej sta disjunktni in zato obstajata periodični točki \(q, r\), da je
     \[\delta \coloneq \frac{1}{8} \min \set{d (f^n (q), f^m (r)) : n, m \in \NN} > 0.\] Pokazali bomo, da je \(\delta\) občutljivostna konstanta.
 
-    Če je \(x \in X\), potem je orbita ene od točk \(q, r\) vedno oddaljena od \(x\) za vsaj \(4 \delta\). V nasprotnem primeru, ko bi bile obe v neki točki oddaljene od \(x\) za manj kot \(4 \delta\), bi bila razdalja med orbitama manjša od \(8 \delta\). Brez škode za splošnost je to orbita \(q\).
+    Če je \(x \in X\), je orbita ene od točk \(q, r\) vedno oddaljena od \(x\) za vsaj \(4 \delta\). V nasprotnem primeru, ko bi bile obe v neki točki oddaljene od \(x\) za manj kot \(4 \delta\), bi bila razdalja med orbitama manjša od \(8 \delta\). Brez škode za splošnost je to orbita \(q\).
 
     Naj bo \(\varepsilon \in (0, \delta)\). Ker so periodične točke goste, obstaja periodična točka \(p \in B (x, \varepsilon)\) s periodo \(n\). Naj bo \(V\) množica točk, ki so po \(n\) iteracijah oddaljene od \(q\) za kvečjemu \(\delta\):
     \[V \coloneq \bigcap_{i = 0}^n f^{- i} (B (f^i (q), \delta)).\]
-    Po topološki tranzitivnosti obstaja \(k \in \NN\), da je \(f^k (B (x, \varepsilon)) \cap V \neq \emptyset\). Torej obstaja \(y \in B (x, \varepsilon)\), da je \(f^k (y) \in V\). Če definiramo \(j \coloneq \lfloor k / n \rfloor + 1\), potem je \(k / n < j \leq (k / n) + 1\) in
+    Po topološki tranzitivnosti obstaja \(k \in \NN\), da je \(f^k (B (x, \varepsilon)) \cap V \neq \emptyset\). Torej obstaja \(y \in B (x, \varepsilon)\), da je \(f^k (y) \in V\). Če definiramo \(j \coloneq \lfloor k / n \rfloor + 1\), je \(k / n < j \leq (k / n) + 1\) in
     \[k = n \cdot \frac{k}{n} < n j \leq n \prt{\frac{k}{n} + 1} = k + n.\]
-    Torej, če je \(N \coloneq n j\), potem je \(0 < N - k \leq n\). Ker je \(f^N (p) = p\), po trikotniški neenakosti dobimo
+    Torej, če je \(N \coloneq n j\), je \(0 < N - k \leq n\). Ker je \(f^N (p) = p\), po trikotniški neenakosti dobimo
     \begin{align}
         d \prt{f^N (p), f^N (y)} & = d \prt{p, f^N (y)} \nonumber                                                              \\
                                  & \geq d \prt{x, f^{N - k} (q)} - d \prt{f^{N - k} (q), f^N (y)} - d (p, x) \label{eqn:ocena} \\
@@ -187,9 +187,9 @@ Na \(\Sigma_N\) definiramo metriko
 \end{izrek}
 
 \begin{dokaz}
-    Če je \(s_i = t_i\) za \(i \leq n\), potem je
+    Če je \(s_i = t_i\) za \(i \leq n\), velja
     \[d(\overline{s}, \overline{t}) = \sum_{i = n + 1}^{\infty} \frac{|s_i - t_i|}{N^i} \leq \sum_{i = n + 1}^{\infty} \frac{1}{N^i} = \frac{1}{N^n}.\]
-    Če \(s_j \neq t_j\) za nek \(j \leq n\), potem mora veljati
+    Če \(s_j \neq t_j\) za nek \(j \leq n\), mora veljati
     \[d(\overline{s}, \overline{t}) \geq \frac{1}{2^j} \geq \frac{1}{N^n}.\]
 \end{dokaz}
 
@@ -200,15 +200,15 @@ za \(k \geq 0\) tvorijo bazo okolic \(\overline{s}\) za topologijo porojeno z zg
 \begin{lema} \label{lem:seq-metric}
     Naj bosta \(\overline{s}, \overline{t} \in \Sigma_N\). Potem veljata naslednji trditvi.
     \begin{enumerate}[label=(\arabic*)]
-        \item Če je \(s_i = t_i\) za \(i \leq k\), potem velja \[d (\overline{s}, \overline{t}) \leq \frac{2}{N^{k - 1} (N - 1)}.\]
-        \item Če je \(d (\overline{s}, \overline{t}) < 1 / N^k\), potem je \(s_i = t_i\) za \(i \leq k\).
+        \item Če je \(s_i = t_i\) za \(i \leq k\), velja \[d (\overline{s}, \overline{t}) \leq \frac{2}{N^{k - 1} (N - 1)}.\]
+        \item Če je \(d (\overline{s}, \overline{t}) < 1 / N^k\), je \(s_i = t_i\) za \(i \leq k\).
     \end{enumerate}
 \end{lema}
 
 \begin{dokaz}
     (1) Naj bosta \(\overline{s}, \overline{t} \in \Sigma_N\) taka, da je \(s_i = t_i\) za \(i \leq k\). Potem je
     \[d (\overline{s}, \overline{t}) = \sum_{i \geq k + 1} \frac{|s_i - t_i|}{N^i} \leq 2 N \sum_{i \geq k + 1} \frac{1}{N^i} = \frac{2}{N^{k - 1} (N - 1)}.\]
-    (2) Če je \(s_i \neq t_i\) za nek \(i \leq k\), potem je
+    (2) Če je \(s_i \neq t_i\) za nek \(i \leq k\), je
     \[d (\overline{s}, \overline{t}) \geq \frac{|s_i - t_i|}{N^i} > \frac{1}{N^i} \geq \frac{1}{N^k}.\]
 \end{dokaz}
 
@@ -218,7 +218,7 @@ V simbolični dinamiki je pomembna \emph{preslikava zamika}, to je preslikava \(
 \[\sigma (s_0, s_1, s_2, \dots) = (s_1, s_2, s_3, \dots).\]
 Njena \(n\)-ta iteracija je podana s predpisom
 \[\sigma^n (s_0, s_1, s_2, \dots) = (s_n, s_{n + 1}, s_{n + 2}, \dots).\]
-Izkaže se, da je \(\sigma\) zvezna. Res, naj bo \(\varepsilon > 0\). Izberemo tak \(i \in \NN\), da je \(1 / N^i < \varepsilon\), in \(\delta = 1 / N^{n + 1}\). Če sta \(\overline{s}, \overline{t} \in \Sigma_N\) taka, da je \(d(\overline{s}, \overline{t}) < \delta\), potem mora po izreku \ref{thm:blizu} veljati \(s_i = t_i\) za vsak \(i \leq n + 1\). To pomeni, da se \(\overline{s}\) in \(\overline{t}\) ujemata na prvih \((n + 1)\) mestih. Torej se \(\sigma (\overline{s})\) in \(\sigma (\overline{t})\) ujemata na prvih \(n\) mestih in spet po istem izreku velja \(d (\sigma (\overline{s}), \sigma (\overline{t})) < \varepsilon\).
+Izkaže se, da je \(\sigma\) zvezna. Res, naj bo \(\varepsilon > 0\). Izberemo tak \(i \in \NN\), da je \(1 / N^i < \varepsilon\), in \(\delta = 1 / N^{n + 1}\). Če sta \(\overline{s}, \overline{t} \in \Sigma_N\) taka, da je \(d(\overline{s}, \overline{t}) < \delta\), mora po izreku \ref{thm:blizu} veljati \(s_i = t_i\) za vsak \(i \leq n + 1\). To pomeni, da se \(\overline{s}\) in \(\overline{t}\) ujemata na prvih \((n + 1)\) mestih. Torej se \(\sigma (\overline{s})\) in \(\sigma (\overline{t})\) ujemata na prvih \(n\) mestih in spet po istem izreku velja \(d (\sigma (\overline{s}), \sigma (\overline{t})) < \varepsilon\).
 
 \begin{definicija}
     Kompaktno popolnoma nepovezano množico brez izoliranih točk imenujemo \emph{Cantorjeva množica}.

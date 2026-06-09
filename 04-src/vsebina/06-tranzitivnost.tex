@@ -88,7 +88,7 @@ Pokazali bomo, da kompleksna eksponentna preslikava \(f\) ustreza definiciji top
     \[l^2 = r_+^2 - (r_- + 2 \pi)^2 \geq r_+^2 - 4 r_-^2 = (e^{4 \pi} - 4) \cdot e^{2 a} > e^{2 a},\]
     kjer upoštevamo, da je \(r_- \geq 2 \pi\). Vidimo, da je \(l > e^a\) in slika pravokotnika \(R\) vsebuje vse točke, katerih dolžina je med \(e^{- l}\) in \(e^l\). Naj bo
     \[\rho \coloneq 3 \pi + \max_{z \in K} \abs{ \log \abs{z} }.\]
-    Če je \(\re \zeta \geq \rho\), potem je \(a \geq 2 \pi\) in \(l > e^a > a > \abs{\log \abs{z}}\).
+    Če je \(\re \zeta \geq \rho\), je \(a \geq 2 \pi\) in \(l > e^a > a > \abs{\log \abs{z}}\).
 \end{dokaz}
 
 \noindent Iz dokazanih trditev nemudoma sledi močnejša različica izreka \ref{thm:transitivity}.
@@ -100,7 +100,7 @@ Pokazali bomo, da kompleksna eksponentna preslikava \(f\) ustreza definiciji top
 \noindent \textit{Opomba.} Iz posledice takoj dokažemo izrek, če za \(K\) izberemo točko iz \(V\).
 
 \begin{dokaz}
-    Ker so ubežne točke goste, obstaja \(z_0 \in I (f) \cap U\). Naj bo \(z_n \coloneq f^n (z_0)\) za \(n \geq 1\) in naj bodo \(D_n \coloneq \Delta (z_n, 2 \pi)\), \(n_0\) in \(\phi_n\) kot v trditvi \ref{prop:small_disks}. Naj bosta \(\rho\) in \(K\) kot v trditvi \ref{prop:lare_disks}. Ker je \(z_0\) ubežna točka, potem po točki \ref{item:stiri} trditve \ref{prop:small_disks} obstaja \(N_1 \geq n_0\), da je \(\re z_n \geq \rho\) in \(\phi_n (D_n) \subset U\) za vsak \(n \geq N_1\). Naj bo sedaj \(n \geq N_1\). Potem po trditvi \ref{prop:lare_disks} velja
+    Ker so ubežne točke goste, obstaja \(z_0 \in I (f) \cap U\). Naj bo \(z_n \coloneq f^n (z_0)\) za \(n \geq 1\) in naj bodo \(D_n \coloneq \Delta (z_n, 2 \pi)\), \(n_0\) in \(\phi_n\) kot v trditvi \ref{prop:small_disks}. Naj bosta \(\rho\) in \(K\) kot v trditvi \ref{prop:lare_disks}. Ker je \(z_0\) ubežna točka, po točki \ref{item:stiri} trditve \ref{prop:small_disks} obstaja \(N_1 \geq n_0\), da je \(\re z_n \geq \rho\) in \(\phi_n (D_n) \subset U\) za vsak \(n \geq N_1\). Naj bo sedaj \(n \geq N_1\). Potem po trditvi \ref{prop:lare_disks} velja
     \[f^{n + 2} \prt{U} \supset f^{n + 2} \prt{\phi_n \prt{D_n}} = f^2 \prt{f^n \prt{\phi_n \prt{D_n}}} = f^2 \prt{D_n} \supset K.\]
     Trditev drži, če izberemo \(N \coloneq N_1 + 2\).
 \end{dokaz}
