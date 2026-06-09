@@ -13,32 +13,31 @@ Neprazno, odprto in povezano podmnožico kompleksnih števil \(D \subseteq \CC\)
     \[\lim_{w \to z} \frac{f (w) - f (z)}{w - z} = \lim_{\zeta \to 0} \frac{f (z + \zeta) - f (z)}{\zeta}.\]
 \end{definicija}
 
-Holomorfnost razumemo kot odvedljivost v kompleksnem smislu. Zato zgornji limiti pravimo \emph{odvod funkcije \(f\) v točki \(z\)} in jo označimo z \(f' (z)\). Kot za realne veljajo tudi za kompleksne funkcije običajna pravila za odvajanje. Poleg tega pa nam holomorfnost karakterizira tudi naslednji izrek.
+Holomorfnost razumemo kot odvedljivost v kompleksnem smislu. Zato zgornji limiti pravimo \emph{odvod funkcije \(f\) v točki \(z\)} in jo označimo z \(f' (z)\). Kot za realne veljajo tudi za kompleksne funkcije običajna pravila za odvajanje. Poleg tega pa nam holomorfnost karakterizira tudi naslednji izrek. Dokaz najdemo v knjigi \cite[izrek 43]{Globevnik_2010}.
 
 \begin{izrek} \label{thm:cr}
-    Funkcija \(f = u + i v\) je holomorfna natanko tedaj, ko funkciji \(u\) in \(v\) zadoščata \emph{Cauchy-Riemannovemu sistemu enačb}
+    Funkcija \(f = u + i v\) je na množici \(U\) holomorfna natanko tedaj, ko sta \(u\) in \(v\) na množici \(\set{(x, y) \in \RR^2 : x + i y \in U}\) zvezno parcialno odvedljivi in zadoščata \emph{Cauchy-Riemannovemu sistemu enačb}
     \begin{equation} \tag{CR} \label{eq:cr}
         \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \qquad \frac{\partial u}{\partial y} = - \frac{\partial v}{\partial x}.
     \end{equation}
-    Natančneje, funkcija \(f\) je na množici \(U\) holomorfna natanko tedaj, ko sta \(u\) in \(v\) na množici \(\set{(x, y) \in \RR^2 : x + i y \in U}\) zvezno parcialno odvedljivi in zadoščata sistemu \eqref{eq:cr}.
 \end{izrek}
 
-\begin{dokaz}
-    Naj bo \(f = u + i v\), \(z_0 = x + i y\) in \(\zeta = h + i k\). Od \(f\) lahko, ne da bi to vplivalo na odvedljivost, odštejemo konstanto \(f (z_0)\). Zato privzamemo, da velja \(f (z_0) = 0\). Če krajše pišemo \(u = u (x + h, y + k) - u (x, y)\) in \(v = v (x + h, y + k) - v (x, y)\), velja
-    \[\frac{f (z_0 + \zeta)}{\zeta} = \frac{u + i v}{h + i k} = \frac{u h + v k}{h^2 + k^2} + i \frac{v h - u k}{h^2 + k^2}.\]
-    Uvedemo polarne koordinate \(h = i \cos \varphi\) in \(k = r \sin \varphi\), v katerih velja
-    \[\frac{h^2}{h^2 + k^2} = \cos^2 \varphi, \quad \frac{k^2}{h^2 + k^2} = \sin^2 \varphi.\]
-    S tem se zgornji izraz poenostavi v
-    \[\frac{f (z_0 + \zeta)}{\zeta} = \frac{u}{h} \cos^2 \varphi + \frac{v}{k} \sin^2 \varphi + i \prt{\frac{v}{h} \cos^2 \varphi - \frac{u}{k} \sin^2 \varphi}.\]
-    V izraz na ustreznih mestih vrinemo parcialne odvode ter poenostavimo, da dobimo
-    \[
-        \begin{multlined}[15cm]
-            \frac{f (z_0 + \zeta)}{\zeta} = \prt{\frac{u}{h} - u_x} \cos^2 \varphi + \prt{\frac{v}{k} - v_y} \sin^2 \varphi + u_x + (v_y - u_x) \sin^2 \varphi\\
-            + i \left[ \prt{\frac{v}{h} - v_x} \cos^2 \varphi - \prt{\frac{u}{k} - u_y} \sin^2 \varphi + v_x - (u_y + v_x) \sin^2 \varphi \right].
-        \end{multlined}
-    \]
-    Ko gre \(\zeta \to 0\), gredo po definiciji parcialnega odvoda proti \(0\) tudi razlike v oklepajih. Vidimo, da bo limita \(\zeta \to 0\) izraza na levi obstajala natanko tedaj, ko bo veljalo \(v_y - u_x = u_y + v_x = 0\). V tem primeru bo \(f' (z_0) = u_x + i v_x\).
-\end{dokaz}
+% \begin{dokaz}
+%     Naj bo \(f = u + i v\), \(z_0 = x + i y\) in \(\zeta = h + i k\). Od \(f\) lahko, ne da bi to vplivalo na odvedljivost, odštejemo konstanto \(f (z_0)\). Zato privzamemo, da velja \(f (z_0) = 0\). Če krajše pišemo \(u = u (x + h, y + k) - u (x, y)\) in \(v = v (x + h, y + k) - v (x, y)\), velja
+%     \[\frac{f (z_0 + \zeta)}{\zeta} = \frac{u + i v}{h + i k} = \frac{u h + v k}{h^2 + k^2} + i \frac{v h - u k}{h^2 + k^2}.\]
+%     Uvedemo polarne koordinate \(h = i \cos \varphi\) in \(k = r \sin \varphi\), v katerih velja
+%     \[\frac{h^2}{h^2 + k^2} = \cos^2 \varphi, \quad \frac{k^2}{h^2 + k^2} = \sin^2 \varphi.\]
+%     S tem se zgornji izraz poenostavi v
+%     \[\frac{f (z_0 + \zeta)}{\zeta} = \frac{u}{h} \cos^2 \varphi + \frac{v}{k} \sin^2 \varphi + i \prt{\frac{v}{h} \cos^2 \varphi - \frac{u}{k} \sin^2 \varphi}.\]
+%     V izraz na ustreznih mestih vrinemo parcialne odvode ter poenostavimo, da dobimo
+%     \[
+%         \begin{multlined}[15cm]
+%             \frac{f (z_0 + \zeta)}{\zeta} = \prt{\frac{u}{h} - u_x} \cos^2 \varphi + \prt{\frac{v}{k} - v_y} \sin^2 \varphi + u_x + (v_y - u_x) \sin^2 \varphi\\
+%             + i \left[ \prt{\frac{v}{h} - v_x} \cos^2 \varphi - \prt{\frac{u}{k} - u_y} \sin^2 \varphi + v_x - (u_y + v_x) \sin^2 \varphi \right].
+%         \end{multlined}
+%     \]
+%     Ko gre \(\zeta \to 0\), gredo po definiciji parcialnega odvoda proti \(0\) tudi razlike v oklepajih. Vidimo, da bo limita \(\zeta \to 0\) izraza na levi obstajala natanko tedaj, ko bo veljalo \(v_y - u_x = u_y + v_x = 0\). V tem primeru bo \(f' (z_0) = u_x + i v_x\).
+% \end{dokaz}
 
 Za holomorfne funkcije, ki fiksirajo izhodišče, velja nasledja lema. Njen dokaz najdemo v knjigi \cite[lema 1]{Globevnik_2010}.
 
@@ -95,7 +94,7 @@ Dobro vizualizacijo kompleksnega eksponenta nam nudi slika \ref{fig:exponential}
     \item Po prejšnjih dveh alinejah bo celo \(w\)-ravnino brez točke \(w = 0\) pokril vodoraven pas višine \(2 \pi\) v \(z\)-ravnini.
     \item Vodoravne premice se preslikajo v žarke iz izhodišča, v posebnem se realna os preslika v \([0, \infty)\). Navpične črte se preslikajo v krožnice okrog izhodišča, v posebnem se imaginarna os preslika v enotsko križnico. Splošna premica se preslika v spiralo, ki se navija okrog izhodišča.
     \item Sivo obarvana leva polravnina se preslika v enotski disk, desna polravnina pa v njegov komplement.
-    \item Slike majhnih kvadratkov nas spominjajo na kvadratke, kar ponazarja, da je preslikava konformna---ohranja kote.
+    \item Slike majhnih koordinatnih kvadratov ostanejo homeomorfne kvadratom, pri čemer se krožnice s poltraki sekajo pod pravim kotom. To ponazarja, da je preslikava konformna---ohranja kote.
 \end{itemize}
 
 \subsection{Hiperbolična geometrija}
@@ -142,7 +141,7 @@ Definicijo nam iz enotskega diska na enostavno povezana območja prenese nasledn
     Naj bosta \(U, V \subsetneq \CC\) enostavno povezani območji in \(f \colon U \to V\) holomorfna preslikava. Potem na \(U\) obstaja enolično določen hiperbolični ločni element \(\rho_U\), da veljo naslednje izjave.
     \begin{enumerate}
         \item Za vsak \(z \in \DD\) velja \(\rho_{\DD} (z) = \frac{2}{1 - |z|^2}\).
-        \item Preslikava \(f\) ne veča \emph{hiperboličnega odvoda}, to je \[\hder{f (z)}{U}{V} \coloneq |f' (z)| \cdot \frac{\rho_V (f (z))}{\rho_U (z)} \leq 1.\]
+        \item Preslikava \(f\) ne veča \emph{hiperboličnega odvoda}, to pomeni, da velja \[\hder{f (z)}{U}{V} \coloneq |f' (z)| \cdot \frac{\rho_V (f (z))}{\rho_U (z)} \leq 1.\]
         \item Enakost \(\hder{f (z)}{U}{V} = 1\) velja natanko tedaj, ko je \(f\) biholomorfna.
         \item Če je \(U \subsetneq V\), potem za vsak \(z \in U\) velja \(\rho_U (z) > \rho_V (z)\).
     \end{enumerate}

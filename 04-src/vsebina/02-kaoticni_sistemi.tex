@@ -1,8 +1,8 @@
 \section{Kaotični sistemi} \label{sec:dis}
 
-V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolucijskim pravilom. Množica stanj običajno predstavlja metrični ali topološki prostor \(X\), deterministično evolucijsko pravilo pa preslikava \(F \colon X \to X\). V tem poglavju predstavimo osnovno teorijo dinamičnih sistemov, pri čemer se omejimo na metrične prostore. Pripomnimo pa, da večina rezultatov velja tudi za splošne topološke prostore.
+V splošnem je dinamični sistem množica stanj skupaj z determinističnim evolucijskim pravilom. Množica stanj običajno predstavlja metrični ali topološki prostor \(X\), deterministično evolucijsko pravilo pa preslikava \(F \colon X \to X\). V tem poglavju predstavimo osnovno teorijo dinamičnih sistemov, pri čemer se omejimo na metrične prostore. Večina rezultatov velja tudi za splošne topološke prostore.
 
-Naj bo torej \(X\) metrični prostor in \(f \colon X \to X\). Za \(n \in \NN \cup \{0\}\) označimo \(f^n \coloneq f \circ f^{n - 1}\), kjer je \(f^0 = \Id\) identiteta. Zaporedju \(\{f^n\}_{n=1}^{\infty}\) pravimo zaporedje iteracij. Za določen \(x_0 \in X\) zaporedje \(\{f^n (x_0)\}_{n \in \NN}\) imenujemo \emph{orbita} začetne točke \(x_0\). Začetne točke ločimo po obnašanju njihovih orbit, posebno vlogo pa igrajo periodične točke.
+Naj bo torej \(X\) metrični prostor in \(f \colon X \to X\). Za \(n \in \NN \cup \{0\}\) označimo \(f^n \coloneq f \circ f^{n - 1}\), kjer je \(f^0 = \Id\) identiteta. Zaporedju \(\{f^n\}_{n=1}^{\infty}\) pravimo zaporedje iteracij. Za določen \(x_0 \in X\) zaporedje \(\{f^n (x_0)\}_{n \in \NN}\) imenujemo \emph{orbita} začetne točke \(x_0\). Začetne točke ločimo po obnašanju njihovih orbit, posebno vlogo v dinamični analizi pa imajo periodične točke.
 
 % \begin{zgled}
 %     Kompleksna števila \(\CC\) skupaj s kompleksno eksponentno preslikavo \(f \colon \CC \to \CC\); \(z \mapsto e^{z}\) so (diskretni) dinamični sistem.
@@ -20,9 +20,9 @@ Naj bo torej \(X\) metrični prostor in \(f \colon X \to X\). Za \(n \in \NN \cu
 
 % \noindent V zgornjih primerih sta indeksni ali \emph{časovni} množici \(\NN\) in \(\RR\). Splošneje je to lahko poljuben monoid (glej \cite{Giunti_2012}). V izogib pretirani splošnosti se bomo v diplomski nalogi omejili na diskretne dinamične sisteme na metričnih prostorih.
 
-\subsection{Periodične točke}
+\subsection{Periodične točke} \label{ssec:periodic}
 
-Začetna točka je \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x_0) = x_0\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\), točka pa je \emph{\(n\)-periodična}. Periodična točka je \emph{fiksna}, če je njena perioda \(\num{1}\). V nadaljevanju bomo preučili lastnosti fiksnih točk.
+Začetna točka je \emph{periodična}, če obstaja tak \(n \in \NN\), da je \(f^n (x_0) = x_0\). Če je \(n\) najmanjše tako število, pravimo, da ima periodična točka periodo \(n\), točka pa je \emph{\(n\)-periodična}. Periodična točka je \emph{fiksna}, če je njena perioda enaka \num{1}. V nadaljevanju bomo preučili lastnosti fiksnih točk.
 
 \begin{definicija}
     Naj bo \(X\) metrični prostor, \(f \colon X \to X\) zvezna in \(x^*\) fiksna točka \(f\). Če obstaja tak \(r > 0\), da na odprti krogli \(B (x^*, r)\) orbita vsake začetne točke enakomerno konvergira proti \(x^*\), potem je \(x^*\) \emph{privlačna}. Točka \(x^*\) je \emph{odbojna}, če obstaja \(r > 0\), da za vsak \(x_0 \in B (x^*, r)\) in \(x_0 \neq x^*\), obstaja \(n \in \NN\), za katerega je \(f^n (x_0) \notin B (x^*, r)\).
@@ -57,7 +57,7 @@ Konjugiranost je ekvivalenčna relacija z lastnostjo, da za vsak \(n \in \NN\) v
 
 \subsection{Kaos}
 
-Beseda kaos je razumljiva vsakomur, običajno si jo predstavljamo kot nered ali zmedo. V naravoslovju ima ta pojem več ne-ekvivalentnih definicij. Mi se bomo naslonili na definicijo ameriškega matematika Roberta L.~Devaneya iz leta \num{1989} \cite{Devaney_1986}, v kateri je kaos opredeljen prek periodičnih točk in topološke tranzitivnosti.
+Na intuitivni ravni si besedo kaos navadno predstavljamo kot nered ali zmedo. V naravoslovju ima ta pojem več ne-ekvivalentnih definicij. Mi se bomo naslonili na definicijo ameriškega matematika Roberta L.~Devaneya iz leta \num{1989} \cite{Devaney_1986}, v kateri je kaos opredeljen prek periodičnih točk in topološke tranzitivnosti.
 
 \begin{definicija}[Topološka tranzitivnost]
     Naj bo \(X\) metrični prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) \emph{topološko tranzitivna}, če za vsaki odprti množici \(U\) in \(V\) obstajata \(z \in U\) in \(n \in \NN \cup \set{0}\), da je \(f^n (z) \in V\).
@@ -79,7 +79,7 @@ Pravimo, da ima preslikava \(f\) \emph{gosto orbito}, če obstaja element \(x \i
 \end{dokaz}
 
 \begin{definicija}[Devaneyjev kaos]
-    Naj bo \(X\) neskončen metrični prostor. Pravimo, da je zvezna preslikava \(f \colon X \to X\) \emph{kaotična} (po Devaneyju), če sta izpolnjena naslednja pogoja.
+    Naj bo \(X\) neskončen metrični prostor. Pravimo, da je zvezna preslikava \(f \colon X \to X\) \emph{kaotična}, če sta izpolnjena naslednja pogoja.
     \begin{enumerate}
         \item Množica periodičnih točk je gosta v množici \(X\).
         \item Preslikava \(f\) je topološko tranzitivna.
@@ -119,7 +119,7 @@ Devaney je v svoji prvotni definiciji kaotičnosti zahteval tudi naslednjo lastn
     Naj bo \((X, d)\) metrični prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) občutljiva na začetne pogoje, če obstaja \emph{občutljivostna konstanta} \(\delta > 0\), da za vsak \(x \in M\) in vsak \(\varepsilon > 0\) obstaja \(y \in M\), da je \(d (x, y) < \varepsilon\) in \(d (f^N (x), f^N (y)) \geq \delta\) za nek \(N \in \NN\).
 \end{definicija}
 
-\noindent To pomeni, da majhna napaka \(\varepsilon\) v začetnih pogojih \(x\) privede do znatnih sprememb pri iteraciji dinamičnega sistema. Vendar pa se izkaže, da te lastnosti pri definiciji kaotične preslikave v večini primerov ni potrebno zahtevati. Velja naslednji izrek.
+\noindent To pomeni, da majhna motnja v začetnih pogojih lahko privede do znatnih sprememb pri iteraciji dinamičnega sistema. Vendar pa se izkaže, da te lastnosti pri definiciji kaotične preslikave v večini primerov ni potrebno zahtevati. Velja naslednji izrek.
 
 \begin{izrek}
     Naj bo \((X, d)\) neskončen metrični prostor in \(f \colon X \to X\) kaotična preslikava. Potem je \(f\) občutljiva na začetne pogoje, razen v primeru, ko je \(X\) sestavljen iz ene periodične orbite.
@@ -229,15 +229,15 @@ Izkaže se, da je \(\sigma\) zvezna. Res, naj bo \(\varepsilon > 0\). Izberemo t
 \end{trditev}
 
 \begin{dokaz}
-    (1) Dokažimo, da ni izoliranih točk. Naj bo \(\overline{s} \in \Sigma_N\), \(\varepsilon > 0\) in \(k \in \NN\) tak, da je \(2/N^{k - 1} (N -1) < \varepsilon\). Po lemi \ref{lem:seq-metric}, če je \(\overline{t} \in \Sigma_N\) tak, da je \(t_i = s_i\) za \(i \leq k\), potem
+    Dokažimo, da ni izoliranih točk. Naj bo \(\overline{s} \in \Sigma_N\), \(\varepsilon > 0\) in \(k \in \NN\) tak, da je \(2/N^{k - 1} (N -1) < \varepsilon\). Po lemi \ref{lem:seq-metric}, če je \(\overline{t} \in \Sigma_N\) tak, da je \(t_i = s_i\) za \(i \leq k\), potem
     \[d (\overline{s}, \overline{t}) \leq \frac{2}{N^{k - 1} (N - 1)} < \varepsilon.\]
     To pomeni, da krogla \(B (\overline{s}, \varepsilon)\) vsebuje neskončno elementov.
 
-    (2) Dokažimo, da je \(\Sigma_N\) popolnoma nepovezana. Recimo, da obstaja povezana \(X \subset \Sigma_N\) in vzamemo \(\overline{s}, \overline{s}^* \in \Sigma_N\) za katera \(\overline{s} \neq \overline{s}^*\). Potem obstaja \(i \in \NN\), tako da \(s_i \neq s_i^*\). Definiramo množici
+    Dokažimo, da je \(\Sigma_N\) popolnoma nepovezana. Recimo, da obstaja povezana \(X \subset \Sigma_N\) in vzamemo \(\overline{s}, \overline{s}^* \in \Sigma_N\) za katera \(\overline{s} \neq \overline{s}^*\). Potem obstaja \(i \in \NN\), tako da \(s_i \neq s_i^*\). Definiramo množici
     \[X_1 \coloneq \set{\overline{t} \in \Sigma_N : t_i = s_i} \qquad \text{in} \qquad X_2 = \set{\overline{t} \in \Sigma_N : t_i \neq s_i}\]
     in opazimo, da je \((X_1 \cap X) \cup (X_2 \cap X_1) = X\), \(X_1 \cap X_2 = \emptyset\), \(\overline{s} \in X_1\) in \(\overline{s}^* \in X_2\). Do protislovja bomo torej prišli, če pokažemo, da sta \(X_1\) in \(X_2\) odprti. Ker je
     \[X_2 = \bigcup_{s \neq s_i} \set{\overline{t} \in \Sigma_N : t_i = s},\]
     je dovolj da pokažemo, da je \(X_1\) odprta. Za \(\overline{t} \in X_1\) izberemo tak \(\varepsilon\), da bo \(\varepsilon < 1 / N^i\). Po lemi \ref{lem:seq-metric} \(\overline{r} \in B (\overline{t}, \varepsilon)\) implicira \(r_j = t_j\) za \(j \leq i\). Torej \(r_i = s_i\) in zato \(B (\overline{t}, \varepsilon) \subset X_1\).
 
-    (3) Iz topologije vemo, da je produkt družine kompaktnih prostorov kompakten v produktni topologiji.
+    Dokaz sklenemo s preprostim razmislekom: iz topologije vemo, da je produkt družine kompaktnih prostorov kompakten v produktni topologiji.
 \end{dokaz}

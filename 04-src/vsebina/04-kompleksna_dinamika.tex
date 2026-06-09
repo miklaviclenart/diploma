@@ -2,7 +2,7 @@
 
 \subsection{Kompleksne periodične točke}
 
-\noindent Definicijo privlačne in odbojne točke nam v kompleksni ravnini poenostavi naslednji izrek.
+\noindent Za začetek se osredotočimo na periodične točke, ki smo jih spoznali že v razdelku \ref{ssec:periodic}. Definicijo privlačne in odbojne točke nam v kompleksni ravnini dodatno poenostavi naslednji izrek.
 
 \begin{izrek}
     Naj bo \(f\) cela funkcija in \(z^*\) njena fiksna točka. Potem je \(z^*\) privlačna natanko tedaj, ko je \(|f' (z^*)| < 1\). Dodatno je \(z^*\) odbojna natanko tedaj, ko je \(|f' (z^*)| > 1\).
@@ -28,7 +28,7 @@
     Obratno, naj obstaja \(k > 1\), da velja \(|f' (z^*)| > k\). Podobno kot prej obstaja \(r > 0\), da je \(|f (z) - f (z^*)| \geq k |z - z^*|\) za vsak \(z \in \Delta (z^*, r)\) in \(z \neq z^*\). Recimo, da obstaja \(z_0\), da velja \(f^n (z_0) \in \Delta (z^*, r)\) za vsak \(n \in \NN\). Tedaj lahko induktivno pokažemo, da velja \(|f^n (z_0) - z^*| \geq k^n |z_0 - z^*|\). Ker je \(\lim_{n \to \infty} k^n = \infty\), smo prišli do protislovja. Torej je \(z^*\) res odbojna.
 \end{dokaz}
 
-\noindent V luči zgornjega izreka lahko definicijo razširimo.
+\noindent V luči zgornjega izreka lahko klasifikacijo periodičnih točk razširimo.
 
 \begin{definicija}
     Naj bo \(U \subseteq \CC\) odprta in \(f \colon U \to \CC\) holomorfna. Naj bo \(w \in U\) fiksna točka preslikave \(f\). Število \(\lambda \coloneq f' (w)\) imenujemo \emph{multiplikator preslikave \(f\) v točki \(w\)}. Fiksna točka \(w\) je
@@ -50,7 +50,7 @@
 Množica \(A\) je za funkcijo \(f\) \emph{naprej invariantna}, če je \(f (A) = A\), in \emph{nazaj invariantna}, če je \(f^{-1} (A) = A\). Če je množica naprej in nazaj invariantna, pravimo, da je \emph{popolnoma invariantna}.
 
 \begin{izrek}
-    Naj bo \(f\) cela funkcija in \(z^*\) njena privlačna fiksna točka. Potem je \(\Omega (f, z^*)\) odprta in popolnoma invariantna.
+    Naj bo \(f\) cela funkcija in \(z^*\) njena (super)privlačna fiksna točka. Potem je \(\Omega (f, z^*)\) odprta in popolnoma invariantna.
 \end{izrek}
 
 \begin{dokaz}
@@ -66,7 +66,7 @@ Množica \(A\) je za funkcijo \(f\) \emph{naprej invariantna}, če je \(f (A) = 
 \noindent Komponenta za povezanost \(\Omega (f, z^*)\), ki vsebuje \(z^*\), se imenuje \emph{neposredno območje privlaka} \(z^*\). Označimo ga z \(\Omega_0 (f, z^*)\). Ker je \(f (\Omega_0 (f, z^*))\) povezana in vsebuje točko \(z^*\), velja \(f (\Omega_0 (f, z^*)) \subset \Omega_0 (f, z^*)\).
 
 \begin{trditev} \label{prop:privlak}
-    Naj bo \(f\) cela funkcija in \(\Omega \subset \CC\) enostavno povezano območje, ki je popolnoma invariantno za \(f\). Če je \(z^{*} \in \Omega\) privlačna fiksna točka \(f\), potem je \(\Omega\) vsebovana v neposrednem območju privlaka \(z^*\).
+    Naj bo \(f\) cela funkcija in \(\Omega \subset \CC\) enostavno povezano območje, ki je popolnoma invariantno za \(f\). Če je \(z^{*} \in \Omega\) (super)privlačna fiksna točka \(f\), potem je \(\Omega\) vsebovana v neposrednem območju privlaka \(z^*\).
 \end{trditev}
 
 \begin{dokaz}
@@ -90,7 +90,7 @@ Najmanjšo topologijo, v kateri so vse take množice odprte, imenujemo \emph{kom
 \begin{definicija}
     Zaporedje holomorfnih funkcij \((f_n)\) na območju \(D \subseteq \CC\) konvergira k \(f\) \emph{enakomerno po kompaktih}, če za vsako kompaktno podmnožico \(K \subset D\) in vsak \(\varepsilon > 0\) obstaja obstaja \(n_0 \in \NN\), da za \(n \geq n_0\) velja \(|f_n (z) - f(z)| < \varepsilon\) za vse \(z \in K\).
 
-    Zaporedje \((f_n)\) divergira k \(\infty\) enakomerno po kompaktih, če za vsako kompaktno podmnožico \(K \subset D\) in vsak \(M > 0\) obstaja obstaja \(n_0 \in \NN\), da za \(n \geq n_0\) velja \(|f_n (z)| > M\) za vse \(z \in K\).
+    Pravimo, da zaporedje \((f_n)\) konvergira k \(\infty\) enakomerno po kompaktih, če za vsako kompaktno podmnožico \(K \subset D\) in vsak \(M > 0\) obstaja obstaja \(n_0 \in \NN\), da za \(n \geq n_0\) velja \(|f_n (z)| > M\) za vse \(z \in K\).
 \end{definicija}
 
 \begin{primer} \label{ex:primer}
@@ -101,7 +101,7 @@ Najmanjšo topologijo, v kateri so vse take množice odprte, imenujemo \emph{kom
 
 \noindent Naslednji izrek nam pove, da je konvergenca enakomerno po kompaktih v družini holomorfnih funkcij smiselna, saj ohranja holomorfnost.
 
-\begin{izrek}
+\begin{izrek} \label{thm:holepk}
     Naj bo \((f_n)\) zaporedje holomorfnih funkcij na območju \(D \subseteq \CC\), ki konvergira k \(f\) enakomerno po kompaktih. Potem je tudi \(f\) holomorfna na \(D\).
 \end{izrek}
 
@@ -114,18 +114,20 @@ Najmanjšo topologijo, v kateri so vse take množice odprte, imenujemo \emph{kom
 \end{dokaz}
 
 \begin{definicija}
-    Naj bo \(\FFF\) družina holomorfnih funkcij na območju \(D \subseteq \CC\). Družino \(\FFF\) imenujemo \emph{normalna}, če za vsako zaporedje funkcij \((f_n) \subset \FFF\) obstaja podzaporedje \((f_{n_k})\), ki konvergira enakomerno po kompaktih k neki \(f \in \FFF\) ali pa divergira k \(\infty\).
+    Naj bo \(\FFF\) družina holomorfnih funkcij na območju \(D \subseteq \CC\). Družino \(\FFF\) imenujemo \emph{normalna}, če za vsako zaporedje funkcij \((f_n) \subset \FFF\) obstaja podzaporedje \((f_{n_k})\), ki konvergira enakomerno po kompaktih k neki \(f \in \FFF\) ali k \(\infty\).
 \end{definicija}
 
 \subsection{Fatoujeva in Juliajeva množica}
 
-Pri preučevanju dinamike funkcij, lahko domeno razdelimo na dva množici. Prvo, na kateri je obnašanje funkcije ``predvidljivo'', imenujemo Fatoujeva množica, drugo, na kateri je obnašanje kaotično, pa imenujemo Juliajeva množica. Natančno ju definiramo sledeče.
+Pri preučevanju dinamike funkcij, lahko domeno razdelimo na dva množici. Prvo, na kateri je obnašanje funkcije ``predvidljivo'', imenujemo Fatoujeva množica, drugo, na kateri je obnašanje kaotično, pa imenujemo Juliajeva množica. Natančneje ju opredeli naslednja definicija.
 
 Za celo funkcijo \(f\) je \emph{Fatoujeva množica} sestavljena iz vseh točk \(z_0\), za katere velja, da je \((f^n)\) normalna na neki okolici točke \(z_0\). Označimo jo z \(F (f)\). Njen komplement \(J (f) \coloneq \CC \setminus F (f)\) je \emph{Juliajeva množica}. Po definiciji vidimo, da je Fatoujeva množica vedno odprta, Juliajeva pa vedno zaprta.
 
 \begin{primer}
-    Po primeru \ref{ex:primer} zaporedje iteracij funkcije \(f (z) = z^2\) na \(\DD\) konvergira k \(f \equiv 0\) enakomerno po kompaktih. Podobno premislimo, da na \(\CC \setminus \overline{\DD}\) zaporedje divergira k \(\infty\) enakomerno po kompaktih. Na \(\partial \DD\) zaporedje divergira. Zato je \(F (f) = \CC \setminus \partial \DD\) in \(J (f) = \partial \DD\).
+    Po primeru \ref{ex:primer} zaporedje iteracij funkcije \(f (z) = z^2\) na \(\DD\) konvergira k \(f \equiv 0\) enakomerno po kompaktih. Podobno premislimo, da na \(\CC \setminus \overline{\DD}\) zaporedje konvergira k \(\infty\) enakomerno po kompaktih. Na okolici točk iz \(\partial \DD\) takega sklepa nimamo, saj so prisotne tako točke, ki konvergirajo enakomerno po kompaktih k \(0\), kot tudi točke, ki konvergirajo k \(\infty\). Posledično limita ni zvezna in ne holomorfna, kar je bila zahteva iz izreka \ref{thm:holepk}. Zato je \(F (f) = \CC \setminus \partial \DD\) in \(J (f) = \partial \DD\).
 \end{primer}
+
+Na podlagi zadnjega sklepa lahko dokažemo tudi splošnejši izrek.
 
 \begin{izrek} \label{thm:rob}
     Naj bo \(B (f)\) množica vseh točk \(z \in \CC\) z omejeno orbito. Tedaj velja
@@ -133,10 +135,10 @@ Za celo funkcijo \(f\) je \emph{Fatoujeva množica} sestavljena iz vseh točk \(
 \end{izrek}
 
 \begin{dokaz}
-    Naj bo \(z_0 \in \partial (B (f))\). Recimo, da \(z_0 \notin J (f)\). Potem je \((f^n)\) normalna na neki kompaktni okolici \(U\) točke \(z_0\). Ker je točka \(z_0\) robna, obstajata \(z_1, z_2 \in U\), tako da je orbita točke \(z_1\) omejena, orbita točke \(z_2\) pa ne. Torej ima \((f^n (z_n))\) divergentno podzaporedje \((f^{n_k} (z_2))_k\). Ker pa je \((f^n)\) normalna na \(U\), obstaja podzaporedje zaporedja \((f^{n_k} (z_2))_k\), ki enakomerno konvergira na \(U\). Ker je \((f^n (z_1))\) omejena in \((f^{n_k} (z_2))_k\) divergira k \(\infty\), smo prišli do protislovja.
+    Naj bo \(z_0 \in \partial (B (f))\). Recimo, da \(z_0 \notin J (f)\). Potem je \((f^n)\) normalna na neki kompaktni okolici \(U\) točke \(z_0\). Ker je točka \(z_0\) robna, obstajata \(z_1, z_2 \in U\), tako da je orbita točke \(z_1\) omejena, orbita točke \(z_2\) pa ne. Torej ima \((f^n (z_n))\) divergentno podzaporedje \((f^{n_k} (z_2))_k\). Ker pa je \((f^n)\) normalna na \(U\), obstaja podzaporedje zaporedja \((f^{n_k} (z_2))_k\), ki enakomerno konvergira na \(U\). Ker je \((f^n (z_1))\) omejena in \((f^{n_k} (z_2))_k\) konvergira k \(\infty\), smo prišli do protislovja.
 \end{dokaz}
 
-\noindent Če na tem mestu upoštevamo izrek \ref{thm:orbits}, hitro vidimo, da je za kompleksno eksponentno preslikavo \(J (f) = \CC\) in \(F (f) = \emptyset\). To pa ne drži tudi za poljubno celo funkcijo. Če za primer navedemo \(f (z) \coloneq (e^z - 1) / 4\), potem \((f^n)\) na \(\DD\) konvergira proti \(0\) enakomerno po kompaktih. Torej Fatoujeva množica vsebuje cel enotski disk.
+\noindent Če na tem mestu upoštevamo izrek \ref{thm:orbits}, hitro vidimo, da je za kompleksno eksponentno preslikavo \(J (f) = \CC\) in \(F (f) = \emptyset\). To pa ne drži tudi za poljubno celo funkcijo. Če za primer navedemo \(f (z) \coloneq (e^z - 1) / 4\), potem se izkaže, da \((f^n)\) na \(\DD\) konvergira proti \num{0} enakomerno po kompaktih. Izhodišče je privlačna točka z multiplikatorjem enakim \(\frac{1}{4}\). Torej Fatoujeva množica vsebuje cel enotski disk.
 
 Kot zanimivost omenimo, da za polinome velja enakost \(\partial (B (f)) = J (f)\). V tem primeru zato množici \(B (f)\) pravimo \emph{napolnjena Juliajeva množica}. Posledično je zgornji izrek uporaben za vizualizacijo Juliajeve množice. Na njem temelji na primer \emph{algoritem vzvratne iteracije}. Slike, ki nastanejo, pa so pogosto zanimive, kot vidimo na sliki \ref{fig:julia}. Tu je upodobljena Juliajeva množica funkcije \(z^2 + c\) za \(c \approx \complexnum{-0.5125+0.5213i}\). Z modro in zeleno barvo obarvana obnočja so Fatoujeva množica, medtem ko so rumeno obarvana območja Juliajeva množica.
 \begin{figure}
@@ -160,12 +162,12 @@ Vrnimo se k lastnostim Juliajeve množice. Naslednji izrek nam bo koristil kasne
     kjer je \(C\) konstanta, neodvisna od \(n\). Prišli smo do protislovja.
 \end{dokaz}
 
-Za konec navedemo še znamemit izrek in njegovo posledico. Da izrek drži za racionalne funkcije so vedeli že prej, za splošne cele funkcije pa ga je prvi dokazal angleški matematik Alan Baker leta \num{1968} v članku \cite{Baker_1968}. Dokaz posledice najdemo v knjigi \cite[izreka 6.2.4 in 6.3.12]{Pineiro_2025}.
+Za konec navedemo še znamemit izrek in njegovo posledico. Da izrek drži za racionalne funkcije so vedeli že prej, za splošne cele funkcije pa ga je prvi dokazal avstralski matematik Irvine Noel Baker leta \num{1968} v članku \cite{Baker_1968}. Dokaz posledice najdemo v knjigi \cite[izreka 6.2.4 in 6.3.12]{Pineiro_2025}.
 
 \begin{izrek} \label{thm:closure}
     Juliajeva množica je enaka zaprtju množice odbojnih periodičnih točk.
 \end{izrek}
 
 \begin{posledica}
-    Juliajeva množica \(J (f)\) je vedno neštevno neskončna in velja \(f^{-1} (J (f)) = J (f)\). Poleg tega je funkcija \(f \colon J (f) \to J (f)\) kaotična.
+    Za celo funkcijo \(f\) je Juliajeva množica \(J (f)\) vedno neštevno neskončna in velja \(f^{-1} (J (f)) = J (f)\). Poleg tega je zožitev funkcije \(f \colon J (f) \to J (f)\) kaotična v smislu Devaneya.
 \end{posledica}
