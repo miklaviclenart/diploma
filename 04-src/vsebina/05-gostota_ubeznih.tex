@@ -39,10 +39,10 @@ Točka \(z \in \CC\) je \emph{ubežna}, če njena orbita konvergira k \(\infty\)
     \end{equation}
 
     \noindent Za drugi del dokaza pišemo \(\theta_n \coloneq \arg (\zeta_n)\). Po \eqref{eqn:eta} velja
-    \[\hder{f (\zeta_n)}{U}{U} \geq \frac{1}{|\cos (\theta_n)|} > 1.\]
+    \[\hder{f (\zeta_n)}{U}{U} \geq \frac{1}{|\cos (\theta_n / 2)|} > 1.\]
     Uporabimo predpostavke leme, iz česar sledi
-    \[\lim_{n \to \infty} \frac{1}{|\cos (\theta_n)|} = 1\]
-    in zato \(\lim_{n \to \infty} \Arg (\zeta_n)\).
+    \[\lim_{n \to \infty} \frac{1}{|\cos (\theta_n / 2)|} = 1\]
+    in zato \(\lim_{n \to \infty} \Arg (\zeta_n) = 0\).
 \end{dokaz}
 
 % \begin{lema}
@@ -71,7 +71,7 @@ Točka \(z \in \CC\) je \emph{ubežna}, če njena orbita konvergira k \(\infty\)
     \[\re w_{n_{k - 1}} = \log \, \bigl| w_{n_{k}} \bigr| \quad \text{in} \quad \lim_{k \to \infty} \log \, \bigl| w_{n_{k}} \bigr| = \log z_0 < z_0.\]
     Ker je \(z_0\) najmanjše stekališče zaporedja \(w_n\), podzaporedje \(w_{n_{k}}\) ne more imeti končnega stekališča in zato je
     \[\lim_{k \to \infty} \, \bigl|\im w_{n_{k-1}}\bigr| = \infty.\]
-    To je v protislovju s \eqref{eqn:eta}.
+    To je v protislovju z \eqref{eqn:eta}.
 \end{dokaz}
 
 % Dokaz pušča odprto možnost, da ima množica ubežnih točk neprazno notranjost ali celo \(I (f) = \CC\). To izključimo z naslednjim izrekom.

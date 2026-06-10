@@ -51,7 +51,7 @@ Za holomorfne funkcije, ki fiksirajo izhodišče, velja naslednja lema. Njen dok
 
 Če je \(f\) holomorfna na \(\CC\), pravimo, da je \emph{cela funkcija}. Vemo, da je to v \(\CC\) ekvivalentno pogoju, da je \(f\) kompleksno analitična pri vsakem \(z \in \CC\). Cela funkcija je \emph{transcendentna}, če ni polinom ali kvocient dveh polinomov. Pravimo, da je funkcija \emph{konformna}, če ohranja kote in smisel vrtenja. Vemo, da so holomorfne funkcije konformne natanko tedaj, ko je njihov odvod neničelen (glej \cite[izrek 78]{Globevnik_2010}).
 
-Funkcija \(f \colon U \to U'\) je \emph{biholomorfna}, če je bijektivna, holomorfna in ima holomorfen inverz \(f^{-1} \colon U' \to U\). Če je \(D\) območje in \(f \colon D \to D'\) bijektivna in holomorfna, vemo, da je biholomorfna (glej \cite[izrek 77]{Globevnik_2010}). \emph{Enostavno povezano} območje si intuitivno predstavljamo kot tisto območje, ki nima ``lukenj''. Natančno pa ga definiramo definiramo z naslednjim izrekom.
+Funkcija \(f \colon U \to U'\) je \emph{biholomorfna}, če je bijektivna, holomorfna in ima holomorfen inverz \(f^{-1} \colon U' \to U\). Če je \(D\) območje in \(f \colon D \to D'\) bijektivna in holomorfna, vemo, da je biholomorfna (glej \cite[izrek 77]{Globevnik_2010}). \emph{Enostavno povezano} območje si intuitivno predstavljamo kot tisto območje, ki nima ``lukenj''. Natančno pa ga definiramo z naslednjim izrekom.
 
 \begin{definicija}[Riemannov upodobitveni izrek]
     Območje \(D \subsetneq \CC\) je \emph{enostavno povezano} natanko tedaj, ko obstaja biholomorfna funkcija \(\phi \colon D \to \DD\).
@@ -92,7 +92,7 @@ Dobro vizualizacijo kompleksnega eksponenta nam nudi slika \ref{fig:exponential}
     \item Če točka \(z\) potuje navzgor s hitrostjo \(v\), potem se točka \(w\) vrti okrog izhodišča s kotno hitrostjo \(v\). Ko \(z\) prepotuje razdaljo \(2 \pi\), \(w\) enkrat zaokroži okoli izhodišča. Torej je preslikava periodična s periodo \(2 \pi i\).
     \item Če točka \(z\) potuje proti levi s konstantno hitrostjo, točka \(w\) potuje proti izhodišču s pojemajočo hitrostjo. Obratno, če \(z\) potuje proti desni, potem \(w\) potuje stan od izhodišča s pospešeno hitrostjo.
     \item Po prejšnjih dveh alinejah bo celo \(w\)-ravnino brez točke \(w = 0\) pokril vodoraven pas višine \(2 \pi\) v \(z\)-ravnini.
-    \item Vodoravne premice se preslikajo v žarke iz izhodišča, v posebnem se realna os preslika v \([0, \infty)\). Navpične črte se preslikajo v krožnice okrog izhodišča, v posebnem se imaginarna os preslika v enotsko križnico. Splošna premica se preslika v spiralo, ki se navija okrog izhodišča.
+    \item Vodoravne premice se preslikajo v žarke iz izhodišča, v posebnem se realna os preslika v \([0, \infty)\). Navpične črte se preslikajo v krožnice okrog izhodišča, v posebnem se imaginarna os preslika v enotsko krožnico. Splošna premica se preslika v spiralo, ki se navija okrog izhodišča.
     \item Sivo obarvana leva polravnina se preslika v enotski disk, desna polravnina pa v njegov komplement.
     \item Slike majhnih koordinatnih kvadratov ostanejo homeomorfne kvadratom, pri čemer se krožnice s poltraki sekajo pod pravim kotom. To ponazarja, da je preslikava konformna---ohranja kote.
 \end{itemize}
@@ -138,7 +138,7 @@ Iz tega izhaja naslednja definicija.
 Definicijo nam iz enotskega diska na enostavno povezana območja prenese naslednji izrek, katerega dokaz najdemo v delu \cite[izrek 6.4]{Beardon_2006}.
 
 \begin{izrek}[Pick] \label{thm:pick}
-    Naj bosta \(U, V \subsetneq \CC\) enostavno povezani območji in \(f \colon U \to V\) holomorfna preslikava. Potem na \(U\) obstaja enolično določen hiperbolični ločni element \(\rho_U\), da veljo naslednje izjave.
+    Naj bosta \(U, V \subsetneq \CC\) enostavno povezani območji in \(f \colon U \to V\) holomorfna preslikava. Potem na \(U\) obstaja enolično določen hiperbolični ločni element \(\rho_U\), da veljajo naslednje izjave.
     \begin{enumerate}
         \item Za vsak \(z \in \DD\) velja \(\rho_{\DD} (z) = \frac{2}{1 - |z|^2}\).
         \item Preslikava \(f\) ne veča \emph{hiperboličnega odvoda}, to pomeni, da velja \[\hder{f (z)}{U}{V} \coloneq |f' (z)| \cdot \frac{\rho_V (f (z))}{\rho_U (z)} \leq 1.\]

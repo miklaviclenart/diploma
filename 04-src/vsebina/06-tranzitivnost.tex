@@ -59,11 +59,11 @@ Pokazali bomo, da kompleksna eksponentna preslikava \(f\) ustreza definiciji top
     \end{enumerate}
     Po izreku o inverzni funkciji zdaj obstaja okolica \(U\) točke \(z_{n_1}\) in veja \(\pi \colon U \to \CC\) preslikave \(f^{- n_1}\), ki \(z_{n_1}\) preslika v \(z_0\).
 
-    Naj bo \(K\) majhen zaprt disk okrog \(z_{n_1}\), tako da je \(K \subset U\). Po točki \ref{item:stiri} za dovolj velik \(n\), na primer \(n \geq n_0\), velja \(\psi_n (D_n) \subset K\). Tako lahko definirmo
+    Naj bo \(K\) majhen zaprt disk okrog \(z_{n_1}\), tako da je \(K \subset U\). Po točki \ref{item:stiri} za dovolj velik \(n\), na primer \(n \geq n_0\), velja \(\psi_n (D_n) \subset K\). Tako lahko definiramo
     \[\phi_n \colon D_n \to \CC; \qquad \phi_n (z) \coloneq \pi (\psi_n (z)).\]
     Taka preslikava po definiciji zadošča točki \ref{item:ena} in \ref{item:dva}. Po točki \ref{item:tri}, ki velja za \(\psi_n\), velja
     \[\sup_{z \in D_n} \absolute{\phi_n' (z)} = \sup_{z \in D_n} \prt{\absolute{\psi_n' (z)} \cdot \absolute{\pi' (\psi_n (z))}} \leq \max_{z \in D_n} \absolute{\psi_n' (z)} \cdot \sup_{w \in K} \absolute{\pi' (w)}.\]
-    Ker je \(K\) kompaktna, zvezna funkcija \(\absolute{\pi'}\) na njej zavzame svoj maksimum, ki je neodvisen of \(n\). Zato je
+    Ker je \(K\) kompaktna, zvezna funkcija \(\absolute{\pi'}\) na njej zavzame svoj maksimum, ki je neodvisen od \(n\). Zato je
     \[\lim_{n \to \infty} \max_{z \in D_n} \absolute{\psi_n' (z)} \cdot \sup_{w \in K} \absolute{\pi' (w)} = 0 \qquad\]
     in posledično
     \[\lim_{n \to \infty} \sup_{z \in D_n} \absolute{\phi_n' (z)} = 0.\]

@@ -15,13 +15,13 @@
     \[\abs{F_n (w)} = \abs{w} = \frac{\abs{f^n (r w + z^*) - z^*}}{r}\]
     ali ekvivalentno \(\abs{f^n (z) - z^*} = \abs{z - z^*}\) za vsak \(z \in \Delta (z^*, r)\). Ker to pomeni, da \(f^n (z)\) ne konvergira proti \(z^*\), smo prišli do protislovja.
 
-    Obratno, naj obstaja \(k \in \RR\), da vejla \(|f' (z^*)| < k < 1\). Iz definicije odvoda sledi, da obstaja \(r > 0\), da za vsak \(z \in \Delta (z^*, r)\) z \(z \neq z^*\) velja
+    Obratno, naj obstaja \(k \in \RR\), da velja \(|f' (z^*)| < k < 1\). Iz definicije odvoda sledi, da obstaja \(r > 0\), da za vsak \(z \in \Delta (z^*, r)\) z \(z \neq z^*\) velja
     \[\abs{\frac{f (z) - f (z^*)}{z - z^*}} < k.\]
     To je ekvivalentno \(|f (z) - z^*| \leq k |z - z^*|\). Induktivno nato pokažemo, da velja \(|f^n (z) - z^*| \leq k^n |z - z^*|\) za \(z \in \Delta (z^*, r)\) in \(z \neq z^*\). Ker je \(\lim_{n \to \infty} k^n = 0\), je \(z^*\) res privlačna.
 
     Naj bo sedaj \(z^*\) odbojna. Iz zgornjega dokaza vemo, da velja \(|f' (z^*)| \geq 1\). Ker \(|f' (z^*)| \neq 0\), je \(f\) lokalno biholomorfna na neki okolici točke \(z^*\). Torej lahko izberemo kompaktno okolico \(V\) točke \(z^*\), na kateri je \(f\) biholomorfna, \(z^*\) pa točke v \(V\) odbije, torej njihove orbite divergirajo iz \(V\). Za vsak \(k \in \NN\) nato definiramo
     \[V_k \coloneq V \cap f^{-1} (V) \cap \cdots \cap f^{- k} (V).\]
-    Vsaka \(V_k\) je kompaktna okolica \(z^*\), ki vsebuje vse točke \(z\), za katere \(f^j (z) \in V\) za \(1 \leq j \leq k\). Če označimo \(V_0 = V\), je zaporedje \((V_k)_{k \geq 0}\) padajoče zaporedje kompaktnih množic z \(\bigcap_k V_k = \set{z^*}\). Poleg tega iz definicije \(V_k\) sledi zveza \(f (V_k) = V_{k - 1} \cap f (V)\). Ker obstaja \(k_0 \in \NN\), tako da za vsak \(k \geq k_0\) velja \(V_k \subset f (V)\), velja tudi \(f (V_k) = V_{k - 1}\) za \(k \geq k_0\). Izberemo torej \(r > 0\), da \(\Delta (z^*, r) \subset V_{k_0}\) in tak \(h > k_0\), da je \(V_h \subset \Delta (z^*, r / 2)\). Z \(g\) označimo \((h - k_0)\)-to iteracijo \(f^{-1}\), to je \(g = (f^{-1})^{h - k_0}\). Tedaj vidimo, da velja
+    Vsaka \(V_k\) je kompaktna okolica \(z^*\), ki vsebuje vse točke \(z\), za katere \(f^j (z) \in V\) za \(1 \leq j \leq k\). Če označimo \(V_0 = V\), je zaporedje \((V_k)_{k \geq 0}\) padajoče zaporedje kompaktnih množic z \(\bigcap_k V_k = \set{z^*}\). Poleg tega iz definicije \(V_k\) sledi zveza \(f (V_k) = V_{k - 1} \cap f (V)\). Ker obstaja \(k_0 \in \NN\), tako da za vsak \(k \geq k_0\) velja \(V_k \subset f (V)\), velja tudi \(f (V_k) = V_{k - 1}\) za \(k \geq k_0\). Izberemo torej \(r > 0\), da je \(\Delta (z^*, r) \subset V_{k_0}\) in tak \(h > k_0\), da je \(V_h \subset \Delta (z^*, r / 2)\). Z \(g\) označimo \((h - k_0)\)-to iteracijo \(f^{-1}\), to je \(g = (f^{-1})^{h - k_0}\). Tedaj vidimo, da velja
     \[g \prt{\Delta (z^*, r)} \subset V_h \subset \Delta (z^*, r).\]
     Ker sta \(\Delta (z^*, r)\) in \(g \prt{\Delta (z^*, r)}\) enostavno povezani območji, lahko uporabimo Schwarzovo lemo \ref{lem:schwarz}, ki nam pove, da je \(|g' (z^*)| < 1\). Ker velja \(g' (z^*) = (1 / f' (z^*))^{h - k_0}\), je res \(|f' (z^*)| > 1\).
 
@@ -88,9 +88,9 @@ Naj bosta \(X\) in \(Y\) topološka prostora in \(C (X, Y)\) množica vseh zvezn
 \[\langle K, U \rangle \coloneq \set{f \in C (X, Y) : f (K) \subseteq U}.\]
 Najmanjšo topologijo, v kateri so vse take množice odprte, imenujemo \emph{kompaktno-odprta topologija}. Relativno kompaktne množice v tej topologiji imenujemo \emph{normalne družine}. V tem poglavju jih bomo prek topologije enakomerne konvergence po kompaktih definirali za holomorfne funkcije na nekem območju \(D \subseteq \CC\). Vemo namreč, da sta zgornji topologiji na metričnih prostorih enaki (glej \cite[trditev 3.2]{Pavesic_2017}).
 \begin{definicija}
-    Zaporedje holomorfnih funkcij \((f_n)\) na območju \(D \subseteq \CC\) konvergira k \(f\) \emph{enakomerno po kompaktih}, če za vsako kompaktno podmnožico \(K \subset D\) in vsak \(\varepsilon > 0\) obstaja obstaja \(n_0 \in \NN\), da za \(n \geq n_0\) velja \(|f_n (z) - f(z)| < \varepsilon\) za vse \(z \in K\).
+    Zaporedje holomorfnih funkcij \((f_n)\) na območju \(D \subseteq \CC\) konvergira k \(f\) \emph{enakomerno po kompaktih}, če za vsako kompaktno podmnožico \(K \subset D\) in vsak \(\varepsilon > 0\) obstaja \(n_0 \in \NN\), da za \(n \geq n_0\) velja \(|f_n (z) - f(z)| < \varepsilon\) za vse \(z \in K\).
 
-    Pravimo, da zaporedje \((f_n)\) konvergira k \(\infty\) enakomerno po kompaktih, če za vsako kompaktno podmnožico \(K \subset D\) in vsak \(M > 0\) obstaja obstaja \(n_0 \in \NN\), da za \(n \geq n_0\) velja \(|f_n (z)| > M\) za vse \(z \in K\).
+    Pravimo, da zaporedje \((f_n)\) konvergira k \(\infty\) enakomerno po kompaktih, če za vsako kompaktno podmnožico \(K \subset D\) in vsak \(M > 0\) obstaja \(n_0 \in \NN\), da za \(n \geq n_0\) velja \(|f_n (z)| > M\) za vse \(z \in K\).
 \end{definicija}
 
 \begin{primer} \label{ex:primer}
@@ -140,7 +140,7 @@ Na podlagi zadnjega sklepa lahko dokažemo tudi splošnejši izrek.
 
 \noindent Če na tem mestu upoštevamo izrek \ref{thm:orbits}, hitro vidimo, da je za kompleksno eksponentno preslikavo \(J (f) = \CC\) in \(F (f) = \emptyset\). To pa ne drži tudi za poljubno celo funkcijo. Če za primer navedemo \(f (z) \coloneq (e^z - 1) / 4\), potem se izkaže, da \((f^n)\) na \(\DD\) konvergira proti \num{0} enakomerno po kompaktih. Izhodišče je privlačna točka z multiplikatorjem enakim \(\frac{1}{4}\). Torej Fatoujeva množica vsebuje cel enotski disk.
 
-Kot zanimivost omenimo, da za polinome velja enakost \(\partial (B (f)) = J (f)\). V tem primeru zato množici \(B (f)\) pravimo \emph{napolnjena Juliajeva množica}. Posledično je zgornji izrek uporaben za vizualizacijo Juliajeve množice. Na njem temelji na primer \emph{algoritem vzvratne iteracije}. Slike, ki nastanejo, pa so pogosto zanimive, kot vidimo na sliki \ref{fig:julia}. Tu je upodobljena Juliajeva množica funkcije \(z^2 + c\) za \(c \approx \complexnum{-0.5125+0.5213i}\). Z modro in zeleno barvo obarvana obnočja so Fatoujeva množica, medtem ko so rumeno obarvana območja Juliajeva množica.
+Kot zanimivost omenimo, da za polinome velja enakost \(\partial (B (f)) = J (f)\). V tem primeru zato množici \(B (f)\) pravimo \emph{napolnjena Juliajeva množica}. Posledično je zgornji izrek uporaben za vizualizacijo Juliajeve množice. Na njem temelji na primer \emph{algoritem vzvratne iteracije}. Slike, ki nastanejo, pa so pogosto zanimive, kot vidimo na sliki \ref{fig:julia}. Tu je upodobljena Juliajeva množica funkcije \(z^2 + c\) za \(c \approx \complexnum{-0.5125+0.5213i}\). Z modro in zeleno barvo obarvana območja so Fatoujeva množica, medtem ko so rumeno obarvana območja Juliajeva množica.
 \begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{julia_set.pdf}
@@ -162,7 +162,7 @@ Vrnimo se k lastnostim Juliajeve množice. Naslednji izrek nam bo koristil kasne
     kjer je \(C\) konstanta, neodvisna od \(n\). Prišli smo do protislovja.
 \end{dokaz}
 
-Za konec navedemo še znamemit izrek in njegovo posledico. Da izrek drži za racionalne funkcije so vedeli že prej, za splošne cele funkcije pa ga je prvi dokazal avstralski matematik Irvine Noel Baker leta \num{1968} v članku \cite{Baker_1968}. Dokaz posledice najdemo v knjigi \cite[izreka 6.2.4 in 6.3.12]{Pineiro_2025}.
+Za konec navedemo še znamenit izrek in njegovo posledico. Da izrek drži za racionalne funkcije so vedeli že prej, za splošne cele funkcije pa ga je prvi dokazal avstralski matematik Irvine Noel Baker leta \num{1968} v članku \cite{Baker_1968}. Dokaz posledice najdemo v knjigi \cite[izreka 6.2.4 in 6.3.12]{Pineiro_2025}.
 
 \begin{izrek} \label{thm:closure}
     Juliajeva množica je enaka zaprtju množice odbojnih periodičnih točk.

@@ -25,7 +25,7 @@ Spomnimo se, da periodični točki \(p\) s periodo \(n\) pravimo \emph{odbojna},
         \label{fig:preimages}
     \end{figure}
 
-    Naj bodo \(w_n \coloneq L_n (z_0) \in V_n\). Naj bo \(\rho_1 \coloneq |w_0| + 3\) in naj bo \(D\) disk s polmerom \(2 \pi\) in sredičem v točki \(\zeta\), tako da je \(\re \zeta \geq \rho_1\). Ker je \(w_n = w_0 + n \cdot 2 \pi i\), obstaja \(n_0 \geq 1\), tako da
+    Naj bodo \(w_n \coloneq L_n (z_0) \in V_n\). Naj bo \(\rho_1 \coloneq |w_0| + 3\) in naj bo \(D\) disk s polmerom \(2 \pi\) in središčem v točki \(\zeta\), tako da je \(\re \zeta \geq \rho_1\). Ker je \(w_n = w_0 + n \cdot 2 \pi i\), obstaja \(n_0 \geq 1\), tako da
     \begin{equation} \label{eqn:zest}
         \abs{e^{\zeta}} - \pi \leq \abs{w_{n_0}} \leq \abs{e^{\zeta}} + \pi.
     \end{equation}
@@ -53,7 +53,7 @@ Spomnimo se, da periodični točki \(p\) s periodo \(n\) pravimo \emph{odbojna},
 
     Naj bo \(\Delta_1\) disk s središčem v \(z_0\), tako da velja \(\overline{\Delta_1} \subset \Delta\). Naj bodo \(z_n \coloneq f^n (z_0)\) in \(D_n \coloneq \Delta (z_n, 2 \pi)\) kot v poglavju \ref{sec:transitivity}. Naj bodo \(\set{\phi_n}_{n \geq n_0}\) inverzne veje iz trditve \ref{prop:small_disks}. Po točkah \ref{item:tri} in \ref{item:stiri} iz te trditve vemo, da je \(n_0\) dovolj velik, da velja \(\phi_n (z) \in \Delta_1\) in \(|\phi_n' (z)| \leq 1 / 2\) za vsak \(z \in D_n\).
 
-    Ker je \(z_0\) ubežna, obsataja \(N \geq n_0\) z \(\re z_n \geq \rho\) za vsak \(n \geq N\). Po lemi \ref{lem:inversebranches} imamo vejo \(\psi_n\) preslikave \(f^{-2}\) ki preslika \(\Delta\) v \(D_n\), za katero za vsak \(z \in \Delta\) velja \(|\psi_n' (z)| \leq 1\).
+    Ker je \(z_0\) ubežna, obstaja \(N \geq n_0\) z \(\re z_n \geq \rho\) za vsak \(n \geq N\). Po lemi \ref{lem:inversebranches} imamo vejo \(\psi_n\) preslikave \(f^{-2}\), ki preslika \(\Delta\) v \(D_n\), za katero za vsak \(z \in \Delta\) velja \(|\psi_n' (z)| \leq 1\).
 
     Sledi, da je \(\phi_n (\psi_n (\overline{\Delta_1})) \subset \phi_n (D_n) \subset \Delta_1\) in da je \(\phi_n \circ \psi_{n} \colon \overline{\Delta_1} \to \overline{\Delta_1}\) skrčitev. Ker je \(\overline{\Delta_1}\) kompaktna množica in zato poln podprostor prostora \(\CC\), lahko uporabimo Banachovo skrčitveno načelo, ki nam pove, da obstaja fiksna točka \(p \in \overline{\Delta}\). Po konstrukciji velja
     \begin{align*}
