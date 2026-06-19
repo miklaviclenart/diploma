@@ -1,0 +1,45 @@
+# Set figure
+figure.figsize : 5.905511811, 3
+figure.labelsize: medium
+figure.titlesize: medium
+
+# Set x axis
+xtick.labelsize: small
+xtick.major.size : 3
+xtick.major.width : 0.3
+xtick.minor.size : 1.5
+xtick.minor.width : 0.3
+xtick.minor.visible : False
+xtick.top : False
+
+# Set y axis
+ytick.labelsize: small
+ytick.major.size : 3
+ytick.major.width : 0.3
+ytick.minor.size : 1.5
+ytick.minor.width : 0.3
+ytick.minor.visible : False
+ytick.right : False
+
+# Set line widths
+lines.linewidth : 1.
+
+# Set fonts
+font.family : serif
+font.size: 10
+
+# Use LaTeX for math formatting
+text.usetex : True
+
+# Configure axes
+axes.formatter.use_locale: True
+axes.labelsize: 10
+axes.linewidth: 0.3
+axes.titlesize: medium
+axes.xmargin: 0.02
+axes.ymargin: 0.02
+
+# Save as pgf
+pgf.texsystem: pdflatex
+pgf.rcfonts: False
+pgf.preamble: \usepackage{amsmath, icomma}

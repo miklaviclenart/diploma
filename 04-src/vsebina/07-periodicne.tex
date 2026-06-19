@@ -17,11 +17,11 @@ Spomnimo se, da periodični točki \(p\) s periodo \(n\) pravimo \emph{odbojna},
     \[\im (L_n (z)) \in \prt{\Arg (z_0) + (2 n - 1) \pi, \Arg (z_0) + (2 n + 1) \pi}.\]
     Vsaka veja \(L_n\) je na \(\Delta\) holomorfna ter \(f (L_n (z)) = z\).
 
-    Opazujemo množice \(V_n \coloneq L_n (\Delta)\) za \(n \in \ZZ\). Ker je \(L_n (z) = L_0 (z) + 2 \pi i n\), je \(V_n = V_0 + n \cdot 2 \pi i\). Take množice tvorijo linearno zaporedje območij, katerih premeri so enakomerno omejeni (to je omejeni z isto konstanto) in divergirajo proti \(\pm \infty\) vzdolž imaginarne osi. Naj bo \(n \neq 0\). Potem na \(V_n\) lahko definiramo veje logaritma, torej vejo preslikave \(f^{-2}\), ki zavzame vrednosti v \(\Delta\). Pokazati moramo, da za disk \(D\) s polmerom \(2 \pi\), katerega središče je dovolj na desno, obstaja \(n \in \ZZ\) ter veja \(\psi\) preslikave \(f^{- 1}\), da bo \(\psi (V_n) \subset D\). To je razvidno iz slike \ref{fig:exponential}.
+    Opazujemo množice \(V_n \coloneq L_n (\Delta)\) za \(n \in \ZZ\). Ker je \(L_n (z) = L_0 (z) + 2 \pi i n\), je \(V_n = V_0 + n \cdot 2 \pi i\). Take množice tvorijo linearno zaporedje območij, katerih premeri so enakomerno omejeni (to je omejeni z isto konstanto) in divergirajo proti \(\pm \infty\) vzdolž imaginarne osi (glej sliko \ref{fig:preimages}). Naj bo \(n \neq 0\). Potem na \(V_n\) lahko definiramo veje logaritma, torej vejo preslikave \(f^{-2}\), ki zavzame vrednosti v \(\Delta\). Pokazati moramo, da za disk \(D\) s polmerom \(2 \pi\), katerega središče je dovolj na desno, obstaja \(n \in \ZZ\) ter veja \(\psi\) preslikave \(f^{- 1}\), da bo \(\psi (V_n) \subset D\). To je razvidno iz slike \ref{fig:exponential}.
     \begin{figure}
         \centering
-        \includegraphics[width=1\textwidth]{preimages.pdf}
-        \caption[]{Ilustracija dokaza leme \ref{lem:inversebranches}. Prikazani sta prva in druga praslika komponente za povezanost diska \(\Delta = \Delta (3, \frac{3}{2})\).}
+        \input{skripte/praslike.pgf}
+        \caption[]{Ilustracija dokaza leme \ref{lem:inversebranches}. Prikazani sta prva in druga praslika diska \(\Delta = \Delta (3, \frac{3}{2})\). Na srednji sliki so prikazane množice \(V_{-1}\), \(V_0\) in \(V_1\).}
         \label{fig:preimages}
     \end{figure}
 

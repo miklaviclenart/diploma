@@ -10,9 +10,9 @@
 
 \makeatletter
 \usepackage{epigraph}
-    \pretocmd{\@epitext}{\em}{}{}
-    \apptocmd{\@epitext}{\em}{}{}
-    \setlength{\epigraphrule}{0pt}
+\pretocmd{\@epitext}{\em}{}{}
+\apptocmd{\@epitext}{\em}{}{}
+\setlength{\epigraphrule}{0pt}
 \makeatother
 
 \newcommand{\NN}{\mathbb N}
@@ -53,3 +53,6 @@
 \newcommand{\zap}[1]{\left\{ #1_n \right\}_{n = 1}^{\infty}}
 
 \newcommand{\newfrac}[2]{{}^{#1}\!/_{\!#2}}
+
+% Za vstavljanje .pgf grafik
+\providecommand{\mathdefault}[1]{#1}
