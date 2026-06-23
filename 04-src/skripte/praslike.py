@@ -1,25 +1,23 @@
-import locale
-
 import numpy as np
 import matplotlib as mpl
-import matplotlib.pyplot as plt
 
 mpl.use("pgf")
+import matplotlib.pyplot as plt
+
 plt.style.use("style.mplstyle")
-locale.setlocale(locale.LC_NUMERIC, "sl_SI.UTF-8")
 
 ticks = [-2 * np.pi, -np.pi, 0, np.pi, 2 * np.pi]
 labels = [r"$-2\pi$", r"$-\pi$", r"$0$", r"$\pi$", r"$2\pi$"]
 
-STEP = 0.005
-Y_RANGE = (-9.0, 9.0)
+STEP = 0.004
+Y_RANGE = (-8.5, 8.5)
 CENTER = 3 + 0j
 RADIUS = 1.5
 
 PANELS = [
-    (-2.0, 6.0, 2),
-    (-1.0, 3.0, 1),
-    (-1.0, 7.0, 0),
+    (-1.5, 5.5, 2),
+    (-0.5, 2.5, 1),
+    (-0.5, 6.5, 0),
 ]
 
 fig, axes = plt.subplots(
@@ -42,7 +40,16 @@ for ax, (x_min, x_max, n_iter) in zip(axes, PANELS):
     ax.xaxis.set_major_locator(mpl.ticker.MultipleLocator(2))
     ax.yaxis.set_major_locator(mpl.ticker.FixedLocator(ticks))
     ax.yaxis.set_major_formatter(mpl.ticker.FixedFormatter(labels))
-    ax.contourf(X, Y, mask.astype(float), levels=[0.5, 1.5], cmap="gray")
+    ax.contourf(X, Y, mask, levels=[-0.5, 0.5, 1.5], colors=["1.0", "0.8"])
+    ax.contour(
+        X,
+        Y,
+        mask,
+        levels=[0.5],
+        colors="0",
+        linewidths=0.2,
+        alpha=0.5,
+    )
 
-plt.savefig("praslike.pgf")
+fig.savefig("praslike.pgf")
 plt.close(fig)
