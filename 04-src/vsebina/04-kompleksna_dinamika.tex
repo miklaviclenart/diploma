@@ -1,5 +1,7 @@
 \section{Kompleksna dinamika} \label{sec:komdin}
 
+S tem poglavjem prehajamo na glavno temo tega dela. Če smo v poglajvu \ref{sec:dis} obravnavali dinamične sisteme na splošnih metričnih prostorih, se od zdaj naprej posvetimo dinamičnim sistemom na kompleksni ravnini. Ključno vlogo bo odigrala holomorfnost, ki smo jo spoznali v prejšnjem poglavju. Ta definicije nekaterih osnovnih pojmov dinamičnih sistemov poenostavi in omogoči definicijo novih zanimivih struktur.
+
 \subsection{Kompleksne periodične točke}
 
 \noindent Za začetek se osredotočimo na periodične točke, ki smo jih spoznali že v razdelku \ref{ssec:periodic}. Definicijo privlačne in odbojne točke nam v kompleksni ravnini dodatno poenostavi naslednji izrek.
@@ -127,7 +129,7 @@ Za celo funkcijo \(f\) je \emph{Fatoujeva množica} sestavljena iz vseh točk \(
     Po primeru \ref{ex:primer} zaporedje iteracij funkcije \(f (z) = z^2\) na \(\DD\) konvergira k \(f \equiv 0\) enakomerno po kompaktih. Podobno premislimo, da na \(\CC \setminus \overline{\DD}\) zaporedje konvergira k \(\infty\) enakomerno po kompaktih. Na okolici točk iz \(\partial \DD\) takega sklepa nimamo, saj so prisotne tako točke, ki konvergirajo enakomerno po kompaktih k \(0\), kot tudi točke, ki konvergirajo k \(\infty\). Posledično limita ni zvezna in ne holomorfna, kar je bila zahteva iz izreka \ref{thm:holepk}. Zato je \(F (f) = \CC \setminus \partial \DD\) in \(J (f) = \partial \DD\).
 \end{primer}
 
-Na podlagi zadnjega sklepa lahko dokažemo tudi splošnejši izrek.
+\noindent Na podlagi zadnjega sklepa lahko dokažemo tudi splošnejši izrek.
 
 \begin{izrek} \label{thm:rob}
     Naj bo \(B (f)\) množica vseh točk \(z \in \CC\) z omejeno orbito. Tedaj velja
@@ -144,7 +146,7 @@ Kot zanimivost omenimo, da za polinome velja enakost \(\partial (B (f)) = J (f)\
 \begin{figure}
     \centering
     \import{skripte/}{julia.pgf}
-    \caption[Juliajeva množica]{Juliajeva množica funkcije \(z^2 + c\), koda prirejena po \href{https://commons.wikimedia.org/w/index.php?curid=75993344}{Wikipedia Commons}.}
+    \caption[Juliajeva množica]{Juliajeva množica funkcije \(z^2 + c\).}
     \label{fig:julia}
 \end{figure}
 
@@ -162,7 +164,7 @@ Vrnimo se k lastnostim Juliajeve množice. Naslednji izrek nam bo koristil kasne
     kjer je \(C\) konstanta, neodvisna od \(n\). Prišli smo do protislovja.
 \end{dokaz}
 
-Za konec navedemo še znamenit izrek in njegovo posledico. Da izrek drži za racionalne funkcije so vedeli že prej, za splošne cele funkcije pa ga je prvi dokazal avstralski matematik Irvine Noel Baker leta \num{1968} v članku \cite{Baker_1968}. Dokaz posledice najdemo v knjigi \cite[izreka 6.2.4 in 6.3.12]{Pineiro_2025}.
+Za konec navedemo še znamenit izrek in njegovo posledico. Da izrek drži za racionalne funkcije so vedeli že prej, za splošne cele funkcije pa ga je prvi dokazal avstralski matematik Irvine Noel Baker leta \num{1968} \cite{Baker_1968}. Dokaz posledice najdemo v knjigi \cite[izreka 6.2.4 in 6.3.12]{Pineiro_2025}.
 
 \begin{izrek} \label{thm:closure}
     Juliajeva množica je enaka zaprtju množice odbojnih periodičnih točk.
