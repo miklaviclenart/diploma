@@ -66,12 +66,13 @@ Na intuitivni ravni si besedo kaos navadno predstavljamo kot nered ali zmedo. V 
 Pravimo, da ima preslikava \(f\) \emph{gosto orbito}, če obstaja element \(x \in X\), katerega orbita je gosta podmnožica \(X\).
 
 \begin{trditev} \label{prop:tridevet}
-    Naj bo \(X\) metrični prostor brez izoliranih točk in \(f \colon X \to X\) zvezna preslikava. Če ima \(f\) gosto orbito, je topološko tranzitivna.
+    Naj bo \(X\) metrični prostor in \(f \colon X \to X\) zvezna preslikava. Če ima \(f\) gosto orbito, je topološko tranzitivna.
     % Če je \(M\) separabilen in \(\num{2}\)-števen, potem topološka tranzitivnost implicira gosto orbito.
 \end{trditev}
 
 \begin{dokaz}
-    Naj bo \(X\) brez izoliranih točk in \(\zap{z}\) gosta orbita. Potem za neprazni odprti množici \(U, V \subseteq M\) obstajata \(x_k \in U\) in \(x_k \in V \setminus \{x_0, x_1, \dots, x_k\}\). Slednja množica je prav tako odprta in neprazna. Ker je \(m > k\) in \(f^{m - k} (U) \cap V \neq \emptyset\), je \(f\) topološko tranzitivna.
+    Naj bosta \(U, V \subseteq X\) neprazni odprti množici in naj bo \(\zap{x}\) gosta orbita preslikave \(f\). Potem obstajata \(k, m \in \NN\), da velja \(x_k \in U\) in \(x_m \in V\). Brez škode za splošnost predpostavimo \(m \geq k\). Tedaj je \(x_k \in U\) ter \(f^{\, m - k} (x_k) \in V\).
+    % Naj bo \(X\) brez izoliranih točk in \(\zap{z}\) gosta orbita. Potem za neprazni odprti množici \(U, V \subseteq M\) obstajata \(x_k \in U\) in \(x_k \in V \setminus \{x_0, x_1, \dots, x_k\}\). Slednja množica je prav tako odprta in neprazna. Ker je \(m > k\) in \(f^{m - k} (U) \cap V \neq \emptyset\), je \(f\) topološko tranzitivna.
 
     % Naj bo \(M\) separabilen in \(\num{2}\)-števen ter naj \(f\) nima goste orbite. Naj bo \(\zap{V}\) števna baza prostora. Za vsak \(x \in M\) obstaja \(V_{n (x)}\), tako da za vsak \(k \geq 0\) velja \(f^k (x) \notin V_{n (x)}\). Ker pa je \(f\) topološko tranzitivna je
     % \[\bigcup_{k = 0}^{\infty} f^{- k} \prt{V_{n (x)}}\]
@@ -119,7 +120,7 @@ Devaney je v svoji prvotni definiciji kaotičnosti zahteval tudi naslednjo lastn
     Naj bo \((X, d)\) metrični prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) občutljiva na začetne pogoje, če obstaja \emph{občutljivostna konstanta} \(\delta > 0\), da za vsak \(x \in M\) in vsak \(\varepsilon > 0\) obstaja \(y \in M\), da je \(d (x, y) < \varepsilon\) in \(d (f^N (x), f^N (y)) \geq \delta\) za nek \(N \in \NN\).
 \end{definicija}
 
-\noindent To pomeni, da majhna motnja v začetnih pogojih lahko privede do znatnih sprememb pri iteraciji dinamičnega sistema. Vendar pa se izkaže, da te lastnosti pri definiciji kaotične preslikave v večini primerov ni potrebno zahtevati. Velja naslednji izrek.
+\noindent To pomeni, da majhna motnja v začetnih pogojih lahko privede do znatnih sprememb pri iteraciji dinamičnega sistema. Vendar pa se je izkazalo, da te lastnosti pri definiciji kaotične preslikave v večini primerov ni potrebno zahtevati. Leta \num{1992} so namreč dokazali naslednji izrek \cite{Banks_1992}.
 
 \begin{izrek}
     Naj bo \((X, d)\) neskončen metrični prostor in \(f \colon X \to X\) kaotična preslikava. Potem je \(f\) občutljiva na začetne pogoje, razen v primeru, ko je \(X\) sestavljen iz ene periodične orbite.
@@ -183,7 +184,7 @@ Na \(\Sigma_N\) definiramo metriko
 \[d (\overline{s}, \overline{s}^*) = \sum_{i = 0}^{\infty} \frac{|s_i - s_i^*|}{N^i}.\]
 
 \begin{izrek} \label{thm:blizu}
-    Naj bosta \(\overline{s}, \overline{t} \in \Sigma_N\). Potem je \(d(\overline{s}, \overline{t}) < 1/N^n\) natanko tedaj, ko \(s_i = t_i\) za \(i \leq n\).
+    Naj bosta \(\overline{s}, \overline{t} \in \Sigma_N\). Potem je \(d(\overline{s}, \overline{t}) < 1/N^n\) natanko tedaj, ko je \(s_i = t_i\) za \(i \leq n\).
 \end{izrek}
 
 \begin{dokaz}
@@ -239,5 +240,5 @@ Izkaže se, da je \(\sigma\) zvezna. Res, naj bo \(\varepsilon > 0\). Izberemo t
     \[X_2 = \bigcup_{s \neq s_i} \set{\overline{t} \in \Sigma_N : t_i = s},\]
     je dovolj, da pokažemo, da je \(X_1\) odprta. Za \(\overline{t} \in X_1\) izberemo tak \(\varepsilon\), da bo \(\varepsilon < 1 / N^i\). Po lemi \ref{lem:seq-metric} \(\overline{r} \in B (\overline{t}, \varepsilon)\) implicira \(r_j = t_j\) za \(j \leq i\). Torej \(r_i = s_i\) in zato \(B (\overline{t}, \varepsilon) \subset X_1\).
 
-    Dokaz sklenemo s preprostim razmislekom: iz topologije vemo, da je produkt družine kompaktnih prostorov kompakten v produktni topologiji.
+    Dokaz sklenemo s preprostim razmislekom: iz topologije vemo, da je produkt poljubne družine kompaktnih prostorov kompakten v produktni topologiji.
 \end{dokaz}

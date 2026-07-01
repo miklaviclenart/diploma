@@ -51,15 +51,15 @@ Za holomorfne funkcije, ki fiksirajo izhodišče, velja naslednja lema. Njen dok
 
 Če je \(f\) holomorfna na \(\CC\), pravimo, da je \emph{cela funkcija}. Vemo, da je to v \(\CC\) ekvivalentno pogoju, da je \(f\) kompleksno analitična pri vsakem \(z \in \CC\). Cela funkcija je \emph{transcendentna}, če ni polinom ali kvocient dveh polinomov. Pravimo, da je funkcija \emph{konformna}, če ohranja kote in smisel vrtenja. Vemo, da so holomorfne funkcije konformne natanko tedaj, ko je njihov odvod neničelen (glej \cite[izrek 78]{Globevnik_2010}).
 
-Funkcija \(f \colon U \to U'\) je \emph{biholomorfna}, če je bijektivna, holomorfna in ima holomorfen inverz \(f^{-1} \colon U' \to U\). Če je \(D\) območje in \(f \colon D \to D'\) bijektivna in holomorfna, vemo, da je biholomorfna (glej \cite[izrek 77]{Globevnik_2010}). \emph{Enostavno povezano} območje si intuitivno predstavljamo kot tisto območje, ki nima ``lukenj''. Natančno pa ga definiramo z naslednjim izrekom.
+Funkcija \(f \colon U \to U'\) je \emph{biholomorfna}, če je bijektivna, holomorfna in ima holomorfen inverz \(f^{-1} \colon U' \to U\). Če je \(D\) območje in \(f \colon D \to D'\) bijektivna in holomorfna, vemo, da je biholomorfna (glej \cite[izrek 77]{Globevnik_2010}). Območje je \emph{enostavno povezano}, če je homeomorfno enotskemu disku. Topološko definicijo nam s kompleksno lastnostjo poveže naslednji znamenit izrek.
 
 \begin{definicija}[Riemannov upodobitveni izrek]
-    Območje \(D \subsetneq \CC\) je \emph{enostavno povezano} natanko tedaj, ko obstaja biholomorfna funkcija \(\phi \colon D \to \DD\).
+    Vsako enostavno povezano območje različno od \(\CC\) je biholomorfno enotskemu disku.
 \end{definicija}
 
 \subsection{Kompleksni eksponent in logaritem}
 
-\noindent Kompleksna eksponentna preslikava je podana s predpisom
+\noindent Za \(z = x + i y \in \CC\) je kompleksna eksponentna preslikava podana s predpisom
 \[e^z = e^x (\cos y + i \sin y).\]
 Označimo \(u (x, y) = e^x \cos y\) in \(v (x, y) = e^x \sin y\) in izračunamo
 \[\frac{\partial u}{\partial x} (x, y) = e^x \cos y = \frac{\partial v}{\partial y} (x, y), \qquad \frac{\partial u}{\partial y} (x, y) = - e^x \sin y = -\frac{\partial v}{\partial x} (x, y).\]
@@ -138,7 +138,7 @@ Iz tega izhaja naslednja definicija.
 Definicijo nam iz enotskega diska na enostavno povezana območja prenese naslednji izrek, katerega dokaz najdemo v delu \cite[izrek 6.4]{Beardon_2006}.
 
 \begin{izrek}[Pick] \label{thm:pick}
-    Naj bosta \(U, V \subsetneq \CC\) enostavno povezani območji in \(f \colon U \to V\) holomorfna preslikava. Potem na \(U\) obstaja enolično določen hiperbolični ločni element \(\rho_U\), da veljajo naslednje izjave.
+    Naj bosta \(U, V \subsetneq \CC\) enostavno povezani območji in \(f \colon U \to V\) holomorfna preslikava. Potem na \(U\) obstaja enolično določena gostota hiperbolične metrike \(\rho_U\), da veljajo naslednje izjave.
     \begin{enumerate}
         \item Za vsak \(z \in \DD\) velja \(\rho_{\DD} (z) = \frac{2}{1 - |z|^2}\).
         \item Preslikava \(f\) ne veča \emph{hiperboličnega odvoda}, to pomeni, da velja \[\hder{f (z)}{U}{V} \coloneq |f' (z)| \cdot \frac{\rho_V (f (z))}{\rho_U (z)} \leq 1.\]

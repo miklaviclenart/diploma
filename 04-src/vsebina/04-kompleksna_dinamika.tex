@@ -82,7 +82,7 @@ Množica \(A\) je za funkcijo \(f\) \emph{naprej invariantna}, če je \(f (A) = 
 
 Posvetimo se še nefiksnim periodičnim točkam. Če je \(z_0\) \(p\)-periodična, potem so vse točke \(z_0, f (z_0), f^2 (z_0), \dots, f^{p - 1} (z_0)\) fiksne točke preslikave \(f^p\). Pišemo \(z_j = f^j (z_0)\) in uporabimo verižno pravilo:
 \[(f^p)' (z_j) = f' \prt{f^{p - 1} (z_j)} f' \prt{f^{p - 2} (z_j)} \dots f' \prt{f (z_j)} f' (z_j) = \prod_{k = 0}^{p - 1} f' (z_k).\]
-To pomeni, da imajo vse točke \(z_j\) isti multiplikator \(K\). Če je \(K < 1\), pravimo, da je \(p\)-cikel privlačen. Če pa je \(K > 1\), pravimo, da je \(p\)-cikel odbojen.
+To pomeni, da imajo vse točke \(z_j\) isti multiplikator. Naj bo \(K \coloneq \prod_{k = 0}^{p - 1} | f' (z_k) |\). Če je \(K < 1\), pravimo, da je \(p\)-cikel privlačen. Če pa je \(K > 1\), pravimo, da je \(p\)-cikel odbojen.
 
 \subsection{Normalne družine}
 
@@ -108,7 +108,7 @@ Najmanjšo topologijo, v kateri so vse take množice odprte, imenujemo \emph{kom
 \end{izrek}
 
 \begin{dokaz}
-    Naj bo \(\overline{\Delta (a, r)} \subseteq D\). Ker je \(\overline{\Delta (a, r)}\) kompaktna, zaporedje \(f_n\) tu enakomerno konvergira proti \(f\). Poleg tega vsaka funkcija \(f_n\) za vsak \(z \in \Delta (a, r)\) zadošča Cauchyjevi integralski formuli
+    Naj bo \(\overline{\Delta (a, r)} \subseteq D\). Ker je \(\overline{\Delta (a, r)}\) kompaktna, zaporedje \(f_n\) tu enakomerno konvergira proti \(f\). Poleg tega vsaka funkcija \(f_n\) za vsak \(z \in \Delta (a, r)\) zadošča Cauchyjevi integralski formuli (glej \cite[izrek 50]{Globevnik_2010})
     \[f_n (z) = \frac{1}{2 \pi i} \int_{\partial \Delta (a, r)} \frac{f_n (w)}{w - z} \, \dd w.\]
     Ker je konvergenca enakomerna, lahko zamenjamo limito in integral
     \[f (z) = \lim_{n \to \infty} f_n (z) = \lim_{n \to \infty} \frac{1}{2 \pi i} \int_{\partial \Delta (a, r)} \frac{f_n (w)}{w - z} \, \dd w = \frac{1}{2 \pi i} \int_{\partial \Delta (a, r)} \frac{f (w)}{w - z} \, \dd w.\]
@@ -129,7 +129,7 @@ Za celo funkcijo \(f\) je \emph{Fatoujeva množica} sestavljena iz vseh točk \(
     Po primeru \ref{ex:primer} zaporedje iteracij funkcije \(f (z) = z^2\) na \(\DD\) konvergira k \(f \equiv 0\) enakomerno po kompaktih. Podobno premislimo, da na \(\CC \setminus \overline{\DD}\) zaporedje konvergira k \(\infty\) enakomerno po kompaktih. Na okolici točk iz \(\partial \DD\) takega sklepa nimamo, saj so prisotne tako točke, ki konvergirajo enakomerno po kompaktih k \(0\), kot tudi točke, ki konvergirajo k \(\infty\). Posledično limita ni zvezna in ne holomorfna, kar je bila zahteva iz izreka \ref{thm:holepk}. Zato je \(F (f) = \CC \setminus \partial \DD\) in \(J (f) = \partial \DD\).
 \end{primer}
 
-\noindent Na podlagi zadnjega sklepa lahko dokažemo tudi splošnejši izrek.
+\noindent Na podlagi zadnjega sklepa v zgornjem primeru lahko dokažemo tudi splošnejši izrek.
 
 \begin{izrek} \label{thm:rob}
     Naj bo \(B (f)\) množica vseh točk \(z \in \CC\) z omejeno orbito. Tedaj velja

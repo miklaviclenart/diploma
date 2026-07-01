@@ -1,13 +1,13 @@
 \subsection{Gostost periodičnih točk}
 
-Spomnimo se, da periodični točki \(p\) s periodo \(n\) pravimo \emph{odbojna}, če je \(\abs{(f^n)' (p)} > 1\). Intuitivno to pomeni, da se vsaka točka, ki je blizu \(p\), od njene orbite ``oddalji''. Tako dokažemo močnejšo različico izreka o gostoti odbojnih točk.
+Spomnimo se, da periodični točki \(p\) s periodo \(n\) pravimo \emph{odbojna}, če je \(\abs{(F^n)' (p)} > 1\). Intuitivno to pomeni, da se vsaka točka, ki je blizu \(p\), od njene orbite ``oddalji''. Tako dokažemo močnejšo različico izreka o gostoti odbojnih točk. Opomnimo, da \(f\) še vedno označuje kompleksno eksponentno preslikavo.
 
 \begin{izrek}[Gostost odbojnih periodičnih točk] \label{thm:periodicdense}
-    Naj bo \(U \subset \CC\) neprazna in odprta množica. Potem obstaja odbojna periodična točka \(p \in U\).
+    Naj bo \(U \subset \CC\) neprazna in odprta množica. Potem obstaja odbojna periodična točka \(p \in U\) preslikave \(f\).
 \end{izrek}
 
 \begin{lema}[Veje inverza preslikave \texorpdfstring{\(f^2\)}{f^2}] \label{lem:inversebranches}
-    Naj bo \(z_0 \in \CC \setminus \set{0}\). Potem obstaja disk \(\Delta\) s središčem v \(z_0\) in število \(\rho \geq 0\) z naslednjo lastnostjo. Za vsak disk \(D\) z radijem \(2 \pi\) in središčem v točki z realnim delom vsaj \(\rho\), obstaja preslikava \(\phi \colon \Delta \to D\), za katero je \(f^2 \prt{\phi (z)} = z\) in \(|\phi' (z)| \leq 1\) za vsak \(z \in \Delta\).
+    Naj bo \(z_0 \in \CC \setminus \set{0}\). Potem obstajata disk \(\Delta\) s središčem v \(z_0\) in število \(\rho \geq 0\), da za vsak disk \(D\) radija \(2 \pi\) in središčem v točki \(\zeta \in [\rho, \infty) \times \CC\), obstaja preslikava \(\phi \colon \Delta \to D\), za katero je \(f^2 \prt{\phi (z)} = z\) in \(|\phi' (z)| \leq 1\) za vsak \(z \in \Delta\).
 \end{lema}
 
 \noindent Lema nekoliko posploši trditev \ref{prop:lare_disks}. Poleg tega, da okrog \(z_0\) obstaja disk \(\Delta\), ki je v celoti vsebovan v \(f^2 (D)\), na \(\Delta\) lahko definiramo vejo preslikave \(f^{-2}\), ki slika v \(D\).
