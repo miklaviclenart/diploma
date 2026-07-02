@@ -28,6 +28,9 @@ lines.linewidth : 1.
 font.family : serif
 font.size: 10
 
+# Set image (for PDF/A-2b)
+image.interpolation : none
+
 # Use LaTeX for math formatting
 text.usetex : True
 

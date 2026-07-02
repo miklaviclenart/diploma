@@ -13,7 +13,7 @@ Neprazno, odprto in povezano podmnožico kompleksnih števil \(D \subseteq \CC\)
     \[\lim_{w \to z} \frac{f (w) - f (z)}{w - z} = \lim_{\zeta \to 0} \frac{f (z + \zeta) - f (z)}{\zeta}.\]
 \end{definicija}
 
-Holomorfnost razumemo kot odvedljivost v kompleksnem smislu. Zato zgornji limiti pravimo \emph{odvod funkcije \(f\) v točki \(z\)} in jo označimo z \(f' (z)\). Kot za realne veljajo tudi za kompleksne funkcije običajna pravila za odvajanje. Poleg tega pa nam holomorfnost karakterizira tudi naslednji izrek. Dokaz najdemo v knjigi \cite[izrek 43]{Globevnik_2010}.
+Holomorfnost razumemo kot odvedljivost v kompleksnem smislu. Zato zgornji limiti pravimo \emph{odvod funkcije \(f\) v točki \(z\)} in jo označimo s \(f' (z)\). Kot za realne veljajo tudi za kompleksne funkcije običajna pravila za odvajanje. Poleg tega pa nam holomorfnost karakterizira tudi naslednji izrek. Dokaz najdemo v knjigi \cite[izrek 43]{Globevnik_2010}.
 
 \begin{izrek} \label{thm:cr}
     Funkcija \(f = u + i v\) je na množici \(U\) holomorfna natanko tedaj, ko sta \(u\) in \(v\) na množici \(\set{(x, y) \in \RR^2 : x + i y \in U}\) zvezno parcialno odvedljivi in zadoščata \emph{Cauchy-Riemannovemu sistemu enačb}
@@ -72,7 +72,7 @@ je tudi \(2\pi i\)-periodičen in posledično nima inverza. Res, naj bo \(w = u 
 \end{align*}
 Torej je \(e^w = z\) natanko tedaj, ko je
 \[w = \ln |z| + i \Arg (z) + 2 k \pi i\]
-za nek \(k \in \ZZ\). Prav tako bi lahko namesto \(\Arg\) izbrali \(\arg\). Da lahko definiramo inverz, moramo domeno omejiti. Naj bo \(\theta \in \RR\). Potem je
+za neki \(k \in \ZZ\). Prav tako bi lahko namesto \(\Arg\) izbrali \(\arg\). Da lahko definiramo inverz, moramo domeno omejiti. Naj bo \(\theta \in \RR\). Potem je
 \[\begin{multlined}[10cm]
         \exp \colon  \set{\zeta \in \CC \colon \theta -\pi < \im \zeta < \theta + \pi}\\
         \to \set{\omega \in \CC \colon \Arg (\omega) \not\equiv \theta - \pi\ (\operatorname{mod}\, 2 \pi)} \eqcolon U

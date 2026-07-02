@@ -73,8 +73,8 @@
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.634555in}{0.425158in}}{\pgfqpoint{5.147400in}{3.431600in}}%
 \pgfusepath{clip}%
-\pgfsys@transformshift{0.635000in}{0.425000in}%
-\pgftext[left,bottom]{\includegraphics[interpolate=true,width=5.146667in,height=3.431667in]{julia-img0.png}}%
+\pgfsys@transformcm{5.147400}{0.000000}{0.000000}{3.431600}{0.634555in}{0.425158in}%
+\pgftext[left,bottom]{\includegraphics[interpolate=false,width=1.000000in,height=1.000000in]{julia-img0.png}}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%

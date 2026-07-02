@@ -17,7 +17,7 @@ S tem poglavjem prehajamo na glavno temo tega dela. Če smo v poglajvu \ref{sec:
     \[\abs{F_n (w)} = \abs{w} = \frac{\abs{f^n (r w + z^*) - z^*}}{r}\]
     ali ekvivalentno \(\abs{f^n (z) - z^*} = \abs{z - z^*}\) za vsak \(z \in \Delta (z^*, r)\). Ker to pomeni, da \(f^n (z)\) ne konvergira proti \(z^*\), smo prišli do protislovja.
 
-    Obratno, naj obstaja \(k \in \RR\), da velja \(|f' (z^*)| < k < 1\). Iz definicije odvoda sledi, da obstaja \(r > 0\), da za vsak \(z \in \Delta (z^*, r)\) z \(z \neq z^*\) velja
+    Obratno, naj obstaja \(k \in \RR\), da velja \(|f' (z^*)| < k < 1\). Iz definicije odvoda sledi, da obstaja \(r > 0\), da za vsak \(z \in \Delta (z^*, r)\); \(z \neq z^*\) velja
     \[\abs{\frac{f (z) - f (z^*)}{z - z^*}} < k.\]
     To je ekvivalentno \(|f (z) - z^*| \leq k |z - z^*|\). Induktivno nato pokažemo, da velja \(|f^n (z) - z^*| \leq k^n |z - z^*|\) za \(z \in \Delta (z^*, r)\) in \(z \neq z^*\). Ker je \(\lim_{n \to \infty} k^n = 0\), je \(z^*\) res privlačna.
 
@@ -68,21 +68,25 @@ Množica \(A\) je za funkcijo \(f\) \emph{naprej invariantna}, če je \(f (A) = 
 \noindent Komponenta za povezanost \(\Omega (f, z^*)\), ki vsebuje \(z^*\), se imenuje \emph{neposredno območje privlaka} \(z^*\). Označimo ga z \(\Omega_0 (f, z^*)\). Ker je \(f (\Omega_0 (f, z^*))\) povezana in vsebuje točko \(z^*\), velja \(f (\Omega_0 (f, z^*)) \subset \Omega_0 (f, z^*)\).
 
 \begin{trditev} \label{prop:privlak}
-    Naj bo \(f\) cela funkcija in \(\Omega \subset \CC\) enostavno povezano območje, ki je popolnoma invariantno za \(f\). Če je \(z^{*} \in \Omega\) (super)privlačna fiksna točka \(f\), je \(\Omega\) vsebovana v neposrednem območju privlaka \(z^*\).
+    Naj bo \(f\) cela funkcija in \(\Omega \subsetneq \CC\) enostavno povezano območje, ki je popolnoma invariantno za \(f\). Če je \(z^{*} \in \Omega\) (super)privlačna fiksna točka \(f\), je \(\Omega\) vsebovana v neposrednem območju privlaka \(z^*\).
 \end{trditev}
 
 \begin{dokaz}
-    Po Riemannovem upodobitvenem izreku obstaja biholomorfna funkcija \(\phi \colon \DD \to \Omega\), za katero velja \(\phi (0) = z^*\). Definiramo konjugiranko \(g \coloneq \phi^{-1} \circ f \circ \phi\); \(g \colon \DD \to \DD\). Potem je \(g\) holomorfna, \(\DD\) popolnoma invariantna za \(g\) in velja \(g (0) = 0\). Poleg tega je \(0\) privlačna fiksna točka \(g\), saj velja \(g' (0) = f' (z^*)\). Torej lahko uporabimo Schwarzovo lemo \ref{lem:schwarz}, ki nam pove, da za vsak \(z \in \DD\)  velja \(|g^{n+1} (z)| = |g (g^n (z))| \leq |g^n (z)|\). To pomeni, da je zaporedje \(|g^n (z)|\) padajoče. Ker je omejeno, konvergira k nekemu \(r \in [0, 1)\).
+    Po Riemannovem upodobitvenem izreku obstaja biholomorfna funkcija \(\phi \colon \DD \to \Omega\). Torej obstaja \(a \in \DD\), da je \(\phi (a) = z^*\). Če preslikavo \(\phi\) predkomponiramo z biholomorfno M\"{o}biousovo transformacijo diska \(z \mapsto \frac{z+a}{1+\bar{a}z}\), ki izhodišče slika v točko \(a\), lahko brez škode za splošnost predpostavimo kar, da velja \(\phi (0) = z^*\). Definiramo konjugiranko \(g \coloneq \phi^{-1} \circ f \circ \phi\); \(g \colon \DD \to \DD\). Potem je \(g\) holomorfna, \(\DD\) popolnoma invariantna za \(g\) in velja \(g (0) = 0\). Poleg tega je \(0\) privlačna fiksna točka \(g\), saj velja \(| g' (0) | = | f' (z^*) |\). Torej lahko uporabimo Schwarzovo lemo \ref{lem:schwarz}, ki nam pove, da za vsak \(z \in \DD\)  velja \(|g^{n+1} (z)| = |g (g^n (z))| \leq |g^n (z)|\). To pomeni, da je za vsak \(z \in \DD\) zaporedje \(|g^n (z)|\) padajoče. Ker je omejeno, konvergira k nekemu \(r (z) \in [0, 1)\).
 
-    Dokazati moramo, da je \(r = 0\). Ker je zaporedje \(g^n (z)\) omejeno, ima po Bolzano-Weierstrassovem izreku (glej \cite[str.~51]{Pavesic_2017}) konvergentno podzaporedje \(g^{n_k} (z)\) z limito \(w^* \in \DD\). Po zveznosti absolutne vrednosti tedaj velja
-    \[|w^*| = \abs{\lim_{k \to \infty} g^{n_k} (z)} = \lim_{k \to \infty} |g^{n_k} (z)| = r.\]
-    Ker pa je \(w^*\) tudi fiksna točka funkcije \(g\), po Schwarzovi lemi velja \(w = 0\) in zato \(r = 0\). Naj bo \(w \in \Omega\). Potem je \(\phi (w) \in \DD\) in zato
+    Dokazati moramo, da je \(r (z) = 0\) za vse \(z \in \DD\). Ker je zaporedje \(g^n (z)\) omejeno, ima po Bolzano-Weierstrassovem izreku konvergentno podzaporedje \(g^{n_k} (z)\) z limito \(w^* (z) \in \DD\). Zaradi zveznosti absolutne vrednosti nadalje velja
+    \[|w^* (z)| = \abs{\lim_{k \to \infty} g^{n_k} (z)} = \lim_{k \to \infty} |g^{n_k} (z)| = r (z).\]
+    Premislimo, da je \(w^* (z)\) fiksna točka funkcije \(g\). Zaradi zveznosti velja
+    \[w^* (z) = \lim_{k \to \infty} g^{n_k} (z) = \lim_{k \to \infty} g^{n_{k+1}} (z) = g (w^* (z)).\]
+    Vemo, da je \(| g' (0) | < 1\), torej po Schwarzovi lemi za vse \(z\neq 0\) velja \(| g (z) | < |z|\). V posebnem, izhodišče je edina fiksna točka \(g\). Torej je \(w^* (z) = 0\) in \(r (z) = 0\) za poljuben \(z \in \DD\).
+
+    Naj bo \(w \in \Omega\). Potem je \(\phi (w) \in \DD\) in zato
     \[\lim_{n \to \infty} f^n (w) = \lim_{n \to \infty} \phi \prt{g^{n} \prt{\phi^{-1} (w)}} = \phi (0) = z^*.\]
 \end{dokaz}
 
-Posvetimo se še nefiksnim periodičnim točkam. Če je \(z_0\) \(p\)-periodična, potem so vse točke \(z_0, f (z_0), f^2 (z_0), \dots, f^{p - 1} (z_0)\) fiksne točke preslikave \(f^p\). Pišemo \(z_j = f^j (z_0)\) in uporabimo verižno pravilo:
-\[(f^p)' (z_j) = f' \prt{f^{p - 1} (z_j)} f' \prt{f^{p - 2} (z_j)} \dots f' \prt{f (z_j)} f' (z_j) = \prod_{k = 0}^{p - 1} f' (z_k).\]
-To pomeni, da imajo vse točke \(z_j\) isti multiplikator. Naj bo \(K \coloneq \prod_{k = 0}^{p - 1} | f' (z_k) |\). Če je \(K < 1\), pravimo, da je \(p\)-cikel privlačen. Če pa je \(K > 1\), pravimo, da je \(p\)-cikel odbojen.
+Posvetimo se še nefiksnim periodičnim točkam. Če je \(z_0\) \(p\)-periodična, potem so vse točke \(z_0, f (z_0), f^2 (z_0), \dots, f^{p - 1} (z_0)\) fiksne točke preslikave \(f^p\). Pišimo \(z_j = f^j (z_0)\) in kot multiplikator točke \(z_j\) definirajmo število \(K_j = | (f^p)' (z_j) |\). Radi bi videli, da je multiplikator neodvisen od izbora točke v ciklu. Uporabimo verižno pravilo:
+\[K_j = (f^p)' (z_j) = f' \prt{f^{p - 1} (z_j)} f' \prt{f^{p - 2} (z_j)} \dots f' \prt{f (z_j)} f' (z_j) = \prod_{k = 0}^{p - 1} f' (z_k).\]
+To pomeni, da imajo vse točke \(z_j\) isti multiplikator, ki ga označimo kar s \(K\). Če je \(K < 1\), pravimo, da je \(p\)-cikel privlačen. Če pa je \(K > 1\), pravimo, da je \(p\)-cikel odbojen.
 
 \subsection{Normalne družine}
 
@@ -123,7 +127,7 @@ Najmanjšo topologijo, v kateri so vse take množice odprte, imenujemo \emph{kom
 
 Pri preučevanju dinamike funkcij, lahko domeno razdelimo na dva množici. Prvo, na kateri je obnašanje funkcije ``predvidljivo'', imenujemo Fatoujeva množica, drugo, na kateri je obnašanje kaotično, pa imenujemo Juliajeva množica. Natančneje ju opredeli naslednja definicija.
 
-Za celo funkcijo \(f\) je \emph{Fatoujeva množica} sestavljena iz vseh točk \(z_0\), za katere velja, da je \((f^n)\) normalna na neki okolici točke \(z_0\). Označimo jo z \(F (f)\). Njen komplement \(J (f) \coloneq \CC \setminus F (f)\) je \emph{Juliajeva množica}. Po definiciji vidimo, da je Fatoujeva množica vedno odprta, Juliajeva pa vedno zaprta.
+Za celo funkcijo \(f\) je \emph{Fatoujeva množica} sestavljena iz vseh točk \(z_0\), za katere velja, da je \((f^n)\) normalna na neki okolici točke \(z_0\). Označimo jo s \(F (f)\). Njen komplement \(J (f) \coloneq \CC \setminus F (f)\) je \emph{Juliajeva množica}. Po definiciji vidimo, da je Fatoujeva množica vedno odprta, Juliajeva pa vedno zaprta.
 
 \begin{primer}
     Po primeru \ref{ex:primer} zaporedje iteracij funkcije \(f (z) = z^2\) na \(\DD\) konvergira k \(f \equiv 0\) enakomerno po kompaktih. Podobno premislimo, da na \(\CC \setminus \overline{\DD}\) zaporedje konvergira k \(\infty\) enakomerno po kompaktih. Na okolici točk iz \(\partial \DD\) takega sklepa nimamo, saj so prisotne tako točke, ki konvergirajo enakomerno po kompaktih k \(0\), kot tudi točke, ki konvergirajo k \(\infty\). Posledično limita ni zvezna in ne holomorfna, kar je bila zahteva iz izreka \ref{thm:holepk}. Zato je \(F (f) = \CC \setminus \partial \DD\) in \(J (f) = \partial \DD\).
@@ -171,5 +175,5 @@ Za konec navedemo še znamenit izrek in njegovo posledico. Da izrek drži za rac
 \end{izrek}
 
 \begin{posledica}
-    Za celo funkcijo \(f\) je Juliajeva množica \(J (f)\) vedno neštevno neskončna in velja \(f^{-1} (J (f)) = J (f)\). Poleg tega je zožitev funkcije \(f \colon J (f) \to J (f)\) kaotična v smislu Devaneya.
+    Za celo funkcijo \(f\) je Juliajeva množica \(J (f)\) vedno neštevno neskončna in velja \(f^{-1} (J (f)) = J (f)\). Poleg tega je zožitev funkcije \(f \colon J (f) \to J (f)\) kaotična v smislu Devaneyja.
 \end{posledica}

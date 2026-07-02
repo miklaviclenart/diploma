@@ -117,7 +117,7 @@ Pravimo, da ima preslikava \(f\) \emph{gosto orbito}, če obstaja element \(x \i
 Devaney je v svoji prvotni definiciji kaotičnosti zahteval tudi naslednjo lastnost.
 
 \begin{definicija}[Občutljivost na začetne pogoje]
-    Naj bo \((X, d)\) metrični prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) občutljiva na začetne pogoje, če obstaja \emph{občutljivostna konstanta} \(\delta > 0\), da za vsak \(x \in M\) in vsak \(\varepsilon > 0\) obstaja \(y \in M\), da je \(d (x, y) < \varepsilon\) in \(d (f^N (x), f^N (y)) \geq \delta\) za nek \(N \in \NN\).
+    Naj bo \((X, d)\) metrični prostor in \(f \colon X \to X\) zvezna preslikava. Pravimo, da je \(f\) občutljiva na začetne pogoje, če obstaja \emph{občutljivostna konstanta} \(\delta > 0\), da za vsak \(x \in M\) in vsak \(\varepsilon > 0\) obstaja \(y \in M\), da je \(d (x, y) < \varepsilon\) in \(d (f^N (x), f^N (y)) \geq \delta\) za neki \(N \in \NN\).
 \end{definicija}
 
 \noindent To pomeni, da majhna motnja v začetnih pogojih lahko privede do znatnih sprememb pri iteraciji dinamičnega sistema. Vendar pa se je izkazalo, da te lastnosti pri definiciji kaotične preslikave v večini primerov ni potrebno zahtevati. Leta \num{1992} so namreč dokazali naslednji izrek \cite{Banks_1992}.
@@ -178,7 +178,7 @@ Devaney je v svoji prvotni definiciji kaotičnosti zahteval tudi naslednjo lastn
 
 Simbolična dinamika je orodje, ki nam pomaga pri preučevanju dinamičnih sistemov. Z njo smo se srečali že v zgledu \ref{ex:double}, kjer je bila ključna za dokaz topološke tranzitivnosti.
 
-Naj bo \(N \geq 2\) naravno število. Z \(\Sigma_N\) označimo množico neskončnih zaporedij \(\overline{s} = (s_0, s_1, s_2, \dots)\), definirano kot
+Naj bo \(N \geq 2\) naravno število. S \(\Sigma_N\) označimo množico neskončnih zaporedij \(\overline{s} = (s_0, s_1, s_2, \dots)\), definirano kot
 \[\Sigma_N \coloneq \set{\overline{s} = (s_0, s_1, s_2, \dots) : - N \leq s_i \leq N, s_i \in \ZZ}.\]
 Na \(\Sigma_N\) definiramo metriko
 \[d (\overline{s}, \overline{s}^*) = \sum_{i = 0}^{\infty} \frac{|s_i - s_i^*|}{N^i}.\]
@@ -190,7 +190,7 @@ Na \(\Sigma_N\) definiramo metriko
 \begin{dokaz}
     Če je \(s_i = t_i\) za \(i \leq n\), velja
     \[d(\overline{s}, \overline{t}) = \sum_{i = n + 1}^{\infty} \frac{|s_i - t_i|}{N^i} \leq \sum_{i = n + 1}^{\infty} \frac{1}{N^i} = \frac{1}{N^n}.\]
-    Če \(s_j \neq t_j\) za nek \(j \leq n\), mora veljati
+    Če \(s_j \neq t_j\) za neki \(j \leq n\), mora veljati
     \[d(\overline{s}, \overline{t}) \geq \frac{1}{2^j} \geq \frac{1}{N^n}.\]
 \end{dokaz}
 
@@ -209,7 +209,7 @@ za \(k \geq 0\) tvorijo bazo okolic \(\overline{s}\) za topologijo porojeno z zg
 \begin{dokaz}
     (1) Naj bosta \(\overline{s}, \overline{t} \in \Sigma_N\) taka, da je \(s_i = t_i\) za \(i \leq k\). Potem je
     \[d (\overline{s}, \overline{t}) = \sum_{i \geq k + 1} \frac{|s_i - t_i|}{N^i} \leq 2 N \sum_{i \geq k + 1} \frac{1}{N^i} = \frac{2}{N^{k - 1} (N - 1)}.\]
-    (2) Če je \(s_i \neq t_i\) za nek \(i \leq k\), je
+    (2) Če je \(s_i \neq t_i\) za neki \(i \leq k\), je
     \[d (\overline{s}, \overline{t}) \geq \frac{|s_i - t_i|}{N^i} > \frac{1}{N^i} \geq \frac{1}{N^k}.\]
 \end{dokaz}
 
