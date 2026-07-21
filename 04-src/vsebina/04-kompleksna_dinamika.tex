@@ -78,7 +78,7 @@ Množica \(A\) je za funkcijo \(f\) \emph{naprej invariantna}, če je \(f (A) = 
     \[|w^* (z)| = \abs{\lim_{k \to \infty} g^{n_k} (z)} = \lim_{k \to \infty} |g^{n_k} (z)| = r (z).\]
     Premislimo, da je \(w^* (z)\) fiksna točka funkcije \(g\). Zaradi zveznosti velja
     \[w^* (z) = \lim_{k \to \infty} g^{n_k} (z) = \lim_{k \to \infty} g^{n_{k+1}} (z) = g (w^* (z)).\]
-    Vemo, da je \(| g' (0) | < 1\), torej po Schwarzovi lemi za vse \(z\neq 0\) velja \(| g (z) | < |z|\). V posebnem, izhodišče je edina fiksna točka \(g\). Torej je \(w^* (z) = 0\) in \(r (z) = 0\) za poljuben \(z \in \DD\).
+    Vemo, da je \(| g' (0) | < 1\), torej po Schwarzovi lemi za vse \(z \neq 0\) velja \(| g (z) | < |z|\). V posebnem, izhodišče je edina fiksna točka \(g\). Torej je \(w^* (z) = 0\) in \(r (z) = 0\) za poljuben \(z \in \DD\).
 
     Naj bo \(w \in \Omega\). Potem je \(\phi (w) \in \DD\) in zato
     \[\lim_{n \to \infty} f^n (w) = \lim_{n \to \infty} \phi \prt{g^{n} \prt{\phi^{-1} (w)}} = \phi (0) = z^*.\]
@@ -125,7 +125,7 @@ Najmanjšo topologijo, v kateri so vse take množice odprte, imenujemo \emph{kom
 
 \subsection{Fatoujeva in Juliajeva množica}
 
-Pri preučevanju dinamike funkcij, lahko domeno razdelimo na dva množici. Prvo, na kateri je obnašanje funkcije ``predvidljivo'', imenujemo Fatoujeva množica, drugo, na kateri je obnašanje kaotično, pa imenujemo Juliajeva množica. Natančneje ju opredeli naslednja definicija.
+Pri preučevanju dinamike funkcij, lahko domeno razdelimo na dve množici. Prvo, na kateri je obnašanje funkcije ``predvidljivo'', imenujemo Fatoujeva množica, drugo, na kateri je obnašanje kaotično, pa imenujemo Juliajeva množica. Natančneje ju opredeli naslednja definicija.
 
 Za celo funkcijo \(f\) je \emph{Fatoujeva množica} sestavljena iz vseh točk \(z_0\), za katere velja, da je \((f^n)\) normalna na neki okolici točke \(z_0\). Označimo jo s \(F (f)\). Njen komplement \(J (f) \coloneq \CC \setminus F (f)\) je \emph{Juliajeva množica}. Po definiciji vidimo, da je Fatoujeva množica vedno odprta, Juliajeva pa vedno zaprta.
 
