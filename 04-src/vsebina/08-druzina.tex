@@ -127,7 +127,7 @@ Za konec navedemo dva zanimiva rezultata. Dokaza najdemo v knjigi \cite[trditev 
 
 \subsection{Juliajeva množica \texorpdfstring{\(E_\lambda\)}{E\_\lambda} za \texorpdfstring{\(0 < \lambda < 1/e\)}{0 < \lambda < 1/e}}
 
-V tem poglavju naj bo vedno \(0 < \lambda < 1/e\). Oznake ostajajo enake kot prej: \(q_\lambda\) in \(p_\lambda\) sta privlačna in odbijajoča točka, za kateri velja \(0 < q_\lambda < 1 < p_\lambda\). Za dan \(\lambda\) in \(l_\lambda \in (\ln (1 / \lambda), p_\lambda)\) bomo v polravnini \(\re z \geq l_\lambda\) konstruirali družino Cantorjevih množic, ki so invariantne za \(E_\lambda\).
+V tem poglavju naj bo vedno \(0 < \lambda < 1/e\). Oznake ostajajo enake kot prej: \(q_\lambda\) in \(p_\lambda\) sta privlačna in odbojna točka, za kateri velja \(0 < q_\lambda < 1 < p_\lambda\). Za dan \(\lambda\) in \(l_\lambda \in (\ln (1 / \lambda), p_\lambda)\) bomo v polravnini \(\re z \geq l_\lambda\) konstruirali družino Cantorjevih množic, ki so invariantne za \(E_\lambda\).
 
 Za \(N \in \NN\) označimo
 \[B(N) \coloneq \set{x + iy \in \CC : x \in [l_\lambda, r_\lambda], y \in [- (2N + 1) \pi, (2N + 1) \pi]},\]
@@ -147,7 +147,7 @@ Dokazali bomo, da ima \(A\) naslednji dve lastnosti:
     \item Funkcija \(E_\lambda\) preslika \(B (N)\) v \(A\).
 \end{enumerate}
 
-\noindent Dokažimo najprej lastnost (1). Naj  bo \(z = x + i y \in B (N)\). Po definiciji \(B (N)\) imamo
+\noindent Dokažimo najprej lastnost (1). Naj bo \(z = x + i y \in B (N)\). Po definiciji \(B (N)\) imamo
 \[l_\lambda \leq x \leq r_\lambda, \qquad - (2N + 1) \pi \leq y \leq (2N + 1) \pi.\]
 Zato velja
 \[|z| \leq |x| + |y| \leq r_\lambda + (2N + 1) \pi < \lambda e^{r_\lambda},\]
@@ -158,9 +158,9 @@ torej je \(|z|\) strogo večji od notranjega radija \(A\).
 Dokažimo še lastnost (2). Naj bo \(z \in B (N)\). Potem \(E_\lambda (z) = \lambda e^x e^{i y}\) in zato
 \[|E_\lambda (z)| = \lambda e^x \leq \lambda e^{r_\lambda} \quad \text{in} \quad |E_\lambda (z)| = \lambda e^x \geq \lambda e^{l_\lambda}.\]
 
-Vrnimo se nazaj h konstrukciji Juliajeve množice \(E_\lambda\). Za vsak \(i \in \{ -N, \dots, N \}\) definiramo `podpravokotnik'
+Vrnimo se nazaj h konstrukciji Juliajeve množice \(E_\lambda\). Za vsak \(i \in \{ -N, \dots, N \}\) definiramo ``podpravokotnik''
 \[R_i \coloneq \set{x + iy \in \CC : x \in [l_\lambda, r_\lambda], y \in [(2i - 1) \pi, (2i + 1) \pi]}.\]
-Ker po lastnosti (2) \(E_\lambda\) preslika \(R_i\) v \(A\), ostaja pokazati le, je ta preslikava surjektivna. Naj bo \(w = r \lambda e^{i \theta} \in A\), torej \(r \in (e^{l_\lambda}, e^{r_\lambda})\) in \(\theta \in [(2i - 1) \pi, (2i + 1) \pi]\). Če vzamemo \(x = \ln r\) in postavimo \(z = x + i \theta\), je po definiciji \(z \in R_i\) in
+Ker po lastnosti (2) \(E_\lambda\) preslika \(R_i\) v \(A\), ostaja pokazati le, da je ta preslikava surjektivna. Naj bo \(w = r \lambda e^{i \theta} \in A\), torej \(r \in (e^{l_\lambda}, e^{r_\lambda})\) in \(\theta \in [(2i - 1) \pi, (2i + 1) \pi]\). Če vzamemo \(x = \ln r\) in postavimo \(z = x + i \theta\), je po definiciji \(z \in R_i\) in
 \[E_\lambda (z) = \lambda e^x e^{i \theta} = \lambda r e^{i \theta} = w.\]
 Tako je res \(E_\lambda (R_i) = A\). Ker to drži za vsak \(i \in \{ -N, \dots, N \}\), sledi tudi, da je za poljubna \(i, j\): \(R_j \subset E_\lambda (R_i)\).
 
@@ -244,5 +244,5 @@ Ker je \(\mu > 1\), desna stran konvergira proti \num{0} in zato tudi \(d_n\) ko
 
 \noindent Končno lahko dokažemo enakost
 \[\overline{\bigcup_{n \geq 1} \Lambda_N} = J (E_\lambda).\]
-Po neenakosti \(|E_\lambda' (z)| \geq \mu > 1\) \eqref{eqn:mu-ocena} za vsak \(z \in \Lambda_N\) in izreku \ref{thm:julm}, velja \(\Lambda_N \subset J (E_\lambda)\). Ker je \(J (E_\lambda)\) po izreku \ref{thm:closure} zaprtje množice vseh odbojnih periodičnih točk, je dovolj, da dokažemo, da je vsaka taka točka v kakšni od množic \(\Lambda_N\). Naj bo \(z_0\) odbojna periodična točka preslikave \(E_\lambda\). S posledico \ref{cor:jul-e} vemo, da \(z \in \{\re z \geq l_\lambda\}\). Periodičen cikel \(\{z_0, E_\lambda (z_0), \dots\}\) je tako omeje na polravnini \(\{\re z \geq l_\lambda\}\), zato je za dovolj velik \(N\) v celoti vsebovan v \(B (N)\). Po definiciji \(\Lambda_N\) so vse točke cikla v \(\Lambda_N\), torej je tudi \(z_0 \in \Lambda_N\).
+Po neenakosti \(|E_\lambda' (z)| \geq \mu > 1\) \eqref{eqn:mu-ocena} za vsak \(z \in \Lambda_N\) in izreku \ref{thm:julm}, velja \(\Lambda_N \subset J (E_\lambda)\). Ker je \(J (E_\lambda)\) po izreku \ref{thm:closure} zaprtje množice vseh odbojnih periodičnih točk, je dovolj, da dokažemo, da je vsaka taka točka v kakšni od množic \(\Lambda_N\). Naj bo \(z_0\) odbojna periodična točka preslikave \(E_\lambda\). S posledico \ref{cor:jul-e} vemo, da \(z \in \{\re z \geq l_\lambda\}\). Periodičen cikel \(\{z_0, E_\lambda (z_0), \dots\}\) je tako omejen na polravnini \(\{\re z \geq l_\lambda\}\), zato je za dovolj velik \(N\) v celoti vsebovan v \(B (N)\). Po definiciji \(\Lambda_N\) so vse točke cikla v \(\Lambda_N\), torej je tudi \(z_0 \in \Lambda_N\).
 
