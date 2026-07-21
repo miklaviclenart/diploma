@@ -151,9 +151,9 @@ Definicijo nam iz enotskega diska na enostavno povezana območja prenese nasledn
 
 \begin{trditev}[Zgledi hiperboličnih metrik] \label{prop:hypexamples} \mbox{}
     \begin{enumerate}
-        \item Za desno polravnino \(\HH \coloneq \set{ z \in \CC : \re (z) > 0 }\) je \(\rho_\HH = \frac{1}{\re (z)}\).
-        \item Za zgornjo polravnino \(\KK \coloneq \set{z \in \CC : \im (z) > 0}\) je \(\rho_{\KK} (z) = \frac{1}{\im (z)}\)
-        \item Za pas \(S \coloneq \set{z \in \CC : |\im (z)| < \pi}\) je \(\rho_{S} = \frac{1}{2 \cos (\im (z) / 2)}\).
+        \item Za desno polravnino \(\HH \coloneq \set{ z \in \CC : \re (z) > 0 }\) je \(\displaystyle \rho_\HH = \frac{1}{\re (z)}\).
+        \item Za zgornjo polravnino \(\KK \coloneq \set{z \in \CC : \im (z) > 0}\) je \(\displaystyle \rho_{\KK} (z) = \frac{1}{\im (z)}\)
+        \item Za pas \(S \coloneq \set{z \in \CC : |\im (z)| < \pi}\) je \(\displaystyle \rho_{S} = \frac{1}{2 \cos (\im (z) / 2)}\).
         \item Za zarezani ravnini velja
               \[
                   \rho_{\CC \setminus [0, \infty)} (z) = \frac{1}{2 |z| \sin (\arg (z) / 2)},
@@ -166,11 +166,16 @@ Definicijo nam iz enotskega diska na enostavno povezana območja prenese nasledn
 \begin{dokaz}
     Uporabimo izrek \ref{thm:pick} na štirih biholomorfnih funkcijah. Naj bo \(\varphi_1 \colon \HH \to \DD\); \(z \mapsto (1 - z) / (1 + z)\). Potem je
     \[\rho_{\HH} (z) = \rho_{\DD} (\varphi_1 (z)) \cdot \abs{\varphi_1' (z)} = \frac{2}{1 - |\varphi_1 (z)|^2} \cdot \frac{2}{|z + 1|^2} = \frac{4}{|1 + z|^2 - |1- z|^2}.\]
-    Za \(z = x + i y\) razpišemo \(|1 \pm z|^2 = 1 \pm 2x + x^2 + y^2\) in dobimo želen rezultat. Naj bo \(\varphi_2 (z) \colon \KK \to \DD\); \(\varphi_2 (z) = (z - i) / (z + i)\). Potem po zgornjem postopku dobimo
+    Za \(z = x + i y\) razpišemo \(|1 \pm z|^2 = 1 \pm 2x + x^2 + y^2\) in dobimo želen rezultat.
+
+    Naj bo \(\varphi_2 (z) \colon \KK \to \DD\); \(\varphi_2 (z) = (z - i) / (z + i)\). Potem po zgornjem postopku dobimo
     \[\rho_{\KK} (z) = \rho_{\DD} (\varphi_2 (z)) \cdot \abs{\varphi_2' (z)} = \frac{4}{|z + i|^2 - |z - i|^2} = \frac{1}{\im (z)}.\]
-    Naj bo \(\varphi_3 \colon S \to \HH\); \(z \mapsto e^{z / 2}\). Potem je
+
+    \noindent Naj bo \(\varphi_3 \colon S \to \HH\); \(z \mapsto e^{z / 2}\). Potem je
     \[\rho_S (z) = \rho_{\HH} (\varphi_3 (z)) \cdot |\varphi_3' (z)| = \frac{|\varphi_3 (z)|}{2 \re \varphi_3 (z)} = \frac{1}{2 \cos (\arg (\varphi_3 (z)))} = \frac{1}{2 \cos (\im (z) / 2)}.\]
-    Naj bo \(\varphi_4 \colon \CC \setminus (- \infty, 0] \to \HH\); \(z \mapsto \sqrt{z}\). Ta funkcija je biholomorfna, če se omejimo na rešitev \(r e^{i \theta} \mapsto \sqrt{r} e^{i \theta / 2}\) za \(\theta \in (- \pi, \pi)\). Potem je
+    Zadnja enakost drži, saj iz \(|\im (z)| < \pi\) sledi \(\arg (\varphi_3 (z)) = \im (z) / 2\).
+
+    Naj bo \(\varphi_4 \colon \CC \setminus (- \infty, 0] \to \HH\); \(z \mapsto \sqrt{z}\) glavna veja korena. Ta funkcija je biholomorfna, če se omejimo na rešitev \(r e^{i \theta} \mapsto \sqrt{r} e^{i \theta / 2}\) za \(\theta \in (- \pi, \pi)\). Potem je
     \[\rho_{\CC \setminus (- \infty, 0]} (z) = \rho_{\HH} (\varphi_4 (z)) \cdot |\varphi_4' (z)| = \frac{1}{\re (\sqrt{z})} \cdot \frac{1}{2 |\sqrt{z}|}.\]
     Dobljeno poenostavimo s polarnim zapisom, da dobimo
     \[\frac{1}{2 r \cos (\theta / 2)} = \frac{1}{2 |z| \cos (\Arg (z) / 2)}.\]
