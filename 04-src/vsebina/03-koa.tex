@@ -45,17 +45,17 @@ Za holomorfne funkcije, ki fiksirajo izhodišče, velja naslednja lema. Njen dok
     Naj bo \(f \colon \DD \to \DD\) holomorfna funkcija, za katero velja \(f (0) = 0\). Potem drži natanko ena od naslednjih trditev.
     \begin{enumerate}
         \item Velja \(|f (z)| < |z|\) za \(z \neq 0\) in \(|f' (0)| < 1\).
-        \item Obstaja \(\theta \in \RR\), da za vsak \(z\) velja \(f (z) = e^{i \theta}\) in \(|f' (0)| = |e^{i \theta}| = 1\).
+        \item Obstaja \(\theta \in \RR\), da za vsak \(z\) velja \(f (z) = e^{i \theta} z\) in \(|f' (0)| = |e^{i \theta}| = 1\).
     \end{enumerate}
 \end{lema}
 
 Če je \(f\) holomorfna na \(\CC\), pravimo, da je \emph{cela funkcija}. Vemo, da je to v \(\CC\) ekvivalentno pogoju, da je \(f\) kompleksno analitična pri vsakem \(z \in \CC\). Cela funkcija je \emph{transcendentna}, če ni polinom ali kvocient dveh polinomov. Pravimo, da je funkcija \emph{konformna}, če ohranja kote in smisel vrtenja. Vemo, da so holomorfne funkcije konformne natanko tedaj, ko je njihov odvod neničelen (glej \cite[izrek 78]{Globevnik_2010}).
 
-Funkcija \(f \colon U \to U'\) je \emph{biholomorfna}, če je bijektivna, holomorfna in ima holomorfen inverz \(f^{-1} \colon U' \to U\). Če je \(D\) območje in \(f \colon D \to D'\) bijektivna in holomorfna, vemo, da je biholomorfna (glej \cite[izrek 77]{Globevnik_2010}). Območje je \emph{enostavno povezano}, če je homeomorfno enotskemu disku. Topološko definicijo nam s kompleksno lastnostjo poveže naslednji znamenit izrek.
+Funkcija \(f \colon U \to U'\) je \emph{biholomorfna}, če je bijektivna, holomorfna in ima holomorfen inverz \(f^{-1} \colon U' \to U\). Če je \(D\) območje in \(f \colon D \to D'\) bijektivna in holomorfna, vemo, da je biholomorfna (glej \cite[izrek 77]{Globevnik_2010}). Območje je \emph{enostavno povezano}, če je ali enako \(\CC\) ali homeomorfno enotskemu disku. Topološko definicijo nam s kompleksno lastnostjo poveže naslednji znamenit izrek.
 
-\begin{definicija}[Riemannov upodobitveni izrek]
+\begin{izrek}[Riemannov upodobitveni izrek]
     Vsako enostavno povezano območje različno od \(\CC\) je biholomorfno enotskemu disku.
-\end{definicija}
+\end{izrek}
 
 \subsection{Kompleksni eksponent in logaritem}
 
@@ -90,11 +90,11 @@ Tako je kompleksni eksponent na zgoraj definiranih območjih biholomorfen. Vsaki
 Dobro vizualizacijo kompleksnega eksponenta nam nudi slika \ref{fig:exponential}, na kateri je \(w = e^z\). Na neformalen način navedemo naslednja opažanja.
 \begin{itemize}
     \item Če točka \(z\) potuje navzgor s hitrostjo \(v\), potem se točka \(w\) vrti okrog izhodišča s kotno hitrostjo \(v\). Ko \(z\) prepotuje razdaljo \(2 \pi\), \(w\) enkrat zaokroži okoli izhodišča. Torej je preslikava periodična s periodo \(2 \pi i\).
-    \item Če točka \(z\) potuje proti levi s konstantno hitrostjo, točka \(w\) potuje proti izhodišču s pojemajočo hitrostjo. Obratno, če \(z\) potuje proti desni, potem \(w\) potuje stan od izhodišča s pospešeno hitrostjo.
+    \item Če točka \(z\) potuje proti levi s konstantno hitrostjo, točka \(w\) potuje proti izhodišču s pojemajočo hitrostjo. Obratno, če \(z\) potuje proti desni, potem \(w\) potuje stran od izhodišča s pospešeno hitrostjo.
     \item Po prejšnjih dveh alinejah bo celo \(w\)-ravnino brez točke \(w = 0\) pokril vodoraven pas višine \(2 \pi\) v \(z\)-ravnini.
-    \item Vodoravne premice se preslikajo v žarke iz izhodišča, v posebnem se realna os preslika v \([0, \infty)\). Navpične črte se preslikajo v krožnice okrog izhodišča, v posebnem se imaginarna os preslika v enotsko krožnico. Splošna premica se preslika v spiralo, ki se navija okrog izhodišča.
+    \item Vodoravne premice se preslikajo v žarke iz izhodišča, v posebnem se realna os preslika v \((0, \infty)\). Navpične črte se preslikajo v krožnice okrog izhodišča, v posebnem se imaginarna os preslika v enotsko krožnico. Splošna premica se preslika v spiralo, ki se navija okrog izhodišča.
     \item Sivo obarvana leva polravnina se preslika v enotski disk, desna polravnina pa v njegov komplement.
-    \item Slike majhnih koordinatnih kvadratov ostanejo homeomorfne kvadratom, pri čemer se krožnice s poltraki sekajo pod pravim kotom. To ponazarja, da je preslikava konformna---ohranja kote.
+    \item Slike majhnih koordinatnih kvadratov ostanejo homeomorfne kvadratom, pri čemer se krožnice s poltraki sekajo pod pravim kotom. To ponazarja, da je preslikava konformna -- ohranja kote.
 \end{itemize}
 
 \subsection{Hiperbolična geometrija}

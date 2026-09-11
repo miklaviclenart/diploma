@@ -2,7 +2,7 @@
 
 Od tu naprej naj velja, da \(f\) vedno označuje kompleksno eksponentno preslikavo
 \[f \colon \CC \to \CC; \qquad z \mapsto e^{z}.\]
-V tem poglavju dokažemo izrek \ref{thm:orbits}, v vsakem od podpoglavji po eno točko. Dokaz je povzet po članku \cite{Shen_2015}.
+V tem poglavju dokažemo izrek \ref{thm:orbits}, v vsakem od podpoglavij po eno točko. Dokaz je povzet po članku \cite{Shen_2015}.
 
 \subsection{Gostost ubežnih točk}
 
@@ -17,7 +17,7 @@ Točka \(z \in \CC\) je \emph{ubežna}, če njena orbita konvergira k \(\infty\)
 
 \begin{lema}[Eksponentna preslikava veča hiperbolično metriko] \label{lem:hyper}
     Kompleksna eksponentna preslikava lokalno širi hiperbolično metriko na \(U \coloneq \CC \setminus [0, \infty)\). To pomeni, da za vse \(\zeta \in f^{-1} (U)\) velja \(\hder{f (\zeta)}{U}{U} > 1\). Še več, naj bo \(\zap{\zeta}\) zaporedje v \(f^{-1} (U)\), za katero velja \[\lim_{n \to \infty} \hder{f (\zeta_n)}{U}{U} = 1.\] Potem velja
-    \[\lim_{n \to \infty} \min \set{|\zeta_n|, \Arg (\zeta_n)} = 0.\]
+    \[\lim_{n \to \infty} \min \bigl\{ |\zeta_n|, \Arg (\zeta_n) \bigr\} = 0.\]
 \end{lema}
 
 \begin{dokaz}
@@ -59,19 +59,21 @@ Točka \(z \in \CC\) je \emph{ubežna}, če njena orbita konvergira k \(\infty\)
 % \end{dokaz}
 
 \begin{dokaz}[Dokaz izreka \ref{thm:escapingdense}]
-    Naj bo \(w_0 \in \CC\) in \(w_n = f^n (w_0)\) za \(n \in \NN\). Naj bo \(D \coloneq \Delta (w_0, r)\). Vemo, da je \([0, \infty) \subset I (f)\), zato je dovolj, da dokažemo, da za neki \(n \in \NN\) velja \(f^n (D) \cap I (f) \neq \emptyset\). Dokazujemo s protislovjem, zato predpostavimo, da za vsak \(n \in \NN\) velja \(f^n (D) \cap I (f) = \emptyset\). Torej je
+    Naj bo \(w_0 \in \CC\) in \(w_n = f^n (w_0)\) za \(n \in \NN\). Naj bo \(D \coloneq \Delta (w_0, r)\). Dokazujemo s protislovjem, zato predpostavimo, da za vsak \(n \in \NN\) velja \(f^n (D) \cap I (f) = \emptyset\). Vemo, da je \([0, \infty) \subseteq I (f)\), in zato
     \[D_n \coloneq f^n (D) \subset U = \CC \setminus [0, \infty) \qquad \text{za vsak } n \geq 0.\]
     Ker je \(f^n \colon D \to U\) holomorfna, velja Pickov izrek \ref{thm:pick} in zato
     \[\delta_n \coloneq \hder{f^n (w_0)}{D}{U} = |(f^n)' (w_0)| \cdot \frac{\rho_U (w_n)}{\rho_D (w_0)} \leq 1.\]
-    Označimo \(\eta_n \coloneq \hder{f (w_n)}{U}{U}\) in opazimo \(\delta_{n + 1} = \delta_n \cdot \eta_n\) za vsak \(n \geq 0\). Po lemi \ref{lem:hyper} vemo, da je \(\eta_n > 1\). Zato je zaporedje \(\delta_n\) strogo naraščajoče in posledično konvergentno z limito \(\num{1}\). Lahko izračunamo
+    Označimo \(\eta_n \coloneq \hder{f (w_n)}{U}{U}\) in s pomočjo verižnega pravila opazimo \(\delta_{n + 1} = \delta_n \cdot \eta_n\) za vsak \(n \geq 0\). Po lemi \ref{lem:hyper} vemo, da je \(\eta_n > 1\). Zato je zaporedje \(\delta_n\) strogo naraščajoče in navzgor omejeno z \(\num{1}\). Torej lahko izračunamo
     \[\lim_{n \to \infty} \eta_n = \lim_{n \to \infty} \frac{\delta_{n + 1}}{\delta_n} = \frac{\lim_{n \to \infty} \delta_{n + 1}}{\lim_{n \to \infty} \delta_n} = 1.\]
-    Spet po lemi \ref{lem:hyper} vemo
-    \[\lim_{n \to \infty} \min \bigl\{ |w_n|, \Arg (w_n) \bigr\} = 0.\]
+    Ker veljajo predpostavke, po lemi \ref{lem:hyper} vemo
+    \begin{equation} \label{eqn:eta1}
+        \lim_{n \to \infty} \min \bigl\{ |w_n|, \Arg (w_n) \bigr\} = 0.
+    \end{equation}
     Zato morajo vsa stekališča zaporedja \(\zap{w}\) ležati na intervalu \([0, \infty)\). Ker \(w_0\) po predpostavki ni ubežna, množica stekališč ni prazna. Ker je tudi zaprta, ima minimum, ki ga označimo z \(z_0 \in [0, \infty)\). Vemo, da je število \(z_0\) stekališče zaporedja \(w_n\) natanko tedaj, ko obstaja podzaporedje, ki konvergira k \(z_0\) (glej \cite[izrek 11]{Globevnik_2012}). To podzaporedje označimo z \(w_{n_{k}}\). Opazimo, da velja
     \[\re w_{n_{k - 1}} = \log \, \bigl| w_{n_{k}} \bigr| \quad \text{in} \quad \lim_{k \to \infty} \log \, \bigl| w_{n_{k}} \bigr| = \log z_0 < z_0.\]
-    Ker je \(z_0\) najmanjše stekališče zaporedja \(w_n\), podzaporedje \(w_{n_{k}}\) ne more imeti končnega stekališča in zato je
+    Ker je \(z_0\) najmanjše stekališče zaporedja \(w_n\), podzaporedje \(w_{n_{k - 1}}\) ne more imeti končnega stekališča in zato je
     \[\lim_{k \to \infty} \, \bigl|\im w_{n_{k-1}}\bigr| = \infty.\]
-    To je v protislovju z \eqref{eqn:eta}.
+    To je v protislovju z \eqref{eqn:eta1}.
 \end{dokaz}
 
 % Dokaz pušča odprto možnost, da ima množica ubežnih točk neprazno notranjost ali celo \(I (f) = \CC\). To izključimo z naslednjim izrekom.

@@ -10,7 +10,7 @@ Spomnimo se, da periodični točki \(p\) s periodo \(n\) pravimo \emph{odbojna},
     Naj bo \(z_0 \in \CC \setminus \set{0}\). Potem obstajata disk \(\Delta\) s središčem v \(z_0\) in število \(\rho > 0\), da za vsak disk \(D\) radija \(2 \pi\) in središčem v točki \(\zeta \in [\rho, \infty) \times \CC\), obstaja preslikava \(\phi \colon \Delta \to D\), za katero je \(f^2 \prt{\phi (z)} = z\) in \(|\phi' (z)| \leq 1\) za vsak \(z \in \Delta\).
 \end{lema}
 
-\noindent Lema nekoliko posploši trditev \ref{prop:lare_disks}. Poleg tega, da okrog \(z_0\) obstaja disk \(\Delta\), ki je v celoti vsebovan v \(f^2 (D)\), na \(\Delta\) lahko definiramo vejo preslikave \(f^{-2}\), ki slika v \(D\).
+\noindent Lema nekoliko posploši trditev \ref{prop:large_disks}. Poleg tega, da okrog \(z_0\) obstaja disk \(\Delta\), ki je v celoti vsebovan v \(f^2 (D)\), na \(\Delta\) lahko definiramo vejo preslikave \(f^{-2}\), ki slika v \(D\).
 
 \begin{dokaz}
     Naj bo \(\varepsilon \coloneq \frac{|z_0|}{2}\) in \(\Delta \coloneq \Delta (z_0, \varepsilon)\). Tako \(\Delta\) ne vsebuje izhodišča. Za vsak \(n \in \ZZ\) obstaja veja logaritma \(L_n\) na \(\Delta\), za katero velja
@@ -44,20 +44,20 @@ Spomnimo se, da periodični točki \(p\) s periodo \(n\) pravimo \emph{odbojna},
     Zato velja
     \[|\psi (w) - \zeta| < \frac{3 \pi}{2} + \log 2 < 2 \pi,\]
     posledično je \(\psi (V_n) \subset D\). Torej veja \(\phi \coloneq \psi \circ \varphi_n\) res preslika \(\Delta\) v \(D\). Dodatno za vsak \(z \in \Delta\) velja
-    \[\phi_{n}' (z) = \frac{1}{|z|} \leq \frac{2}{|z_0|}\]
+    \[\varphi_n' (z) = \frac{1}{|z|} \leq \frac{2}{|z_0|}\]
     in za vsak \(z \in V_n\):
     \[|\psi' (z)| = \frac{1}{|w|} \leq \frac{2}{e^{\zeta}}.\]
     Torej za \(\rho \coloneq \max \set{\rho_1, \log 4 - \log |z_0|}\) velja \(|\phi' (z)| \leq 1\) za vsak \(z \in \Delta\).
 \end{dokaz}
 
 \begin{dokaz}[Dokaz izreka \ref{thm:periodicdense}]
-    Naj bo \(U \subset \CC\) odprta in neprazna množica. Po izreku \ref{thm:escapingdense} obstaja ubežna točka \(z_0 \in U \setminus \set{0}\). Naj bo \(\Delta\) disk s središčem v \(z_0\) in \(\rho > 0\) kot v lemi \ref{lem:inversebranches}. Disku \(\Delta\) zmanjšamo polmer, da velja \(\Delta \subset U\).
+    Naj bo \(U \subset \CC\) neprazna odprta množica. Po izreku \ref{thm:escapingdense} obstaja ubežna točka \(z_0 \in U \setminus \set{0}\). Naj bo \(\Delta\) disk s središčem v \(z_0\) in \(\rho > 0\) kot v lemi \ref{lem:inversebranches}. Disku \(\Delta\) zmanjšamo polmer, da velja \(\Delta \subset U\).
 
     Naj bo \(\Delta_1\) disk s središčem v \(z_0\), tako da velja \(\overline{\Delta_1} \subset \Delta\). Naj bodo \(z_n \coloneq f^n (z_0)\) in \(D_n \coloneq \Delta (z_n, 2 \pi)\) kot v poglavju \ref{sec:transitivity}. Naj bodo \(\set{\phi_n}_{n \geq n_0}\) inverzne veje iz trditve \ref{prop:small_disks}. Po točkah \ref{item:tri} in \ref{item:stiri} iz te trditve vemo, da je \(n_0\) dovolj velik, da velja \(\phi_n (z) \in \Delta_1\) in \(|\phi_n' (z)| \leq 1 / 2\) za vsak \(z \in D_n\).
 
     Ker je \(z_0\) ubežna, obstaja \(N \geq n_0\) z \(\re z_n \geq \rho\) za vsak \(n \geq N\). Po lemi \ref{lem:inversebranches} imamo vejo \(\psi_n\) preslikave \(f^{-2}\), ki preslika \(\Delta\) v \(D_n\), za katero za vsak \(z \in \Delta\) velja \(|\psi_n' (z)| \leq 1\).
 
-    Sledi, da je \(\phi_n (\psi_n (\overline{\Delta_1})) \subset \phi_n (D_n) \subset \Delta_1\) in da je \(\phi_n \circ \psi_{n} \colon \overline{\Delta_1} \to \overline{\Delta_1}\) skrčitev. Ker je \(\overline{\Delta_1}\) kompaktna množica in zato poln podprostor prostora \(\CC\), lahko uporabimo Banachovo skrčitveno načelo, ki nam pove, da obstaja fiksna točka \(p \in \overline{\Delta}\). Po konstrukciji velja
+    Sledi, da je \(\phi_n (\psi_n (\overline{\Delta_1})) \subset \phi_n (D_n) \subset \Delta_1\) in da je \(\phi_n \circ \psi_{n} \colon \overline{\Delta_1} \to \overline{\Delta_1}\) skrčitev. Ker je \(\overline{\Delta_1}\) kompaktna množica in zato poln podprostor prostora \(\CC\), lahko uporabimo Banachovo skrčitveno načelo, ki nam pove, da obstaja fiksna točka \(p \in \overline{\Delta_1}\). Po konstrukciji velja
     \begin{align*}
         f^{n + 2} (p)      & = f^2 (f^n (\phi_n (\psi_n (p)))) = f^2 (\psi_n (p)) = p       \\
         \intertext{in}

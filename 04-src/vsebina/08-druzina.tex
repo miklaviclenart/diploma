@@ -111,7 +111,7 @@ Začnemo s preučevanjem realnih fiksnih točk za \(\lambda \in \RR\).
 
 \begin{dokaz}
     Naj bo \(z_0\) periodična točka \(E_\lambda\) s periodo \(p\) in \(z_0, z_1, \dots, z_{p - 1}\) njena orbita. Vsaka točka \(z_j\) ima periodično orbito in zato ni konvergentna. Torej nobena ni vsebovana v polravnini \(\re \zeta < p_\lambda\). Zato \(\re z_j \geq p_\lambda > \ln (1 / \lambda)\). Po tretji točki trditve \ref{prop:trinajst} vemo, da je \(|E_\lambda' (z_j)| > 1\) za \(j = 0, 1, \dots, p - 1\). Po verižnem pravilu izračunamo
-    \[\prt{E_\lambda^p}' (z_0) = \prod_{j = 0}^{p - 1} E_\lambda' (z_j),\]
+    \[\bigl( E_\lambda^p \bigr)' (z_0) = \prod_{j = 0}^{p - 1} E_\lambda' (z_j),\]
     iz česar vidimo, da velja \(|(E_\lambda^p)' (z_0)| > 1\).
 \end{dokaz}
 
@@ -130,7 +130,7 @@ Za konec navedemo dva zanimiva rezultata. Dokaza najdemo v knjigi \cite[trditev 
 V tem poglavju naj bo vedno \(0 < \lambda < 1/e\). Oznake ostajajo enake kot prej: \(q_\lambda\) in \(p_\lambda\) sta privlačna in odbojna točka, za kateri velja \(0 < q_\lambda < 1 < p_\lambda\). Za dan \(\lambda\) in \(l_\lambda \in (\ln (1 / \lambda), p_\lambda)\) bomo v polravnini \(\re z \geq l_\lambda\) konstruirali družino Cantorjevih množic, ki so invariantne za \(E_\lambda\).
 
 Za \(N \in \NN\) označimo
-\[B(N) \coloneq \set{x + iy \in \CC : x \in [l_\lambda, r_\lambda], y \in [- (2N + 1) \pi, (2N + 1) \pi]},\]
+\[B(N) \coloneq \bigl\{ x + iy \in \CC : x \in [l_\lambda, r_\lambda], y \in [- (2N + 1) \pi, (2N + 1) \pi] \bigr\},\]
 kjer je \(r_\lambda\) izbran tako, da \(\lambda e^{r_\lambda} > r_\lambda + (2N + 1) \pi\) (glej sliko \ref{fig:konstrukcija}).
 \begin{figure}%
     \centering
@@ -159,7 +159,7 @@ Dokažimo še lastnost (2). Naj bo \(z \in B (N)\). Potem \(E_\lambda (z) = \lam
 \[|E_\lambda (z)| = \lambda e^x \leq \lambda e^{r_\lambda} \quad \text{in} \quad |E_\lambda (z)| = \lambda e^x \geq \lambda e^{l_\lambda}.\]
 
 Vrnimo se nazaj h konstrukciji Juliajeve množice \(E_\lambda\). Za vsak \(i \in \{ -N, \dots, N \}\) definiramo ``podpravokotnik''
-\[R_i \coloneq \set{x + iy \in \CC : x \in [l_\lambda, r_\lambda], y \in [(2i - 1) \pi, (2i + 1) \pi]}.\]
+\[R_i \coloneq \bigl\{ x + iy \in \CC : x \in [l_\lambda, r_\lambda], y \in [(2i - 1) \pi, (2i + 1) \pi] \bigr\}.\]
 Ker po lastnosti (2) \(E_\lambda\) preslika \(R_i\) v \(A\), ostaja pokazati le, da je ta preslikava surjektivna. Naj bo \(w = r \lambda e^{i \theta} \in A\), torej \(r \in (e^{l_\lambda}, e^{r_\lambda})\) in \(\theta \in [(2i - 1) \pi, (2i + 1) \pi]\). Če vzamemo \(x = \ln r\) in postavimo \(z = x + i \theta\), je po definiciji \(z \in R_i\) in
 \[E_\lambda (z) = \lambda e^x e^{i \theta} = \lambda r e^{i \theta} = w.\]
 Tako je res \(E_\lambda (R_i) = A\). Ker to drži za vsak \(i \in \{ -N, \dots, N \}\), sledi tudi, da je za poljubna \(i, j\): \(R_j \subset E_\lambda (R_i)\).
@@ -188,7 +188,7 @@ kjer je \(\Arg_k (z) \in ((2k - 1) \pi, (2k + 1) \pi)\). Tako ima \(L_k\) vredno
 \end{dokaz}
 
 Za neki \(z \in \Lambda_N\) je \(\im (E_\lambda^n (z)) \neq (2j \pm 1) \pi\) za vsak \(n \in \NN\) in vsak \(j \in \{ -N, \dots, N \}\). Res, če je \(E_\lambda^n (z) = x + (2j \pm 1) \pi i\), je \(E_\lambda^{n + 1} (z) = - \lambda e^x \notin B (N)\). Zato vsaka točka \(E_\lambda^n (z)\) leži v pravokotniku
-\[R_i^* \coloneq \set{x + iy \in \CC : x \in [l_\lambda, r_\lambda], y \in ((2i - 1) \pi, (2i + 1) \pi)},\]
+\[R_i^* \coloneq \bigl\{ x + iy \in \CC : x \in [l_\lambda, r_\lambda], y \in ((2i - 1) \pi, (2i + 1) \pi) \bigr\},\]
 ki ga dobimo, če pravokotniku \(R_i\) odstranimo zgornjo in spodnjo stranico. Tako vsak \(z \in \Lambda_N\) določa svoje natanko določeno zaporedje
 \[\overline{s} = (s_0, s_1, s_2, \dots), \qquad s_i \in \{-N, \dots, N\},\]
 za katerega velja
@@ -202,7 +202,7 @@ Zaporedje \(\overline{s}\) imenujemo \emph{itinerar} točke \(z\). Ker je po def
 
 V nadaljevanju pokažemo, da za vsak \(\overline{s} \in \Sigma_N\) množica
 \[\bigcap_{n \geq 0} L_{s_0} \circ \dots \circ L_{s_{n - 1}} \prt{B (N)} \coloneq \bigcap_{n \geq 1} L_s^{[n]} \prt{B (N)}\]
-vsebuje natanko eno točko, ki jo označimo z \(z_{\overline{s}}\). Ker je po trditvi \ref{prop:claim} za vsak \(j, k\)
+vsebuje natanko eno točko, ki jo označimo z \(z_{\overline{s}}\). Ker po trditvi \ref{prop:claim} za vsaka \(j, k\) velja
 \[L_k (R_j) \subset \Int (R_k) \implies L_s^{[n + 1]} \prt{B (N)} \subset L_s^{[n]} \prt{B (N)},\]
 je zaporedje množic \(\{L_s^{[n]} (B (N))\}_{n = 1}^{\infty}\) padajoče. Da je njihovo presečišče zgolj ena točka, zadostuje, da zaporedje njihovih premerov
 \[d_n \coloneq \diam \prt{L_s^{[n]} \prt{B (N)}}\]
@@ -244,5 +244,5 @@ Ker je \(\mu > 1\), desna stran konvergira proti \num{0} in zato tudi \(d_n\) ko
 
 \noindent Končno lahko dokažemo enakost
 \[\overline{\bigcup_{n \geq 1} \Lambda_N} = J (E_\lambda).\]
-Po neenakosti \(|E_\lambda' (z)| \geq \mu > 1\) \eqref{eqn:mu-ocena} za vsak \(z \in \Lambda_N\) in izreku \ref{thm:julm}, velja \(\Lambda_N \subset J (E_\lambda)\). Ker je \(J (E_\lambda)\) po izreku \ref{thm:closure} zaprtje množice vseh odbojnih periodičnih točk, je dovolj, da dokažemo, da je vsaka taka točka v kakšni od množic \(\Lambda_N\). Naj bo \(z_0\) odbojna periodična točka preslikave \(E_\lambda\). S posledico \ref{cor:jul-e} vemo, da \(z \in \{\re z \geq l_\lambda\}\). Periodičen cikel \(\{z_0, E_\lambda (z_0), \dots\}\) je tako omejen na polravnini \(\{\re z \geq l_\lambda\}\), zato je za dovolj velik \(N\) v celoti vsebovan v \(B (N)\). Po definiciji \(\Lambda_N\) so vse točke cikla v \(\Lambda_N\), torej je tudi \(z_0 \in \Lambda_N\).
+Po neenakosti \(|E_\lambda' (z)| \geq \mu > 1\) \eqref{eqn:mu-ocena} za vsak \(z \in \Lambda_N\) in izreku \ref{thm:julm}, velja \(\Lambda_N \subset J (E_\lambda)\). Ker je \(J (E_\lambda)\) po izreku \ref{thm:closure} zaprtje množice vseh odbojnih periodičnih točk, je dovolj, da dokažemo, da je vsaka taka točka v kakšni od množic \(\Lambda_N\). Naj bo \(z_0\) odbojna periodična točka preslikave \(E_\lambda\). S posledico \ref{cor:jul-e} vemo, da \(z_0 \in \{\re z \geq l_\lambda\}\). Periodičen cikel \(\{z_0, E_\lambda (z_0), \dots\}\) je tako omejen in leži na polravnini \(\{\re z \geq l_\lambda\}\), zato je za dovolj velik \(N\) v celoti vsebovan v \(B (N)\). Po definiciji \(\Lambda_N\) so vse točke cikla v \(\Lambda_N\), torej je tudi \(z_0 \in \Lambda_N\).
 
